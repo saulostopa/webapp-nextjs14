@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply dark:bg-trueGray-900;
+    /* background-color: #23232F; */
+    /* color: white; */
+  }
+
+  .bg-s2pro-secondary {
+    border-color: #23232F;
+  }
+  .bg-s2pro-primary {
+    background-color: #00D77A;
+  }
+  .text-s2pro-primary {
+    color: #fff;
+  }
+  .text-s2pro-secondary {
+    color: #00D77A;
+  }
+  .focus:text-s2pro-primary {
+    color: #00D77A;
+  }
+}
