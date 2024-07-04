@@ -1,7 +1,8 @@
-import React from 'react';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
+import React from 'react';
+
 import CustomCheckbox from '../../theme-elements/CustomCheckbox';
 
 const PositionCheckbox = () => (

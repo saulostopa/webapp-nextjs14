@@ -1,6 +1,7 @@
-import * as React from 'react';
+import type { RadioProps } from '@mui/material/Radio';
+import Radio from '@mui/material/Radio';
 import { styled } from '@mui/material/styles';
-import Radio, { RadioProps } from '@mui/material/Radio';
+import * as React from 'react';
 
 const BpIcon = styled('span')(({ theme }) => ({
   borderRadius: '50%',
@@ -50,7 +51,9 @@ function CustomRadio(props: RadioProps) {
       checkedIcon={
         <BpCheckedIcon
           sx={{
-            backgroundColor: props.color ? `${props.color}.main` : 'primary.main',
+            backgroundColor: props.color
+              ? `${props.color}.main`
+              : 'primary.main',
           }}
         />
       }

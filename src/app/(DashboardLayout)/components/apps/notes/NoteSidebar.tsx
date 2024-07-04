@@ -1,7 +1,8 @@
-import React from 'react';
 import Drawer from '@mui/material/Drawer';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import React from 'react';
+
 import NoteList from './NoteList';
 
 const drawerWidth = 260;

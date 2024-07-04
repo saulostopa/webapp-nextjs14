@@ -1,11 +1,12 @@
-'use client'
+'use client';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
 import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -82,8 +83,8 @@ const CustomTypography = () => {
               <Grid item sm={12}>
                 <ChildCard>
                   <Typography variant="subtitle1">
-                    subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis
-                    tenetur
+                    subtitle1. Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Quos blanditiis tenetur
                   </Typography>
 
                   <Typography variant="body1" color="textSecondary">
@@ -94,8 +95,8 @@ const CustomTypography = () => {
               <Grid item sm={12}>
                 <ChildCard>
                   <Typography variant="subtitle2">
-                    subtitle2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis
-                    tenetur
+                    subtitle2. Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Quos blanditiis tenetur
                   </Typography>
 
                   <Typography variant="body1" color="textSecondary">
@@ -106,7 +107,8 @@ const CustomTypography = () => {
               <Grid item sm={12}>
                 <ChildCard>
                   <Typography variant="body1">
-                    body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+                    body1. Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Quos blanditiis tenetur
                   </Typography>
 
                   <Typography variant="body1" color="textSecondary">
@@ -117,7 +119,8 @@ const CustomTypography = () => {
               <Grid item sm={12}>
                 <ChildCard>
                   <Typography variant="body2">
-                    body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+                    body2. Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Quos blanditiis tenetur
                   </Typography>
 
                   <Typography variant="body1" color="textSecondary">
@@ -128,8 +131,8 @@ const CustomTypography = () => {
               <Grid item sm={12}>
                 <ChildCard>
                   <Typography variant="caption">
-                    caption. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis
-                    tenetur
+                    caption. Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Quos blanditiis tenetur
                   </Typography>
 
                   <Typography variant="body1" color="textSecondary">
@@ -140,8 +143,8 @@ const CustomTypography = () => {
               <Grid item sm={12}>
                 <ChildCard>
                   <Typography variant="overline">
-                    overline. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis
-                    tenetur
+                    overline. Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Quos blanditiis tenetur
                   </Typography>
 
                   <Typography variant="body1" color="textSecondary">
@@ -150,7 +153,6 @@ const CustomTypography = () => {
                 </ChildCard>
               </Grid>
             </Grid>
-
           </ParentCard>
         </Grid>
         <Grid item sm={12}>
@@ -163,7 +165,8 @@ const CustomTypography = () => {
                   </Typography>
 
                   <Typography variant="body1" color="textprimary">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quos blanditiis tenetur
                   </Typography>
                 </ChildCard>
               </Grid>
@@ -174,72 +177,106 @@ const CustomTypography = () => {
                   </Typography>
 
                   <Typography variant="body1" color="textSecondary">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quos blanditiis tenetur
                   </Typography>
                 </ChildCard>
               </Grid>
               <Grid item sm={12}>
                 <ChildCard>
-                  <Typography variant="h5" sx={{ color: (theme) => theme.palette.info.main }}>
+                  <Typography
+                    variant="h5"
+                    sx={{ color: (theme) => theme.palette.info.main }}
+                  >
                     Text Info
                   </Typography>
 
-                  <Typography variant="body1" sx={{ color: (theme) => theme.palette.info.main }}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+                  <Typography
+                    variant="body1"
+                    sx={{ color: (theme) => theme.palette.info.main }}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quos blanditiis tenetur
                   </Typography>
                 </ChildCard>
               </Grid>
               <Grid item sm={12}>
                 <ChildCard>
-                  <Typography variant="h5" sx={{ color: (theme) => theme.palette.primary.main }}>
+                  <Typography
+                    variant="h5"
+                    sx={{ color: (theme) => theme.palette.primary.main }}
+                  >
                     Text Primary
                   </Typography>
 
-                  <Typography variant="body1" sx={{ color: (theme) => theme.palette.primary.main }}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+                  <Typography
+                    variant="body1"
+                    sx={{ color: (theme) => theme.palette.primary.main }}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quos blanditiis tenetur
                   </Typography>
                 </ChildCard>
               </Grid>
               <Grid item sm={12}>
                 <ChildCard>
-                  <Typography variant="h5" sx={{ color: (theme) => theme.palette.warning.main }}>
+                  <Typography
+                    variant="h5"
+                    sx={{ color: (theme) => theme.palette.warning.main }}
+                  >
                     Text Warning
                   </Typography>
 
-                  <Typography variant="body1" sx={{ color: (theme) => theme.palette.warning.main }}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+                  <Typography
+                    variant="body1"
+                    sx={{ color: (theme) => theme.palette.warning.main }}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quos blanditiis tenetur
                   </Typography>
                 </ChildCard>
               </Grid>
               <Grid item sm={12}>
                 <ChildCard>
-                  <Typography variant="h5" sx={{ color: (theme) => theme.palette.error.main }}>
+                  <Typography
+                    variant="h5"
+                    sx={{ color: (theme) => theme.palette.error.main }}
+                  >
                     Text Error
                   </Typography>
 
-                  <Typography variant="body1" sx={{ color: (theme) => theme.palette.error.main }}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+                  <Typography
+                    variant="body1"
+                    sx={{ color: (theme) => theme.palette.error.main }}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quos blanditiis tenetur
                   </Typography>
                 </ChildCard>
               </Grid>
               <Grid item sm={12}>
                 <ChildCard>
-                  <Typography variant="h5" sx={{ color: (theme) => theme.palette.success.main }}>
+                  <Typography
+                    variant="h5"
+                    sx={{ color: (theme) => theme.palette.success.main }}
+                  >
                     Text Success
                   </Typography>
 
-                  <Typography variant="body1" sx={{ color: (theme) => theme.palette.success.main }}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+                  <Typography
+                    variant="body1"
+                    sx={{ color: (theme) => theme.palette.success.main }}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quos blanditiis tenetur
                   </Typography>
                 </ChildCard>
               </Grid>
             </Grid>
           </ParentCard>
         </Grid>
-      </Grid >
-
-
-    </PageContainer >
+      </Grid>
+    </PageContainer>
   );
 };
 

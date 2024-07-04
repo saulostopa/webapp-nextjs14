@@ -1,31 +1,30 @@
-"use client";
+'use client';
 
-import  Grid from "@mui/material/Grid";
-import Breadcrumb from "@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb";
-import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
+import Grid from '@mui/material/Grid';
 
-import UpcomingAcitivity from "@/app/(DashboardLayout)/components/widgets/cards/UpcomingActivity";
-import ComplexCard from "@/app/(DashboardLayout)/components/widgets/cards/ComplexCard";
-import MusicCard from "@/app/(DashboardLayout)/components/widgets/cards/MusicCard";
-import EcommerceCard from "@/app/(DashboardLayout)/components/widgets/cards/EcommerceCard";
-import FollowerCard from "@/app/(DashboardLayout)/components/widgets/cards/FollowerCard";
-import FriendCard from "@/app/(DashboardLayout)/components/widgets/cards/FriendCard";
-import ProfileCard from "@/app/(DashboardLayout)/components/dashboards/dashboard2/ProfileCard";
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import ProfileCard from '@/app/(DashboardLayout)/components/dashboards/dashboard2/ProfileCard';
+import ComplexCard from '@/app/(DashboardLayout)/components/widgets/cards/ComplexCard';
+import EcommerceCard from '@/app/(DashboardLayout)/components/widgets/cards/EcommerceCard';
+import FollowerCard from '@/app/(DashboardLayout)/components/widgets/cards/FollowerCard';
+import FriendCard from '@/app/(DashboardLayout)/components/widgets/cards/FriendCard';
+import GiftCard from '@/app/(DashboardLayout)/components/widgets/cards/GiftCard';
+import MusicCard from '@/app/(DashboardLayout)/components/widgets/cards/MusicCard';
+import Settings from '@/app/(DashboardLayout)/components/widgets/cards/Settings';
+import UpcomingAcitivity from '@/app/(DashboardLayout)/components/widgets/cards/UpcomingActivity';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
-import Settings from "@/app/(DashboardLayout)/components/widgets/cards/Settings";
-import GiftCard from "@/app/(DashboardLayout)/components/widgets/cards/GiftCard";
-import UpcomingSchedules from "../../components/dashboards/dashboard2/UpcomingSchedules";
-import TopCards from "../../components/dashboards/dashboard2/TopCards";
-import NewGoals from "../../components/dashboards/dashboard2/NewGoals";
-import BlogCard from "../../components/dashboards/dashboard2/BlogCard";
+import BlogCard from '../../components/dashboards/dashboard2/BlogCard';
+import NewGoals from '../../components/dashboards/dashboard2/NewGoals';
+import TopCards from '../../components/dashboards/dashboard2/TopCards';
 
 const BCrumb = [
   {
-    to: "/",
-    title: "Home",
+    to: '/',
+    title: 'Home',
   },
   {
-    title: "Cards",
+    title: 'Cards',
   },
 ];
 

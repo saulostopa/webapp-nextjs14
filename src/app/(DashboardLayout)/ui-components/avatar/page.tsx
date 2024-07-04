@@ -1,15 +1,16 @@
-'use client'
+'use client';
 
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Badge from '@mui/material/Badge';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
 import { IconMoodSmile } from '@tabler/icons-react';
+
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -32,9 +33,9 @@ const MuiAvatar = () => (
         <Grid item xs={12} lg={4} sm={6} display="flex" alignItems="stretch">
           <ChildCard title="Image avatars">
             <Stack direction="row" spacing={1} justifyContent="center">
-              <Avatar alt="Remy Sharp" src={"/images/profile/user-1.jpg"} />
-              <Avatar alt="Travis Howard" src={"/images/profile/user-2.jpg"} />
-              <Avatar alt="Cindy Baker" src={"/images/profile/user-3.jpg"} />
+              <Avatar alt="Remy Sharp" src="/images/profile/user-1.jpg" />
+              <Avatar alt="Travis Howard" src="/images/profile/user-2.jpg" />
+              <Avatar alt="Cindy Baker" src="/images/profile/user-3.jpg" />
             </Stack>
           </ChildCard>
         </Grid>
@@ -89,9 +90,9 @@ const MuiAvatar = () => (
           <ChildCard title="Grouped">
             <Stack direction="row" spacing={1} justifyContent="center">
               <AvatarGroup max={4}>
-                <Avatar alt="Remy Sharp" src={"/images/profile/user-1.jpg"} />
-                <Avatar alt="Travis Howard" src={"/images/profile/user-2.jpg"} />
-                <Avatar alt="Cindy Baker" src={"/images/profile/user-3.jpg"} />
+                <Avatar alt="Remy Sharp" src="/images/profile/user-1.jpg" />
+                <Avatar alt="Travis Howard" src="/images/profile/user-2.jpg" />
+                <Avatar alt="Cindy Baker" src="/images/profile/user-3.jpg" />
               </AvatarGroup>
             </Stack>
           </ChildCard>
@@ -100,9 +101,21 @@ const MuiAvatar = () => (
           <ChildCard title="Grouped Size">
             <Stack direction="row" spacing={1} justifyContent="center">
               <AvatarGroup max={4}>
-                <Avatar alt="Remy Sharp" sx={{ width: 56, height: 56 }} src={"/images/profile/user-1.jpg"} />
-                <Avatar alt="Travis Howard" sx={{ width: 56, height: 56 }} src={"/images/profile/user-2.jpg"} />
-                <Avatar alt="Cindy Baker" sx={{ width: 56, height: 56 }} src={"/images/profile/user-3.jpg"} />
+                <Avatar
+                  alt="Remy Sharp"
+                  sx={{ width: 56, height: 56 }}
+                  src="/images/profile/user-1.jpg"
+                />
+                <Avatar
+                  alt="Travis Howard"
+                  sx={{ width: 56, height: 56 }}
+                  src="/images/profile/user-2.jpg"
+                />
+                <Avatar
+                  alt="Cindy Baker"
+                  sx={{ width: 56, height: 56 }}
+                  src="/images/profile/user-3.jpg"
+                />
               </AvatarGroup>
             </Stack>
           </ChildCard>
@@ -115,10 +128,17 @@ const MuiAvatar = () => (
                   overlap="circular"
                   anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                   badgeContent={
-                    <Avatar sx={{ width: 22, height: 22 }} alt="Remy Sharp" src={"/images/profile/user-1.jpg"} />
+                    <Avatar
+                      sx={{ width: 22, height: 22 }}
+                      alt="Remy Sharp"
+                      src="/images/profile/user-1.jpg"
+                    />
                   }
                 >
-                  <Avatar alt="Travis Howard" src={"/images/profile/user-1.jpg"} />
+                  <Avatar
+                    alt="Travis Howard"
+                    src="/images/profile/user-1.jpg"
+                  />
                 </Badge>
               </AvatarGroup>
               {/* 2 */}
@@ -128,7 +148,7 @@ const MuiAvatar = () => (
                 variant="dot"
                 color="success"
               >
-                <Avatar alt="Remy Sharp" src={"/images/profile/user-3.jpg"} />
+                <Avatar alt="Remy Sharp" src="/images/profile/user-3.jpg" />
               </Badge>
               {/* 3 */}
               <Badge
@@ -137,7 +157,7 @@ const MuiAvatar = () => (
                 variant="dot"
                 color="warning"
               >
-                <Avatar alt="Remy Sharp" src={"/images/profile/user-4.jpg"} />
+                <Avatar alt="Remy Sharp" src="/images/profile/user-4.jpg" />
               </Badge>
               {/* 4 */}
               <Badge
@@ -146,7 +166,7 @@ const MuiAvatar = () => (
                 variant="dot"
                 color="error"
               >
-                <Avatar alt="Remy Sharp" src={"/images/profile/user-5.jpg"} />
+                <Avatar alt="Remy Sharp" src="/images/profile/user-5.jpg" />
               </Badge>
             </Stack>
           </ChildCard>
@@ -154,12 +174,32 @@ const MuiAvatar = () => (
         <Grid item xs={12} lg={8} sm={6} display="flex" alignItems="stretch">
           <ChildCard title="Sizes">
             <Stack direction="row" spacing={1} justifyContent="center">
-              <Avatar alt="Remy Sharp" src={"/images/profile/user-1.jpg"} sx={{ width: 24, height: 24 }} />
-              <Avatar alt="Remy Sharp" src={"/images/profile/user-1.jpg"} sx={{ width: 32, height: 32 }} />
-              <Avatar alt="Remy Sharp" src={"/images/profile/user-1.jpg"} />
-              <Avatar alt="Remy Sharp" src={"/images/profile/user-1.jpg"} sx={{ width: 50, height: 50 }} />
-              <Avatar alt="Remy Sharp" src={"/images/profile/user-1.jpg"} sx={{ width: 60, height: 60 }} />
-              <Avatar alt="Remy Sharp" src={"/images/profile/user-1.jpg"} sx={{ width: 65, height: 65 }} />
+              <Avatar
+                alt="Remy Sharp"
+                src="/images/profile/user-1.jpg"
+                sx={{ width: 24, height: 24 }}
+              />
+              <Avatar
+                alt="Remy Sharp"
+                src="/images/profile/user-1.jpg"
+                sx={{ width: 32, height: 32 }}
+              />
+              <Avatar alt="Remy Sharp" src="/images/profile/user-1.jpg" />
+              <Avatar
+                alt="Remy Sharp"
+                src="/images/profile/user-1.jpg"
+                sx={{ width: 50, height: 50 }}
+              />
+              <Avatar
+                alt="Remy Sharp"
+                src="/images/profile/user-1.jpg"
+                sx={{ width: 60, height: 60 }}
+              />
+              <Avatar
+                alt="Remy Sharp"
+                src="/images/profile/user-1.jpg"
+                sx={{ width: 65, height: 65 }}
+              />
             </Stack>
           </ChildCard>
         </Grid>

@@ -11,24 +11,26 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import Link from "next/link";
-import { IconMinus, IconPlus, IconTrash } from "@tabler/icons-react";
-import { useSelector, useDispatch } from "@/store/hooks";
-import emptyCart from "/public/images/products/empty-shopping-cart.svg";
+import { IconMinus, IconPlus, IconTrash } from '@tabler/icons-react';
+import Image from 'next/image';
+import Link from 'next/link';
+
 import {
-  increment,
-  deleteCart,
   decrement,
-} from "@/store/apps/eCommerce/ECommerceSlice";
-import { ProductType } from "../../../../types/apps/eCommerce";
-import Image from "next/image";
+  deleteCart,
+  increment,
+} from '@/store/apps/eCommerce/ECommerceSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import emptyCart from '../../../../../../../../../../../../public/images/products/empty-shopping-cart.svg';
+import type { ProductType } from '../../../../types/apps/eCommerce';
 
 const AddToCart = () => {
   const dispatch = useDispatch();
 
   // Get Products
   const Cartproduct: ProductType[] = useSelector(
-    (state) => state.ecommerceReducer.cart
+    (state) => state.ecommerceReducer.cart,
   );
   console.log(Cartproduct);
   const Increase = (productId: number | string) => {
@@ -42,84 +44,80 @@ const AddToCart = () => {
   return (
     <Box>
       {Cartproduct.length > 0 ? (
-        <>
-          <Box>
-            <TableContainer sx={{ minWidth: 350 }}>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Product</TableCell>
+        <Box>
+          <TableContainer sx={{ minWidth: 350 }}>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Product</TableCell>
 
-                    <TableCell align="left">Quantity</TableCell>
-                    <TableCell align="right">Price</TableCell>
-                  </TableRow>
-                </TableHead>
+                  <TableCell align="left">Quantity</TableCell>
+                  <TableCell align="right">Price</TableCell>
+                </TableRow>
+              </TableHead>
 
-                <TableBody>
-                  {Cartproduct.map((product) => (
-                    <TableRow key={product.id}>
-                      {/* ------------------------------------------- */}
-                      {/* Product Image & Title */}
-                      {/* ------------------------------------------- */}
-                      <TableCell>
-                        <Stack direction="row" alignItems="center" gap={2}>
-                          <Avatar
-                            src={product.photo}
-                            alt={product.photo}
-                            sx={{
-                              borderRadius: "10px",
-                              height: "80px",
-                              width: "90px",
-                            }}
-                          />
-                          <Box>
-                            <Typography variant="h6">
-                              {product.title}
-                            </Typography>{" "}
-                            <Typography color="textSecondary" variant="body1">
-                              {product.category}
-                            </Typography>
-                            <IconButton
-                              size="small"
-                              color="error"
-                              onClick={() => dispatch(deleteCart(product.id))}
-                            >
-                              <IconTrash size="1rem" />
-                            </IconButton>
-                          </Box>
-                        </Stack>
-                      </TableCell>
-
-                      <TableCell>
-                        <ButtonGroup
-                          size="small"
-                          color="success"
-                          aria-label="small button group"
-                        >
-                          <Button
-                            onClick={() => Decrease(product.id)}
-                            disabled={product.qty < 2}
+              <TableBody>
+                {Cartproduct.map((product) => (
+                  <TableRow key={product.id}>
+                    {/* ------------------------------------------- */}
+                    {/* Product Image & Title */}
+                    {/* ------------------------------------------- */}
+                    <TableCell>
+                      <Stack direction="row" alignItems="center" gap={2}>
+                        <Avatar
+                          src={product.photo}
+                          alt={product.photo}
+                          sx={{
+                            borderRadius: '10px',
+                            height: '80px',
+                            width: '90px',
+                          }}
+                        />
+                        <Box>
+                          <Typography variant="h6">{product.title}</Typography>{' '}
+                          <Typography color="textSecondary" variant="body1">
+                            {product.category}
+                          </Typography>
+                          <IconButton
+                            size="small"
+                            color="error"
+                            onClick={() => dispatch(deleteCart(product.id))}
                           >
-                            <IconMinus stroke={1.5} size="0.8rem" />
-                          </Button>
-                          <Button>{product.qty}</Button>
-                          <Button onClick={() => Increase(product.id)}>
-                            <IconPlus stroke={1.5} size="0.8rem" />
-                          </Button>
-                        </ButtonGroup>
-                      </TableCell>
-                      <TableCell align="right">
-                        <Typography variant="h6">
-                          ${product.price * product.qty}
-                        </Typography>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </Box>
-        </>
+                            <IconTrash size="1rem" />
+                          </IconButton>
+                        </Box>
+                      </Stack>
+                    </TableCell>
+
+                    <TableCell>
+                      <ButtonGroup
+                        size="small"
+                        color="success"
+                        aria-label="small button group"
+                      >
+                        <Button
+                          onClick={() => Decrease(product.id)}
+                          disabled={product.qty < 2}
+                        >
+                          <IconMinus stroke={1.5} size="0.8rem" />
+                        </Button>
+                        <Button>{product.qty}</Button>
+                        <Button onClick={() => Increase(product.id)}>
+                          <IconPlus stroke={1.5} size="0.8rem" />
+                        </Button>
+                      </ButtonGroup>
+                    </TableCell>
+                    <TableCell align="right">
+                      <Typography variant="h6">
+                        ${product.price * product.qty}
+                      </Typography>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Box>
       ) : (
         <Box textAlign="center" mb={3}>
           <Image src={emptyCart} alt="cart" width={200} />

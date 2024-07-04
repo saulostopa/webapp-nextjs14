@@ -1,5 +1,3 @@
-import React from 'react';
-import { useTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
@@ -7,12 +5,14 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Paper from '@mui/material/Paper';
+import { useTheme } from '@mui/material/styles';
 import {
-  IconChevronRight,
   IconChevronLeft,
+  IconChevronRight,
   IconChevronsLeft,
   IconChevronsRight,
 } from '@tabler/icons-react';
+import React from 'react';
 
 import CustomCheckbox from '../../forms/theme-elements/CustomCheckbox';
 
@@ -72,14 +72,24 @@ const BasicTransferList = () => {
   const customList = (items: readonly number[]) => (
     <Paper
       variant="outlined"
-      sx={{ width: 200, height: 230, overflow: 'auto', border: `1px solid ${borderColor}` }}
+      sx={{
+        width: 200,
+        height: 230,
+        overflow: 'auto',
+        border: `1px solid ${borderColor}`,
+      }}
     >
       <List dense component="div" role="list">
         {items.map((value) => {
           const labelId = `transfer-list-item-${value}-label`;
 
           return (
-            <ListItem key={value} role="listitem" button onClick={handleToggle(value)}>
+            <ListItem
+              key={value}
+              role="listitem"
+              button
+              onClick={handleToggle(value)}
+            >
               <ListItemIcon>
                 <CustomCheckbox
                   tabIndex={-1}

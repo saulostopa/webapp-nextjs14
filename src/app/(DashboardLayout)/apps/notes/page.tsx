@@ -1,19 +1,19 @@
-"use client"
+'use client';
 
-import { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import NoteSidebar from '@/app/(DashboardLayout)/components/apps/notes/NoteSidebar';
-import NoteContent from '@/app/(DashboardLayout)/components/apps/notes/NoteContent';
-import AppCard from '@/app/(DashboardLayout)/components/shared/AppCard';
+import { useEffect, useState } from 'react';
 
+import NoteContent from '@/app/(DashboardLayout)/components/apps/notes/NoteContent';
+import NoteSidebar from '@/app/(DashboardLayout)/components/apps/notes/NoteSidebar';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import AppCard from '@/app/(DashboardLayout)/components/shared/AppCard';
 
 export default function Notes() {
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(true);
 
-  const lgDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("lg"));
+  const lgDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
 
   useEffect(() => {
     if (lgDown) {
@@ -43,6 +43,4 @@ export default function Notes() {
       </AppCard>
     </PageContainer>
   );
-};
-
-
+}

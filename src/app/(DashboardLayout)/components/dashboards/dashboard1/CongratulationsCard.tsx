@@ -1,8 +1,4 @@
-import React from "react";
-import { Icon } from "@iconify/react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from "@mui/material/styles";
+import { Icon } from '@iconify/react';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -11,22 +7,29 @@ import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useSelector } from "@/store/hooks";
-import { AppState } from "@/store/store";
-import CustomSelect from "../../forms/theme-elements/CustomSelect";
-import SkeletonCongratulationsCard from "../skeleton/CongratulationsCard";
-import Image from "next/image";
-import { useTranslation } from "react-i18next";
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
+
+import CustomSelect from '../../forms/theme-elements/CustomSelect';
+import SkeletonCongratulationsCard from '../skeleton/CongratulationsCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 interface CongratsCardProps {
   isLoading: boolean;
 }
 
 const CongratulationsCard = ({ isLoading }: CongratsCardProps) => {
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
   const { t } = useTranslation();
   const customizer = useSelector((state: AppState) => state.customizer);
   const theme = useTheme();
@@ -42,30 +45,30 @@ const CongratulationsCard = ({ isLoading }: CongratsCardProps) => {
 
   const stats = [
     {
-      title: "64 new orders",
-      subtitle: "Processing",
+      title: '64 new orders',
+      subtitle: 'Processing',
       color: success,
       lightcolor: successlight,
-      icon: "cart-3-line-duotone",
+      icon: 'cart-3-line-duotone',
     },
     {
-      title: "4 orders",
-      subtitle: "On hold",
+      title: '4 orders',
+      subtitle: 'On hold',
       color: warning,
       lightcolor: warninglight,
-      icon: "pause-linear",
+      icon: 'pause-linear',
     },
     {
-      title: "12 orders",
-      subtitle: "Delivered",
+      title: '12 orders',
+      subtitle: 'Delivered',
       color: info,
       lightcolor: infolight,
-      icon: "delivery-linear",
+      icon: 'delivery-linear',
     },
   ];
 
   // select
-  const [month, setMonth] = React.useState("1");
+  const [month, setMonth] = React.useState('1');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMonth(event.target.value);
@@ -75,9 +78,9 @@ const CongratulationsCard = ({ isLoading }: CongratsCardProps) => {
   const optionscongratulatechart: any = {
     chart: {
       fontFamily: "Plus Jakarta Sans', sans-serif",
-      foreColor: "#adb0bb",
+      foreColor: '#adb0bb',
       height: 260,
-      type: "line",
+      type: 'line',
       toolbar: {
         show: false,
       },
@@ -88,7 +91,7 @@ const CongratulationsCard = ({ isLoading }: CongratsCardProps) => {
     },
     stroke: {
       width: 3,
-      curve: "smooth",
+      curve: 'smooth',
     },
     grid: {
       show: true,
@@ -111,32 +114,31 @@ const CongratulationsCard = ({ isLoading }: CongratsCardProps) => {
       labels: {
         show: true,
       },
-      type: "category",
-      categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      type: 'category',
+      categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     },
     yaxis: {
-     
       labels: {
         show: true,
-        formatter: function (value: any) {
-          return value + "k";
+        formatter(value: any) {
+          return `${value}k`;
         },
       },
     },
     tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
+      theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
       fillSeriesColor: false,
     },
   };
   const seriescongratulatechart = [
     {
       color: primary,
-      name: "",
+      name: '',
       data: [0, 20, 15, 19, 14, 25, 32],
     },
     {
       color: info,
-      name: "",
+      name: '',
       data: [0, 12, 19, 13, 26, 16, 25],
     },
   ];
@@ -151,13 +153,15 @@ const CongratulationsCard = ({ isLoading }: CongratsCardProps) => {
             padding: 0,
             border: !customizer.isCardShadow
               ? `1px solid ${borderColor}`
-              : "none",
+              : 'none',
           }}
           elevation={customizer.isCardShadow ? 9 : 0}
-          variant={!customizer.isCardShadow ? "outlined" : undefined}
+          variant={!customizer.isCardShadow ? 'outlined' : undefined}
         >
-          <CardContent sx={{ position: "relative" }}>
-            <Typography variant="h5">{t('Congratulations Jonathan')}</Typography>
+          <CardContent sx={{ position: 'relative' }}>
+            <Typography variant="h5">
+              {t('Congratulations Jonathan')}
+            </Typography>
             <Typography variant="subtitle2" color="textSecondary">
               You have done 38% more sales
             </Typography>
@@ -182,7 +186,11 @@ const CongratulationsCard = ({ isLoading }: CongratsCardProps) => {
                             height: 46,
                           }}
                         >
-                          <Icon icon={"solar:" + stat.icon} width="24" height="24" />
+                          <Icon
+                            icon={`solar:${stat.icon}`}
+                            width="24"
+                            height="24"
+                          />
                         </Avatar>
                         <Box>
                           <Typography variant="h6" mb="4px">
@@ -208,7 +216,7 @@ const CongratulationsCard = ({ isLoading }: CongratsCardProps) => {
                 priority
               />
             ) : (
-              ""
+              ''
             )}
           </CardContent>
           <Divider />
@@ -217,7 +225,7 @@ const CongratulationsCard = ({ isLoading }: CongratsCardProps) => {
               direction="row"
               spacing={2}
               justifyContent="space-between"
-              alignItems={"center"}
+              alignItems="center"
               mb={3}
             >
               <Box>
@@ -244,7 +252,7 @@ const CongratulationsCard = ({ isLoading }: CongratsCardProps) => {
                 series={seriescongratulatechart}
                 type="line"
                 height={260}
-                width={"100%"}
+                width="100%"
               />
             </Box>
           </CardContent>

@@ -1,23 +1,21 @@
-import React from "react";
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import NextLink from "next/link";
+import Typography from '@mui/material/Typography';
+import Image from 'next/image';
+import NextLink from 'next/link';
+import React from 'react';
 
-import mainDemo from "/public/images/landingpage/demos/demo-main.jpg";
-import darkDemo from "/public/images/landingpage/demos/demo-dark.jpg";
-import horizontalDemo from "/public/images/landingpage/demos/demo-horizontal.jpg";
-import rtlDemo from "/public/images/landingpage/demos/demo-rtl.jpg";
-
-import app1 from "/public/images/landingpage/apps/app-calendar.jpg";
-import app2 from "/public/images/landingpage/apps/app-chat.jpg";
-import app3 from "/public/images/landingpage/apps/app-contact.jpg";
-import app4 from "/public/images/landingpage/apps/app-email.jpg";
-import app5 from "/public/images/landingpage/apps/app-note.jpg";
-import Image from "next/image";
+import app1 from '../../../../../../../../../../../public/images/landingpage/apps/app-calendar.jpg';
+import app2 from '../../../../../../../../../../../public/images/landingpage/apps/app-chat.jpg';
+import app3 from '../../../../../../../../../../../public/images/landingpage/apps/app-contact.jpg';
+import app4 from '../../../../../../../../../../../public/images/landingpage/apps/app-email.jpg';
+import app5 from '../../../../../../../../../../../public/images/landingpage/apps/app-note.jpg';
+import darkDemo from '../../../../../../../../../../../public/images/landingpage/demos/demo-dark.jpg';
+import horizontalDemo from '../../../../../../../../../../../public/images/landingpage/demos/demo-horizontal.jpg';
+import mainDemo from '../../../../../../../../../../../public/images/landingpage/demos/demo-main.jpg';
+import rtlDemo from '../../../../../../../../../../../public/images/landingpage/demos/demo-rtl.jpg';
 
 interface DemoTypes {
   link: string;
@@ -27,176 +25,169 @@ interface DemoTypes {
 
 const demos: DemoTypes[] = [
   {
-    link: "https://spike-nextjs-pro-main.vercel.app/",
+    link: 'https://spike-nextjs-pro-main.vercel.app/',
     img: mainDemo,
-    title: "Main",
+    title: 'Main',
   },
   {
-    link: "https://spike-nextjs-pro-dark.vercel.app/",
+    link: 'https://spike-nextjs-pro-dark.vercel.app/',
     img: darkDemo,
-    title: "Dark",
+    title: 'Dark',
   },
   {
-    link: "https://spike-nextjs-pro-horizontal.vercel.app/",
+    link: 'https://spike-nextjs-pro-horizontal.vercel.app/',
     img: horizontalDemo,
-    title: "Horizontal",
+    title: 'Horizontal',
   },
   {
-    link: "#",
+    link: '#',
     img: rtlDemo,
-    title: "RTL",
+    title: 'RTL',
   },
 ];
 
 const apps: DemoTypes[] = [
   {
-    link: "https://spike-nextjs-pro-main.vercel.app/apps/calendar",
+    link: 'https://spike-nextjs-pro-main.vercel.app/apps/calendar',
     img: app1,
-    title: "Calendar",
+    title: 'Calendar',
   },
   {
-    link: "https://spike-nextjs-pro-main.vercel.app/apps/chats",
+    link: 'https://spike-nextjs-pro-main.vercel.app/apps/chats',
     img: app2,
-    title: "Chat",
+    title: 'Chat',
   },
   {
-    link: "https://spike-nextjs-pro-main.vercel.app/apps/contacts",
+    link: 'https://spike-nextjs-pro-main.vercel.app/apps/contacts',
     img: app3,
-    title: "Contact",
+    title: 'Contact',
   },
   {
-    link: "https://spike-nextjs-pro-main.vercel.app/apps/email",
+    link: 'https://spike-nextjs-pro-main.vercel.app/apps/email',
     img: app4,
-    title: "Email",
+    title: 'Email',
   },
   {
-    link: "https://spike-nextjs-pro-main.vercel.app/apps/notes",
+    link: 'https://spike-nextjs-pro-main.vercel.app/apps/notes',
     img: app5,
-    title: "Note",
+    title: 'Note',
   },
 ];
 
 const StyledBox = styled(Box)(() => ({
-  overflow: "auto",
-  position: "relative",
-  ".MuiButton-root": {
-    display: "none",
+  overflow: 'auto',
+  position: 'relative',
+  '.MuiButton-root': {
+    display: 'none',
   },
-  "&:hover": {
-    ".MuiButton-root": {
-      display: "block",
-      transform: "translate(-50%,-50%)",
-      position: "absolute",
-      left: "50%",
-      right: "50%",
-      top: "50%",
-      minWidth: "100px",
-      zIndex: "9",
+  '&:hover': {
+    '.MuiButton-root': {
+      display: 'block',
+      transform: 'translate(-50%,-50%)',
+      position: 'absolute',
+      left: '50%',
+      right: '50%',
+      top: '50%',
+      minWidth: '100px',
+      zIndex: '9',
     },
-    "&:before": {
+    '&:before': {
       content: '""',
-      position: "absolute",
-      top: "0",
-      left: " 0",
-      width: "100%",
-      height: "100%",
-      zIndex: "8",
-      backgroundColor: "rgba(0,133,219,.3)",
+      position: 'absolute',
+      top: '0',
+      left: ' 0',
+      width: '100%',
+      height: '100%',
+      zIndex: '8',
+      backgroundColor: 'rgba(0,133,219,.3)',
     },
   },
 }));
 
 const DemosDD = () => {
   return (
-    <>
-      <Box p={4}>
-        <Typography variant="h5">Different Demos</Typography>
-        <Typography variant="subtitle1" color="textSecondary">
-          Included with the package
-        </Typography>
+    <Box p={4}>
+      <Typography variant="h5">Different Demos</Typography>
+      <Typography variant="subtitle1" color="textSecondary">
+        Included with the package
+      </Typography>
 
-        <Stack mt={2} spacing={3} direction={{ xs: "column", lg: "row" }}>
-          {demos.map((demo, index) => (
-            <Box key={index}>
-              {/* <Link href={demo.link}> */}
-              <StyledBox>
-                <Image
-                  src={demo.img}
-                  alt="demo"
-                  style={{
-                    borderRadius: "8px",
-                    width: "100%",
-                    height: "100%",
-                  }}
-                />
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="small"
-                  href={demo.link}
-                  target="_blank"
-                >
+      <Stack mt={2} spacing={3} direction={{ xs: 'column', lg: 'row' }}>
+        {demos.map((demo, index) => (
+          <Box key={index}>
+            {/* <Link href={demo.link}> */}
+            <StyledBox>
+              <Image
+                src={demo.img}
+                alt="demo"
+                style={{
+                  borderRadius: '8px',
+                  width: '100%',
+                  height: '100%',
+                }}
+              />
+              <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                href={demo.link}
+                target="_blank"
+              >
+                Live Preview
+              </Button>
+            </StyledBox>
+            {/* </Link> */}
+            <Typography
+              variant="body1"
+              color="textPrimary"
+              textAlign="center"
+              fontWeight={500}
+              mt={2}
+            >
+              {demo.title}
+            </Typography>
+          </Box>
+        ))}
+      </Stack>
+
+      <Typography variant="h5" mt={5}>
+        Different Apps
+      </Typography>
+
+      <Stack mt={2} spacing={3} mb={2} direction={{ xs: 'column', lg: 'row' }}>
+        {apps.map((app, index) => (
+          <Box key={index}>
+            {/* <Link href={app.link}> */}
+            <StyledBox>
+              <Image
+                src={app.img}
+                alt="demo"
+                style={{
+                  borderRadius: '8px',
+                  width: '100%',
+                  height: '100%',
+                }}
+              />
+              <NextLink href={app.link}>
+                <Button variant="contained" color="primary" size="small">
                   Live Preview
                 </Button>
-              </StyledBox>
+              </NextLink>
               {/* </Link> */}
-              <Typography
-                variant="body1"
-                color="textPrimary"
-                textAlign="center"
-                fontWeight={500}
-                mt={2}
-              >
-                {demo.title}
-              </Typography>
-            </Box>
-          ))}
-        </Stack>
-
-        <Typography variant="h5" mt={5}>
-          Different Apps
-        </Typography>
-
-        <Stack
-          mt={2}
-          spacing={3}
-          mb={2}
-          direction={{ xs: "column", lg: "row" }}
-        >
-          {apps.map((app, index) => (
-            <Box key={index}>
-              {/* <Link href={app.link}> */}
-              <StyledBox>
-                <Image
-                  src={app.img}
-                  alt="demo"
-                  style={{
-                    borderRadius: "8px",
-                    width: "100%",
-                    height: "100%",
-                  }}
-                />
-                <NextLink href={app.link}>
-                  <Button variant="contained" color="primary" size="small">
-                    Live Preview
-                  </Button>
-                </NextLink>
-                {/* </Link> */}
-              </StyledBox>
-              <Typography
-                variant="body1"
-                color="textPrimary"
-                textAlign="center"
-                fontWeight={500}
-                mt={2}
-              >
-                {app.title}
-              </Typography>
-            </Box>
-          ))}
-        </Stack>
-      </Box>
-    </>
+            </StyledBox>
+            <Typography
+              variant="body1"
+              color="textPrimary"
+              textAlign="center"
+              fontWeight={500}
+              mt={2}
+            >
+              {app.title}
+            </Typography>
+          </Box>
+        ))}
+      </Stack>
+    </Box>
   );
 };
 

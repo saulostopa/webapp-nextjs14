@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
 
-import ProfileBanner from "@/app/(DashboardLayout)/components/apps/userprofile2/profile/ProfileBanner";
-import IntroCard from "@/app/(DashboardLayout)/components/apps/userprofile2/profile/IntroCard";
-import PhotosCard from "@/app/(DashboardLayout)/components/apps/userprofile2/profile/PhotosCard";
-import Post from "@/app/(DashboardLayout)/components/apps/userprofile2/profile/Post";
+import IntroCard from '@/app/(DashboardLayout)/components/apps/userprofile2/profile/IntroCard';
+import PhotosCard from '@/app/(DashboardLayout)/components/apps/userprofile2/profile/PhotosCard';
+import Post from '@/app/(DashboardLayout)/components/apps/userprofile2/profile/Post';
+import ProfileBanner from '@/app/(DashboardLayout)/components/apps/userprofile2/profile/ProfileBanner';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 
 const UserProfile2 = () => {
   return (

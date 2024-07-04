@@ -1,11 +1,17 @@
-import React from 'react';
-import { useTheme } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import {
+  IconDatabase,
+  IconMapPin,
+  IconPhone,
+  IconScreenShare,
+} from '@tabler/icons-react';
+import React from 'react';
+
 import DashboardCard from '../../shared/DashboardCard';
-import { IconDatabase, IconMail, IconMapPin, IconPhone, IconScreenShare } from '@tabler/icons-react';
 
 const UpcomingActivity = () => {
   // chart color
@@ -57,7 +63,7 @@ const UpcomingActivity = () => {
   ];
 
   return (
-    <DashboardCard title="Upcoming Activity" subtitle='In New year'>
+    <DashboardCard title="Upcoming Activity" subtitle="In New year">
       <>
         <Stack spacing={3} mt={5}>
           {stats.map((stat, i) => (
@@ -71,7 +77,12 @@ const UpcomingActivity = () => {
               <Stack direction="row" alignItems="center" spacing={2}>
                 <Avatar
                   variant="rounded"
-                  sx={{ bgcolor: stat.lightcolor, color: stat.color, width: 40, height: 40 }}
+                  sx={{
+                    bgcolor: stat.lightcolor,
+                    color: stat.color,
+                    width: 40,
+                    height: 40,
+                  }}
                 >
                   {stat.icon}
                 </Avatar>

@@ -1,12 +1,13 @@
-import React from "react";
 import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import dynamic from "next/dynamic";
-import { useTheme } from "@mui/material/styles";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import DashboardCard from "../../shared/DashboardCard";
-import SkeletonProductsCard from "../skeleton/ProductCard";
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+import DashboardCard from '../../shared/DashboardCard';
+import SkeletonProductsCard from '../skeleton/ProductCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 interface ProductsCardProps {
   isLoading: boolean;
@@ -22,23 +23,23 @@ const Products = ({ isLoading }: ProductsCardProps) => {
   // chart
   const optionscolumnchart: any = {
     chart: {
-      type: "donut",
+      type: 'donut',
       fontFamily: "'Plus Jakarta Sans', sans-serif;",
-      foreColor: "#adb0bb",
+      foreColor: '#adb0bb',
       toolbar: {
         show: false,
       },
       height: 170,
       stacked: true,
     },
-    labels: ["2022", "2021", "2020"],
+    labels: ['2022', '2021', '2020'],
     colors: [primary, error, info],
     plotOptions: {
       pie: {
         startAngle: 0,
         endAngle: 360,
         donut: {
-          size: "85%",
+          size: '85%',
         },
       },
     },
@@ -54,7 +55,7 @@ const Products = ({ isLoading }: ProductsCardProps) => {
       show: false,
     },
     tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
+      theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
       fillSeriesColor: false,
     },
   };
@@ -93,7 +94,7 @@ const Products = ({ isLoading }: ProductsCardProps) => {
                 series={seriescolumnchart}
                 type="donut"
                 height={170}
-                width={"100%"}
+                width="100%"
               />
             </Box>
 

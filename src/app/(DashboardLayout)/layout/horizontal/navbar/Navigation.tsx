@@ -1,14 +1,16 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Drawer from '@mui/material/Drawer';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import NavListing from './NavListing';
-import Logo from '../../shared/logo/Logo';
-import { useSelector, useDispatch } from '@/store/hooks';
+
 import { toggleMobileSidebar } from '@/store/customizer/CustomizerSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
+
+import Logo from '../../shared/logo/Logo';
 import SidebarItems from '../../vertical/sidebar/SidebarItems';
-import { AppState } from '@/store/store';
+import NavListing from './NavListing';
 
 const Navigation = () => {
   const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
@@ -17,7 +19,13 @@ const Navigation = () => {
 
   if (lgUp) {
     return (
-      <Box sx={{ background: (theme) => theme.palette.background.paper, borderRadius: 0 }} py={2}>
+      <Box
+        sx={{
+          background: (theme) => theme.palette.background.paper,
+          borderRadius: 0,
+        }}
+        py={2}
+      >
         {/* ------------------------------------------- */}
         {/* Sidebar for desktop */}
         {/* ------------------------------------------- */}

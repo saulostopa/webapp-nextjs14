@@ -1,16 +1,19 @@
-import mock from '../mock';
-import type { EmailType } from '@/app/(DashboardLayout)/types/apps/email';
 import { sub } from 'date-fns';
+
+import type { EmailType } from '@/app/(DashboardLayout)/types/apps/email';
+
+import mock from '../mock';
 
 const EmailData: EmailType[] = [
   {
     id: 1,
     from: 'James Smith',
-    thumbnail: "/images/profile/user-1.jpg",
+    thumbnail: '/images/profile/user-1.jpg',
     subject: 'Kindly check this latest updated',
     time: sub(new Date(), { days: 0, hours: 1, minutes: 45 }),
     To: 'abc@company.com',
-    emailExcerpt: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+    emailExcerpt:
+      'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
     emailContent: `<p>Hello Andrew, </p>
        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum hendrerit lobortis. Nullam ut lacus eros. Sed at luctus urna, eu fermentum diam. In et tristique mauris.</p>
        <p>Ut id ornare metus, sed auctor enim. Pellentesque nisi magna, laoreet a augue eget, 
@@ -30,19 +33,19 @@ const EmailData: EmailType[] = [
     attchments: [
       {
         id: '#1Attach',
-        image: "/images/chat/icon-adobe.svg",
+        image: '/images/chat/icon-adobe.svg',
         title: 'adobe.pdf',
         fileSize: '2MB',
       },
       {
         id: '#2Attach',
-        image: "/images/chat/icon-chrome.svg",
+        image: '/images/chat/icon-chrome.svg',
         title: 'abouts.html',
         fileSize: '2MB',
       },
       {
         id: '#3Attach',
-        image: "/images/chat/icon-zip-folder.svg",
+        image: '/images/chat/icon-zip-folder.svg',
         title: 'cheese.zip',
         fileSize: '2MB',
       },
@@ -51,11 +54,12 @@ const EmailData: EmailType[] = [
   {
     id: 2,
     from: 'Michael Smith',
-    thumbnail: "/images/profile/user-2.jpg",
+    thumbnail: '/images/profile/user-2.jpg',
     subject: 'Fact that a reader will be distracted.',
     time: sub(new Date(), { days: 0, hours: 3, minutes: 45 }),
     To: 'abc@company.com',
-    emailExcerpt: 'It has roots in a piece of classical Latin literature from 45 BC',
+    emailExcerpt:
+      'It has roots in a piece of classical Latin literature from 45 BC',
     emailContent: `<p>Hello Andrew, </p>
        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum hendrerit lobortis. Nullam ut lacus eros. Sed at luctus urna, eu fermentum diam. In et tristique mauris.</p>
        <p>Ut id ornare metus, sed auctor enim. Pellentesque nisi magna, laoreet a augue eget, 
@@ -77,8 +81,9 @@ const EmailData: EmailType[] = [
   {
     id: 3,
     from: 'Robert Smith',
-    thumbnail: "/images/profile/user-3.jpg",
-    subject: 'The point of using Lorem Ipsum is that it has a more-or-less normal',
+    thumbnail: '/images/profile/user-3.jpg',
+    subject:
+      'The point of using Lorem Ipsum is that it has a more-or-less normal',
     time: sub(new Date(), { days: 0, hours: 11, minutes: 45 }),
     To: 'abc@company.com',
     emailExcerpt: 'Richard McClintock, a Latin professor at Hampden-Sydney',
@@ -97,13 +102,13 @@ const EmailData: EmailType[] = [
     attchments: [
       {
         id: '#4Attach',
-        image: "/images/chat/icon-figma.svg",
+        image: '/images/chat/icon-figma.svg',
         title: 'service.fig',
         fileSize: '2MB',
       },
       {
         id: '#5Attach',
-        image: "/images/chat/icon-javascript.svg",
+        image: '/images/chat/icon-javascript.svg',
         title: 'abouts.js',
         fileSize: '2MB',
       },
@@ -112,7 +117,7 @@ const EmailData: EmailType[] = [
   {
     id: 4,
     from: 'Maria Garcia',
-    thumbnail: "/images/profile/user-4.jpg",
+    thumbnail: '/images/profile/user-4.jpg',
     subject: 'Contrary to popular belief, Lorem Ipsum is.',
     time: sub(new Date(), { days: 1, hours: 2, minutes: 45 }),
     To: 'abc@company.com',
@@ -134,7 +139,7 @@ const EmailData: EmailType[] = [
   {
     id: 5,
     from: 'David Smith',
-    thumbnail: "/images/profile/user-5.jpg",
+    thumbnail: '/images/profile/user-5.jpg',
     subject: 'Literature from 45 BC, making',
     time: sub(new Date(), { days: 1, hours: 8, minutes: 45 }),
     To: 'abc@company.com',
@@ -156,7 +161,7 @@ const EmailData: EmailType[] = [
   {
     id: 6,
     from: 'Maria Rodriguez',
-    thumbnail: "/images/profile/user-6.jpg",
+    thumbnail: '/images/profile/user-6.jpg',
     subject: 'Latin professor at Hampden-Sydney College.',
     time: sub(new Date(), { days: 1, hours: 10, minutes: 45 }),
     To: 'abc@company.com',
@@ -178,11 +183,12 @@ const EmailData: EmailType[] = [
   {
     id: 7,
     from: 'Mary Smith',
-    thumbnail: "/images/profile/user-7.jpg",
+    thumbnail: '/images/profile/user-7.jpg',
     subject: 'the cites of the word in classical.',
     time: sub(new Date(), { days: 1, hours: 11, minutes: 45 }),
     To: 'abc@company.com',
-    emailExcerpt: 'There are many variations of passages of Lorem Ipsum available',
+    emailExcerpt:
+      'There are many variations of passages of Lorem Ipsum available',
     emailContent:
       '<p>There is now an abundance of readable dummy texts. These are usually used when a text is required purely to fill a space.These alternatives to the classic Lorem Ipsum texts are often amusing and tell short, funny or nonsensical stories.</p>',
     unread: true,
@@ -200,11 +206,12 @@ const EmailData: EmailType[] = [
   {
     id: 8,
     from: 'Maria Hernandez',
-    thumbnail: "/images/profile/user-8.jpg",
+    thumbnail: '/images/profile/user-8.jpg',
     subject: ' This book is a treatise on the theory of ethics.',
     time: sub(new Date(), { days: 2, hours: 1, minutes: 45 }),
     To: 'abc@company.com',
-    emailExcerpt: 'the majority have suffered alteration in some form, by injected ',
+    emailExcerpt:
+      'the majority have suffered alteration in some form, by injected ',
     emailContent:
       '<p>According to most sources, Lorum Ipsum can be traced back to a text composed by Cicero in 45 BC. Allegedly, a Latin scholar established the origin of the text.</p>',
     unread: false,
@@ -222,7 +229,7 @@ const EmailData: EmailType[] = [
   {
     id: 9,
     from: 'Maria Martinez',
-    thumbnail: "/images/profile/user-1.jpg",
+    thumbnail: '/images/profile/user-1.jpg',
     subject: 'Lorem Ipsum used since the 1500s is reproduced.',
     time: sub(new Date(), { days: 2, hours: 3, minutes: 45 }),
     To: 'abc@company.com',
@@ -244,7 +251,7 @@ const EmailData: EmailType[] = [
   {
     id: 10,
     from: 'James Johnson',
-    thumbnail: "/images/profile/user-2.jpg",
+    thumbnail: '/images/profile/user-2.jpg',
     subject: 'accompanied by English versions from the 1914 translation.',
     time: sub(new Date(), { days: 2, hours: 8, minutes: 45 }),
     To: 'abc@company.com',
@@ -266,11 +273,12 @@ const EmailData: EmailType[] = [
   {
     id: 11,
     from: 'James Smith',
-    thumbnail: "/images/profile/user-3.jpg",
+    thumbnail: '/images/profile/user-3.jpg',
     subject: 'All the Lorem Ipsum generators on the Internet.',
     time: sub(new Date(), { days: 2, hours: 9, minutes: 45 }),
     To: 'abc@company.com',
-    emailExcerpt: 'All the Lorem Ipsum generators on the Internet tend to repeat predefined',
+    emailExcerpt:
+      'All the Lorem Ipsum generators on the Internet tend to repeat predefined',
     emailContent:
       '<p>The spread of computers and layout programmes thus made dummy text better known. While in earlier times several lines of the Lorem Ipsum text were repeated in the creation of dummy texts.</p>',
     unread: false,
@@ -288,7 +296,7 @@ const EmailData: EmailType[] = [
   {
     id: 12,
     from: 'Michael Smith',
-    thumbnail: "/images/profile/user-1.jpg",
+    thumbnail: '/images/profile/user-1.jpg',
     subject: 'Latin words, combined with a handful.',
     time: sub(new Date(), { days: 2, hours: 11, minutes: 45 }),
     To: 'abc@company.com',
@@ -310,11 +318,12 @@ const EmailData: EmailType[] = [
   {
     id: 13,
     from: 'Robert Smith',
-    thumbnail: "/images/profile/user-2.jpg",
+    thumbnail: '/images/profile/user-2.jpg',
     subject: 'If you are going to use a passage.',
     time: sub(new Date(), { days: 3, hours: 2, minutes: 45 }),
     To: 'abc@company.com',
-    emailExcerpt: 'Lorem Ipsum is therefore always free from repetition, injected humour',
+    emailExcerpt:
+      'Lorem Ipsum is therefore always free from repetition, injected humour',
     emailContent:
       '<p>The phrasal sequence of the Lorem Ipsum text is now so widespread and commonplace that many DTP programmes can generate dummy text using the starting sequence.</p>',
     unread: false,
@@ -332,7 +341,7 @@ const EmailData: EmailType[] = [
   {
     id: 14,
     from: 'Maria Garcia',
-    thumbnail: "/images/profile/user-3.jpg",
+    thumbnail: '/images/profile/user-3.jpg',
     subject: 'piece of classical Latin literature.',
     time: sub(new Date(), { days: 3, hours: 11, minutes: 45 }),
     To: 'abc@company.com',
@@ -354,11 +363,12 @@ const EmailData: EmailType[] = [
   {
     id: 15,
     from: 'David Smith',
-    thumbnail: "/images/profile/user-4.jpg",
+    thumbnail: '/images/profile/user-4.jpg',
     subject: 'first true generator on the Internet.',
     time: sub(new Date(), { days: 3, hours: 4, minutes: 45 }),
     To: 'abc@company.com',
-    emailExcerpt: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    emailExcerpt:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     emailContent:
       '<p>Certain internet providers exploit the fact that fill text cannot be recognized by automatic search engines - meaningful information cannot be distinguished from meaningless.</p>',
     unread: false,
@@ -376,11 +386,12 @@ const EmailData: EmailType[] = [
   {
     id: 16,
     from: 'Maria Rodriguez',
-    thumbnail: "/images/profile/user-5.jpg",
+    thumbnail: '/images/profile/user-5.jpg',
     subject: 'combined with a handful of model sentence structure.',
     time: sub(new Date(), { days: 4, hours: 1, minutes: 45 }),
     To: 'abc@company.com',
-    emailExcerpt: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    emailExcerpt:
+      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     emailContent:
       "<p>Target-generated dummy text mixed with a certain combination of search terms can lead to an increased frequency of visits by search machine users. As a consequence, advertising revenues, which rely on website 'hits', are increased.</p>",
     unread: true,
@@ -398,7 +409,7 @@ const EmailData: EmailType[] = [
   {
     id: 17,
     from: 'Mary Smith',
-    thumbnail: "/images/profile/user-6.jpg",
+    thumbnail: '/images/profile/user-6.jpg',
     subject: "randomised words which don't look even.",
     time: sub(new Date(), { days: 4, hours: 1, minutes: 45 }),
     To: 'abc@company.com',
@@ -420,7 +431,7 @@ const EmailData: EmailType[] = [
   {
     id: 18,
     from: 'Maria Hernandez',
-    thumbnail: "/images/profile/user-7.jpg",
+    thumbnail: '/images/profile/user-7.jpg',
     subject: 'Lorem Ipsum generators on the Internet tend.',
     time: sub(new Date(), { days: 4, hours: 1, minutes: 45 }),
     To: 'abc@company.com',
@@ -442,7 +453,7 @@ const EmailData: EmailType[] = [
   {
     id: 19,
     from: 'Maria Martinez',
-    thumbnail: "/images/profile/user-8.jpg",
+    thumbnail: '/images/profile/user-8.jpg',
     subject: 'combined with a handful of model.',
     time: sub(new Date(), { days: 4, hours: 1, minutes: 45 }),
     To: 'abc@company.com',
@@ -464,7 +475,7 @@ const EmailData: EmailType[] = [
   {
     id: 20,
     from: 'James Johnson',
-    thumbnail: "/images/profile/user-1.jpg",
+    thumbnail: '/images/profile/user-1.jpg',
     subject: 'The Extremes of Good and Evil.',
     time: sub(new Date(), { days: 4, hours: 1, minutes: 45 }),
     To: 'abc@company.com',

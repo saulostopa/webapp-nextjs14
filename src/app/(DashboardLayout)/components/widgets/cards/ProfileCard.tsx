@@ -1,12 +1,11 @@
-import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/system';
 import {
   IconBrandFacebook,
@@ -14,6 +13,8 @@ import {
   IconBrandInstagram,
   IconBrandTwitter,
 } from '@tabler/icons-react';
+import React from 'react';
+
 import BlankCard from '../../shared/BlankCard';
 
 const SocialIcons = [
@@ -39,17 +40,17 @@ const profileCard = [
   {
     name: 'Andrew Grant',
     role: 'Technology Director',
-    avatar: "/images/profile/user-1.jpg",
+    avatar: '/images/profile/user-1.jpg',
   },
   {
     name: 'Leo Pratt',
     role: 'Telecom Analyst',
-    avatar: "/images/profile/user-2.jpg",
+    avatar: '/images/profile/user-2.jpg',
   },
   {
     name: 'Charles Nunez',
     role: 'Environmental Specialist',
-    avatar: "/images/profile/user-3.jpg",
+    avatar: '/images/profile/user-3.jpg',
   },
 ];
 
@@ -62,9 +63,13 @@ const ProfileCard = () => {
         <Grid item xs={12} sm={4} key={index}>
           <BlankCard>
             <CardContent>
-              <Stack direction={'column'} gap={2} alignItems="center">
-                <Avatar alt="Remy Sharp" src={card.avatar} sx={{ width: '80px', height: '80px' }} />
-                <Box textAlign={'center'}>
+              <Stack direction="column" gap={2} alignItems="center">
+                <Avatar
+                  alt="Remy Sharp"
+                  src={card.avatar}
+                  sx={{ width: '80px', height: '80px' }}
+                />
+                <Box textAlign="center">
                   <Typography variant="h5">{card.name}</Typography>
                   <Typography variant="caption">{card.role}</Typography>
                 </Box>
@@ -74,9 +79,12 @@ const ProfileCard = () => {
             <Box
               p={2}
               py={1}
-              textAlign={'center'}
+              textAlign="center"
               sx={{
-                backgroundColor: theme.palette.mode === 'dark' ? 'rgba(0, 0, 0, 0.05)' : 'grey.100',
+                backgroundColor:
+                  theme.palette.mode === 'dark'
+                    ? 'rgba(0, 0, 0, 0.05)'
+                    : 'grey.100',
               }}
             >
               {SocialIcons.map((sicon) => {

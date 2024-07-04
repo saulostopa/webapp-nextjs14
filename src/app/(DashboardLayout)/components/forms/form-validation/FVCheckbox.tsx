@@ -1,10 +1,11 @@
-import React from 'react';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormHelperText from '@mui/material/FormHelperText';
 import Stack from '@mui/material/Stack';
+import { useFormik } from 'formik';
+import React from 'react';
+import * as yup from 'yup';
+
 import CustomCheckbox from '../theme-elements/CustomCheckbox';
 
 const validationSchema = yup.object({
@@ -38,7 +39,12 @@ const FVCheckbox = () => {
             color="secondary"
             onChange={formik.handleChange}
           />
-          <CustomCheckbox value="error" name="color" color="error" onChange={formik.handleChange} />
+          <CustomCheckbox
+            value="error"
+            name="color"
+            color="error"
+            onChange={formik.handleChange}
+          />
           {formik.errors.color && (
             <FormHelperText error id="standard-weight-helper-text-email-login">
               {' '}

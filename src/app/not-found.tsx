@@ -1,11 +1,12 @@
-"use client";
+'use client';
+
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 export default function NotFound() {
   return (
@@ -18,11 +19,11 @@ export default function NotFound() {
     >
       <Container maxWidth="md">
         <Image
-          src={"/images/backgrounds/errorimg.svg"}
+          src="/images/backgrounds/errorimg.svg"
           alt="404"
           width={500}
           height={500}
-          style={{ width: "100%", maxWidth: "500px", maxHeight: "500px" }}
+          style={{ width: '100%', maxWidth: '500px', maxHeight: '500px' }}
         />
         <Typography align="center" variant="h1" mb={4}>
           Opps!!!

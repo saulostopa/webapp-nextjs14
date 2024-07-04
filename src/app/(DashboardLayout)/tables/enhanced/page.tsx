@@ -1,13 +1,12 @@
-'use client'
+'use client';
 
-import React from 'react';
-import { alpha } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import IconButton from '@mui/material/IconButton';
+import { alpha } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -19,16 +18,19 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import { Stack } from '@mui/system';
 import { visuallyHidden } from '@mui/utils';
+import { IconFilter, IconTrash } from '@tabler/icons-react';
+import React from 'react';
+
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import CustomCheckbox from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomCheckbox';
 import CustomSwitch from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomSwitch';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import { IconTrash, IconFilter } from '@tabler/icons-react';
-import { Stack } from '@mui/system';
-import { EnhancedTableData, EnTableType } from '@/app/(DashboardLayout)/components/tables/tableData';
 import BlankCard from '@/app/(DashboardLayout)/components/shared/BlankCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import type { EnTableType } from '@/app/(DashboardLayout)/components/tables/tableData';
+import { EnhancedTableData } from '@/app/(DashboardLayout)/components/tables/tableData';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -57,7 +59,10 @@ type Order = 'asc' | 'desc';
 function getComparator<Key extends keyof any>(
   order: Order,
   orderBy: Key,
-): (a: { [key in Key]: number | string }, b: { [key in Key]: number | string }) => number {
+): (
+  a: { [key in Key]: number | string },
+  b: { [key in Key]: number | string },
+) => number {
   return order === 'desc'
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
@@ -133,10 +138,18 @@ interface EnhancedTableProps {
 }
 
 function EnhancedTableHead(props: EnhancedTableProps) {
-  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
-  const createSortHandler = (property: keyof []) => (event: React.MouseEvent<unknown>) => {
-    onRequestSort(event, property);
-  };
+  const {
+    onSelectAllClick,
+    order,
+    orderBy,
+    numSelected,
+    rowCount,
+    onRequestSort,
+  } = props;
+  const createSortHandler =
+    (property: keyof []) => (event: React.MouseEvent<unknown>) => {
+      onRequestSort(event, property);
+    };
 
   return (
     <TableHead>
@@ -193,16 +206,29 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
         pr: { xs: 1, sm: 1 },
         ...(numSelected > 0 && {
           bgcolor: (theme) =>
-            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
+            alpha(
+              theme.palette.primary.main,
+              theme.palette.action.activatedOpacity,
+            ),
         }),
       }}
     >
       {numSelected > 0 ? (
-        <Typography sx={{ flex: '1 1 100%' }} color="inherit" variant="subtitle2" component="div">
+        <Typography
+          sx={{ flex: '1 1 100%' }}
+          color="inherit"
+          variant="subtitle2"
+          component="div"
+        >
           {numSelected} selected
         </Typography>
       ) : (
-        <Typography sx={{ flex: '1 1 100%' }} variant="h6" id="tableTitle" component="div">
+        <Typography
+          sx={{ flex: '1 1 100%' }}
+          variant="h6"
+          id="tableTitle"
+          component="div"
+        >
           Filter
         </Typography>
       )}
@@ -232,7 +258,10 @@ const EnhanceTable = () => {
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof []) => {
+  const handleRequestSort = (
+    event: React.MouseEvent<unknown>,
+    property: keyof [],
+  ) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
@@ -272,7 +301,9 @@ const EnhanceTable = () => {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
@@ -284,7 +315,8 @@ const EnhanceTable = () => {
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+  const emptyRows =
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
   return (
     <PageContainer title="Enhanced Table" description="this is Enhanced Table">
@@ -347,14 +379,21 @@ const EnhanceTable = () => {
                                 <Typography variant="h6" fontWeight="600">
                                   {row.name}
                                 </Typography>
-                                <Typography color="textSecondary" variant="subtitle2">
+                                <Typography
+                                  color="textSecondary"
+                                  variant="subtitle2"
+                                >
                                   {row.email}
                                 </Typography>
                               </Box>
                             </Stack>
                           </TableCell>
                           <TableCell>
-                            <Typography color="textSecondary" variant="subtitle2" fontWeight="400">
+                            <Typography
+                              color="textSecondary"
+                              variant="subtitle2"
+                              fontWeight="400"
+                            >
                               {row.pname}
                             </Typography>
                           </TableCell>
@@ -377,21 +416,25 @@ const EnhanceTable = () => {
                             </Stack>
                           </TableCell>
                           <TableCell>
-                            <Stack spacing={1} direction="row" alignItems="center">
+                            <Stack
+                              spacing={1}
+                              direction="row"
+                              alignItems="center"
+                            >
                               <Badge
                                 color={
                                   row.status === 'Active'
                                     ? 'success'
                                     : row.status === 'Pending'
-                                    ? 'warning'
-                                    : row.status === 'Completed'
-                                    ? 'primary'
-                                    : row.status === 'Cancel'
-                                    ? 'error'
-                                    : 'secondary'
+                                      ? 'warning'
+                                      : row.status === 'Completed'
+                                        ? 'primary'
+                                        : row.status === 'Cancel'
+                                          ? 'error'
+                                          : 'secondary'
                                 }
                                 variant="dot"
-                              ></Badge>
+                              />
                               <Typography color="textSecondary" variant="body1">
                                 {row.status}
                               </Typography>
@@ -432,7 +475,9 @@ const EnhanceTable = () => {
           </Box>
           <Box p={2}>
             <FormControlLabel
-              control={<CustomSwitch checked={dense} onChange={handleChangeDense} />}
+              control={
+                <CustomSwitch checked={dense} onChange={handleChangeDense} />
+              }
               label="Dense padding"
             />
           </Box>

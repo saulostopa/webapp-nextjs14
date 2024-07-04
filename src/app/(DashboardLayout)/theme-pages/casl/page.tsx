@@ -1,11 +1,13 @@
-'use client'
-import React from 'react';
+'use client';
+
 import { defineAbility } from '@casl/ability';
 import { Can } from '@casl/react';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import { Box, Button, List, ListItem, Stack } from '@mui/material';
+import React from 'react';
+
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -98,30 +100,40 @@ const addresses: addressType[] = [
 
 const RollbaseCASL = () => {
   const [userId, setUserId] = React.useState(Object.keys(users)[0]);
-  const userPermissions = users[userId].permissions.map((id: number) => permissions[id]);
+  const userPermissions = users[userId].permissions.map(
+    (id: number) => permissions[id],
+  );
 
   const actions = [
-    ...userPermissions.reduce((collection: any, { action }: { action: any }) => {
-      collection.add(action);
+    ...userPermissions.reduce(
+      (collection: any, { action }: { action: any }) => {
+        collection.add(action);
 
-      return collection;
-    }, new Set()),
+        return collection;
+      },
+      new Set(),
+    ),
   ];
 
   const ability = defineAbility((can) => {
-    userPermissions.forEach(({ action, subject }: { action: any; subject: any }) => {
-      can(action, subject);
-    });
+    userPermissions.forEach(
+      ({ action, subject }: { action: any; subject: any }) => {
+        can(action, subject);
+      },
+    );
   });
 
   return (
-    <PageContainer title="Rollbase Access" description="this is Rollbase Access">
+    <PageContainer
+      title="Rollbase Access"
+      description="this is Rollbase Access"
+    >
       {/* breadcrumb */}
       <Breadcrumb title="Rollbase Access" items={BCrumb} />
       {/* end breadcrumb */}
       <ParentCard title="Permission Base Access with CASL">
         <>
-          <Stack direction={'row'} gap={1}>
+          <Stack direction="row" gap={1}>
             {Object.entries(users).map(([id]) => (
               <Button
                 key={id}
@@ -133,7 +145,7 @@ const RollbaseCASL = () => {
               </Button>
             ))}
           </Stack>
-          <Box p={2} mt={2} bgcolor={'primary.light'}>
+          <Box p={2} mt={2} bgcolor="primary.light">
             {users[userId].permissions.map((permission: string) => (
               <Box key={permission}>{permission}</Box>
             ))}
@@ -142,7 +154,7 @@ const RollbaseCASL = () => {
           <List>
             {addresses.map(({ city, street, type }) => (
               <ListItem key={city}>
-                <Stack direction={'row'} gap={1} alignItems="center">
+                <Stack direction="row" gap={1} alignItems="center">
                   {city}, {street}
                   {actions.map((action) => (
                     <Can I={action} a={type} ability={ability} key={action}>

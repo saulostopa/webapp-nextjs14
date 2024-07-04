@@ -1,19 +1,23 @@
-"use client";
-import Link from "next/link";
+'use client';
+
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
-import Logo from "@/app/(DashboardLayout)/layout/shared/logo/Logo";
-import AuthLogin from "../../authForms/AuthLogin";
-import { useSelector } from "@/store/hooks";
-import { AppState } from "@/store/store";
+import Link from 'next/link';
+
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
+import { useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
+
+import AuthLogin from '../../authForms/AuthLogin';
+
 export default function Login() {
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
   const customizer = useSelector((state: AppState) => state.customizer);
 
   return (
@@ -23,38 +27,38 @@ export default function Login() {
           position="relative"
           width="100%"
           sx={{
-            maxWidth: "1600px",
-            height: "calc(100vh - 20px)",
-            margin: "10px auto",
+            maxWidth: '1600px',
+            height: 'calc(100vh - 20px)',
+            margin: '10px auto',
             background: (theme) => theme.palette.grey[200],
-            overflow: "hidden",
+            overflow: 'hidden',
             borderRadius: customizer.borderRadius / 18,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           <Box
             sx={{
-              position: "relative",
-              "&:before": {
+              position: 'relative',
+              '&:before': {
                 content: "''",
-                position: "absolute",
-                left: "-125px",
-                bottom: "-50px",
-                width: "300px",
-                height: "300px",
-                borderRadius: "100%",
-                backgroundColor: "error.main",
+                position: 'absolute',
+                left: '-125px',
+                bottom: '-50px',
+                width: '300px',
+                height: '300px',
+                borderRadius: '100%',
+                backgroundColor: 'error.main',
               },
-              "&:after": {
+              '&:after': {
                 content: "''",
-                position: "absolute",
-                top: "-65px",
-                right: "-60px",
-                width: "304px",
-                height: "315px",
-                backgroundRepeat: "no-repeat",
+                position: 'absolute',
+                top: '-65px',
+                right: '-60px',
+                width: '304px',
+                height: '315px',
+                backgroundRepeat: 'no-repeat',
                 background: "url('/images/backgrounds/shap-login.png')",
               },
             }}
@@ -62,20 +66,20 @@ export default function Login() {
             <Box
               width="100%"
               sx={{
-                position: "relative",
+                position: 'relative',
                 borderRadius: customizer.borderRadius / 18,
                 zIndex: 1,
                 margin: {
-                  lg: "50px auto 50px auto",
-                  sm: "0 20px ",
-                  xs: "0 15px",
+                  lg: '50px auto 50px auto',
+                  sm: '0 20px ',
+                  xs: '0 15px',
                 },
-                boxShadow: "0 2px 30px 15px rgba(37,83,185,.1)",
-                backgroundColor: "white",
+                boxShadow: '0 2px 30px 15px rgba(37,83,185,.1)',
+                backgroundColor: 'white',
                 maxWidth: {
-                  xs: "340px",
-                  sm: "500px",
-                  lg: "1320px",
+                  xs: '340px',
+                  sm: '500px',
+                  lg: '1320px',
                 },
               }}
             >
@@ -105,16 +109,16 @@ export default function Login() {
                         src="/images/backgrounds/login3-bg.png"
                         alt="login"
                         sx={{
-                          width: "500px",
-                          height: "500px",
-                          maxWidth: "100%",
+                          width: '500px',
+                          height: '500px',
+                          maxWidth: '100%',
                           borderRadius: 0,
-                          margin: "0 auto",
+                          margin: '0 auto',
                         }}
                       />
                     </Grid>
                   ) : (
-                    ""
+                    ''
                   )}
                   <Grid item xs={12} sm={12} lg={6}>
                     <Box
@@ -149,8 +153,8 @@ export default function Login() {
                               href="/auth/auth1/register"
                               fontWeight="500"
                               sx={{
-                                textDecoration: "none",
-                                color: "primary.main",
+                                textDecoration: 'none',
+                                color: 'primary.main',
                               }}
                             >
                               Create an account
@@ -170,4 +174,4 @@ export default function Login() {
   );
 }
 
-Login.layout = "Blank";
+Login.layout = 'Blank';

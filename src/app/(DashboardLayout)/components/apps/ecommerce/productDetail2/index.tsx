@@ -1,46 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
-import Link from "next/link";
-
 // MUI Elements
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import Chip from '@mui/material/Chip';
 import Divider from '@mui/material/Divider';
-import Fab from '@mui/material/Fab';
+import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
-import Rating from '@mui/material/Rating';
+import MenuItem from '@mui/material/MenuItem';
+import type { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Typography from '@mui/material/Typography';
+import { IconMinus, IconPlus, IconStarFilled } from '@tabler/icons-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
-import { useSelector, useDispatch } from "@/store/hooks";
-import { AppState } from "@/store/store";
 import {
-  fetchProducts,
   addToCart,
-} from "@/store/apps/eCommerce/ECommerceSlice";
-import {
-  IconCheck,
-  IconMinus,
-  IconPlus,
-  IconStarFilled,
-} from "@tabler/icons-react";
-import AlertCart from "../productCart/AlertCart";
-import { ProductType } from "../../../../types/apps/eCommerce";
-import ProductDesc from "./ProductDesc";
+  fetchProducts,
+} from '@/store/apps/eCommerce/ECommerceSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
+
+import type { ProductType } from '../../../../types/apps/eCommerce';
+import AlertCart from '../productCart/AlertCart';
+import ProductDesc from './ProductDesc';
 
 const ProductDetail = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const router = usePathname();
 
-  const getTitle: string | any = router.split("/").pop();
+  const getTitle: string | any = router.split('/').pop();
 
   // Get Product
   useEffect(() => {
@@ -49,16 +41,16 @@ const ProductDetail = () => {
 
   // Get Products
   const product: ProductType | any = useSelector(
-    (state: AppState) => state.ecommerceReducer.products[getTitle - 1]
+    (state: AppState) => state.ecommerceReducer.products[getTitle - 1],
   );
 
   /// select colors on click
-  const [scolor, setScolor] = useState(product ? product.colors[0] : "");
+  const [scolor, setScolor] = useState(product ? product.colors[0] : '');
   const setColor = (e: string) => {
     setScolor(e);
   };
 
-  //set qty
+  // set qty
   const [count, setCount] = useState(1);
 
   // for alert when added something to cart
@@ -69,21 +61,21 @@ const ProductDetail = () => {
   };
 
   const handleClose = (reason: string) => {
-    if (reason === "clickaway") {
+    if (reason === 'clickaway') {
       return;
     }
     setCartalert(false);
   };
 
   // color select
-  const [color, setPColor] = React.useState("10");
+  const [color, setPColor] = React.useState('10');
 
   const handleChange = (event: SelectChangeEvent) => {
     setPColor(event.target.value as string);
   };
 
   // size select
-  const [size, setSize] = React.useState("10");
+  const [size, setSize] = React.useState('10');
 
   const handleChange2 = (event: SelectChangeEvent) => {
     setSize(event.target.value as string);
@@ -139,13 +131,13 @@ const ProductDetail = () => {
             gap={2}
           >
             <Box
-              component={"div"}
+              component="div"
               fontSize="21px"
-              sx={{ textDecoration: "line-through" }}
+              sx={{ textDecoration: 'line-through' }}
               color="textSecondary"
             >
               ${product.salesPrice}
-            </Box>{" "}
+            </Box>{' '}
             ${product.price}
           </Typography>
 
@@ -232,7 +224,7 @@ const ProductDetail = () => {
                 href="/apps/eco-checkout"
                 onClick={() => dispatch(addToCart(product))}
               >
-               Add to Wishlist
+                Add to Wishlist
               </Button>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -256,7 +248,7 @@ const ProductDetail = () => {
           <AlertCart handleClose={handleClose} openCartAlert={cartalert} />
         </>
       ) : (
-        "No product"
+        'No product'
       )}
     </Box>
   );

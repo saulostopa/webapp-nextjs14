@@ -1,19 +1,17 @@
-'use client'
+'use client';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import BasicIcons from '@/app/(DashboardLayout)/components/forms/form-vertical/BasicIcons';
+import BasicLayout from '@/app/(DashboardLayout)/components/forms/form-vertical/BasicLayout';
+import CollapsibleForm from '@/app/(DashboardLayout)/components/forms/form-vertical/CollapsibleForm';
+import FormSeparator from '@/app/(DashboardLayout)/components/forms/form-vertical/FormSeparator';
+import FormTabs from '@/app/(DashboardLayout)/components/forms/form-vertical/FormTabs';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
 // components
 import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-
-import BasicLayout from '@/app/(DashboardLayout)/components/forms/form-vertical/BasicLayout';
-
-import BasicIcons from '@/app/(DashboardLayout)/components/forms/form-vertical/BasicIcons';
-import FormSeparator from '@/app/(DashboardLayout)/components/forms/form-vertical/FormSeparator';
-import CollapsibleForm from '@/app/(DashboardLayout)/components/forms/form-vertical/CollapsibleForm';
-import FormTabs from '@/app/(DashboardLayout)/components/forms/form-vertical/FormTabs';
 
 const BCrumb = [
   {
@@ -38,11 +36,9 @@ const FormVertical = () => {
           </ParentCard>
         </Grid>
         <Grid item xs={12} lg={6}>
-            
           <ParentCard title="Basic with Icons">
             <BasicIcons />
           </ParentCard>
-
         </Grid>
         <Grid item xs={12}>
           <ParentCard title="Multi Column with Form Separator">
@@ -50,11 +46,15 @@ const FormVertical = () => {
           </ParentCard>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="h5" mb={3}>Collapsible Section</Typography>
+          <Typography variant="h5" mb={3}>
+            Collapsible Section
+          </Typography>
           <CollapsibleForm />
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="h5" mb={3}>Form with Tabs</Typography>
+          <Typography variant="h5" mb={3}>
+            Form with Tabs
+          </Typography>
           <FormTabs />
         </Grid>
       </Grid>

@@ -6,7 +6,7 @@ const Menuitems = [
     title: 'Dashboard',
     icon: 'screencast-2-line-duotone',
     href: '/dashboards/',
-    bgcolor: "primary",
+    bgcolor: 'primary',
     children: [
       {
         id: uniqueId(),
@@ -27,7 +27,7 @@ const Menuitems = [
     title: 'Apps',
     icon: 'clapperboard-text-line-duotone',
     href: '/apps/',
-    bgcolor: "secondary",
+    bgcolor: 'secondary',
     children: [
       {
         id: uniqueId(),
@@ -138,7 +138,7 @@ const Menuitems = [
     title: 'Pages',
     icon: 'folder-with-files-line-duotone',
     href: '/ui-components/',
-    bgcolor: "success",
+    bgcolor: 'success',
     children: [
       {
         id: uniqueId(),
@@ -389,7 +389,7 @@ const Menuitems = [
     title: 'Forms',
     icon: 'file-line-duotone',
     href: '/forms/form-elements/autocomplete',
-    bgcolor: "warning",
+    bgcolor: 'warning',
     children: [
       {
         id: uniqueId(),
@@ -465,7 +465,7 @@ const Menuitems = [
     title: 'Tables',
     icon: 'layers-minimalistic-line-duotone',
     href: '/tables/',
-    bgcolor: "error",
+    bgcolor: 'error',
     children: [
       {
         id: uniqueId(),

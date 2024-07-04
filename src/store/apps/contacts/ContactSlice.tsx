@@ -1,7 +1,8 @@
-import axios from '../../../utils/axios';
-import { createSlice } from '@reduxjs/toolkit';
-import { AppDispatch } from '../../store';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+
+import axios from '../../../utils/axios';
+import type { AppDispatch } from '../../store';
 
 const API_URL = '/api/data/contacts/ContactsData';
 
@@ -36,12 +37,16 @@ export const ContactSlice = createSlice({
     },
     DeleteContact: (state: StateType, action) => {
       state.contacts = state.contacts.map((contact) =>
-        contact.id === action.payload ? { ...contact, deleted: !contact.deleted } : contact,
+        contact.id === action.payload
+          ? { ...contact, deleted: !contact.deleted }
+          : contact,
       );
     },
     toggleStarredContact: (state: StateType, action) => {
       state.contacts = state.contacts.map((contact) =>
-        contact.id === action.payload ? { ...contact, starred: !contact.starred } : contact,
+        contact.id === action.payload
+          ? { ...contact, starred: !contact.starred }
+          : contact,
       );
     },
     isEdit: (state: StateType) => {

@@ -1,12 +1,14 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from "@mui/material/styles";
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import DashboardCard from "../../shared/DashboardCard";
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+import DashboardCard from '../../shared/DashboardCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const RevenueUpdates = () => {
   // chart color
@@ -17,9 +19,9 @@ const RevenueUpdates = () => {
   // chart
   const optionscolumnchart: any = {
     chart: {
-      type: "bar",
+      type: 'bar',
       fontFamily: "'Plus Jakarta Sans', sans-serif;",
-      foreColor: "#adb0bb",
+      foreColor: '#adb0bb',
       toolbar: {
         show: false,
       },
@@ -31,11 +33,11 @@ const RevenueUpdates = () => {
     plotOptions: {
       bar: {
         horizontal: false,
-        barHeight: "60%",
-        columnWidth: "20%",
+        barHeight: '60%',
+        columnWidth: '20%',
         borderRadius: [6],
-        borderRadiusApplication: "end",
-        borderRadiusWhenStacked: "all",
+        borderRadiusApplication: 'end',
+        borderRadiusWhenStacked: 'all',
       },
     },
     stroke: {
@@ -56,83 +58,81 @@ const RevenueUpdates = () => {
       tickAmount: 4,
     },
     xaxis: {
-      categories: ["Jan", "Feb", "Mar", "Apr", "May"],
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
       axisTicks: {
         show: false,
       },
     },
     tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
+      theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
       fillSeriesColor: false,
     },
   };
   const seriescolumnchart = [
     {
-      name: "Footware",
+      name: 'Footware',
       data: [2.5, 3.7, 3.2, 2.6, 1.9],
     },
     {
-      name: "Fashionware",
+      name: 'Fashionware',
       data: [-2.8, -1.1, -3.0, -1.5, -1.9],
     },
   ];
 
   return (
-    <>
-      <DashboardCard title="Revenue Updates" subtitle="Overview of Profit">
-        <>
-          <Stack direction="row" spacing={3}>
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <Avatar
-                sx={{
-                  width: 9,
-                  height: 9,
-                  bgcolor: primary,
-                  svg: { display: "none" },
-                }}
-              ></Avatar>
-              <Box>
-                <Typography
-                  variant="subtitle2"
-                  fontSize="12px"
-                  color="textSecondary"
-                >
-                  Footware
-                </Typography>
-              </Box>
-            </Stack>
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <Avatar
-                sx={{
-                  width: 9,
-                  height: 9,
-                  bgcolor: secondary,
-                  svg: { display: "none" },
-                }}
-              ></Avatar>
-              <Box>
-                <Typography
-                  variant="subtitle2"
-                  fontSize="12px"
-                  color="textSecondary"
-                >
-                  Fashionware
-                </Typography>
-              </Box>
-            </Stack>
-          </Stack>
-          <Box className="rounded-bars" height="335px">
-            <Chart
-              options={optionscolumnchart}
-              series={seriescolumnchart}
-              type="bar"
-              height="320px"
-              width={"100%"}
+    <DashboardCard title="Revenue Updates" subtitle="Overview of Profit">
+      <>
+        <Stack direction="row" spacing={3}>
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <Avatar
+              sx={{
+                width: 9,
+                height: 9,
+                bgcolor: primary,
+                svg: { display: 'none' },
+              }}
             />
-          </Box>
-        </>
-      </DashboardCard>
-    </>
+            <Box>
+              <Typography
+                variant="subtitle2"
+                fontSize="12px"
+                color="textSecondary"
+              >
+                Footware
+              </Typography>
+            </Box>
+          </Stack>
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <Avatar
+              sx={{
+                width: 9,
+                height: 9,
+                bgcolor: secondary,
+                svg: { display: 'none' },
+              }}
+            />
+            <Box>
+              <Typography
+                variant="subtitle2"
+                fontSize="12px"
+                color="textSecondary"
+              >
+                Fashionware
+              </Typography>
+            </Box>
+          </Stack>
+        </Stack>
+        <Box className="rounded-bars" height="335px">
+          <Chart
+            options={optionscolumnchart}
+            series={seriescolumnchart}
+            type="bar"
+            height="320px"
+            width="100%"
+          />
+        </Box>
+      </>
+    </DashboardCard>
   );
 };
 

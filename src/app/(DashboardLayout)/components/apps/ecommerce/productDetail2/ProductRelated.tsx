@@ -1,19 +1,17 @@
-import React, { useEffect } from "react";
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
-import Rating from '@mui/material/Rating';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { useSelector, useDispatch } from "@/store/hooks";
-import { fetchProducts } from "@/store/apps/eCommerce/EcommerceSlicev2";
-import Link from "next/link";
-import BlankCard from "../../../shared/BlankCard";
-import { ProductType } from "../../../../types/apps/eCommerce";
-import Image from "next/image";
-import { IconStarFilled } from "@tabler/icons-react";
+import { IconStarFilled } from '@tabler/icons-react';
+import Link from 'next/link';
+import React, { useEffect } from 'react';
+
+import { fetchProducts } from '@/store/apps/eCommerce/EcommerceSlicev2';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import type { ProductType } from '../../../../types/apps/eCommerce';
 
 const ProductRelated = () => {
   const dispatch = useDispatch();
@@ -31,7 +29,7 @@ const ProductRelated = () => {
 
   // Get Products
   const Relatedproducts = useSelector((state) =>
-    filterRelatedProduct(state.ecommerce2Reducer.products)
+    filterRelatedProduct(state.ecommerce2Reducer.products),
   );
 
   // skeleton
@@ -48,7 +46,7 @@ const ProductRelated = () => {
   return (
     <Box>
       <Typography variant="h4" mb={4} mt={7}>
-      You might also like
+        You might also like
       </Typography>
       <Grid container spacing={3}>
         {Relatedproducts.map((product) => (
@@ -70,9 +68,9 @@ const ProductRelated = () => {
               width="100%"
               sx={{
                 borderRadius: 0,
-                "&:hover .wishList": {
-                  right: "0 !important",
-                  visibility: "visible",
+                '&:hover .wishList': {
+                  right: '0 !important',
+                  visibility: 'visible',
                 },
               }}
             >
@@ -89,43 +87,43 @@ const ProductRelated = () => {
                       borderRadius: (theme) => theme.shape.borderRadius / 27,
                     }}
                     height={268}
-                  ></Skeleton>
+                  />
                 ) : (
                   <Avatar
                     src={product.photo}
                     alt="img"
-                    sx={{ width: "100%", height: "256px", borderRadius: "9px" }}
+                    sx={{ width: '100%', height: '256px', borderRadius: '9px' }}
                   />
                 )}
               </Typography>
-             
-                <Typography variant="h6" my={1}>
-                  {product.title}
+
+              <Typography variant="h6" my={1}>
+                {product.title}
+              </Typography>
+              <Stack direction="row" alignItems="center" spacing={1}>
+                <Box color="warning.main" display="flex" alignItems="center">
+                  <IconStarFilled width={16} />
+                </Box>
+                <Typography variant="h6" color="textSecondary">
+                  4.8
                 </Typography>
-                <Stack direction="row" alignItems="center" spacing={1}>
-                  <Box color="warning.main" display="flex" alignItems="center">
-                    <IconStarFilled width={16} />
-                  </Box>
-                  <Typography variant="h6" color="textSecondary">
-                    4.8
-                  </Typography>
-                  <Typography color="textSecondary">
-                    ({product.rating})
+                <Typography color="textSecondary">
+                  ({product.rating})
+                </Typography>
+              </Stack>
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="space-between"
+                mt={1}
+              >
+                <Stack direction="row" alignItems="center">
+                  <Typography variant="h6">${product.price}</Typography>
+                  <Typography color="textSecondary" ml={1}>
+                    ${product.salesPrice}
                   </Typography>
                 </Stack>
-                <Stack
-                  direction="row"
-                  alignItems="center"
-                  justifyContent="space-between"
-                  mt={1}
-                >
-                  <Stack direction="row" alignItems="center">
-                    <Typography variant="h6">${product.price}</Typography>
-                    <Typography color="textSecondary" ml={1}>
-                      ${product.salesPrice}
-                    </Typography>
-                  </Stack>
-                </Stack>
+              </Stack>
             </Box>
           </Grid>
         ))}

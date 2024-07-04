@@ -1,6 +1,7 @@
-"use client";
-import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
-import DashboardCard from "@/app/(DashboardLayout)/components/shared/DashboardCard";
+'use client';
+
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
 
 const Icons = () => {
   return (
@@ -12,7 +13,7 @@ const Icons = () => {
           frameBorder={0}
           width="100%"
           height="650"
-        ></iframe>
+        />
       </DashboardCard>
     </PageContainer>
   );

@@ -1,4 +1,3 @@
-import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
@@ -12,14 +11,23 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import BlankCard from '../shared/BlankCard';
 import { Box, Stack } from '@mui/system';
-import { IconCircle, IconClock, IconDots, IconEdit, IconPlus, IconTrash } from '@tabler/icons-react';
+import {
+  IconCircle,
+  IconClock,
+  IconDots,
+  IconEdit,
+  IconPlus,
+  IconTrash,
+} from '@tabler/icons-react';
+import React from 'react';
+
+import BlankCard from '../shared/BlankCard';
 
 const rows = [
   {
     status: 'active',
-    avatar: "/images/profile/user-1.jpg",
+    avatar: '/images/profile/user-1.jpg',
     tag: 'rhye',
     cname: 'Olivia Rhye',
     email: 'olivia@ui.com',
@@ -30,7 +38,7 @@ const rows = [
   },
   {
     status: 'offline',
-    avatar: "/images/profile/user-2.jpg",
+    avatar: '/images/profile/user-2.jpg',
     tag: 'steele',
     cname: 'Barbara Steele',
     email: 'steele@ui.com',
@@ -41,7 +49,7 @@ const rows = [
   },
   {
     status: 'active',
-    avatar: "/images/profile/user-3.jpg",
+    avatar: '/images/profile/user-3.jpg',
     tag: 'gordon',
     cname: 'Leonard Gordon',
     email: 'olivia@ui.com',
@@ -52,7 +60,7 @@ const rows = [
   },
   {
     status: 'offline',
-    avatar: "/images/profile/user-4.jpg",
+    avatar: '/images/profile/user-4.jpg',
     tag: 'pope',
     cname: 'Evelyn Pope',
     email: 'steele@ui.com',
@@ -63,7 +71,7 @@ const rows = [
   },
   {
     status: 'active',
-    avatar: "/images/profile/user-5.jpg",
+    avatar: '/images/profile/user-5.jpg',
     tag: 'garza',
     cname: 'Tommy Garza',
     email: 'olivia@ui.com',
@@ -71,7 +79,7 @@ const rows = [
   },
   {
     status: 'active',
-    avatar: "/images/profile/user-6.jpg",
+    avatar: '/images/profile/user-6.jpg',
     tag: 'vasquez',
     cname: 'Isabel Vasquez',
     email: 'steele@ui.com',
@@ -108,16 +116,23 @@ const Table3 = () => {
                 <Typography variant="h6">Teams</Typography>
               </TableCell>
 
-              <TableCell></TableCell>
+              <TableCell />
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <TableRow key={row.cname} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+              <TableRow
+                key={row.cname}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
                 <TableCell>
                   <Stack direction="row" spacing={2}>
-                    <Avatar src={row.avatar} alt={row.avatar} sx={{ width: 42, height: 42 }} />
-                    <Box> 
+                    <Avatar
+                      src={row.avatar}
+                      alt={row.avatar}
+                      sx={{ width: 42, height: 42 }}
+                    />
+                    <Box>
                       <Typography variant="h6">{row.cname}</Typography>
                       <Typography variant="subtitle1" color="textSecondary">
                         @{row.tag}
@@ -130,7 +145,11 @@ const Table3 = () => {
                     label={row.status}
                     size="small"
                     icon={
-                      row.status == 'active' ? <IconCircle width={14} /> : <IconClock width={14} />
+                      row.status == 'active' ? (
+                        <IconCircle width={14} />
+                      ) : (
+                        <IconClock width={14} />
+                      )
                     }
                     sx={{
                       backgroundColor:
@@ -157,7 +176,11 @@ const Table3 = () => {
                     {row.teams.map((team, i) => (
                       <Chip
                         label={team.name}
-                        sx={{ backgroundColor: team.bgcolor, color: 'white', fontSize: '11px' }}
+                        sx={{
+                          backgroundColor: team.bgcolor,
+                          color: 'white',
+                          fontSize: '11px',
+                        }}
                         key={i}
                         size="small"
                       />

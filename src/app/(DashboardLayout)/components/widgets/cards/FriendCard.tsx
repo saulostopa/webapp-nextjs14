@@ -6,28 +6,29 @@ import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/system';
+
 import BlankCard from '../../shared/BlankCard';
 
 const followerCard = [
   {
     title: 'Andrew Grant',
     location: 'El Salvador',
-    avatar: "/images/profile/user-1.jpg",
+    avatar: '/images/profile/user-1.jpg',
   },
   {
     title: 'Leo Pratt',
     location: 'Bulgaria',
-    avatar: "/images/profile/user-2.jpg",
+    avatar: '/images/profile/user-2.jpg',
   },
   {
     title: 'Charles Nunez',
     location: 'Nepal',
-    avatar: "/images/profile/user-3.jpg",
+    avatar: '/images/profile/user-3.jpg',
   },
   {
     title: 'Lora Powers',
     location: 'Nepal',
-    avatar: "/images/profile/user-4.jpg",
+    avatar: '/images/profile/user-4.jpg',
   },
 ];
 
@@ -38,7 +39,7 @@ const FriendCard = () => {
         <Grid item xs={12} sm={6} lg={3} key={index}>
           <BlankCard>
             <CardContent>
-              <Avatar src={card.avatar} sx={{ height: 80, width: 80 }}></Avatar>
+              <Avatar src={card.avatar} sx={{ height: 80, width: 80 }} />
               <Stack direction="row" spacing={2} mt={3}>
                 <Box>
                   <Typography variant="h6" mb={1}>
@@ -46,9 +47,21 @@ const FriendCard = () => {
                   </Typography>
                   <Stack direction="row" spacing={2} alignItems="center">
                     <AvatarGroup>
-                      <Avatar sx={{ height: 28, width: 28 }} alt="Remy Sharp" src={"/images/profile/user-1.jpg"} />
-                      <Avatar sx={{ height: 28, width: 28 }} alt="Travis Howard" src={"/images/profile/user-2.jpg"} />
-                      <Avatar sx={{ height: 28, width: 28 }} alt="Cindy Baker" src={"/images/profile/user-3.jpg"} />
+                      <Avatar
+                        sx={{ height: 28, width: 28 }}
+                        alt="Remy Sharp"
+                        src="/images/profile/user-1.jpg"
+                      />
+                      <Avatar
+                        sx={{ height: 28, width: 28 }}
+                        alt="Travis Howard"
+                        src="/images/profile/user-2.jpg"
+                      />
+                      <Avatar
+                        sx={{ height: 28, width: 28 }}
+                        alt="Cindy Baker"
+                        src="/images/profile/user-3.jpg"
+                      />
                     </AvatarGroup>
                     <Typography variant="subtitle2" color="textSecondary">
                       3 mutual friends

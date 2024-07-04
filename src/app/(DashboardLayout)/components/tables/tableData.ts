@@ -28,7 +28,7 @@ export interface EnTableType {
 const basicsTableData: TableType[] = [
   {
     id: '1',
-    imgsrc: "/images/profile/user-1.jpg",
+    imgsrc: '/images/profile/user-1.jpg',
     name: 'Sunil Joshi',
     post: 'Web Designer',
     pname: 'Elite Admin',
@@ -49,7 +49,7 @@ const basicsTableData: TableType[] = [
   },
   {
     id: '2',
-    imgsrc: "/images/profile/user-2.jpg",
+    imgsrc: '/images/profile/user-2.jpg',
     name: 'Andrew McDownland',
     post: 'Project Manager',
     pname: 'Real Homes WP Theme',
@@ -75,7 +75,7 @@ const basicsTableData: TableType[] = [
   },
   {
     id: '3',
-    imgsrc: "/images/profile/user-3.jpg",
+    imgsrc: '/images/profile/user-3.jpg',
     name: 'Christopher Jamil',
     post: 'Project Manager',
     pname: 'MedicalPro WP Theme',
@@ -91,7 +91,7 @@ const basicsTableData: TableType[] = [
   },
   {
     id: '4',
-    imgsrc: "/images/profile/user-4.jpg",
+    imgsrc: '/images/profile/user-4.jpg',
     name: 'Nirav Joshi',
     post: 'Frontend Engineer',
     pname: 'Hosting Press HTML',
@@ -112,7 +112,7 @@ const basicsTableData: TableType[] = [
   },
   {
     id: '5',
-    imgsrc: "/images/profile/user-5.jpg",
+    imgsrc: '/images/profile/user-5.jpg',
     name: 'Micheal Doe',
     post: 'Content Writer',
     pname: 'Helping Hands WP Theme',
@@ -131,7 +131,7 @@ const basicsTableData: TableType[] = [
 const EnhancedTableData: EnTableType[] = [
   {
     id: '1',
-    imgsrc: "/images/profile/user-1.jpg",
+    imgsrc: '/images/profile/user-1.jpg',
     name: 'Sunil Joshi',
     email: 'sunil@gmail.com',
     pname: 'Elite Admin',
@@ -153,7 +153,7 @@ const EnhancedTableData: EnTableType[] = [
   },
   {
     id: '2',
-    imgsrc: "/images/profile/user-2.jpg",
+    imgsrc: '/images/profile/user-2.jpg',
     name: 'Andrew McDownland',
     email: 'andrew@gmail.com',
     pname: 'Real Homes WP Theme',
@@ -180,7 +180,7 @@ const EnhancedTableData: EnTableType[] = [
   },
   {
     id: '3',
-    imgsrc: "/images/profile/user-3.jpg",
+    imgsrc: '/images/profile/user-3.jpg',
     name: 'Christopher Jamil',
     email: 'jamil@gmail.com',
     pname: 'MedicalPro WP Theme',
@@ -197,7 +197,7 @@ const EnhancedTableData: EnTableType[] = [
   },
   {
     id: '4',
-    imgsrc: "/images/profile/user-4.jpg",
+    imgsrc: '/images/profile/user-4.jpg',
     name: 'Nirav Joshi',
     email: 'nirav@gmail.com',
     pname: 'Hosting Press HTML',
@@ -219,7 +219,7 @@ const EnhancedTableData: EnTableType[] = [
   },
   {
     id: '5',
-    imgsrc: "/images/profile/user-5.jpg",
+    imgsrc: '/images/profile/user-5.jpg',
     name: 'Micheal Doe',
     email: 'micheal@gmail.com',
     pname: 'Helping Hands WP Theme',
@@ -236,7 +236,7 @@ const EnhancedTableData: EnTableType[] = [
   },
   {
     id: '6',
-    imgsrc: "/images/profile/user-4.jpg",
+    imgsrc: '/images/profile/user-4.jpg',
     name: 'Nirav Joshi',
     email: 'nirav@gmail.com',
     pname: 'Hosting Press HTML',
@@ -258,7 +258,7 @@ const EnhancedTableData: EnTableType[] = [
   },
   {
     id: '7',
-    imgsrc: "/images/profile/user-1.jpg",
+    imgsrc: '/images/profile/user-1.jpg',
     name: 'Sunil Joshi',
     email: 'sunil@gmail.com',
     pname: 'Elite Admin',
@@ -280,7 +280,7 @@ const EnhancedTableData: EnTableType[] = [
   },
   {
     id: '8',
-    imgsrc: "/images/profile/user-2.jpg",
+    imgsrc: '/images/profile/user-2.jpg',
     name: 'Andrew McDownland',
     email: 'andrew@gmail.com',
     pname: 'Real Homes WP Theme',
@@ -307,7 +307,7 @@ const EnhancedTableData: EnTableType[] = [
   },
   {
     id: '9',
-    imgsrc: "/images/profile/user-3.jpg",
+    imgsrc: '/images/profile/user-3.jpg',
     name: 'Christopher Jamil',
     email: 'jamil@gmail.com',
     pname: 'MedicalPro WP Theme',
@@ -325,7 +325,7 @@ const EnhancedTableData: EnTableType[] = [
 
   {
     id: '10',
-    imgsrc: "/images/profile/user-5.jpg",
+    imgsrc: '/images/profile/user-5.jpg',
     name: 'Micheal Doe',
     email: 'micheal@gmail.com',
     pname: 'Helping Hands WP Theme',

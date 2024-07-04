@@ -1,7 +1,4 @@
-import React from "react";
-import Link from "next/link";
-import { Icon } from "@iconify/react";
-
+import { Icon } from '@iconify/react';
 // mui imports
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
@@ -9,13 +6,15 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { Theme } from '@mui/material/styles';
+import type { styled, Theme, useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { styled, useTheme } from '@mui/material/styles';
-import { useSelector } from "@/store/hooks";
-import { useTranslation } from "react-i18next";
-import { AppState } from "@/store/store";
+import Link from 'next/link';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
 
 type NavGroup = {
   [x: string]: any;
@@ -49,75 +48,75 @@ export default function NavItem({
   hideMenu,
   onClick,
 }: ItemType) {
-  const lgDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("lg"));
+  const lgDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
   const customizer = useSelector((state: AppState) => state.customizer);
-  //const Icon = item?.icon;
+  // const Icon = item?.icon;
   const theme = useTheme();
   const { t } = useTranslation();
-  //const itemIcon = level > 1 ? <Icon size={24} /> : <Icon size="1.5rem" />;
+  // const itemIcon = level > 1 ? <Icon size={24} /> : <Icon size="1.5rem" />;
 
   const ListItemStyled = styled(ListItemButton)(() => ({
-    whiteSpace: "nowrap",
-    marginBottom: "2px",
-    padding: "5px 10px 5px 0",
+    whiteSpace: 'nowrap',
+    marginBottom: '2px',
+    padding: '5px 10px 5px 0',
     borderRadius: `${customizer.borderRadius}px`,
-    backgroundColor: level > 1 ? "transparent !important" : "inherit",
+    backgroundColor: level > 1 ? 'transparent !important' : 'inherit',
     color:
       level > 1 && pathDirect === item?.href
         ? `${theme.palette.primary.main}!important`
         : theme.palette.text.secondary,
     fontWeight:
-      level > 1 && pathDirect === item?.href ? "600 !important" : "400",
+      level > 1 && pathDirect === item?.href ? '600 !important' : '400',
     paddingLeft: hideMenu
-      ? "0"
+      ? '0'
       : level > 2
-      ? `${level * 15}px`
-      : level > 1
-      ? "10px"
-      : "0",
-    "&:before": {
+        ? `${level * 15}px`
+        : level > 1
+          ? '10px'
+          : '0',
+    '&:before': {
       content: '""',
-      position: "absolute",
+      position: 'absolute',
       top: 0,
       bottom: 0,
-      left: "-20px",
-      height: "100%",
-      zIndex: "-1",
-      borderRadius: " 0 24px 24px 0",
-      transition: "all .3s ease-in-out",
-      width: "0",
+      left: '-20px',
+      height: '100%',
+      zIndex: '-1',
+      borderRadius: ' 0 24px 24px 0',
+      transition: 'all .3s ease-in-out',
+      width: '0',
     },
-    "&:hover::before": {
-      width: "calc(100% + 20px)",
+    '&:hover::before': {
+      width: 'calc(100% + 20px)',
       backgroundColor: theme.palette.primary.light,
     },
-    "& > .MuiListItemIcon-root": {
+    '& > .MuiListItemIcon-root': {
       width: 45,
       height: 40,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      borderRadius: "8px",
-      marginRight: "8px",
-      transition: "all .3s ease-in-out",
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '8px',
+      marginRight: '8px',
+      transition: 'all .3s ease-in-out',
       // color: item.children ? "" : theme.palette.primary.main,
       // backgroundColor: item.children ? "" : theme.palette.primary.light,
     },
-    "&:hover": {
-      backgroundColor: "transparent !important",
-      //color: theme.palette.primary.main,
+    '&:hover': {
+      backgroundColor: 'transparent !important',
+      // color: theme.palette.primary.main,
     },
-    "&.Mui-selected": {
-      //color: theme.palette.text.primary,
-     backgroundColor: "transparent !important",
-      ".MuiListItemIcon-root": {
+    '&.Mui-selected': {
+      // color: theme.palette.text.primary,
+      backgroundColor: 'transparent !important',
+      '.MuiListItemIcon-root': {
         color: theme.palette.primary.main,
       },
-      "&:before": {
+      '&:before': {
         backgroundColor: theme.palette.primary.light,
-        width: "calc(100% + 16px)",
+        width: 'calc(100% + 16px)',
       },
-      "&:hover": {
+      '&:hover': {
         // backgroundColor: theme.palette.primary.light,
         color: theme.palette.text.primary,
       },
@@ -130,10 +129,10 @@ export default function NavItem({
     target?: any;
     to?: any;
   } = {
-    component: item?.external ? "a" : Link,
+    component: item?.external ? 'a' : Link,
     to: item?.href,
-    href: item?.external ? item?.href : "",
-    target: item?.external ? "_blank" : "",
+    href: item?.external ? item?.href : '',
+    target: item?.external ? '_blank' : '',
   };
 
   return (
@@ -145,37 +144,37 @@ export default function NavItem({
           selected={pathDirect === item?.href}
           onClick={lgDown ? onClick : undefined}
           sx={{
-            "&:hover": {
-              ".MuiListItemIcon-root": {
-                color: item.bgcolor + ".main",
-                //backgroundColor: level < 2 ? menu.bgcolor + ".light" : "",
+            '&:hover': {
+              '.MuiListItemIcon-root': {
+                color: `${item.bgcolor}.main`,
+                // backgroundColor: level < 2 ? menu.bgcolor + ".light" : "",
               },
             },
-            "&:hover::before": {
-              backgroundColor: item.bgcolor + ".light",
+            '&:hover::before': {
+              backgroundColor: `${item.bgcolor}.light`,
             },
             // ".MuiListItemIcon-root": {
             //   color: item.bgcolor + ".main",
             //   backgroundColor: item.bgcolor + ".light",
             // },
-            "&.Mui-selected": {
+            '&.Mui-selected': {
               color:
                 level > 1
                   ? `${theme.palette.text.secondary} !important`
-                  : item.bgcolor + ".main",
-              "& .MuiTypography-root": {
-                fontWeight: level > 1 ? "600 !important" : 400,
+                  : `${item.bgcolor}.main`,
+              '& .MuiTypography-root': {
+                fontWeight: level > 1 ? '600 !important' : 400,
               },
-              ".MuiListItemIcon-root": {
-                color: item.bgcolor + ".main",
+              '.MuiListItemIcon-root': {
+                color: `${item.bgcolor}.main`,
               },
-              "&:before": {
-                backgroundColor: item.bgcolor + ".light",
+              '&:before': {
+                backgroundColor: `${item.bgcolor}.light`,
               },
-              "&:hover": {
-                color: item.bgcolor + ".main",
-                ".MuiListItemIcon-root": {
-                  color: item.bgcolor + ".main",
+              '&:hover': {
+                color: `${item.bgcolor}.main`,
+                '.MuiListItemIcon-root': {
+                  color: `${item.bgcolor}.main`,
                 },
               },
             },
@@ -183,20 +182,20 @@ export default function NavItem({
         >
           <ListItemIcon
             sx={{
-              minWidth: "36px",
-              p: "3px 0",
+              minWidth: '36px',
+              p: '3px 0',
               color:
                 level > 1 && pathDirect === item?.href
                   ? `${theme.palette.primary.main}!important`
-                  : "inherit",
+                  : 'inherit',
             }}
           >
             {level > 1 ? (
               <Box
                 sx={{
-                  width: "6px",
-                  height: "6px",
-                  opacity: level > 1 && pathDirect === item?.href ? 1 : "0.3",
+                  width: '6px',
+                  height: '6px',
+                  opacity: level > 1 && pathDirect === item?.href ? 1 : '0.3',
                   backgroundColor:
                     level > 1 && pathDirect === item?.href
                       ? theme.palette.text.secondary
@@ -204,26 +203,26 @@ export default function NavItem({
                 }}
               />
             ) : (
-              <Icon icon={"solar:" + item.icon} width="24" height="24" />
+              <Icon icon={`solar:${item.icon}`} width="24" height="24" />
             )}
             {/* {itemIcon} */}
           </ListItemIcon>
           <ListItemText>
-            {hideMenu ? "" : <>{t(`${item?.title}`)}</>}
+            {hideMenu ? '' : <>{t(`${item?.title}`)}</>}
             <br />
             {item?.subtitle ? (
               <Typography variant="caption">
-                {hideMenu ? "" : item?.subtitle}
+                {hideMenu ? '' : item?.subtitle}
               </Typography>
             ) : (
-              ""
+              ''
             )}
           </ListItemText>
 
           {!item?.chip || hideMenu ? null : (
             <Chip
               color={item?.chipColor}
-              variant={item?.variant ? item?.variant : "filled"}
+              variant={item?.variant ? item?.variant : 'filled'}
               size="small"
               label={item?.chip}
             />

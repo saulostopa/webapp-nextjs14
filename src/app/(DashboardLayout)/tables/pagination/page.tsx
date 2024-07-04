@@ -1,12 +1,14 @@
-'use client'
+'use client';
 
-import * as React from 'react';
-
-import { useTheme } from '@mui/material/styles';
+import FirstPageIcon from '@mui/icons-material/FirstPage';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import LastPageIcon from '@mui/icons-material/LastPage';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
+import { useTheme } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -16,24 +18,22 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-
-import FirstPageIcon from '@mui/icons-material/FirstPage';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import LastPageIcon from '@mui/icons-material/LastPage';
-
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
 import { Stack } from '@mui/system';
+import * as React from 'react';
+
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import BlankCard from '@/app/(DashboardLayout)/components/shared/BlankCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 interface TablePaginationActionsProps {
   count: number;
   page: number;
   rowsPerPage: number;
-  onPageChange: (event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void;
+  onPageChange: (
+    event: React.MouseEvent<HTMLButtonElement>,
+    newPage: number,
+  ) => void;
 }
 
 function TablePaginationActions(props: TablePaginationActionsProps) {
@@ -65,15 +65,27 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
       >
         {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
       </IconButton>
-      <IconButton onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
-        {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+      <IconButton
+        onClick={handleBackButtonClick}
+        disabled={page === 0}
+        aria-label="previous page"
+      >
+        {theme.direction === 'rtl' ? (
+          <KeyboardArrowRight />
+        ) : (
+          <KeyboardArrowLeft />
+        )}
       </IconButton>
       <IconButton
         onClick={handleNextButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
         aria-label="next page"
       >
-        {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+        {theme.direction === 'rtl' ? (
+          <KeyboardArrowLeft />
+        ) : (
+          <KeyboardArrowRight />
+        )}
       </IconButton>
       <IconButton
         onClick={handleLastPageButtonClick}
@@ -90,7 +102,7 @@ const rows = [
   {
     orderno: 'ORD - 0120145',
     items: '5',
-    imgsrc: "/images/profile/user-1.jpg",
+    imgsrc: '/images/profile/user-1.jpg',
     customer: 'Sunil Joshi',
     total: '550,000',
     status: 'Completed',
@@ -99,7 +111,7 @@ const rows = [
   {
     orderno: 'ORD - 0120146',
     items: '1',
-    imgsrc: "/images/profile/user-2.jpg",
+    imgsrc: '/images/profile/user-2.jpg',
     customer: 'John Deo',
     total: '45,000',
     status: 'Pending',
@@ -108,7 +120,7 @@ const rows = [
   {
     orderno: 'ORD - 0120460',
     items: '3',
-    imgsrc: "/images/profile/user-3.jpg",
+    imgsrc: '/images/profile/user-3.jpg',
     customer: 'Mily Peter',
     total: '57,000',
     status: 'Cancel',
@@ -117,7 +129,7 @@ const rows = [
   {
     orderno: 'ORD - 0124080',
     items: '11',
-    imgsrc: "/images/profile/user-4.jpg",
+    imgsrc: '/images/profile/user-4.jpg',
     customer: 'Andrew McDownland',
     total: '457,000',
     status: 'Completed',
@@ -126,7 +138,7 @@ const rows = [
   {
     orderno: 'ORD - 0124568',
     items: '4',
-    imgsrc: "/images/profile/user-5.jpg",
+    imgsrc: '/images/profile/user-5.jpg',
     customer: 'Christopher Jamil',
     total: '120,000',
     status: 'Pending',
@@ -135,7 +147,7 @@ const rows = [
   {
     orderno: 'ORD - 0120146',
     items: '1',
-    imgsrc: "/images/profile/user-2.jpg",
+    imgsrc: '/images/profile/user-2.jpg',
     customer: 'John Deo',
     total: '45,000',
     status: 'Pending',
@@ -144,7 +156,7 @@ const rows = [
   {
     orderno: 'ORD - 0140460',
     items: '3',
-    imgsrc: "/images/profile/user-3.jpg",
+    imgsrc: '/images/profile/user-3.jpg',
     customer: 'Mily Peter',
     total: '57,000',
     status: 'Cancel',
@@ -153,7 +165,7 @@ const rows = [
   {
     orderno: 'ORD - 0124060',
     items: '11',
-    imgsrc: "/images/profile/user-4.jpg",
+    imgsrc: '/images/profile/user-4.jpg',
     customer: 'Andrew McDownland',
     total: '457,000',
     status: 'Completed',
@@ -162,7 +174,7 @@ const rows = [
   {
     orderno: 'ORD - 0124578',
     items: '4',
-    imgsrc: "/images/profile/user-5.jpg",
+    imgsrc: '/images/profile/user-5.jpg',
     customer: 'Christopher Jamil',
     total: '120,000',
     status: 'Pending',
@@ -185,7 +197,8 @@ const PaginationTable = () => {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+  const emptyRows =
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
   const handleChangePage = (event: any, newPage: any) => {
     setPage(newPage);
@@ -197,7 +210,10 @@ const PaginationTable = () => {
   };
 
   return (
-    <PageContainer title="Pagination Table" description="this is Pagination Table">
+    <PageContainer
+      title="Pagination Table"
+      description="this is Pagination Table"
+    >
       {/* breadcrumb */}
       <Breadcrumb title="Pagination Table" items={BCrumb} />
       {/* end breadcrumb */}
@@ -235,7 +251,10 @@ const PaginationTable = () => {
               </TableHead>
               <TableBody>
                 {(rowsPerPage > 0
-                  ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  ? rows.slice(
+                      page * rowsPerPage,
+                      page * rowsPerPage + rowsPerPage,
+                    )
                   : rows
                 ).map((row) => (
                   <TableRow key={row.orderno}>
@@ -244,20 +263,28 @@ const PaginationTable = () => {
                     </TableCell>
                     <TableCell>
                       <Stack direction="row" spacing={2} alignItems="center">
-                        <Avatar src={row.imgsrc} alt={"row.imgsrc"} />
+                        <Avatar src={row.imgsrc} alt="row.imgsrc" />
                         <Typography variant="subtitle2" fontWeight="600">
                           {row.customer}
                         </Typography>
                       </Stack>
                     </TableCell>
                     <TableCell>
-                      <Typography color="textSecondary" variant="h6" fontWeight="400">
+                      <Typography
+                        color="textSecondary"
+                        variant="h6"
+                        fontWeight="400"
+                      >
                         {row.items}
                       </Typography>
                     </TableCell>
 
                     <TableCell>
-                      <Typography color="textSecondary" variant="h6" fontWeight="400">
+                      <Typography
+                        color="textSecondary"
+                        variant="h6"
+                        fontWeight="400"
+                      >
                         ${row.total}
                       </Typography>
                     </TableCell>
@@ -271,10 +298,10 @@ const PaginationTable = () => {
                           row.status === 'Completed'
                             ? 'success'
                             : row.status === 'Pending'
-                            ? 'warning'
-                            : row.status === 'Cancel'
-                            ? 'error'
-                            : 'secondary'
+                              ? 'warning'
+                              : row.status === 'Cancel'
+                                ? 'error'
+                                : 'secondary'
                         }
                         sx={{
                           borderRadius: '6px',
@@ -295,7 +322,12 @@ const PaginationTable = () => {
               <TableFooter>
                 <TableRow>
                   <TablePagination
-                    rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                    rowsPerPageOptions={[
+                      5,
+                      10,
+                      25,
+                      { label: 'All', value: -1 },
+                    ]}
                     colSpan={6}
                     count={rows.length}
                     rowsPerPage={rowsPerPage}

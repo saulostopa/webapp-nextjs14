@@ -1,4 +1,3 @@
-import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Box from '@mui/material/Box';
@@ -10,9 +9,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import BlankCard from '../shared/BlankCard';
-import { basicsTableData, TableType } from './tableData';
 import { Stack } from '@mui/system';
+import React from 'react';
+
+import BlankCard from '../shared/BlankCard';
+import type { TableType } from './tableData';
+import { basicsTableData } from './tableData';
 
 const basics: TableType[] = basicsTableData;
 
@@ -50,7 +52,11 @@ const Table5 = () => {
               <TableRow key={basic.id}>
                 <TableCell>
                   <Stack direction="row" spacing={2}>
-                    <Avatar src={basic.imgsrc} alt={basic.imgsrc} sx={{ width: 40, height: 40 }} />
+                    <Avatar
+                      src={basic.imgsrc}
+                      alt={basic.imgsrc}
+                      sx={{ width: 40, height: 40 }}
+                    />
                     <Box>
                       <Typography variant="h6" fontWeight="600">
                         {basic.name}
@@ -62,7 +68,11 @@ const Table5 = () => {
                   </Stack>
                 </TableCell>
                 <TableCell>
-                  <Typography color="textSecondary" variant="h6" fontWeight={400}>
+                  <Typography
+                    color="textSecondary"
+                    variant="h6"
+                    fontWeight={400}
+                  >
                     {basic.pname}
                   </Typography>
                 </TableCell>
@@ -92,22 +102,22 @@ const Table5 = () => {
                         basic.status === 'Active'
                           ? (theme) => theme.palette.success.light
                           : basic.status === 'Pending'
-                          ? (theme) => theme.palette.warning.light
-                          : basic.status === 'Completed'
-                          ? (theme) => theme.palette.primary.light
-                          : basic.status === 'Cancel'
-                          ? (theme) => theme.palette.error.light
-                          : (theme) => theme.palette.secondary.light,
+                            ? (theme) => theme.palette.warning.light
+                            : basic.status === 'Completed'
+                              ? (theme) => theme.palette.primary.light
+                              : basic.status === 'Cancel'
+                                ? (theme) => theme.palette.error.light
+                                : (theme) => theme.palette.secondary.light,
                       color:
                         basic.status === 'Active'
                           ? (theme) => theme.palette.success.main
                           : basic.status === 'Pending'
-                          ? (theme) => theme.palette.warning.main
-                          : basic.status === 'Completed'
-                          ? (theme) => theme.palette.primary.main
-                          : basic.status === 'Cancel'
-                          ? (theme) => theme.palette.error.main
-                          : (theme) => theme.palette.secondary.main,
+                            ? (theme) => theme.palette.warning.main
+                            : basic.status === 'Completed'
+                              ? (theme) => theme.palette.primary.main
+                              : basic.status === 'Cancel'
+                                ? (theme) => theme.palette.error.main
+                                : (theme) => theme.palette.secondary.main,
                       borderRadius: '8px',
                     }}
                     size="small"

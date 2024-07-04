@@ -1,14 +1,15 @@
-import React from 'react';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
+import { Stack } from '@mui/system';
+import { IconLock, IconMail, IconUser } from '@tabler/icons-react';
+import React from 'react';
+
+import ParentCard from '../../shared/ParentCard';
 import CustomCheckbox from '../theme-elements/CustomCheckbox';
 import CustomFormLabel from '../theme-elements/CustomFormLabel';
-import ParentCard from '../../shared/ParentCard';
-import { IconLock, IconUser, IconMail } from '@tabler/icons-react';
-import { Stack } from '@mui/system';
 
 const FbRightIconForm = () => {
   const [state, setState] = React.useState({
@@ -20,22 +21,19 @@ const FbRightIconForm = () => {
   };
 
   return (
-    <ParentCard title="Form with Right Icon" footer={
-      <>
+    <ParentCard
+      title="Form with Right Icon"
+      footer={
         <Stack direction="row" spacing={1}>
-          <Button
-            color="primary"
-            variant="contained"
-          >
+          <Button color="primary" variant="contained">
             Submit
           </Button>
           <Button variant="contained" color="error">
             Cancel
           </Button>
         </Stack>
-
-      </>
-    }>
+      }
+    >
       <form>
         <FormControl fullWidth>
           <CustomFormLabel
@@ -88,7 +86,9 @@ const FbRightIconForm = () => {
         </FormControl>
 
         <FormControl fullWidth>
-          <CustomFormLabel htmlFor="cpwd2-text">Confirm Password</CustomFormLabel>
+          <CustomFormLabel htmlFor="cpwd2-text">
+            Confirm Password
+          </CustomFormLabel>
           <OutlinedInput
             endAdornment={
               <InputAdornment position="end">
@@ -102,7 +102,11 @@ const FbRightIconForm = () => {
         </FormControl>
         <FormControlLabel
           control={
-            <CustomCheckbox checked={state.checkedB} onChange={handleChange} name="checkedB" />
+            <CustomCheckbox
+              checked={state.checkedB}
+              onChange={handleChange}
+              name="checkedB"
+            />
           }
           sx={{
             mt: '10px',

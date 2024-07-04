@@ -1,11 +1,11 @@
-import React from 'react';
-import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
+import Stack from '@mui/material/Stack';
+import React from 'react';
+
 import CustomTextField from '../../theme-elements/CustomTextField';
 import top100Films from './data';
 
 const FreeSoloAutocomplete = () => {
-  
   return (
     <Stack>
       <Autocomplete
@@ -17,7 +17,11 @@ const FreeSoloAutocomplete = () => {
         }}
         options={top100Films.map((option) => option.title)}
         renderInput={(params) => (
-          <CustomTextField {...params} placeholder="FreeSolo" aria-label="FreeSolo" />
+          <CustomTextField
+            {...params}
+            placeholder="FreeSolo"
+            aria-label="FreeSolo"
+          />
         )}
       />
       <Autocomplete

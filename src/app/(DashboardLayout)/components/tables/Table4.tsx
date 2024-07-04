@@ -1,4 +1,3 @@
-import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
@@ -12,14 +11,16 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import BlankCard from '../shared/BlankCard';
 import { Box, Stack } from '@mui/system';
 import { IconDots, IconEdit, IconPlus, IconTrash } from '@tabler/icons-react';
+import React from 'react';
+
+import BlankCard from '../shared/BlankCard';
 
 const rows = [
   {
     status: 'active',
-    avatar: "/images/blog/blog-img1.jpg",
+    avatar: '/images/blog/blog-img1.jpg',
     users: '4300',
     title: 'Top Authors',
     subtitle: 'Successful Fellas',
@@ -30,15 +31,21 @@ const rows = [
   },
   {
     status: 'offline',
-    avatar: "/images/blog/blog-img2.jpg",
+    avatar: '/images/blog/blog-img2.jpg',
     users: '1200',
     title: 'Popular Authors',
     subtitle: 'Most Successful',
-    teams: [{ name: 'Bootstrap', bgcolor: 'primary.light', textcolor: 'primary.main' }],
+    teams: [
+      {
+        name: 'Bootstrap',
+        bgcolor: 'primary.light',
+        textcolor: 'primary.main',
+      },
+    ],
   },
   {
     status: 'active',
-    avatar: "/images/blog/blog-img3.jpg",
+    avatar: '/images/blog/blog-img3.jpg',
     users: '2000',
     title: 'New Users',
     subtitle: 'Awesome Users',
@@ -49,15 +56,21 @@ const rows = [
   },
   {
     status: 'offline',
-    avatar: "/images/blog/blog-img4.jpg",
+    avatar: '/images/blog/blog-img4.jpg',
     users: '1500',
     title: 'Active Customers',
     subtitle: 'Best Customers',
-    teams: [{ name: 'Bootstrap', bgcolor: 'primary.light', textcolor: 'primary.main' }],
+    teams: [
+      {
+        name: 'Bootstrap',
+        bgcolor: 'primary.light',
+        textcolor: 'primary.main',
+      },
+    ],
   },
   {
     status: 'active',
-    avatar: "/images/blog/blog-img5.jpg",
+    avatar: '/images/blog/blog-img5.jpg',
     users: '9500',
     title: 'Bestseller Theme',
     subtitle: 'Amazing Templates',
@@ -93,12 +106,15 @@ const Table4 = () => {
               <TableCell>
                 <Typography variant="h6">Users</Typography>
               </TableCell>
-              <TableCell></TableCell>
+              <TableCell />
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <TableRow key={row.title} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+              <TableRow
+                key={row.title}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
                 <TableCell>
                   <Stack direction="row" spacing={2}>
                     <Avatar

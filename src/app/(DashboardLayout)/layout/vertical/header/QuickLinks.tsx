@@ -1,7 +1,8 @@
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import * as dropdownData from './data';
 import Link from 'next/link';
+
+import * as dropdownData from './data';
 
 const QuickLinks = () => {
   return (

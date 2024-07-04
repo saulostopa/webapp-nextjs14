@@ -1,6 +1,8 @@
-import axios from "../../../utils/axios";
-import { createSlice } from "@reduxjs/toolkit";
-import { AppDispatch } from "@/store/store";
+import { createSlice } from '@reduxjs/toolkit';
+
+import type { AppDispatch } from '@/store/store';
+
+import axios from '../../../utils/axios';
 
 interface StateType {
   blogposts: any[];
@@ -13,13 +15,13 @@ interface StateType {
 const initialState = {
   blogposts: [],
   recentPosts: [],
-  blogSearch: "",
-  sortBy: "newest",
+  blogSearch: '',
+  sortBy: 'newest',
   selectedPost: null,
 };
 
 export const BlogSlice = createSlice({
-  name: "Blog",
+  name: 'Blog',
   initialState,
   reducers: {
     getPosts: (state: StateType, action) => {
@@ -35,7 +37,7 @@ export const { getPosts, getPost } = BlogSlice.actions;
 
 export const fetchBlogPosts = () => async (dispatch: AppDispatch) => {
   try {
-    const response = await axios.get("/api/data/blog/BlogPosts");
+    const response = await axios.get('/api/data/blog/BlogPosts');
     dispatch(getPosts(response.data));
   } catch (err) {
     throw new Error();
@@ -45,7 +47,7 @@ export const fetchBlogPosts = () => async (dispatch: AppDispatch) => {
 export const addComment =
   (postId: number, comment: any) => async (dispatch: AppDispatch) => {
     try {
-      const response = await axios.post("/api/data/blog/post/add", {
+      const response = await axios.post('/api/data/blog/post/add', {
         postId,
         comment,
       });
@@ -57,7 +59,7 @@ export const addComment =
 export const fetchBlogPost =
   (title: string) => async (dispatch: AppDispatch) => {
     try {
-      const response = await axios.post("/api/data/blog/post", { title });
+      const response = await axios.post('/api/data/blog/post', { title });
       dispatch(getPost(response.data.post));
     } catch (err: any) {
       throw new Error(err);

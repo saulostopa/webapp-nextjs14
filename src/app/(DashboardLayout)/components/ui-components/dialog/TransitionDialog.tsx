@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -6,7 +5,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
-import { TransitionProps } from '@mui/material/transitions';
+import type { TransitionProps } from '@mui/material/transitions';
+import React from 'react';
+
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement;
@@ -29,7 +30,12 @@ const TransitionDialog = () => {
 
   return (
     <>
-      <Button variant="contained" color="success" fullWidth onClick={handleClickOpen}>
+      <Button
+        variant="contained"
+        color="success"
+        fullWidth
+        onClick={handleClickOpen}
+      >
         Open Transition Dialog
       </Button>
       <Dialog
@@ -39,11 +45,11 @@ const TransitionDialog = () => {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle>Use Google's location service?</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
+            Let Google help apps determine location. This means sending
+            anonymous location data to Google, even when no apps are running.
           </DialogContentText>
         </DialogContent>
         <DialogActions>

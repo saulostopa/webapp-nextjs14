@@ -1,14 +1,13 @@
-import React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import React from 'react';
+
 import DashboardCard from '../../shared/DashboardCard';
 
 const SkeletonRevenueUpdatesTwoCard = () => {
-
   return (
     <DashboardCard>
       <>
@@ -47,7 +46,13 @@ const SkeletonRevenueUpdatesTwoCard = () => {
                 </Typography>
               </Box>
             </Stack>
-            <Stack direction="row" spacing={2} alignItems="center" mb={4} mt={2}>
+            <Stack
+              direction="row"
+              spacing={2}
+              alignItems="center"
+              mb={4}
+              mt={2}
+            >
               <Skeleton variant="rounded" width={38} height={38} />
               <Box>
                 <Typography variant="h6" mb={1} fontWeight="600">

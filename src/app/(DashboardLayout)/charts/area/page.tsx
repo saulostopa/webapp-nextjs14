@@ -1,12 +1,14 @@
-"use client"
+'use client';
 
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
+import dynamic from 'next/dynamic';
+import React from 'react';
+
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import React from "react";
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const BCrumb = [
   {
@@ -19,13 +21,12 @@ const BCrumb = [
 ];
 
 const AreaChart = () => {
-
   // chart color
   const theme = useTheme();
   const primary = theme.palette.primary.main;
   const secondary = theme.palette.secondary.main;
 
-  const optionsareachart:any = {
+  const optionsareachart: any = {
     chart: {
       id: 'area-chart',
       fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -93,7 +94,13 @@ const AreaChart = () => {
       <Breadcrumb title="Area Chart" items={BCrumb} />
       {/* end breadcrumb */}
       <ParentCard title="Area Chart">
-        <Chart options={optionsareachart} series={seriesareachart} type="area" height="300px" width={"100%"}/>
+        <Chart
+          options={optionsareachart}
+          series={seriesareachart}
+          type="area"
+          height="300px"
+          width="100%"
+        />
       </ParentCard>
     </PageContainer>
   );

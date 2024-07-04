@@ -1,18 +1,18 @@
-'use client'
+'use client';
 
 import Grid from '@mui/material/Grid';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
-
-import SimpleList from '@/app/(DashboardLayout)/components/ui-components/lists/SimpleList';
-import NestedList from '@/app/(DashboardLayout)/components/ui-components/lists/NestedList';
-import FolderList from '@/app/(DashboardLayout)/components/ui-components/lists/FolderList';
-import SelectedList from '@/app/(DashboardLayout)/components/ui-components/lists/SelectedList';
-import ControlsList from '@/app/(DashboardLayout)/components/ui-components/lists/ControlsList';
-import SwitchList from '@/app/(DashboardLayout)/components/ui-components/lists/SwitchList';
 import React from 'react';
+
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import ControlsList from '@/app/(DashboardLayout)/components/ui-components/lists/ControlsList';
+import FolderList from '@/app/(DashboardLayout)/components/ui-components/lists/FolderList';
+import NestedList from '@/app/(DashboardLayout)/components/ui-components/lists/NestedList';
+import SelectedList from '@/app/(DashboardLayout)/components/ui-components/lists/SelectedList';
+import SimpleList from '@/app/(DashboardLayout)/components/ui-components/lists/SimpleList';
+import SwitchList from '@/app/(DashboardLayout)/components/ui-components/lists/SwitchList';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {

@@ -1,16 +1,16 @@
-'use client'
+'use client';
 
-import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
-import InlineItemCard from "@/app/(DashboardLayout)/components/shared/InlineItemCard";
 import { IconCheck, IconChecks, IconMoodHappy } from '@tabler/icons-react';
+import React from 'react';
 
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import InlineItemCard from '@/app/(DashboardLayout)/components/shared/InlineItemCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -39,35 +39,172 @@ const MuiChip = () => {
             <ChildCard title="Filled">
               <InlineItemCard>
                 <Chip avatar={<Avatar>M</Avatar>} label="Default Filled" />
-                <Chip avatar={<Avatar>M</Avatar>} label="Default Deletable" onDelete={handleDelete} />
-                <Chip avatar={<Avatar alt="Natacha" src={"/images/profile/user-1.jpg"} />} label="Primary Filled" color="primary" />
-                <Chip avatar={<Avatar alt="Natacha" src={"/images/profile/user-1.jpg"} />} label="Primary Deletable" color="primary" onDelete={handleDelete} />
-                <Chip icon={<IconMoodHappy />} label="Secondary Filled" color="secondary" />
-                <Chip icon={<IconMoodHappy />} label="Secondary Deletable" color="secondary" onDelete={handleDelete} />
-                <Chip avatar={<Avatar alt="Natacha" src={"/images/profile/user-2.jpg"} />} label="Default Filled" color="success" />
-                <Chip avatar={<Avatar alt="Natacha" src={"/images/profile/user-2.jpg"} />} label="Default Deletable" color="success" onDelete={handleDelete} />
-                <Chip icon={<IconMoodHappy />} label="Default Filled" color="warning" />
-                <Chip icon={<IconMoodHappy />} label="Default Deletable" color="warning" onDelete={handleDelete} />
-                <Chip avatar={<Avatar alt="Natacha" src={"/images/profile/user-3.jpg"} />} label="Default Filled" color="error" />
-                <Chip avatar={<Avatar alt="Natacha" src={"/images/profile/user-3.jpg"} />} label="Default Deletable" color="error" onDelete={handleDelete} />
+                <Chip
+                  avatar={<Avatar>M</Avatar>}
+                  label="Default Deletable"
+                  onDelete={handleDelete}
+                />
+                <Chip
+                  avatar={
+                    <Avatar alt="Natacha" src="/images/profile/user-1.jpg" />
+                  }
+                  label="Primary Filled"
+                  color="primary"
+                />
+                <Chip
+                  avatar={
+                    <Avatar alt="Natacha" src="/images/profile/user-1.jpg" />
+                  }
+                  label="Primary Deletable"
+                  color="primary"
+                  onDelete={handleDelete}
+                />
+                <Chip
+                  icon={<IconMoodHappy />}
+                  label="Secondary Filled"
+                  color="secondary"
+                />
+                <Chip
+                  icon={<IconMoodHappy />}
+                  label="Secondary Deletable"
+                  color="secondary"
+                  onDelete={handleDelete}
+                />
+                <Chip
+                  avatar={
+                    <Avatar alt="Natacha" src="/images/profile/user-2.jpg" />
+                  }
+                  label="Default Filled"
+                  color="success"
+                />
+                <Chip
+                  avatar={
+                    <Avatar alt="Natacha" src="/images/profile/user-2.jpg" />
+                  }
+                  label="Default Deletable"
+                  color="success"
+                  onDelete={handleDelete}
+                />
+                <Chip
+                  icon={<IconMoodHappy />}
+                  label="Default Filled"
+                  color="warning"
+                />
+                <Chip
+                  icon={<IconMoodHappy />}
+                  label="Default Deletable"
+                  color="warning"
+                  onDelete={handleDelete}
+                />
+                <Chip
+                  avatar={
+                    <Avatar alt="Natacha" src="/images/profile/user-3.jpg" />
+                  }
+                  label="Default Filled"
+                  color="error"
+                />
+                <Chip
+                  avatar={
+                    <Avatar alt="Natacha" src="/images/profile/user-3.jpg" />
+                  }
+                  label="Default Deletable"
+                  color="error"
+                  onDelete={handleDelete}
+                />
               </InlineItemCard>
             </ChildCard>
           </Grid>
           <Grid item xs={12} display="flex" alignItems="stretch">
             <ChildCard title="Outlined">
               <InlineItemCard>
-                <Chip variant="outlined" avatar={<Avatar>M</Avatar>} label="Default Filled" />
-                <Chip variant="outlined" avatar={<Avatar>M</Avatar>} label="Default Deletable" onDelete={handleDelete} />
-                <Chip variant="outlined" avatar={<Avatar alt="Natacha" src={"/images/profile/user-1.jpg"} />} label="Default Filled" color="primary" />
-                <Chip variant="outlined" avatar={<Avatar alt="Natacha" src={"/images/profile/user-1.jpg"} />} label="Default Deletable" color="primary" onDelete={handleDelete} />
-                <Chip variant="outlined" icon={<IconMoodHappy />} label="Default Filled" color="secondary" />
-                <Chip variant="outlined" icon={<IconMoodHappy />} label="Default Deletable" color="secondary" onDelete={handleDelete} />
-                <Chip variant="outlined" avatar={<Avatar alt="Natacha" src={"/images/profile/user-2.jpg"} />} label="Default Filled" color="success" />
-                <Chip variant="outlined" avatar={<Avatar alt="Natacha" src={"/images/profile/user-2.jpg"} />} label="Default Deletable" color="success" onDelete={handleDelete} />
-                <Chip variant="outlined" icon={<IconMoodHappy />} label="Default Filled" color="warning" />
-                <Chip variant="outlined" icon={<IconMoodHappy />} label="Default Deletable" color="warning" onDelete={handleDelete} />
-                <Chip variant="outlined" avatar={<Avatar alt="Natacha" src={"/images/profile/user-3.jpg"} />} label="Default Filled" color="error" />
-                <Chip variant="outlined" avatar={<Avatar alt="Natacha" src={"/images/profile/user-3.jpg"} />} label="Default Deletable" color="error" onDelete={handleDelete} />
+                <Chip
+                  variant="outlined"
+                  avatar={<Avatar>M</Avatar>}
+                  label="Default Filled"
+                />
+                <Chip
+                  variant="outlined"
+                  avatar={<Avatar>M</Avatar>}
+                  label="Default Deletable"
+                  onDelete={handleDelete}
+                />
+                <Chip
+                  variant="outlined"
+                  avatar={
+                    <Avatar alt="Natacha" src="/images/profile/user-1.jpg" />
+                  }
+                  label="Default Filled"
+                  color="primary"
+                />
+                <Chip
+                  variant="outlined"
+                  avatar={
+                    <Avatar alt="Natacha" src="/images/profile/user-1.jpg" />
+                  }
+                  label="Default Deletable"
+                  color="primary"
+                  onDelete={handleDelete}
+                />
+                <Chip
+                  variant="outlined"
+                  icon={<IconMoodHappy />}
+                  label="Default Filled"
+                  color="secondary"
+                />
+                <Chip
+                  variant="outlined"
+                  icon={<IconMoodHappy />}
+                  label="Default Deletable"
+                  color="secondary"
+                  onDelete={handleDelete}
+                />
+                <Chip
+                  variant="outlined"
+                  avatar={
+                    <Avatar alt="Natacha" src="/images/profile/user-2.jpg" />
+                  }
+                  label="Default Filled"
+                  color="success"
+                />
+                <Chip
+                  variant="outlined"
+                  avatar={
+                    <Avatar alt="Natacha" src="/images/profile/user-2.jpg" />
+                  }
+                  label="Default Deletable"
+                  color="success"
+                  onDelete={handleDelete}
+                />
+                <Chip
+                  variant="outlined"
+                  icon={<IconMoodHappy />}
+                  label="Default Filled"
+                  color="warning"
+                />
+                <Chip
+                  variant="outlined"
+                  icon={<IconMoodHappy />}
+                  label="Default Deletable"
+                  color="warning"
+                  onDelete={handleDelete}
+                />
+                <Chip
+                  variant="outlined"
+                  avatar={
+                    <Avatar alt="Natacha" src="/images/profile/user-3.jpg" />
+                  }
+                  label="Default Filled"
+                  color="error"
+                />
+                <Chip
+                  variant="outlined"
+                  avatar={
+                    <Avatar alt="Natacha" src="/images/profile/user-3.jpg" />
+                  }
+                  label="Default Deletable"
+                  color="error"
+                  onDelete={handleDelete}
+                />
               </InlineItemCard>
             </ChildCard>
           </Grid>
@@ -75,12 +212,16 @@ const MuiChip = () => {
             <ChildCard title="Custom Icon">
               <InlineItemCard>
                 <Chip
-                  label="Custom Icon" color="primary" avatar={<Avatar >M</Avatar>}
+                  label="Custom Icon"
+                  color="primary"
+                  avatar={<Avatar>M</Avatar>}
                   onDelete={handleDelete}
                   deleteIcon={<IconCheck width={20} />}
                 />
                 <Chip
-                  label="Custom Icon" color="secondary" avatar={<Avatar >S</Avatar>}
+                  label="Custom Icon"
+                  color="secondary"
+                  avatar={<Avatar>S</Avatar>}
                   onDelete={handleDelete}
                   deleteIcon={<IconChecks width={20} />}
                 />
@@ -91,12 +232,18 @@ const MuiChip = () => {
             <ChildCard title="Custom outlined Icon">
               <InlineItemCard>
                 <Chip
-                  label="Custom Icon" variant="outlined" color="primary" avatar={<Avatar >M</Avatar>}
+                  label="Custom Icon"
+                  variant="outlined"
+                  color="primary"
+                  avatar={<Avatar>M</Avatar>}
                   onDelete={handleDelete}
                   deleteIcon={<IconCheck width={20} />}
                 />
                 <Chip
-                  label="Custom Icon" variant="outlined" color="secondary" avatar={<Avatar >S</Avatar>}
+                  label="Custom Icon"
+                  variant="outlined"
+                  color="secondary"
+                  avatar={<Avatar>S</Avatar>}
                   onDelete={handleDelete}
                   deleteIcon={<IconChecks width={20} />}
                 />
@@ -107,11 +254,16 @@ const MuiChip = () => {
             <ChildCard title="Disabled">
               <InlineItemCard>
                 <Chip
-                  label="Custom Icon" disabled avatar={<Avatar >M</Avatar>}
+                  label="Custom Icon"
+                  disabled
+                  avatar={<Avatar>M</Avatar>}
                   onDelete={handleDelete}
                 />
                 <Chip
-                  label="Custom Icon" color="primary" disabled avatar={<Avatar >S</Avatar>}
+                  label="Custom Icon"
+                  color="primary"
+                  disabled
+                  avatar={<Avatar>S</Avatar>}
                   onDelete={handleDelete}
                 />
               </InlineItemCard>
@@ -129,5 +281,5 @@ const MuiChip = () => {
       </ParentCard>
     </PageContainer>
   );
-}
+};
 export default MuiChip;

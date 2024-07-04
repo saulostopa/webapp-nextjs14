@@ -1,10 +1,15 @@
-import React from 'react';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import {  IconId, IconLayoutGridAdd,  IconUserCircle, IconUsers } from '@tabler/icons-react';
-import { usePathname } from 'next/navigation';
+import {
+  IconId,
+  IconLayoutGridAdd,
+  IconUserCircle,
+  IconUsers,
+} from '@tabler/icons-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React from 'react';
 
 const ProfileTab = () => {
   const location = usePathname();
@@ -36,25 +41,28 @@ const ProfileTab = () => {
   ];
 
   return (
-   
-      <Box justifyContent={'start'} display="flex">
-        <Tabs value={value} onChange={handleChange} aria-label="scrollable prevent tabs example">
-          {ProfileTabs.map((tab) => {
-            return (
-              <Tab
-                iconPosition="start"
-                label={tab.label}
-                sx={{ minHeight: '50px' }}
-                icon={tab.icon}
-                component={Link}
-                href={tab.to}
-                value={tab.to}
-                key={tab.label}
-              />
-            );
-          })}
-        </Tabs>
-      </Box>
+    <Box justifyContent="start" display="flex">
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        aria-label="scrollable prevent tabs example"
+      >
+        {ProfileTabs.map((tab) => {
+          return (
+            <Tab
+              iconPosition="start"
+              label={tab.label}
+              sx={{ minHeight: '50px' }}
+              icon={tab.icon}
+              component={Link}
+              href={tab.to}
+              value={tab.to}
+              key={tab.label}
+            />
+          );
+        })}
+      </Tabs>
+    </Box>
   );
 };
 

@@ -3,9 +3,10 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import * as dropdownData from './data';
 import Link from 'next/link';
 import React from 'react';
+
+import * as dropdownData from './data';
 
 const AppLinks = () => {
   return (

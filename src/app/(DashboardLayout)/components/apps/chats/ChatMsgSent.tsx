@@ -1,34 +1,27 @@
-import React from "react";
-import { useSelector, useDispatch } from "@/store/hooks";
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import Popover from '@mui/material/Popover';
-import EmojiPicker, {
-  EmojiStyle,
-  SkinTones,
-  Theme,
-  Categories,
-  EmojiClickData,
-  Emoji,
-  SuggestionMode,
-  SkinTonePickerLocation,
-} from "emoji-picker-react";
 import {
   IconMoodSmile,
   IconPaperclip,
   IconPhoto,
   IconSend,
-} from "@tabler/icons-react";
-import { sendMsg } from "@/store/apps/chat/ChatSlice";
+} from '@tabler/icons-react';
+import type { EmojiClickData } from 'emoji-picker-react';
+import EmojiPicker, { Emoji, EmojiStyle } from 'emoji-picker-react';
+import React from 'react';
+
+import { sendMsg } from '@/store/apps/chat/ChatSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
 
 const ChatMsgSent = () => {
-  const [msg, setMsg] = React.useState<any>("");
+  const [msg, setMsg] = React.useState<any>('');
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
-    null
+    null,
   );
-  const [chosenEmoji, setChosenEmoji] = React.useState<string>("");
+  const [chosenEmoji, setChosenEmoji] = React.useState<string>('');
 
   const onEmojiClick = (emojiData: EmojiClickData, event: MouseEvent) => {
     setChosenEmoji(emojiData.unified);
@@ -54,7 +47,7 @@ const ChatMsgSent = () => {
     e.preventDefault();
     e.stopPropagation();
     dispatch(sendMsg(newMsg));
-    setMsg("");
+    setMsg('');
   };
 
   return (
@@ -64,7 +57,7 @@ const ChatMsgSent = () => {
       {/* ------------------------------------------- */}
       <form
         onSubmit={onChatMsgSubmit}
-        style={{ display: "flex", gap: "10px", alignItems: "center" }}
+        style={{ display: 'flex', gap: '10px', alignItems: 'center' }}
       >
         {/* ------------------------------------------- */}
         {/* Emoji picker */}
@@ -85,12 +78,12 @@ const ChatMsgSent = () => {
           keepMounted
           open={Boolean(anchorEl)}
           onClose={handleClose}
-          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-          transformOrigin={{ horizontal: "right", vertical: "bottom" }}
+          anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+          transformOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
           <EmojiPicker onEmojiClick={onEmojiClick} />
           <Box p={2}>
-            Selected:{" "}
+            Selected:{' '}
             {chosenEmoji ? (
               <Emoji
                 unified={chosenEmoji}
@@ -98,7 +91,7 @@ const ChatMsgSent = () => {
                 size={22}
               />
             ) : (
-              ""
+              ''
             )}
           </Box>
         </Popover>
@@ -109,14 +102,14 @@ const ChatMsgSent = () => {
           placeholder="Type a Message"
           size="small"
           type="text"
-          inputProps={{ "aria-label": "Type a Message" }}
+          inputProps={{ 'aria-label': 'Type a Message' }}
           onChange={handleChatMsgChange.bind(null)}
         />
         <IconButton
           aria-label="delete"
           onClick={() => {
             dispatch(sendMsg(newMsg));
-            setMsg("");
+            setMsg('');
           }}
           disabled={!msg}
           color="primary"

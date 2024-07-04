@@ -1,4 +1,3 @@
-import React from 'react';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -6,11 +5,13 @@ import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
-import CustomTextField from '../theme-elements/CustomTextField';
-import CustomSelect from '../theme-elements/CustomSelect';
-import CustomRadio from '../theme-elements/CustomRadio';
-import CustomFormLabel from '../theme-elements/CustomFormLabel';
+import React from 'react';
+
 import ParentCard from '../../shared/ParentCard';
+import CustomFormLabel from '../theme-elements/CustomFormLabel';
+import CustomRadio from '../theme-elements/CustomRadio';
+import CustomSelect from '../theme-elements/CustomSelect';
+import CustomTextField from '../theme-elements/CustomTextField';
 
 const currencies = [
   {
@@ -90,9 +91,13 @@ const FbBasicHeaderForm = () => {
           <form>
             <Grid container spacing={3} mb={3}>
               <Grid item lg={6} md={12} sm={12}>
-                <CustomFormLabel htmlFor="fname-text">First Name</CustomFormLabel>
+                <CustomFormLabel htmlFor="fname-text">
+                  First Name
+                </CustomFormLabel>
                 <CustomTextField id="fname-text" variant="outlined" fullWidth />
-                <CustomFormLabel htmlFor="standard-select-currency">Select Gender</CustomFormLabel>
+                <CustomFormLabel htmlFor="standard-select-currency">
+                  Select Gender
+                </CustomFormLabel>
                 <CustomSelect
                   id="standard-select-currency"
                   value={currency}
@@ -121,7 +126,6 @@ const FbBasicHeaderForm = () => {
                       label="Free"
                       name="radio-button-demo"
                       control={<CustomRadio />}
-                     
                     />
                     <FormControlLabel
                       checked={selectedValue === 'b'}
@@ -135,7 +139,9 @@ const FbBasicHeaderForm = () => {
                 </FormControl>
               </Grid>
               <Grid item lg={6} md={12} sm={12}>
-                <CustomFormLabel htmlFor="lname-text">Last Name</CustomFormLabel>
+                <CustomFormLabel htmlFor="lname-text">
+                  Last Name
+                </CustomFormLabel>
 
                 <CustomTextField id="lname-text" variant="outlined" fullWidth />
                 <CustomFormLabel htmlFor="date">Date of Birth</CustomFormLabel>

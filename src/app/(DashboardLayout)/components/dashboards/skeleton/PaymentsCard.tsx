@@ -1,10 +1,10 @@
-import React from "react";
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import DashboardCard from "../../shared/DashboardCard";
-import { IconCircle } from "@tabler/icons-react";
+import React from 'react';
+
+import DashboardCard from '../../shared/DashboardCard';
 
 const SkeletonPaymentsCard = () => {
   return (
@@ -36,7 +36,7 @@ const SkeletonPaymentsCard = () => {
           </Box>
         </Stack>
         <Stack direction="row" spacing={2} mb={1} alignItems="center">
-        <Box>
+          <Box>
             <Skeleton variant="rounded" width={21} height={21} />
           </Box>
           <Box>

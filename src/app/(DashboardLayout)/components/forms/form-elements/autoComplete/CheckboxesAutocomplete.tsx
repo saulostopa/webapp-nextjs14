@@ -1,7 +1,8 @@
-import React from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
-import CustomTextField from '../../theme-elements/CustomTextField';
+import React from 'react';
+
 import CustomCheckbox from '../../theme-elements/CustomCheckbox';
+import CustomTextField from '../../theme-elements/CustomTextField';
 import top100Films from './data';
 
 const CheckboxesAutocomplete = () => (
@@ -19,7 +20,11 @@ const CheckboxesAutocomplete = () => (
     )}
     fullWidth
     renderInput={(params) => (
-      <CustomTextField {...params} placeholder="Favorites" aria-label="Favorites" />
+      <CustomTextField
+        {...params}
+        placeholder="Favorites"
+        aria-label="Favorites"
+      />
     )}
   />
 );

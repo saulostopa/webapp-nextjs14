@@ -1,13 +1,15 @@
-import React from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import dynamic from "next/dynamic";
-import { useTheme } from "@mui/material/styles";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import DashboardCard from "../../shared/DashboardCard";
-import { IconCircle } from "@tabler/icons-react";
-import SkeletonPaymentsCard from "../skeleton/PaymentsCard";
+import { IconCircle } from '@tabler/icons-react';
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+import DashboardCard from '../../shared/DashboardCard';
+import SkeletonPaymentsCard from '../skeleton/PaymentsCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 interface PaymentsCardProps {
   isLoading: boolean;
@@ -22,9 +24,9 @@ const Payments = ({ isLoading }: PaymentsCardProps) => {
   // chart
   const optionscolumnchart: any = {
     chart: {
-      type: "bar",
+      type: 'bar',
       fontFamily: "'Plus Jakarta Sans', sans-serif;",
-      foreColor: "#adb0bb",
+      foreColor: '#adb0bb',
       toolbar: {
         show: false,
       },
@@ -36,10 +38,10 @@ const Payments = ({ isLoading }: PaymentsCardProps) => {
       bar: {
         horizontal: false,
         // barHeight: "90%",
-        columnWidth: "26%",
+        columnWidth: '26%',
         borderRadius: [3],
-        borderRadiusApplication: "end",
-        borderRadiusWhenStacked: "all",
+        borderRadiusApplication: 'end',
+        borderRadiusWhenStacked: 'all',
       },
     },
 
@@ -62,7 +64,7 @@ const Payments = ({ isLoading }: PaymentsCardProps) => {
       },
     },
     xaxis: {
-      categories: [["M"], ["T"], ["W"], ["T"], ["F"], ["S"], ["S"]],
+      categories: [['M'], ['T'], ['W'], ['T'], ['F'], ['S'], ['S']],
       axisBorder: {
         show: false,
       },
@@ -76,17 +78,17 @@ const Payments = ({ isLoading }: PaymentsCardProps) => {
       },
     },
     tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
+      theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
       fillSeriesColor: false,
     },
   };
   const seriescolumnchart = [
     {
-      name: "Last Year ",
+      name: 'Last Year ',
       data: [29, 52, 38, 47, 56, 41, 46],
     },
     {
-      name: "This Year ",
+      name: 'This Year ',
       data: [71, 71, 71, 71, 71, 71, 71],
     },
   ];
@@ -124,7 +126,7 @@ const Payments = ({ isLoading }: PaymentsCardProps) => {
                 series={seriescolumnchart}
                 type="bar"
                 height={150}
-                width={"100%"}
+                width="100%"
               />
             </Box>
 

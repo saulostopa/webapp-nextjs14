@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
@@ -6,16 +5,19 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { useSelector, useDispatch } from "@/store/hooks";
-import Scrollbar from "../../custom-scroll/Scrollbar";
+import { IconTrash } from '@tabler/icons-react';
+import React, { useEffect } from 'react';
+
 import {
-  fetchNotes,
-  SelectNote,
   DeleteNote,
+  fetchNotes,
   SearchNotes,
-} from "@/store/apps/notes/NotesSlice";
-import { IconTrash } from "@tabler/icons-react";
-import { NotesType } from "../../../types/apps/notes";
+  SelectNote,
+} from '@/store/apps/notes/NotesSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import type { NotesType } from '../../../types/apps/notes';
+import Scrollbar from '../../custom-scroll/Scrollbar';
 
 const NoteList = () => {
   const dispatch = useDispatch();
@@ -27,21 +29,21 @@ const NoteList = () => {
   }, [dispatch]);
 
   const filterNotes = (notes: NotesType[], nSearch: string) => {
-    if (nSearch !== "")
+    if (nSearch !== '')
       return notes.filter(
         (t: any) =>
           !t.deleted &&
           t.title
             .toLocaleLowerCase()
-            .concat(" ")
-            .includes(nSearch.toLocaleLowerCase())
+            .concat(' ')
+            .includes(nSearch.toLocaleLowerCase()),
       );
 
     return notes.filter((t) => !t.deleted);
   };
 
   const notes = useSelector((state) =>
-    filterNotes(state.notesReducer.notes, state.notesReducer.noteSearch)
+    filterNotes(state.notesReducer.notes, state.notesReducer.noteSearch),
   );
 
   return (
@@ -51,7 +53,7 @@ const NoteList = () => {
           id="search"
           value={searchTerm}
           placeholder="Search Notes"
-          inputProps={{ "aria-label": "Search Notes" }}
+          inputProps={{ 'aria-label': 'Search Notes' }}
           size="small"
           type="search"
           variant="outlined"
@@ -65,8 +67,8 @@ const NoteList = () => {
       <Box>
         <Scrollbar
           sx={{
-            height: { lg: "calc(100vh - 300px)", sm: "100vh" },
-            maxHeight: "700px",
+            height: { lg: 'calc(100vh - 300px)', sm: '100vh' },
+            maxHeight: '700px',
           }}
         >
           {notes && notes.length ? (
@@ -75,17 +77,17 @@ const NoteList = () => {
                 <Box
                   p={2}
                   sx={{
-                    position: "relative",
-                    cursor: "pointer",
+                    position: 'relative',
+                    cursor: 'pointer',
                     mb: 1,
-                    transition: "0.1s ease-in",
+                    transition: '0.1s ease-in',
                     transform:
-                      activeNote === note.id ? "scale(1)" : "scale(0.95)",
+                      activeNote === note.id ? 'scale(1)' : 'scale(0.95)',
                     backgroundColor: `${note.color}.light`,
                   }}
                   onClick={() => dispatch(SelectNote(note.id))}
                 >
-                  <Typography variant="h6" noWrap color={note.color + ".main"}>
+                  <Typography variant="h6" noWrap color={`${note.color}.main`}>
                     {note.title}
                   </Typography>
                   <Stack
@@ -111,7 +113,7 @@ const NoteList = () => {
             ))
           ) : (
             <Box m={2}>
-              <Alert severity="error" variant="filled" sx={{ color: "white" }}>
+              <Alert severity="error" variant="filled" sx={{ color: 'white' }}>
                 No Notes Found!
               </Alert>
             </Box>

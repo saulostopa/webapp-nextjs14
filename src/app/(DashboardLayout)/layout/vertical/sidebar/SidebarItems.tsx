@@ -1,31 +1,36 @@
-import Menuitems from './MenuItems';
-import { usePathname } from "next/navigation";
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { usePathname } from 'next/navigation';
+
+import { toggleMobileSidebar } from '@/store/customizer/CustomizerSlice';
 import { useDispatch, useSelector } from '@/store/hooks';
-import NavItem from './NavItem';
+import type { AppState } from '@/store/store';
+
+import Menuitems from './MenuItems';
 import NavCollapse from './NavCollapse';
 import NavGroup from './NavGroup/NavGroup';
-import { AppState } from '@/store/store'
-import { toggleMobileSidebar } from '@/store/customizer/CustomizerSlice';
-
+import NavItem from './NavItem';
 
 const SidebarItems = () => {
-  const  pathname  = usePathname();
+  const pathname = usePathname();
   const pathDirect = pathname;
   const pathWithoutLastPart = pathname.slice(0, pathname.lastIndexOf('/'));
   const customizer = useSelector((state: AppState) => state.customizer);
   const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up('lg'));
-  const hideMenu: any = lgUp ? customizer.isCollapse && !customizer.isSidebarHover : '';
+  const hideMenu: any = lgUp
+    ? customizer.isCollapse && !customizer.isSidebarHover
+    : '';
   const dispatch = useDispatch();
   return (
-    <Box sx={{ px: "20px" }}>
+    <Box sx={{ px: '20px' }}>
       <List sx={{ pt: 0 }} className="sidebarNav">
         {Menuitems.map((item) => {
           // {/********SubHeader**********/}
           if (item.subheader) {
-            return <NavGroup item={item} hideMenu={hideMenu} key={item.subheader} />;
+            return (
+              <NavGroup item={item} hideMenu={hideMenu} key={item.subheader} />
+            );
 
             // {/********If Sub Menu**********/}
             /* eslint no-else-return: "off" */
@@ -45,7 +50,13 @@ const SidebarItems = () => {
             // {/********If Sub No Menu**********/}
           } else {
             return (
-              <NavItem item={item} key={item.id} pathDirect={pathDirect} hideMenu={hideMenu} onClick={() => dispatch(toggleMobileSidebar())} />
+              <NavItem
+                item={item}
+                key={item.id}
+                pathDirect={pathDirect}
+                hideMenu={hideMenu}
+                onClick={() => dispatch(toggleMobileSidebar())}
+              />
             );
           }
         })}

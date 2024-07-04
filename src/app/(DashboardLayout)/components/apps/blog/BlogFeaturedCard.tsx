@@ -1,20 +1,21 @@
-import Link from 'next/link';
-import { useDispatch } from '@/store/hooks';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
 import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
+import { alpha, styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { alpha } from '@mui/material/styles';
-import { styled } from '@mui/material/styles';
 import { IconEye, IconMessage2, IconPoint } from '@tabler/icons-react';
 import { format } from 'date-fns';
+import Link from 'next/link';
+
 import { fetchBlogPost } from '@/store/apps/blog/BlogSlice';
+import { useDispatch } from '@/store/hooks';
+
+import type { BlogPostType } from '../../../types/apps/blog';
 import BlankCard from '../../shared/BlankCard';
-import { BlogPostType } from '../../../types/apps/blog';
 
 const CoverImgStyle = styled(CardContent)({
   position: 'absolute',
@@ -40,7 +41,8 @@ interface Btype {
 
 const BlogFeaturedCard = ({ post, index }: Btype) => {
   const dispatch = useDispatch();
-  const { coverImg, title, view, comments, category, author, createdAt }: any = post;
+  const { coverImg, title, view, comments, category, author, createdAt }: any =
+    post;
   const linkTo = title
     .toLowerCase()
     .replace(/ /g, '-')
@@ -74,27 +76,30 @@ const BlogFeaturedCard = ({ post, index }: Btype) => {
                 onClick={() => dispatch(fetchBlogPost(linkTo))}
               >
                 <CoverBox
-                  sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[900], 0.6) }}
+                  sx={{
+                    backgroundColor: (theme) =>
+                      alpha(theme.palette.grey[900], 0.6),
+                  }}
                 />
               </Typography>
               <CoverImgStyle>
                 <Box
-                  height={'100%'}
-                  display={'flex'}
+                  height="100%"
+                  display="flex"
                   justifyContent="space-between"
                   flexDirection="column"
                 >
                   <Box>
                     <Stack direction="row">
                       <Tooltip title={author?.name} placement="top">
-                        <Avatar aria-label="recipe" src={author?.avatar}></Avatar>
+                        <Avatar aria-label="recipe" src={author?.avatar} />
                       </Tooltip>
                       <Chip
                         sx={{ marginLeft: 'auto' }}
                         label={category}
                         size="small"
                         color="primary"
-                      ></Chip>
+                      />
                     </Stack>
                   </Box>
                   <Box>

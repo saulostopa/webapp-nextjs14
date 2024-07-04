@@ -4,11 +4,12 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import LinearProgress from '@mui/material/LinearProgress';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { useSelector } from "@/store/hooks";
-import { AppState } from "@/store/store";
-import { useTheme } from "@mui/material/styles";
-import Image from "next/image";
+import Image from 'next/image';
+
+import { useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
 
 const NewGoals = () => {
   const customizer = useSelector((state: AppState) => state.customizer);
@@ -19,24 +20,25 @@ const NewGoals = () => {
     <Card
       sx={{
         padding: 0,
-        border: !customizer.isCardShadow ? `1px solid ${borderColor}` : "none",
-        backgroundColor: "info.light",
-        position: "relative",
+        border: !customizer.isCardShadow ? `1px solid ${borderColor}` : 'none',
+        backgroundColor: 'info.light',
+        position: 'relative',
       }}
       elevation={customizer.isCardShadow ? 9 : 0}
-      variant={!customizer.isCardShadow ? "outlined" : undefined}
+      variant={!customizer.isCardShadow ? 'outlined' : undefined}
     >
       <Image
         src="/images/backgrounds/top-info-shape.png"
         alt="img"
         className="top-img"
-        width={59} height={81}
+        width={59}
+        height={81}
       />
       <CardContent>
         <Box mb={5}>
           <Avatar
             sx={{
-              bgcolor: "info.main",
+              bgcolor: 'info.main',
               width: 48,
               height: 48,
             }}
@@ -56,7 +58,6 @@ const NewGoals = () => {
           </Typography>
         </Stack>
         <LinearProgress value={83} variant="determinate" />
-        
       </CardContent>
     </Card>
   );

@@ -1,20 +1,19 @@
-import React, { useEffect, useRef } from "react";
+import './Carousel.css';
+
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import { useSelector, useDispatch } from "@/store/hooks";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from 'next/navigation';
+import React, { useEffect, useRef } from 'react';
+// Carousel slider for product
+import Slider from 'react-slick';
 
-//Carousel slider for product
-import Slider from "react-slick";
+// fetch product
+import { fetchProducts } from '@/store/apps/eCommerce/EcommerceSlicev2';
+import { useDispatch, useSelector } from '@/store/hooks';
 
-//Carousel slider data
-import SliderData from "./SliderData";
-import "./Carousel.css"
-
-//fetch product
-import { fetchProducts } from "@/store/apps/eCommerce/EcommerceSlicev2";
-import { ProductType } from "../../../../types/apps/eCommerce";
-import Image from "next/image";
+import type { ProductType } from '../../../../types/apps/eCommerce';
+// Carousel slider data
+import SliderData from './SliderData';
 
 const ProductCarousel = () => {
   const [state, setState] = React.useState<any>({ nav1: null, nav2: null });
@@ -32,9 +31,9 @@ const ProductCarousel = () => {
 
   // Get Products
   const product: ProductType = useSelector(
-    (state) => state.ecommerce2Reducer.products[getTitle - 1]
+    (state) => state.ecommerce2Reducer.products[getTitle - 1],
   );
-  const getProductImage = product ? product.photo : "";
+  const getProductImage = product ? product.photo : '';
   useEffect(() => {
     setState({
       nav1: slider1.current,
@@ -51,7 +50,7 @@ const ProductCarousel = () => {
     swipeToSlide: true,
     slidesToScroll: 1,
     centerMode: true,
-    className: "centerThumb",
+    className: 'centerThumb',
     speed: 500,
   };
 
@@ -61,14 +60,14 @@ const ProductCarousel = () => {
         <Box>
           <Avatar
             src={getProductImage}
-            style={{ borderRadius: "9px", width: "100%", height: "500px" }}
+            style={{ borderRadius: '9px', width: '100%', height: '500px' }}
           />
         </Box>
         {SliderData.map((step) => (
           <Box key={step.id}>
             <Avatar
               src={step.imgPath}
-              style={{ borderRadius: "5px", width: "100%", height: "500px" }}
+              style={{ borderRadius: '5px', width: '100%', height: '500px' }}
             />
           </Box>
         ))}
@@ -76,19 +75,20 @@ const ProductCarousel = () => {
       <Slider
         asNavFor={nav1}
         ref={(slider: any) => (slider2.current = slider)}
-        {...settings} className="slide-dots"
+        {...settings}
+        className="slide-dots"
       >
-        <Box sx={{ p: 1, cursor: "pointer" }}>
+        <Box sx={{ p: 1, cursor: 'pointer' }}>
           <Avatar
             src={getProductImage}
-            style={{ borderRadius: "5px", width: "72px", height: "72px" }}
+            style={{ borderRadius: '5px', width: '72px', height: '72px' }}
           />
         </Box>
         {SliderData.map((step) => (
-          <Box key={step.id} sx={{ p: 1, cursor: "pointer" }}>
+          <Box key={step.id} sx={{ p: 1, cursor: 'pointer' }}>
             <Avatar
               src={step.imgPath}
-              style={{ borderRadius: "5px", width: "72px", height: "72px" }}
+              style={{ borderRadius: '5px', width: '72px', height: '72px' }}
             />
           </Box>
         ))}

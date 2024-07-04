@@ -1,9 +1,10 @@
-"use client"
+'use client';
 
 import Grid from '@mui/material/Grid';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ProfileBanner from '@/app/(DashboardLayout)/components/apps/userprofile/profile/ProfileBanner';
+
 import FriendsCard from '@/app/(DashboardLayout)/components/apps/userprofile/friends/FriendsCard';
+import ProfileBanner from '@/app/(DashboardLayout)/components/apps/userprofile/profile/ProfileBanner';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 
 const Friends = () => {
   return (

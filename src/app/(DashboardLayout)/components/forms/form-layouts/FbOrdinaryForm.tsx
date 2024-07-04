@@ -1,10 +1,11 @@
-import React from 'react';
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import CustomTextField from '../theme-elements/CustomTextField';
+import React from 'react';
+
+import ParentCard from '../../shared/ParentCard';
 import CustomCheckbox from '../theme-elements/CustomCheckbox';
 import CustomFormLabel from '../theme-elements/CustomFormLabel';
-import ParentCard from '../../shared/ParentCard';
+import CustomTextField from '../theme-elements/CustomTextField';
 
 const FbOrdinaryForm = () => {
   const [state, setState] = React.useState({
@@ -32,7 +33,9 @@ const FbOrdinaryForm = () => {
           variant="outlined"
           fullWidth
         />
-        <CustomFormLabel htmlFor="ordinary-outlined-password-input">Password</CustomFormLabel>
+        <CustomFormLabel htmlFor="ordinary-outlined-password-input">
+          Password
+        </CustomFormLabel>
 
         <CustomTextField
           id="ordinary-outlined-password-input"

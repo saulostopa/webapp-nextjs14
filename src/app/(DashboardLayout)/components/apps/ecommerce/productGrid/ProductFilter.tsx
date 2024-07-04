@@ -1,5 +1,3 @@
-import React from 'react';
-import { useDispatch, useSelector } from '@/store/hooks';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -12,27 +10,31 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Radio from '@mui/material/Radio';
 import Typography from '@mui/material/Typography';
+import { Stack } from '@mui/system';
 import {
-  filterProducts,
-  sortByProducts,
-  sortByGender,
-  sortByColor,
-  sortByPrice,
-  filterReset,
-} from '@/store/apps/eCommerce/ECommerceSlice';
-import { IconCheck } from '@tabler/icons-react';
-import {
-  IconHanger,
+  IconAd2,
+  IconCheck,
   IconCircles,
-  IconNotebook,
-  IconMoodSmile,
   IconDeviceLaptop,
+  IconHanger,
+  IconMoodSmile,
+  IconNotebook,
   IconSortAscending2,
   IconSortDescending2,
-  IconAd2,
 } from '@tabler/icons-react';
-import { Stack } from '@mui/system';
-import { ProductFiterType } from '../../../../types/apps/eCommerce';
+import React from 'react';
+
+import {
+  filterProducts,
+  filterReset,
+  sortByColor,
+  sortByGender,
+  sortByPrice,
+  sortByProducts,
+} from '@/store/apps/eCommerce/ECommerceSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import type { ProductFiterType } from '../../../../types/apps/eCommerce';
 
 const ProductFilter = () => {
   const dispatch = useDispatch();
@@ -98,8 +100,18 @@ const ProductFilter = () => {
   ];
   const filterbySort = [
     { id: 1, value: 'newest', label: 'Newest', icon: IconAd2 },
-    { id: 2, value: 'priceDesc', label: 'Price: High-Low', icon: IconSortAscending2 },
-    { id: 3, value: 'priceAsc', label: 'Price: Low-High', icon: IconSortDescending2 },
+    {
+      id: 2,
+      value: 'priceDesc',
+      label: 'Price: High-Low',
+      icon: IconSortAscending2,
+    },
+    {
+      id: 3,
+      value: 'priceAsc',
+      label: 'Price: Low-High',
+      icon: IconSortDescending2,
+    },
     { id: 4, value: 'discount', label: 'Discounted', icon: IconAd2 },
   ];
   const filterbyPrice = [
@@ -142,153 +154,164 @@ const ProductFilter = () => {
   };
 
   return (
-    <>
-      <List>
-        {/* ------------------------------------------- */}
-        {/* Category filter */}
-        {/* ------------------------------------------- */}
-        {filterCategory.map((filter) => {
-          if (filter.filterbyTitle) {
-            return (
-              <Typography variant="subtitle2" fontWeight={600} px={3} mt={2} pb={2} key={filter.id}>
-                {filter.filterbyTitle}
-              </Typography>
-            );
-          } else if (filter.devider) {
-            return <Divider key={filter.id} />;
-          }
-
+    <List>
+      {/* ------------------------------------------- */}
+      {/* Category filter */}
+      {/* ------------------------------------------- */}
+      {filterCategory.map((filter) => {
+        if (filter.filterbyTitle) {
           return (
-            <ListItemButton
-              sx={{ mb: 1, mx: 3, borderRadius: br }}
-              selected={active.category === `${filter.sort}`}
-              onClick={() => dispatch(filterProducts({ category: `${filter.sort}` }))}
+            <Typography
+              variant="subtitle2"
+              fontWeight={600}
+              px={3}
+              mt={2}
+              pb={2}
               key={filter.id}
             >
-              <ListItemIcon sx={{ minWidth: '30px' }}>
-                <filter.icon stroke="1.5" size="19" />
-              </ListItemIcon>
-              <ListItemText>{filter.name}</ListItemText>
-            </ListItemButton>
+              {filter.filterbyTitle}
+            </Typography>
           );
-        })}
-        {/* ------------------------------------------- */}
-        {/* Sort by */}
-        {/* ------------------------------------------- */}
-        <Typography variant="subtitle2" fontWeight={600} px={3} mt={3} pb={2}>
-          Sort By
+        }
+        if (filter.devider) {
+          return <Divider key={filter.id} />;
+        }
+
+        return (
+          <ListItemButton
+            sx={{ mb: 1, mx: 3, borderRadius: br }}
+            selected={active.category === `${filter.sort}`}
+            onClick={() =>
+              dispatch(filterProducts({ category: `${filter.sort}` }))
+            }
+            key={filter.id}
+          >
+            <ListItemIcon sx={{ minWidth: '30px' }}>
+              <filter.icon stroke="1.5" size="19" />
+            </ListItemIcon>
+            <ListItemText>{filter.name}</ListItemText>
+          </ListItemButton>
+        );
+      })}
+      {/* ------------------------------------------- */}
+      {/* Sort by */}
+      {/* ------------------------------------------- */}
+      <Typography variant="subtitle2" fontWeight={600} px={3} mt={3} pb={2}>
+        Sort By
+      </Typography>
+      {filterbySort.map((filter) => {
+        return (
+          <ListItemButton
+            sx={{ mb: 1, mx: 3, borderRadius: br }}
+            selected={checkactive === `${filter.value}`}
+            onClick={() => dispatch(sortByProducts(`${filter.value}`))}
+            key={filter.id + filter.label + filter.value}
+          >
+            <ListItemIcon sx={{ minWidth: '30px' }}>
+              <filter.icon stroke="1.5" size={19} />
+            </ListItemIcon>
+            <ListItemText>{filter.label}</ListItemText>
+          </ListItemButton>
+        );
+      })}
+      <Divider />
+      {/* ------------------------------------------- */}
+      {/* Filter By Gender */}
+      {/* ------------------------------------------- */}
+      <Box p={3}>
+        <Typography variant="subtitle2" fontWeight={600}>
+          By Gender
         </Typography>
-        {filterbySort.map((filter) => {
-          return (
-            <ListItemButton
-              sx={{ mb: 1, mx: 3, borderRadius: br }}
-              selected={checkactive === `${filter.value}`}
-              onClick={() => dispatch(sortByProducts(`${filter.value}`))}
-              key={filter.id + filter.label + filter.value}
-            >
-              <ListItemIcon sx={{ minWidth: '30px' }}>
-                <filter.icon stroke="1.5" size={19} />
-              </ListItemIcon>
-              <ListItemText>{filter.label}</ListItemText>
-            </ListItemButton>
-          );
-        })}
-        <Divider></Divider>
-        {/* ------------------------------------------- */}
-        {/* Filter By Gender */}
-        {/* ------------------------------------------- */}
-        <Box p={3}>
-          <Typography variant="subtitle2" fontWeight={600}>
-            By Gender
-          </Typography>
-          <br />
-          <FormGroup>
-            {filterbyGender.map((gen) => (
-              <FormControlLabel
-                key={gen}
-                control={
-                  <Radio
-                    value={gen}
-                    checked={active.gender === gen}
-                    onChange={handlerGenderFilter}
-                  />
-                }
-                label={gen}
-              />
-            ))}
-          </FormGroup>
-        </Box>
-        <Divider></Divider>
-        {/* ------------------------------------------- */}
-        {/* Filter By Pricing */}
-        {/* ------------------------------------------- */}
-        <Typography variant="h6" px={3} mt={3} pb={2}>
-          By Pricing
-        </Typography>
-        <Box p={3} pt={0}>
-          <FormGroup>
-            {filterbyPrice.map((price) => (
-              <FormControlLabel
-                key={price.label}
-                control={
-                  <Radio
-                    value={price.value}
-                    checked={active.price === price.value}
-                    onChange={handlerPriceFilter}
-                  />
-                }
-                label={price.label}
-              />
-            ))}
-          </FormGroup>
-        </Box>
-        <Divider></Divider>
-        <Typography variant="h6" px={3} mt={3} pb={2}>
-          By Colors
-        </Typography>
-        {/* ------------------------------------------- */}
-        {/* Filter By colors */}
-        {/* ------------------------------------------- */}
-        <Box p={3} pt={0}>
-          <Stack direction={'row'} flexWrap="wrap" gap={1}>
-            {filterbyColors.map((curColor) => {
-              if (curColor !== 'All') {
-                return (
-                  <Avatar
-                    sx={{
-                      backgroundColor: curColor,
-                      width: 24,
-                      height: 24,
-                      cursor: 'pointer',
-                    }}
-                    aria-label={curColor}
-                    key={curColor}
-                    onClick={
-                      active.color === curColor
-                        ? () => dispatch(sortByColor({ color: 'All' }))
-                        : () => dispatch(sortByColor({ color: curColor }))
-                    }
-                  >
-                    {active.color === curColor ? <IconCheck size="13" /> : ''}
-                  </Avatar>
-                );
-              } else {
-                return <Box key={curColor} sx={{ display: 'none' }}></Box>;
+        <br />
+        <FormGroup>
+          {filterbyGender.map((gen) => (
+            <FormControlLabel
+              key={gen}
+              control={
+                <Radio
+                  value={gen}
+                  checked={active.gender === gen}
+                  onChange={handlerGenderFilter}
+                />
               }
-            })}
-          </Stack>
-        </Box>
-        <Divider></Divider>
-        {/* ------------------------------------------- */}
-        {/* Reset */}
-        {/* ------------------------------------------- */}
-        <Box p={3}>
-          <Button variant="contained" onClick={() => dispatch(filterReset())} fullWidth>
-            Reset Filters
-          </Button>
-        </Box>
-      </List>
-    </>
+              label={gen}
+            />
+          ))}
+        </FormGroup>
+      </Box>
+      <Divider />
+      {/* ------------------------------------------- */}
+      {/* Filter By Pricing */}
+      {/* ------------------------------------------- */}
+      <Typography variant="h6" px={3} mt={3} pb={2}>
+        By Pricing
+      </Typography>
+      <Box p={3} pt={0}>
+        <FormGroup>
+          {filterbyPrice.map((price) => (
+            <FormControlLabel
+              key={price.label}
+              control={
+                <Radio
+                  value={price.value}
+                  checked={active.price === price.value}
+                  onChange={handlerPriceFilter}
+                />
+              }
+              label={price.label}
+            />
+          ))}
+        </FormGroup>
+      </Box>
+      <Divider />
+      <Typography variant="h6" px={3} mt={3} pb={2}>
+        By Colors
+      </Typography>
+      {/* ------------------------------------------- */}
+      {/* Filter By colors */}
+      {/* ------------------------------------------- */}
+      <Box p={3} pt={0}>
+        <Stack direction="row" flexWrap="wrap" gap={1}>
+          {filterbyColors.map((curColor) => {
+            if (curColor !== 'All') {
+              return (
+                <Avatar
+                  sx={{
+                    backgroundColor: curColor,
+                    width: 24,
+                    height: 24,
+                    cursor: 'pointer',
+                  }}
+                  aria-label={curColor}
+                  key={curColor}
+                  onClick={
+                    active.color === curColor
+                      ? () => dispatch(sortByColor({ color: 'All' }))
+                      : () => dispatch(sortByColor({ color: curColor }))
+                  }
+                >
+                  {active.color === curColor ? <IconCheck size="13" /> : ''}
+                </Avatar>
+              );
+            }
+            return <Box key={curColor} sx={{ display: 'none' }} />;
+          })}
+        </Stack>
+      </Box>
+      <Divider />
+      {/* ------------------------------------------- */}
+      {/* Reset */}
+      {/* ------------------------------------------- */}
+      <Box p={3}>
+        <Button
+          variant="contained"
+          onClick={() => dispatch(filterReset())}
+          fullWidth
+        >
+          Reset Filters
+        </Button>
+      </Box>
+    </List>
   );
 };
 

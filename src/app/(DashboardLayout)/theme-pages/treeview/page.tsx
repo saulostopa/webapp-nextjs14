@@ -1,20 +1,23 @@
-'use client'
-import { SvgIconProps } from '@mui/material/SvgIcon';
-import { alpha, styled } from '@mui/material/styles';
-import { TreeView } from "@mui/x-tree-view/TreeView";
-import {
-  TreeItem,
-  treeItemClasses,
-  TreeItemProps
-} from "@mui/x-tree-view/TreeItem";
-import { useSpring, animated } from 'react-spring';
+'use client';
+
 import Collapse from '@mui/material/Collapse';
-import { TransitionProps } from '@mui/material/transitions';
-import { IconFolderPlus, IconFolderMinus, IconFolder } from '@tabler/icons-react';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+import { alpha, styled } from '@mui/material/styles';
+import type { SvgIconProps } from '@mui/material/SvgIcon';
+import type { TransitionProps } from '@mui/material/transitions';
+import type { TreeItemProps } from '@mui/x-tree-view/TreeItem';
+import { TreeItem, treeItemClasses } from '@mui/x-tree-view/TreeItem';
+import { TreeView } from '@mui/x-tree-view/TreeView';
+import {
+  IconFolder,
+  IconFolderMinus,
+  IconFolderPlus,
+} from '@tabler/icons-react';
+import { animated, useSpring } from 'react-spring';
+
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
 import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -27,27 +30,15 @@ const BCrumb = [
 ];
 
 function MinusSquare(props: SvgIconProps) {
-  return (
-    <>
-      <IconFolderMinus style={{ width: 22, height: 22 }} {...props} />
-    </>
-  );
+  return <IconFolderMinus style={{ width: 22, height: 22 }} {...props} />;
 }
 
 function PlusSquare(props: SvgIconProps) {
-  return (
-    <>
-      <IconFolderPlus style={{ width: 22, height: 22 }} {...props} />
-    </>
-  );
+  return <IconFolderPlus style={{ width: 22, height: 22 }} {...props} />;
 }
 
 function CloseSquare(props: SvgIconProps) {
-  return (
-    <>
-      <IconFolder style={{ width: 22, height: 22 }} {...props} />
-    </>
-  );
+  return <IconFolder style={{ width: 22, height: 22 }} {...props} />;
 }
 
 function TransitionComponent(props: TransitionProps) {

@@ -5,13 +5,14 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import React from 'react';
-import CustomFormLabel from '../theme-elements/CustomFormLabel';
-import CustomTextField from '../theme-elements/CustomTextField';
-import CustomOutlinedInput from '../theme-elements/CustomOutlinedInput';
-import CustomSelect from '../theme-elements/CustomSelect';
 import { Stack } from '@mui/system';
 import { IconEye, IconEyeOff } from '@tabler/icons-react';
+import React from 'react';
+
+import CustomFormLabel from '../theme-elements/CustomFormLabel';
+import CustomOutlinedInput from '../theme-elements/CustomOutlinedInput';
+import CustomSelect from '../theme-elements/CustomSelect';
+import CustomTextField from '../theme-elements/CustomTextField';
 
 const countries = [
   {
@@ -60,7 +61,9 @@ const FormSeparator = () => {
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => {
     event.preventDefault();
   };
 
@@ -70,7 +73,9 @@ const FormSeparator = () => {
 
   const handleClickShowPassword2 = () => setShowPassword2((show) => !show);
 
-  const handleMouseDownPassword2 = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseDownPassword2 = (
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => {
     event.preventDefault();
   };
 
@@ -100,7 +105,11 @@ const FormSeparator = () => {
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
                 >
-                  {showPassword ? <IconEyeOff size="20" /> : <IconEye size="20" />}
+                  {showPassword ? (
+                    <IconEyeOff size="20" />
+                  ) : (
+                    <IconEye size="20" />
+                  )}
                 </IconButton>
               </InputAdornment>
             }
@@ -114,7 +123,9 @@ const FormSeparator = () => {
             Email
           </CustomFormLabel>
           <CustomOutlinedInput
-            endAdornment={<InputAdornment position="end">@example.com</InputAdornment>}
+            endAdornment={
+              <InputAdornment position="end">@example.com</InputAdornment>
+            }
             id="fs-email"
             placeholder="john.deo"
             fullWidth
@@ -130,7 +141,11 @@ const FormSeparator = () => {
                   onMouseDown={handleMouseDownPassword2}
                   edge="end"
                 >
-                  {showPassword2 ? <IconEyeOff size="20" /> : <IconEye size="20" />}
+                  {showPassword2 ? (
+                    <IconEyeOff size="20" />
+                  ) : (
+                    <IconEye size="20" />
+                  )}
                 </IconButton>
               </InputAdornment>
             }
@@ -167,7 +182,12 @@ const FormSeparator = () => {
             ))}
           </CustomSelect>
           <CustomFormLabel htmlFor="fs-date">Birth Date</CustomFormLabel>
-          <CustomTextField type="date" id="fs-date" placeholder="John Deo" fullWidth />
+          <CustomTextField
+            type="date"
+            id="fs-date"
+            placeholder="John Deo"
+            fullWidth
+          />
         </Grid>
 
         <Grid item xs={12} sm={6}>
@@ -176,7 +196,12 @@ const FormSeparator = () => {
           </CustomFormLabel>
           <CustomTextField id="fs-lname" placeholder="Deo" fullWidth />
           <CustomFormLabel htmlFor="fs-language">Language</CustomFormLabel>
-          <CustomSelect value={language} onChange={handleChange2} fullWidth variant="outlined">
+          <CustomSelect
+            value={language}
+            onChange={handleChange2}
+            fullWidth
+            variant="outlined"
+          >
             {lang.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}

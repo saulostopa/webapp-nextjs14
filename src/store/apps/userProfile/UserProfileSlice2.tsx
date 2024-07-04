@@ -1,7 +1,8 @@
-import axios from '../../../utils/axios';
 import { createSlice } from '@reduxjs/toolkit';
 import { map } from 'lodash';
-import { AppDispatch } from '../../store';
+
+import axios from '../../../utils/axios';
+import type { AppDispatch } from '../../store';
 
 const API_URL = '/api/data/postData2';
 
@@ -49,7 +50,8 @@ export const UserProfileSlice2 = createSlice({
   },
 });
 
-export const { getPosts, getFollowers, onToggleFollow, getPhotos } = UserProfileSlice2.actions;
+export const { getPosts, getFollowers, onToggleFollow, getPhotos } =
+  UserProfileSlice2.actions;
 
 export const fetchPosts = () => async (dispatch: AppDispatch) => {
   try {
@@ -67,17 +69,22 @@ export const likePosts = (postId: number) => async (dispatch: AppDispatch) => {
     throw new Error(err);
   }
 };
-export const addComment = (postId: number, comment: any[]) => async (dispatch: AppDispatch) => {
-  try {
-    const response = await axios.post('/api/data/posts2/comments/add', { postId, comment });
-    dispatch(getPosts(response.data.posts));
-  } catch (err: any) {
-    throw new Error(err);
-  }
-};
+export const addComment =
+  (postId: number, comment: any[]) => async (dispatch: AppDispatch) => {
+    try {
+      const response = await axios.post('/api/data/posts2/comments/add', {
+        postId,
+        comment,
+      });
+      dispatch(getPosts(response.data.posts));
+    } catch (err: any) {
+      throw new Error(err);
+    }
+  };
 
 export const addReply =
-  (postId: number, commentId: any[], reply: any[]) => async (dispatch: AppDispatch) => {
+  (postId: number, commentId: any[], reply: any[]) =>
+  async (dispatch: AppDispatch) => {
     try {
       const response = await axios.post('/api/data/posts2/replies/add', {
         postId,

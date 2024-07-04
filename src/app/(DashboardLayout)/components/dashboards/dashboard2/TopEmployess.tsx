@@ -1,10 +1,7 @@
-import React from "react";
-import DashboardCard from "../../shared/DashboardCard";
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
-import LinearProgress from '@mui/material/LinearProgress';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
@@ -15,14 +12,17 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import ProductTableData from "./TopEmployessData";
-import { IconDotsVertical } from "@tabler/icons-react";
+import { IconDotsVertical } from '@tabler/icons-react';
+import React from 'react';
+
+import DashboardCard from '../../shared/DashboardCard';
+import ProductTableData from './TopEmployessData';
 
 const performers = ProductTableData;
 
 const TopEmployess = () => {
   // for select
-  const [month, setMonth] = React.useState("1");
+  const [month, setMonth] = React.useState('1');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMonth(event.target.value);
@@ -44,9 +44,9 @@ const TopEmployess = () => {
         <>
           <IconButton
             id="basic-button"
-            aria-controls={open ? "basic-menu" : undefined}
+            aria-controls={open ? 'basic-menu' : undefined}
             aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
+            aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
           >
             <IconDotsVertical />
@@ -57,11 +57,11 @@ const TopEmployess = () => {
             open={open}
             onClose={handleClose}
             MenuListProps={{
-              "aria-labelledby": "basic-button",
+              'aria-labelledby': 'basic-button',
             }}
             transformOrigin={{
-              vertical: "top",
-              horizontal: "right",
+              vertical: 'top',
+              horizontal: 'right',
             }}
           >
             <MenuItem onClick={handleClose}>Add</MenuItem>
@@ -75,11 +75,11 @@ const TopEmployess = () => {
         <Table
           aria-label="simple table"
           sx={{
-            whiteSpace: "nowrap",
+            whiteSpace: 'nowrap',
             mt: -2,
-            ".MuiTableCell-root": {
+            '.MuiTableCell-root': {
               borderBottom: 0,
-              padding: "14px",
+              padding: '14px',
             },
           }}
         >
@@ -148,38 +148,38 @@ const TopEmployess = () => {
                   <Chip
                     sx={{
                       bgcolor:
-                        basic.status == "Available"
+                        basic.status == 'Available'
                           ? (theme) => theme.palette.success.light
-                          : basic.status == "On Leave"
-                          ? (theme) => theme.palette.warning.light
-                          : basic.status == "Absent"
-                          ? (theme) => theme.palette.error.light
-                          : basic.status == "On Holiday"
-                          ? (theme) => theme.palette.primary.light
-                          : (theme) => theme.palette.error.light,
+                          : basic.status == 'On Leave'
+                            ? (theme) => theme.palette.warning.light
+                            : basic.status == 'Absent'
+                              ? (theme) => theme.palette.error.light
+                              : basic.status == 'On Holiday'
+                                ? (theme) => theme.palette.primary.light
+                                : (theme) => theme.palette.error.light,
                       color:
-                        basic.status == "Available"
+                        basic.status == 'Available'
                           ? (theme) => theme.palette.success.main
-                          : basic.status == "On Leave"
-                          ? (theme) => theme.palette.warning.main
-                          : basic.status == "Absent"
-                          ? (theme) => theme.palette.error.main
-                          : basic.status == "On Holiday"
-                          ? (theme) => theme.palette.primary.main
-                          : (theme) => theme.palette.error.main,
-                      border: "1px solid",
+                          : basic.status == 'On Leave'
+                            ? (theme) => theme.palette.warning.main
+                            : basic.status == 'Absent'
+                              ? (theme) => theme.palette.error.main
+                              : basic.status == 'On Holiday'
+                                ? (theme) => theme.palette.primary.main
+                                : (theme) => theme.palette.error.main,
+                      border: '1px solid',
                     }}
                     size="small"
                     label={
-                      basic.status == "Available"
-                        ? "Available"
-                        : basic.status == "On Leave"
-                        ? "On Leave"
-                        : basic.status == "Absent"
-                        ? "Absent"
-                        : basic.status == "On Holiday"
-                        ? "On Holiday"
-                        : ""
+                      basic.status == 'Available'
+                        ? 'Available'
+                        : basic.status == 'On Leave'
+                          ? 'On Leave'
+                          : basic.status == 'Absent'
+                            ? 'Absent'
+                            : basic.status == 'On Holiday'
+                              ? 'On Holiday'
+                              : ''
                     }
                   />
                 </TableCell>

@@ -1,36 +1,38 @@
-"use client";
+'use client';
 
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 
 // common components
-import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
-import Breadcrumb from "@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb";
-import ChildCard from "@/app/(DashboardLayout)/components/shared/ChildCard";
-import BlankCard from "@/app/(DashboardLayout)/components/shared/BlankCard";
-import Logo from "@/app/(DashboardLayout)/layout/shared/logo/Logo";
-
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import FVCheckbox from '@/app/(DashboardLayout)/components/forms/form-validation/FVCheckbox';
 // custom components
-import FVLogin from "@/app/(DashboardLayout)/components/forms/form-validation/FVLogin";
-import FVRegister from "@/app/(DashboardLayout)/components/forms/form-validation/FVRegister";
-import FVOnLeave from "@/app/(DashboardLayout)/components/forms/form-validation/FVOnLeave";
-import FVRadio from "@/app/(DashboardLayout)/components/forms/form-validation/FVRadio";
-import FVCheckbox from "@/app/(DashboardLayout)/components/forms/form-validation/FVCheckbox";
-import FVSelect from "@/app/(DashboardLayout)/components/forms/form-validation/FVSelect";
+import FVLogin from '@/app/(DashboardLayout)/components/forms/form-validation/FVLogin';
+import FVOnLeave from '@/app/(DashboardLayout)/components/forms/form-validation/FVOnLeave';
+import FVRadio from '@/app/(DashboardLayout)/components/forms/form-validation/FVRadio';
+import FVRegister from '@/app/(DashboardLayout)/components/forms/form-validation/FVRegister';
+import FVSelect from '@/app/(DashboardLayout)/components/forms/form-validation/FVSelect';
+import BlankCard from '@/app/(DashboardLayout)/components/shared/BlankCard';
+import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
 
 const BCrumb = [
   {
-    to: "/",
-    title: "Home",
+    to: '/',
+    title: 'Home',
   },
   {
-    title: "Form Validation",
+    title: 'Form Validation',
   },
 ];
 
 const FormValidation = () => {
   return (
-    <PageContainer title="Form Validation" description="this is Form Validation">
+    <PageContainer
+      title="Form Validation"
+      description="this is Form Validation"
+    >
       <Breadcrumb title="Form Validation" items={BCrumb} />
 
       <Grid container spacing={3}>

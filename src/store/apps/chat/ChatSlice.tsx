@@ -1,8 +1,9 @@
-import axios from '../../../utils/axios';
 import { createSlice } from '@reduxjs/toolkit';
-import { AppDispatch } from '../../store';
-import { uniqueId } from 'lodash';
 import { sub } from 'date-fns';
+import { uniqueId } from 'lodash';
+
+import axios from '../../../utils/axios';
+import type { AppDispatch } from '../../store';
 
 const API_URL = '/api/data/chat/ChatData';
 
@@ -36,8 +37,8 @@ export const ChatSlice = createSlice({
       const { id, msg } = conversation;
 
       const newMessage = {
-        id: id,
-        msg: msg,
+        id,
+        msg,
         type: 'text',
         attachments: [],
         createdAt: sub(new Date(), { seconds: 1 }),

@@ -1,7 +1,8 @@
-import React from 'react';
-import Typography from '@mui/material/Typography';
 import Autocomplete from '@mui/material/Autocomplete';
-import CustomTextField from "../../theme-elements/CustomTextField";
+import Typography from '@mui/material/Typography';
+import React from 'react';
+
+import CustomTextField from '../../theme-elements/CustomTextField';
 
 const options = ['Option 1', 'Option 2'];
 

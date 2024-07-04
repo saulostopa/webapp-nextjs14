@@ -1,22 +1,19 @@
+import { Icon } from '@iconify/react';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import DashboardCard from "../../shared/DashboardCard";
-import {
-  IconDotsVertical,
-  IconUserCircle,
-} from "@tabler/icons-react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from "@mui/material/styles";
-import React from "react";
-import { Icon } from "@iconify/react";
+import { IconDotsVertical } from '@tabler/icons-react';
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+import DashboardCard from '../../shared/DashboardCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const ProductSales = () => {
   const theme = useTheme();
@@ -36,9 +33,9 @@ const ProductSales = () => {
   // chart
   const optionproductsaleschart: any = {
     chart: {
-      type: "area",
+      type: 'area',
       fontFamily: "'Plus Jakarta Sans', sans-serif;",
-      foreColor: "#adb0bb",
+      foreColor: '#adb0bb',
       toolbar: {
         show: false,
       },
@@ -46,7 +43,7 @@ const ProductSales = () => {
     },
 
     fill: {
-      type: "gradient",
+      type: 'gradient',
       gradient: {
         shadeIntensity: 0,
         inverseColors: false,
@@ -60,7 +57,7 @@ const ProductSales = () => {
     },
 
     grid: {
-      borderColor: "rgba(0,0,0,0.1)",
+      borderColor: 'rgba(0,0,0,0.1)',
       strokeDashArray: 4,
       strokeWidth: 1,
       padding: {
@@ -71,11 +68,11 @@ const ProductSales = () => {
       },
     },
     stroke: {
-      curve: "smooth",
-      width: "2",
+      curve: 'smooth',
+      width: '2',
     },
     xaxis: {
-      categories: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+      categories: ['2016', '2017', '2018', '2019', '2020', '2021', '2022'],
       axisBorder: {
         show: false,
       },
@@ -89,14 +86,14 @@ const ProductSales = () => {
       },
     },
     tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
+      theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
       fillSeriesColor: false,
     },
   };
   const seriesproductsaleschart = [
     {
       colors: [primary],
-      name: "Product Sales",
+      name: 'Product Sales',
       data: [13, 15, 14, 17, 16, 19, 17],
     },
   ];
@@ -108,9 +105,9 @@ const ProductSales = () => {
         <>
           <IconButton
             id="basic-button"
-            aria-controls={open ? "basic-menu" : undefined}
+            aria-controls={open ? 'basic-menu' : undefined}
             aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
+            aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
           >
             <IconDotsVertical />
@@ -121,11 +118,11 @@ const ProductSales = () => {
             open={open}
             onClose={handleClose}
             MenuListProps={{
-              "aria-labelledby": "basic-button",
+              'aria-labelledby': 'basic-button',
             }}
             transformOrigin={{
-              vertical: "top",
-              horizontal: "right",
+              vertical: 'top',
+              horizontal: 'right',
             }}
           >
             <MenuItem onClick={handleClose}>Add</MenuItem>
@@ -142,7 +139,7 @@ const ProductSales = () => {
             series={seriesproductsaleschart}
             type="area"
             height={240}
-            width={"100%"}
+            width="100%"
           />
         </Box>
 

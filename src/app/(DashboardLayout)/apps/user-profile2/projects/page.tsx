@@ -1,10 +1,11 @@
-"use client"
+'use client';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+
 import ProfileBanner from '@/app/(DashboardLayout)/components/apps/userprofile2/profile/ProfileBanner';
 import FriendsCard from '@/app/(DashboardLayout)/components/apps/userprofile2/projects/FriendsCard';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 
 const Friends = () => {
   return (
@@ -14,8 +15,8 @@ const Friends = () => {
           <ProfileBanner />
         </Grid>
         <Grid item sm={12}>
-        <Box mx={3}>
-          <FriendsCard />
+          <Box mx={3}>
+            <FriendsCard />
           </Box>
         </Grid>
       </Grid>

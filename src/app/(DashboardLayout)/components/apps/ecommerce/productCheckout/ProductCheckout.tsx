@@ -1,17 +1,19 @@
-import React from 'react';
-import { sum } from 'lodash';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import AddToCart from '../productCart/AddToCart';
 import { IconArrowBack } from '@tabler/icons-react';
+import { sum } from 'lodash';
+import React from 'react';
+
 import { useSelector } from '@/store/hooks';
-import HorizontalStepper from './HorizontalStepper';
+
+import type { ProductType } from '../../../../types/apps/eCommerce';
+import AddToCart from '../productCart/AddToCart';
+import FinalStep from './FinalStep';
 import FirstStep from './FirstStep';
+import HorizontalStepper from './HorizontalStepper';
 import SecondStep from './SecondStep';
 import ThirdStep from './ThirdStep';
-import FinalStep from './FinalStep';
-import { ProductType } from '../../../../types/apps/eCommerce';
 
 const ProductChecout = () => {
   const checkout = useSelector((state) => state.ecommerceReducer.cart);
@@ -28,7 +30,9 @@ const ProductChecout = () => {
     setActiveStep(0);
   };
 
-  const total = sum(checkout.map((product: ProductType) => product.price * product.qty));
+  const total = sum(
+    checkout.map((product: ProductType) => product.price * product.qty),
+  );
   const Discount = Math.round(total * (5 / 100));
 
   return (
@@ -53,7 +57,7 @@ const ProductChecout = () => {
                 {/* Cart Total */}
                 {/* ------------------------------------------- */}
                 <FirstStep total={total} Discount={Discount} />
-                <Stack direction={'row'} justifyContent="space-between">
+                <Stack direction="row" justifyContent="space-between">
                   <Button
                     color="secondary"
                     variant="contained"
@@ -78,8 +82,12 @@ const ProductChecout = () => {
             {/* ------------------------------------------- */}
             <SecondStep nexStep={handleNext} />
             <FirstStep total={total} Discount={Discount} />
-            <Stack direction={'row'} justifyContent="space-between">
-              <Button color="inherit" disabled={activeStep !== 1} onClick={handleBack}>
+            <Stack direction="row" justifyContent="space-between">
+              <Button
+                color="inherit"
+                disabled={activeStep !== 1}
+                onClick={handleBack}
+              >
                 Back
               </Button>
               <Button color="inherit" variant="outlined">
@@ -94,8 +102,12 @@ const ProductChecout = () => {
             {/* ------------------------------------------- */}
             <ThirdStep />
             <FirstStep total={total} Discount={Discount} />
-            <Stack direction={'row'} justifyContent="space-between">
-              <Button color="inherit" disabled={activeStep === 0} onClick={handleBack}>
+            <Stack direction="row" justifyContent="space-between">
+              <Button
+                color="inherit"
+                disabled={activeStep === 0}
+                onClick={handleBack}
+              >
                 <IconArrowBack /> Back
               </Button>
               <Button onClick={handleNext} size="large" variant="contained">

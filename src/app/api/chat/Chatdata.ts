@@ -1,8 +1,10 @@
-import mock from '../mock';
 import { Chance } from 'chance';
-import type { ChatsType } from '@/app/(DashboardLayout)/types/apps/chat';
 import { sub } from 'date-fns';
 import { uniqueId } from 'lodash';
+
+import type { ChatsType } from '@/app/(DashboardLayout)/types/apps/chat';
+
+import mock from '../mock';
 
 const chance = new Chance();
 
@@ -11,7 +13,7 @@ const ChatData: ChatsType[] = [
     id: 1,
     name: 'James Johnson',
     status: 'online',
-    thumb: "/images/profile/user-1.jpg",
+    thumb: '/images/profile/user-1.jpg',
     recent: false,
     excerpt: 'Theme Developer',
     messages: [
@@ -21,11 +23,31 @@ const ChatData: ChatsType[] = [
         senderId: 1,
         type: 'text',
         attachment: [
-          { icon: "/images/chat/icon-adobe.svg", file: 'service-task.pdf', fileSize: '2MB' },
-          { icon: "/images/chat/icon-chrome.svg", file: 'homepage-design.fig', fileSize: '3MB' },
-          { icon: "/images/chat/icon-figma.svg", file: 'about-us.htmlf', fileSize: '1KB' },
-          { icon: "/images/chat/icon-javascript.svg", file: 'work-project.zip', fileSize: '20MB' },
-          { icon: "/images/chat/icon-zip-folder.svg", file: 'custom.js', fileSize: '2MB' },
+          {
+            icon: '/images/chat/icon-adobe.svg',
+            file: 'service-task.pdf',
+            fileSize: '2MB',
+          },
+          {
+            icon: '/images/chat/icon-chrome.svg',
+            file: 'homepage-design.fig',
+            fileSize: '3MB',
+          },
+          {
+            icon: '/images/chat/icon-figma.svg',
+            file: 'about-us.htmlf',
+            fileSize: '1KB',
+          },
+          {
+            icon: '/images/chat/icon-javascript.svg',
+            file: 'work-project.zip',
+            fileSize: '20MB',
+          },
+          {
+            icon: '/images/chat/icon-zip-folder.svg',
+            file: 'custom.js',
+            fileSize: '2MB',
+          },
         ],
         id: uniqueId(),
       },
@@ -76,10 +98,26 @@ const ChatData: ChatsType[] = [
         senderId: uniqueId(),
         type: 'text',
         attachment: [
-          { icon: "/images/chat/icon-adobe.svg", file: 'service-task.pdf', fileSize: '2MB' },
-          { icon: "/images/chat/icon-chrome.svg", file: 'homepage-design.fig', fileSize: '3MB' },
-          { icon: "/images/chat/icon-javascript.svg", file: 'work-project.zip', fileSize: '20MB' },
-          { icon: "/images/chat/icon-zip-folder.svg", file: 'custom.js', fileSize: '2MB' },
+          {
+            icon: '/images/chat/icon-adobe.svg',
+            file: 'service-task.pdf',
+            fileSize: '2MB',
+          },
+          {
+            icon: '/images/chat/icon-chrome.svg',
+            file: 'homepage-design.fig',
+            fileSize: '3MB',
+          },
+          {
+            icon: '/images/chat/icon-javascript.svg',
+            file: 'work-project.zip',
+            fileSize: '20MB',
+          },
+          {
+            icon: '/images/chat/icon-zip-folder.svg',
+            file: 'custom.js',
+            fileSize: '2MB',
+          },
         ],
         id: uniqueId(),
       },
@@ -130,8 +168,16 @@ const ChatData: ChatsType[] = [
         senderId: 1,
         type: 'text',
         attachment: [
-          { icon: "/images/chat/icon-adobe.svg", file: 'service-task.pdf', fileSize: '2MB' },
-          { icon: "/images/chat/icon-zip-folder.svg", file: 'custom.js', fileSize: '2MB' },
+          {
+            icon: '/images/chat/icon-adobe.svg',
+            file: 'service-task.pdf',
+            fileSize: '2MB',
+          },
+          {
+            icon: '/images/chat/icon-zip-folder.svg',
+            file: 'custom.js',
+            fileSize: '2MB',
+          },
         ],
         id: uniqueId(),
       },
@@ -159,7 +205,6 @@ const ChatData: ChatsType[] = [
         attachment: [],
         id: uniqueId(),
       },
-
     ],
   },
   {
@@ -184,8 +229,16 @@ const ChatData: ChatsType[] = [
         senderId: 4,
         type: 'text',
         attachment: [
-          { icon: "/images/chat/icon-javascript.svg", file: 'work-project.zip', fileSize: '20MB' },
-          { icon: "/images/chat/icon-zip-folder.svg", file: 'custom.js', fileSize: '2MB' },
+          {
+            icon: '/images/chat/icon-javascript.svg',
+            file: 'work-project.zip',
+            fileSize: '20MB',
+          },
+          {
+            icon: '/images/chat/icon-zip-folder.svg',
+            file: 'custom.js',
+            fileSize: '2MB',
+          },
         ],
         id: uniqueId(),
       },
@@ -229,11 +282,31 @@ const ChatData: ChatsType[] = [
         senderId: 1,
         type: 'text',
         attachment: [
-          { icon: "/images/chat/icon-adobe.svg", file: 'service-task.pdf', fileSize: '2MB' },
-          { icon: "/images/chat/icon-chrome.svg", file: 'homepage-design.fig', fileSize: '3MB' },
-          { icon: "/images/chat/icon-figma.svg", file: 'about-us.htmlf', fileSize: '1KB' },
-          { icon: "/images/chat/icon-javascript.svg", file: 'work-project.zip', fileSize: '20MB' },
-          { icon: "/images/chat/icon-zip-folder.svg", file: 'custom.js', fileSize: '2MB' },
+          {
+            icon: '/images/chat/icon-adobe.svg',
+            file: 'service-task.pdf',
+            fileSize: '2MB',
+          },
+          {
+            icon: '/images/chat/icon-chrome.svg',
+            file: 'homepage-design.fig',
+            fileSize: '3MB',
+          },
+          {
+            icon: '/images/chat/icon-figma.svg',
+            file: 'about-us.htmlf',
+            fileSize: '1KB',
+          },
+          {
+            icon: '/images/chat/icon-javascript.svg',
+            file: 'work-project.zip',
+            fileSize: '20MB',
+          },
+          {
+            icon: '/images/chat/icon-zip-folder.svg',
+            file: 'custom.js',
+            fileSize: '2MB',
+          },
         ],
         id: uniqueId(),
       },
@@ -284,9 +357,21 @@ const ChatData: ChatsType[] = [
         senderId: 1,
         type: 'text',
         attachment: [
-          { icon: "/images/chat/icon-chrome.svg", file: 'homepage-design.fig', fileSize: '3MB' },
-          { icon: "/images/chat/icon-javascript.svg", file: 'work-project.zip', fileSize: '20MB' },
-          { icon: "/images/chat/icon-zip-folder.svg", file: 'custom.js', fileSize: '2MB' },
+          {
+            icon: '/images/chat/icon-chrome.svg',
+            file: 'homepage-design.fig',
+            fileSize: '3MB',
+          },
+          {
+            icon: '/images/chat/icon-javascript.svg',
+            file: 'work-project.zip',
+            fileSize: '20MB',
+          },
+          {
+            icon: '/images/chat/icon-zip-folder.svg',
+            file: 'custom.js',
+            fileSize: '2MB',
+          },
         ],
         id: uniqueId(),
       },
@@ -329,8 +414,16 @@ const ChatData: ChatsType[] = [
         senderId: 1,
         type: 'text',
         attachment: [
-          { icon: "/images/chat/icon-adobe.svg", file: 'service-task.pdf', fileSize: '2MB' },
-          { icon: "/images/chat/icon-chrome.svg", file: 'homepage-design.fig', fileSize: '3MB' },
+          {
+            icon: '/images/chat/icon-adobe.svg',
+            file: 'service-task.pdf',
+            fileSize: '2MB',
+          },
+          {
+            icon: '/images/chat/icon-chrome.svg',
+            file: 'homepage-design.fig',
+            fileSize: '3MB',
+          },
         ],
         id: uniqueId(),
       },
@@ -374,9 +467,21 @@ const ChatData: ChatsType[] = [
         senderId: 1,
         type: 'text',
         attachment: [
-          { icon: "/images/chat/icon-adobe.svg", file: 'service-task.pdf', fileSize: '2MB' },
-          { icon: "/images/chat/icon-javascript.svg", file: 'work-project.zip', fileSize: '20MB' },
-          { icon: "/images/chat/icon-zip-folder.svg", file: 'custom.js', fileSize: '2MB' },
+          {
+            icon: '/images/chat/icon-adobe.svg',
+            file: 'service-task.pdf',
+            fileSize: '2MB',
+          },
+          {
+            icon: '/images/chat/icon-javascript.svg',
+            file: 'work-project.zip',
+            fileSize: '20MB',
+          },
+          {
+            icon: '/images/chat/icon-zip-folder.svg',
+            file: 'custom.js',
+            fileSize: '2MB',
+          },
         ],
         id: uniqueId(),
       },
@@ -420,8 +525,16 @@ const ChatData: ChatsType[] = [
         senderId: 1,
         type: 'text',
         attachment: [
-          { icon: "/images/chat/icon-javascript.svg", file: 'work-project.zip', fileSize: '20MB' },
-          { icon: "/images/chat/icon-zip-folder.svg", file: 'custom.js', fileSize: '2MB' },
+          {
+            icon: '/images/chat/icon-javascript.svg',
+            file: 'work-project.zip',
+            fileSize: '20MB',
+          },
+          {
+            icon: '/images/chat/icon-zip-folder.svg',
+            file: 'custom.js',
+            fileSize: '2MB',
+          },
         ],
         id: uniqueId(),
       },
@@ -473,8 +586,16 @@ const ChatData: ChatsType[] = [
         senderId: 1,
         type: 'text',
         attachment: [
-          { icon: "/images/chat/icon-adobe.svg", file: 'service-task.pdf', fileSize: '2MB' },
-          { icon: "/images/chat/icon-zip-folder.svg", file: 'custom.js', fileSize: '2MB' },
+          {
+            icon: '/images/chat/icon-adobe.svg',
+            file: 'service-task.pdf',
+            fileSize: '2MB',
+          },
+          {
+            icon: '/images/chat/icon-zip-folder.svg',
+            file: 'custom.js',
+            fileSize: '2MB',
+          },
         ],
         id: uniqueId(),
       },

@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
-
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
+import React, { useEffect } from 'react';
 import rtlPlugin from 'stylis-plugin-rtl';
 
 interface RTLType {

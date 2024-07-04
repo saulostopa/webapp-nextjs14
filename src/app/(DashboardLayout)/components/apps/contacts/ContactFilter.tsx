@@ -1,19 +1,21 @@
-import { useDispatch, useSelector } from "@/store/hooks";
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
-import { setVisibilityFilter } from "@/store/apps/contacts/ContactSlice";
-import Scrollbar from "../../../components/custom-scroll/Scrollbar";
 import {
-  IconMail,
-  IconSend,
   IconBucket,
   IconFolder,
-} from "@tabler/icons-react";
-import ContactAdd from "./ContactAdd";
+  IconMail,
+  IconSend,
+} from '@tabler/icons-react';
+
+import { setVisibilityFilter } from '@/store/apps/contacts/ContactSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import Scrollbar from '../../custom-scroll/Scrollbar';
+import ContactAdd from './ContactAdd';
 
 interface DataType {
   id: number;
@@ -34,20 +36,20 @@ const ContactFilter = () => {
   const filterData: DataType[] = [
     {
       id: 2,
-      name: "All",
-      sort: "show_all",
+      name: 'All',
+      sort: 'show_all',
       icon: IconMail,
     },
     {
       id: 3,
-      name: "Frequent",
-      sort: "frequent_contact",
+      name: 'Frequent',
+      sort: 'frequent_contact',
       icon: IconSend,
     },
     {
       id: 4,
-      name: "Starred",
-      sort: "starred_contact",
+      name: 'Starred',
+      sort: 'starred_contact',
       icon: IconBucket,
     },
     {
@@ -56,29 +58,29 @@ const ContactFilter = () => {
     },
     {
       id: 5,
-      filterbyTitle: "Categories",
+      filterbyTitle: 'Categories',
     },
 
     {
       id: 7,
-      name: "Engineering",
-      sort: "engineering_department",
+      name: 'Engineering',
+      sort: 'engineering_department',
       icon: IconFolder,
-      color: "primary.main",
+      color: 'primary.main',
     },
     {
       id: 8,
-      name: "Support",
-      sort: "support_department",
+      name: 'Support',
+      sort: 'support_department',
       icon: IconFolder,
-      color: "error.main",
+      color: 'error.main',
     },
     {
       id: 9,
-      name: "Sales",
-      sort: "sales_department",
+      name: 'Sales',
+      sort: 'sales_department',
       icon: IconFolder,
-      color: "success.main",
+      color: 'success.main',
     },
   ];
 
@@ -88,8 +90,8 @@ const ContactFilter = () => {
       <List>
         <Scrollbar
           sx={{
-            height: { lg: "calc(100vh - 100px)", md: "100vh" },
-            maxHeight: "800px",
+            height: { lg: 'calc(100vh - 100px)', md: '100vh' },
+            maxHeight: '800px',
           }}
         >
           {filterData.map((filter) => {
@@ -106,7 +108,8 @@ const ContactFilter = () => {
                   {filter.filterbyTitle}
                 </Typography>
               );
-            } else if (filter.devider) {
+            }
+            if (filter.devider) {
               return <Divider key={filter.id} sx={{ mb: 3 }} />;
             }
 
@@ -117,7 +120,7 @@ const ContactFilter = () => {
                 onClick={() => dispatch(setVisibilityFilter(`${filter.sort}`))}
                 key={filter.id}
               >
-                <ListItemIcon sx={{ minWidth: "30px", color: filter.color }}>
+                <ListItemIcon sx={{ minWidth: '30px', color: filter.color }}>
                   <filter.icon stroke="1.5" size={19} />
                 </ListItemIcon>
                 <ListItemText>{filter.name}</ListItemText>

@@ -1,24 +1,26 @@
+import { Icon } from '@iconify/react';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
-import SidebarItems from "./SidebarItems";
-import Logo from "../../shared/logo/Logo";
-import { useSelector, useDispatch } from "@/store/hooks";
+
+import Scrollbar from '@/app/(DashboardLayout)/components/custom-scroll/Scrollbar';
 import {
   hoverSidebar,
   toggleMobileSidebar,
-} from "@/store/customizer/CustomizerSlice";
-import Scrollbar from "@/app/(DashboardLayout)/components/custom-scroll/Scrollbar";
-import { AppState } from "@/store/store";
-import { Icon } from "@iconify/react";
+} from '@/store/customizer/CustomizerSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
+
+import Logo from '../../shared/logo/Logo';
+import SidebarItems from './SidebarItems';
 
 export default function Sidebar() {
-  const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
+  const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up('lg'));
   const customizer = useSelector((state: AppState) => state.customizer);
   const dispatch = useDispatch();
   const theme = useTheme();
@@ -45,9 +47,9 @@ export default function Sidebar() {
           width: toggleWidth,
           flexShrink: 0,
           ...(customizer.isCollapse && {
-            position: "absolute",
+            position: 'absolute',
           }),
-          borderRadius: "13px",
+          borderRadius: '13px',
         }}
       >
         {/* ------------------------------------------- */}
@@ -62,17 +64,17 @@ export default function Sidebar() {
           PaperProps={{
             sx: {
               boxShadow: customizer.isCardShadow ? 9 : 0,
-              transition: theme.transitions.create("width", {
+              transition: theme.transitions.create('width', {
                 duration: theme.transitions.duration.shortest,
               }),
               width: toggleWidth,
               borderRight: 0,
-              boxSizing: "border-box",
+              boxSizing: 'border-box',
               top: 20,
               left: 20,
               bottom: 20,
-              borderRadius: "13px",
-              height: "calc(100% - 40px)",
+              borderRadius: '13px',
+              height: 'calc(100% - 40px)',
             },
           }}
         >
@@ -81,7 +83,7 @@ export default function Sidebar() {
           {/* ------------------------------------------- */}
           <Box
             sx={{
-              height: "100%",
+              height: '100%',
             }}
           >
             {/* ------------------------------------------- */}
@@ -93,8 +95,8 @@ export default function Sidebar() {
             <Scrollbar
               sx={{
                 height: customizer.isCollapse
-                  ? "calc(100% - 90px)"
-                  : "calc(100% - 200px)",
+                  ? 'calc(100% - 90px)'
+                  : 'calc(100% - 200px)',
               }}
             >
               {/* ------------------------------------------- */}
@@ -112,7 +114,7 @@ export default function Sidebar() {
                 >
                   <Box display="flex" alignItems="center">
                     <Avatar
-                      src={"/images/profile/user5.jpg"}
+                      src="/images/profile/user5.jpg"
                       sx={{ width: 45, height: 45 }}
                     />
                     <Box ml={2}>
@@ -151,7 +153,7 @@ export default function Sidebar() {
           //     ? customizer.darkBackground900
           //     : customizer.activeSidebarBg,
           // color: customizer.activeSidebarBg === '#ffffff' ? '' : 'white',
-          border: "0 !important",
+          border: '0 !important',
           boxShadow: (theme) => theme.shadows[8],
         },
       }}

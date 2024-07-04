@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
 import Paper from '@mui/material/Paper';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
+import React, { useState } from 'react';
 
 const drawerWidth = 240;
 const secdrawerWidth = 320;

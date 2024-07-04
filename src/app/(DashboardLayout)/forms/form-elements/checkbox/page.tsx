@@ -1,20 +1,18 @@
-'use client'
-
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+'use client';
 
 import Grid from '@mui/material/Grid';
 
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import ColorsCheckbox from '@/app/(DashboardLayout)/components/forms/form-elements/checkbox/Colors';
+import CustomEleCheckbox from '@/app/(DashboardLayout)/components/forms/form-elements/checkbox/Custom';
+import DefaultCheckbox from '@/app/(DashboardLayout)/components/forms/form-elements/checkbox/Default';
+import DefaultcolorsCheckbox from '@/app/(DashboardLayout)/components/forms/form-elements/checkbox/DefaultColors';
 // custom components
-import PositionCheckbox from "@/app/(DashboardLayout)/components/forms/form-elements/checkbox/Position";
-import SizesCheckbox from "@/app/(DashboardLayout)/components/forms/form-elements/checkbox/Sizes";
-import DefaultcolorsCheckbox from "@/app/(DashboardLayout)/components/forms/form-elements/checkbox/DefaultColors"
-import CustomEleCheckbox from "@/app/(DashboardLayout)/components/forms/form-elements/checkbox/Custom";
-import DefaultCheckbox from "@/app/(DashboardLayout)/components/forms/form-elements/checkbox/Default";
-import ColorsCheckbox from "@/app/(DashboardLayout)/components/forms/form-elements/checkbox/Colors";
-
+import PositionCheckbox from '@/app/(DashboardLayout)/components/forms/form-elements/checkbox/Position';
+import SizesCheckbox from '@/app/(DashboardLayout)/components/forms/form-elements/checkbox/Sizes';
+import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -27,7 +25,6 @@ const BCrumb = [
 ];
 
 const MuiCheckbox = () => {
- 
   return (
     <PageContainer title="Checkbox" description="this is Checkbox">
       {/* breadcrumb */}

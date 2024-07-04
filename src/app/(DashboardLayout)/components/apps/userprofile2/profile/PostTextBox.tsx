@@ -1,30 +1,31 @@
-import React from "react";
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import Stack from '@mui/material/Stack';
+import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
-import Tab from "@mui/material/Tab";
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import TabPanel from "@mui/lab/TabPanel";
 import {
-  IconPaperclip,
-  IconLink,
-  IconMoodSmile,
   IconBold,
   IconItalic,
-  IconUnderline,
+  IconLink,
   IconList,
-} from "@tabler/icons-react";
-import BlankCard from "../../../../components/shared/ChildCard";
-import { IconListNumbers } from "@tabler/icons-react";
+  IconListNumbers,
+  IconMoodSmile,
+  IconPaperclip,
+  IconUnderline,
+} from '@tabler/icons-react';
+import React from 'react';
+
+import BlankCard from '../../../shared/ChildCard';
 
 export const PostTextBox = () => {
   // tabs
-  const [value, setValue] = React.useState("1");
+  const [value, setValue] = React.useState('1');
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -37,13 +38,13 @@ export const PostTextBox = () => {
           onChange={handleChange}
           aria-label="lab API tabs example"
           sx={{
-            "& .MuiTab-root.Mui-selected": {
+            '& .MuiTab-root.Mui-selected': {
               background: (theme) => theme.palette.primary.main,
-              color: "white",
-              borderRadius: "8px",
+              color: 'white',
+              borderRadius: '8px',
             },
-            "& .MuiTabs-indicator": {
-              display: "none",
+            '& .MuiTabs-indicator': {
+              display: 'none',
             },
           }}
         >
@@ -54,8 +55,8 @@ export const PostTextBox = () => {
       <TabPanel
         value="1"
         sx={{
-          "&.MuiTabPanel-root": {
-            padding: "24px 0 0",
+          '&.MuiTabPanel-root': {
+            padding: '24px 0 0',
           },
         }}
       >
@@ -73,7 +74,7 @@ export const PostTextBox = () => {
           <InputBase
             sx={{ ml: 1, flex: 1 }}
             placeholder="What's in your mind ?"
-            inputProps={{ "aria-label": "search google maps" }}
+            inputProps={{ 'aria-label': 'search google maps' }}
           />
 
           <Box
@@ -81,7 +82,7 @@ export const PostTextBox = () => {
             py={1}
             mt={3}
             sx={{
-              backgroundColor: "grey.200",
+              backgroundColor: 'grey.200',
             }}
           >
             <Stack direction="row">
@@ -111,7 +112,7 @@ export const PostTextBox = () => {
               variant="text"
               color="inherit"
               component="label"
-              sx={{ display: "flex", gap: "5px" }}
+              sx={{ display: 'flex', gap: '5px' }}
             >
               <IconPaperclip size="16" />
               <input hidden accept="image/*" multiple type="file" />
@@ -122,7 +123,7 @@ export const PostTextBox = () => {
               variant="text"
               color="inherit"
               component="label"
-              sx={{ display: "flex", gap: "5px" }}
+              sx={{ display: 'flex', gap: '5px' }}
             >
               <IconLink size="16" />
               <input hidden accept="image/*" multiple type="file" />
@@ -133,14 +134,14 @@ export const PostTextBox = () => {
               variant="text"
               color="inherit"
               component="label"
-              sx={{ display: "flex", gap: "5px" }}
+              sx={{ display: 'flex', gap: '5px' }}
             >
               <IconMoodSmile size="16" />
               <input hidden accept="image/*" multiple type="file" />
               Emoji
             </Button>
 
-            <Button variant="contained" color="primary" sx={{ ml: "auto" }}>
+            <Button variant="contained" color="primary" sx={{ ml: 'auto' }}>
               Post
             </Button>
           </Stack>
@@ -149,8 +150,8 @@ export const PostTextBox = () => {
       <TabPanel
         value="2"
         sx={{
-          "&.MuiTabPanel-root": {
-            padding: "24px 0 0",
+          '&.MuiTabPanel-root': {
+            padding: '24px 0 0',
           },
         }}
       >
@@ -168,7 +169,7 @@ export const PostTextBox = () => {
           <InputBase
             sx={{ ml: 1, flex: 1 }}
             placeholder="What's in your mind ?"
-            inputProps={{ "aria-label": "search google maps" }}
+            inputProps={{ 'aria-label': 'search google maps' }}
           />
 
           <Box
@@ -176,7 +177,7 @@ export const PostTextBox = () => {
             py={1}
             mt={3}
             sx={{
-              backgroundColor: "grey.200",
+              backgroundColor: 'grey.200',
             }}
           >
             <Stack direction="row">
@@ -206,7 +207,7 @@ export const PostTextBox = () => {
               variant="text"
               color="inherit"
               component="label"
-              sx={{ display: "flex", gap: "5px" }}
+              sx={{ display: 'flex', gap: '5px' }}
             >
               <IconPaperclip size="16" />
               <input hidden accept="image/*" multiple type="file" />
@@ -217,7 +218,7 @@ export const PostTextBox = () => {
               variant="text"
               color="inherit"
               component="label"
-              sx={{ display: "flex", gap: "5px" }}
+              sx={{ display: 'flex', gap: '5px' }}
             >
               <IconLink size="16" />
               <input hidden accept="image/*" multiple type="file" />
@@ -228,14 +229,14 @@ export const PostTextBox = () => {
               variant="text"
               color="inherit"
               component="label"
-              sx={{ display: "flex", gap: "5px" }}
+              sx={{ display: 'flex', gap: '5px' }}
             >
               <IconMoodSmile size="16" />
               <input hidden accept="image/*" multiple type="file" />
               Emoji
             </Button>
 
-            <Button variant="contained" color="primary" sx={{ ml: "auto" }}>
+            <Button variant="contained" color="primary" sx={{ ml: 'auto' }}>
               Post
             </Button>
           </Stack>

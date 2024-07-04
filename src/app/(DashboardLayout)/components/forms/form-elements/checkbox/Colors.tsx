@@ -1,11 +1,15 @@
-import React from 'react';
 import Box from '@mui/material/Box';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import React from 'react';
+
 import CustomCheckbox from '../../theme-elements/CustomCheckbox';
 
 const ColorsCheckbox = () => (
   <Box textAlign="center">
-    <FormControlLabel control={<CustomCheckbox defaultChecked />} label="Primary" />
+    <FormControlLabel
+      control={<CustomCheckbox defaultChecked />}
+      label="Primary"
+    />
     <FormControlLabel
       control={
         <CustomCheckbox

@@ -1,11 +1,8 @@
-import React from "react";
-import DashboardCard from "../../shared/DashboardCard";
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
 import LinearProgress from '@mui/material/LinearProgress';
-import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -14,19 +11,22 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import ProductTableData from "./ProductTableData";
-import { IconDotsVertical } from "@tabler/icons-react";
+import { IconDotsVertical } from '@tabler/icons-react';
+import React from 'react';
+
+import DashboardCard from '../../shared/DashboardCard';
+import ProductTableData from './ProductTableData';
 
 const performers = ProductTableData;
 
 const ProductTable = () => {
   return (
-    <DashboardCard >
+    <DashboardCard>
       <TableContainer>
         <Table
           aria-label="simple table"
           sx={{
-            whiteSpace: "nowrap",
+            whiteSpace: 'nowrap',
             mt: -2,
           }}
         >
@@ -48,7 +48,7 @@ const ProductTable = () => {
                 </Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="h6" fontWeight={600}></Typography>
+                <Typography variant="h6" fontWeight={600} />
               </TableCell>
             </TableRow>
           </TableHead>
@@ -94,10 +94,10 @@ const ProductTable = () => {
                     mb={1}
                   >
                     {basic.budget > 200
-                      ? "Full Paid"
+                      ? 'Full Paid'
                       : basic.budget > 180
-                      ? "Partially Paid"
-                      : "Cancelled"}
+                        ? 'Partially Paid'
+                        : 'Cancelled'}
                   </Typography>
                   {basic.percent > 50 ? (
                     <LinearProgress
@@ -127,23 +127,23 @@ const ProductTable = () => {
                         basic.percent > 50
                           ? (theme) => theme.palette.primary.light
                           : basic.percent > 20
-                          ? (theme) => theme.palette.warning.light
-                          : (theme) => theme.palette.error.light,
+                            ? (theme) => theme.palette.warning.light
+                            : (theme) => theme.palette.error.light,
                       color:
                         basic.percent > 50
                           ? (theme) => theme.palette.primary.main
                           : basic.percent > 20
-                          ? (theme) => theme.palette.warning.main
-                          : (theme) => theme.palette.error.main,
-                      border: "1px solid",
+                            ? (theme) => theme.palette.warning.main
+                            : (theme) => theme.palette.error.main,
+                      border: '1px solid',
                     }}
                     size="small"
                     label={
                       basic.percent > 50
-                        ? "Confirmed"
+                        ? 'Confirmed'
                         : basic.percent > 20
-                        ? "Pending"
-                        : "Cancelled"
+                          ? 'Pending'
+                          : 'Cancelled'
                     }
                   />
                 </TableCell>

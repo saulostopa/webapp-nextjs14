@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Alert from '@mui/material/Alert';
 import Avatar from '@mui/material/Avatar';
 import Badge from '@mui/material/Badge';
@@ -13,17 +12,20 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { useSelector, useDispatch } from "@/store/hooks";
-import Scrollbar from "../../custom-scroll/Scrollbar";
+import { IconChevronDown, IconSearch } from '@tabler/icons-react';
+import { formatDistanceToNowStrict } from 'date-fns';
+import { last } from 'lodash';
+import React, { useEffect } from 'react';
+
 import {
-  SelectChat,
   fetchChats,
   SearchChat,
-} from "@/store/apps/chat/ChatSlice";
-import { ChatsType } from "../../../types/apps/chat";
-import { last } from "lodash";
-import { formatDistanceToNowStrict } from "date-fns";
-import { IconChevronDown, IconSearch } from "@tabler/icons-react";
+  SelectChat,
+} from '@/store/apps/chat/ChatSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import type { ChatsType } from '../../../types/apps/chat';
+import Scrollbar from '../../custom-scroll/Scrollbar';
 
 const ChatListing = () => {
   // const [mounted, setMounted] = useState(false);
@@ -41,24 +43,24 @@ const ChatListing = () => {
   const filterChats = (chats: ChatsType[], cSearch: string) => {
     if (chats)
       return chats.filter((t) =>
-        t.name.toLocaleLowerCase().includes(cSearch.toLocaleLowerCase())
+        t.name.toLocaleLowerCase().includes(cSearch.toLocaleLowerCase()),
       );
 
     return chats;
   };
 
   const chats = useSelector((state) =>
-    filterChats(state.chatReducer.chats, state.chatReducer.chatSearch)
+    filterChats(state.chatReducer.chats, state.chatReducer.chatSearch),
   );
 
   const getDetails = (conversation: ChatsType) => {
-    let displayText = "";
+    let displayText = '';
 
     const lastMessage = conversation.messages[conversation.messages.length - 1];
     if (lastMessage) {
-      const sender = lastMessage.senderId === conversation.id ? "You: " : "";
+      const sender = lastMessage.senderId === conversation.id ? 'You: ' : '';
       const message =
-        lastMessage.type === "image" ? "Sent a photo" : lastMessage.msg;
+        lastMessage.type === 'image' ? 'Sent a photo' : lastMessage.msg;
       displayText = `${sender}${message}`;
     }
 
@@ -81,12 +83,12 @@ const ChatListing = () => {
       {/* ------------------------------------------- */}
       {/* Profile */}
       {/* ------------------------------------------- */}
-      <Box display={"flex"} alignItems="center" gap="10px" p={3}>
+      <Box display="flex" alignItems="center" gap="10px" p={3}>
         <Badge
           variant="dot"
           anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "right",
+            vertical: 'bottom',
+            horizontal: 'right',
           }}
           overlap="circular"
           color="success"
@@ -117,7 +119,7 @@ const ChatListing = () => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconSearch size={"16"} />
+                <IconSearch size="16" />
               </InputAdornment>
             ),
           }}
@@ -132,9 +134,9 @@ const ChatListing = () => {
         <Box px={2.5} pb={1}>
           <Button
             id="basic-button"
-            aria-controls={open ? "basic-menu" : undefined}
+            aria-controls={open ? 'basic-menu' : undefined}
             aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
+            aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
             color="inherit"
           >
@@ -146,7 +148,7 @@ const ChatListing = () => {
             open={open}
             onClose={handleClose}
             MenuListProps={{
-              "aria-labelledby": "basic-button",
+              'aria-labelledby': 'basic-button',
             }}
           >
             <MenuItem onClick={handleClose}>Sort By Time</MenuItem>
@@ -156,8 +158,8 @@ const ChatListing = () => {
         </Box>
         <Scrollbar
           sx={{
-            height: { lg: "calc(100vh - 100px)", md: "100vh" },
-            maxHeight: "600px",
+            height: { lg: 'calc(100vh - 100px)', md: '100vh' },
+            maxHeight: '600px',
           }}
         >
           {chats && chats.length ? (
@@ -169,25 +171,25 @@ const ChatListing = () => {
                   mb: 0.5,
                   py: 2,
                   px: 3,
-                  alignItems: "start",
+                  alignItems: 'start',
                 }}
                 selected={activeChat === chat.id}
               >
                 <ListItemAvatar>
                   <Badge
                     color={
-                      chat.status === "online"
-                        ? "success"
-                        : chat.status === "busy"
-                        ? "error"
-                        : chat.status === "away"
-                        ? "warning"
-                        : "secondary"
+                      chat.status === 'online'
+                        ? 'success'
+                        : chat.status === 'busy'
+                          ? 'error'
+                          : chat.status === 'away'
+                            ? 'warning'
+                            : 'secondary'
                     }
                     variant="dot"
                     anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "right",
+                      vertical: 'bottom',
+                      horizontal: 'right',
                     }}
                     overlap="circular"
                   >
@@ -210,7 +212,7 @@ const ChatListing = () => {
                   }}
                   sx={{ my: 0 }}
                 />
-                <Box sx={{ flexShrink: "0" }} mt={0.5}>
+                <Box sx={{ flexShrink: '0' }} mt={0.5}>
                   <Typography variant="body2">
                     {formatDistanceToNowStrict(new Date(lastActivity(chat)), {
                       addSuffix: false,
@@ -221,7 +223,7 @@ const ChatListing = () => {
             ))
           ) : (
             <Box m={2}>
-              <Alert severity="error" variant="filled" sx={{ color: "white" }}>
+              <Alert severity="error" variant="filled" sx={{ color: 'white' }}>
                 No Contacts Found!
               </Alert>
             </Box>

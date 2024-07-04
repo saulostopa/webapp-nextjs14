@@ -1,28 +1,29 @@
+import { Icon } from '@iconify/react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { styled } from '@mui/material/styles';
-import { useSelector, useDispatch } from "@/store/hooks";
+
 import {
-  toggleSidebar,
   toggleMobileSidebar,
-} from "@/store/customizer/CustomizerSlice";
-import { Icon } from "@iconify/react";
-import Notifications from "./Notification";
-import Profile from "./Profile";
-import Cart from "./Cart";
-import Search from "./Search";
-import Language from "./Language";
-import { AppState } from "@/store/store";
-import { shadows } from "@/utils/theme/Shadows";
+  toggleSidebar,
+} from '@/store/customizer/CustomizerSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
+import { shadows } from '@/utils/theme/Shadows';
+
+import Cart from './Cart';
+import Language from './Language';
+import Notifications from './Notification';
+import Profile from './Profile';
+import Search from './Search';
 
 const Header = () => {
-  const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
-  const smUp = useMediaQuery((theme: any) => theme.breakpoints.up("sm"));
-  
+  const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up('lg'));
+  const smUp = useMediaQuery((theme: any) => theme.breakpoints.up('sm'));
 
   // drawer
   const customizer = useSelector((state: AppState) => state.customizer);
@@ -31,15 +32,15 @@ const Header = () => {
   const AppBarStyled = styled(AppBar)(({ theme }) => ({
     boxShadow: shadows[9],
     background: theme.palette.background.paper,
-    justifyContent: "center",
-    backdropFilter: "blur(4px)",
+    justifyContent: 'center',
+    backdropFilter: 'blur(4px)',
     // [theme.breakpoints.up("lg")]: {
     minHeight: customizer.TopbarHeight,
     // },
     borderRadius: 13,
   }));
   const ToolbarStyled = styled(Toolbar)(({ theme }) => ({
-    width: "100%",
+    width: '100%',
     color: theme.palette.text.secondary,
     minHeight: customizer.TopbarHeight,
   }));
@@ -71,7 +72,7 @@ const Header = () => {
         </Stack>
         <Box flexGrow={1} />
         <Stack spacing={2} direction="row" alignItems="center">
-          {smUp ? <Search /> : ""}
+          {smUp ? <Search /> : ''}
           <Language />
           {/* ------------------------------------------- */}
           {/* Ecommerce Dropdown */}

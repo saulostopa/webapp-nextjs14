@@ -1,22 +1,22 @@
-'use client'
+'use client';
 
+import Alert from '@mui/material/Alert';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import Stepper from '@mui/material/Stepper';
+import Typography from '@mui/material/Typography';
+import { Stack } from '@mui/system';
 import React from 'react';
-import Alert from '@mui/material/Alert'
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Step from '@mui/material/Step'
-import StepLabel from '@mui/material/StepLabel'
-import Stepper from '@mui/material/Stepper'
-import Typography from '@mui/material/Typography'
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
-import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import CustomCheckbox from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomCheckbox';
 import CustomFormLabel from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel';
+import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
 import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import { Stack } from '@mui/system';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const steps = ['Account', 'Profile', 'Finish'];
 
@@ -24,9 +24,9 @@ const FormWizard = () => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
-  const isStepOptional = (step:any) => step === 1;
+  const isStepOptional = (step: any) => step === 1;
 
-  const isStepSkipped = (step:any) => skipped.has(step);
+  const isStepSkipped = (step: any) => skipped.has(step);
 
   const handleNext = () => {
     let newSkipped = skipped;
@@ -68,9 +68,19 @@ const FormWizard = () => {
             <CustomFormLabel htmlFor="Name">Name</CustomFormLabel>
             <CustomTextField id="Name" variant="outlined" fullWidth />
             <CustomFormLabel htmlFor="Email">Email</CustomFormLabel>
-            <CustomTextField id="Email" type="email" variant="outlined" fullWidth />
+            <CustomTextField
+              id="Email"
+              type="email"
+              variant="outlined"
+              fullWidth
+            />
             <CustomFormLabel htmlFor="Password">Password</CustomFormLabel>
-            <CustomTextField id="Password" type="password" variant="outlined" fullWidth />
+            <CustomTextField
+              id="Password"
+              type="password"
+              variant="outlined"
+              fullWidth
+            />
           </Box>
         );
       case 1:
@@ -79,9 +89,20 @@ const FormWizard = () => {
             <CustomFormLabel htmlFor="Fname">First Name</CustomFormLabel>
             <CustomTextField id="Fname" variant="outlined" fullWidth />
             <CustomFormLabel htmlFor="Lname">Last Name</CustomFormLabel>
-            <CustomTextField id="Lname" type="text" variant="outlined" fullWidth />
+            <CustomTextField
+              id="Lname"
+              type="text"
+              variant="outlined"
+              fullWidth
+            />
             <CustomFormLabel htmlFor="Address">Address</CustomFormLabel>
-            <CustomTextField id="Address" multiline rows={4} variant="outlined" fullWidth />
+            <CustomTextField
+              id="Address"
+              multiline
+              rows={4}
+              variant="outlined"
+              fullWidth
+            />
           </Box>
         );
       case 2:
@@ -89,9 +110,10 @@ const FormWizard = () => {
           <Box pt={3}>
             <Typography variant="h5">Terms and condition</Typography>
             <Typography variant="body2" sx={{ mt: 1 }}>
-              Sard about this site or you have been to it, but you cannot figure out what it is or
-              what it can do. MTA web directory isSard about this site or you have been to it, but
-              you cannot figure out what it is or what it can do. MTA web directory is
+              Sard about this site or you have been to it, but you cannot figure
+              out what it is or what it can do. MTA web directory isSard about
+              this site or you have been to it, but you cannot figure out what
+              it is or what it can do. MTA web directory is
             </Typography>
             <FormControlLabel
               control={<CustomCheckbox defaultChecked />}
@@ -120,7 +142,9 @@ const FormWizard = () => {
                 optional?: React.ReactNode;
               } = {};
               if (isStepOptional(index)) {
-                labelProps.optional = <Typography variant="caption">Optional</Typography>;
+                labelProps.optional = (
+                  <Typography variant="caption">Optional</Typography>
+                );
               }
               if (isStepSkipped(index)) {
                 stepProps.completed = false;
@@ -134,19 +158,17 @@ const FormWizard = () => {
             })}
           </Stepper>
           {activeStep === steps.length ? (
-            <>
-              <Stack spacing={2} mt={3}>
-                <Alert severity="success">
-                  All steps completed - you&apos;re finished
-                </Alert>
+            <Stack spacing={2} mt={3}>
+              <Alert severity="success">
+                All steps completed - you&apos;re finished
+              </Alert>
 
-                <Box textAlign="right">
-                  <Button onClick={handleReset} variant="contained" color="error">
-                    Reset
-                  </Button>
-                </Box>
-              </Stack>
-            </>
+              <Box textAlign="right">
+                <Button onClick={handleReset} variant="contained" color="error">
+                  Reset
+                </Button>
+              </Box>
+            </Stack>
           ) : (
             <>
               <Box>{handleSteps(activeStep)}</Box>
@@ -171,7 +193,9 @@ const FormWizard = () => {
                 <Button
                   onClick={handleNext}
                   variant="contained"
-                  color={activeStep === steps.length - 1 ? 'success' : 'secondary'}
+                  color={
+                    activeStep === steps.length - 1 ? 'success' : 'secondary'
+                  }
                 >
                   {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                 </Button>

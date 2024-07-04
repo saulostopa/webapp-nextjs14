@@ -1,18 +1,18 @@
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import DashboardCard from "../../shared/DashboardCard";
-import { IconDotsVertical } from "@tabler/icons-react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from "@mui/material/styles";
-import React from "react";
+import { IconDotsVertical } from '@tabler/icons-react';
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+import DashboardCard from '../../shared/DashboardCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const TrafficDistribution = () => {
   const theme = useTheme();
@@ -34,20 +34,20 @@ const TrafficDistribution = () => {
 
   const stats = [
     {
-      title: "4,106",
-      subtitle: "Oragnic Traffic",
+      title: '4,106',
+      subtitle: 'Oragnic Traffic',
       color: primary,
       profit: true,
     },
     {
-      title: "3,500",
-      subtitle: "Refferal Traffic",
+      title: '3,500',
+      subtitle: 'Refferal Traffic',
       color: error,
       profit: false,
     },
     {
-      title: "3,319",
-      subtitle: "Direct Traffic",
+      title: '3,319',
+      subtitle: 'Direct Traffic',
       color: warning,
       profit: false,
     },
@@ -56,32 +56,32 @@ const TrafficDistribution = () => {
   // chart
   const optionscolumnchart: any = {
     chart: {
-      type: "donut",
+      type: 'donut',
       fontFamily: "'Plus Jakarta Sans', sans-serif;",
-      foreColor: "#adb0bb",
+      foreColor: '#adb0bb',
       toolbar: {
         show: false,
       },
       height: 250,
     },
-    labels: ["Others", "Direct Traffic", "Refferal Traffic", "Oragnic Traffic"],
-    colors: [ secondary, warning,  error,  primary],
+    labels: ['Others', 'Direct Traffic', 'Refferal Traffic', 'Oragnic Traffic'],
+    colors: [secondary, warning, error, primary],
     plotOptions: {
       pie: {
         donut: {
-          size: "75%",
-          background: "none",
+          size: '75%',
+          background: 'none',
           labels: {
             show: true,
             name: {
               show: true,
-              fontSize: "18px",
+              fontSize: '18px',
               color: undefined,
               offsetY: 5,
             },
             value: {
               show: false,
-              color: "#98aab4",
+              color: '#98aab4',
             },
           },
         },
@@ -97,7 +97,7 @@ const TrafficDistribution = () => {
       show: false,
     },
     tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
+      theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
       fillSeriesColor: false,
     },
   };
@@ -110,9 +110,9 @@ const TrafficDistribution = () => {
         <>
           <IconButton
             id="basic-button"
-            aria-controls={open ? "basic-menu" : undefined}
+            aria-controls={open ? 'basic-menu' : undefined}
             aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
+            aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
           >
             <IconDotsVertical />
@@ -123,11 +123,11 @@ const TrafficDistribution = () => {
             open={open}
             onClose={handleClose}
             MenuListProps={{
-              "aria-labelledby": "basic-button",
+              'aria-labelledby': 'basic-button',
             }}
             transformOrigin={{
-              vertical: "top",
-              horizontal: "right",
+              vertical: 'top',
+              horizontal: 'right',
             }}
           >
             <MenuItem onClick={handleClose}>Add</MenuItem>
@@ -146,7 +146,7 @@ const TrafficDistribution = () => {
                 series={seriescolumnchart}
                 type="donut"
                 height={250}
-                width={"100%"}
+                width="100%"
               />
             </Box>
           </Grid>
@@ -163,18 +163,17 @@ const TrafficDistribution = () => {
                   <Stack direction="row" alignItems="center" spacing={2}>
                     <Box
                       sx={{
-                        borderWidth: "1px",
-                        borderStyle: "solid",
+                        borderWidth: '1px',
+                        borderStyle: 'solid',
                         borderColor: stat.color,
                         width: 16,
                         height: 16,
-                        borderRadius: "50%",
+                        borderRadius: '50%',
                       }}
-                    >
-                    </Box>
+                    />
                     <Box>
                       <Typography variant="h6" mb="4px">
-                        {stat.title}{" "}
+                        {stat.title}{' '}
                         {stat.profit ? (
                           <Typography
                             component="span"
@@ -186,7 +185,7 @@ const TrafficDistribution = () => {
                             +23%
                           </Typography>
                         ) : (
-                          ""
+                          ''
                         )}
                       </Typography>
                       <Typography variant="subtitle2" color="textSecondary">

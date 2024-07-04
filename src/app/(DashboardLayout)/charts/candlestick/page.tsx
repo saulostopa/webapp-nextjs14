@@ -1,12 +1,14 @@
-"use client"
+'use client';
 
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
+import dynamic from 'next/dynamic';
+import React from 'react';
+
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import React from "react";
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const BCrumb = [
   {
@@ -19,7 +21,6 @@ const BCrumb = [
 ];
 
 const CandlestickChart = () => {
-
   // chart color
   const theme = useTheme();
   const primary = theme.palette.primary.main;
@@ -125,7 +126,10 @@ const CandlestickChart = () => {
   ];
 
   return (
-    <PageContainer title="Candlestick Chart" description="this is Candlestick Chart">
+    <PageContainer
+      title="Candlestick Chart"
+      description="this is Candlestick Chart"
+    >
       {/* breadcrumb */}
       <Breadcrumb title="Candlestick Chart" items={BCrumb} />
       {/* end breadcrumb */}
@@ -135,7 +139,7 @@ const CandlestickChart = () => {
           series={seriecandlestickchart}
           type="candlestick"
           height="308px"
-          width={'95%'}
+          width="95%"
         />
       </ParentCard>
     </PageContainer>

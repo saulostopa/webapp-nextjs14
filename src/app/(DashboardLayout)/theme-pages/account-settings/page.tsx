@@ -1,22 +1,27 @@
-'use client'
+'use client';
 
-import * as React from 'react';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
+import {
+  IconArticle,
+  IconBell,
+  IconLock,
+  IconUserCircle,
+} from '@tabler/icons-react';
+import * as React from 'react';
 
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 // components
 import AccountTab from '@/app/(DashboardLayout)/components/pages/account-setting/AccountTab';
-import { IconArticle, IconBell, IconLock, IconUserCircle } from '@tabler/icons-react';
-import BlankCard from '@/app/(DashboardLayout)/components/shared/BlankCard';
-import NotificationTab from '@/app/(DashboardLayout)/components/pages/account-setting/NotificationTab';
 import BillsTab from '@/app/(DashboardLayout)/components/pages/account-setting/BillsTab';
+import NotificationTab from '@/app/(DashboardLayout)/components/pages/account-setting/NotificationTab';
 import SecurityTab from '@/app/(DashboardLayout)/components/pages/account-setting/SecurityTab';
+import BlankCard from '@/app/(DashboardLayout)/components/shared/BlankCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -65,7 +70,10 @@ const AccountSetting = () => {
   };
 
   return (
-    <PageContainer title="Account Setting" description="this is Account Setting">
+    <PageContainer
+      title="Account Setting"
+      description="this is Account Setting"
+    >
       {/* breadcrumb */}
       <Breadcrumb title="Account Setting" items={BCrumb} />
       {/* end breadcrumb */}

@@ -1,11 +1,14 @@
-"use client"
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+'use client';
+
 import { useTheme } from '@mui/material/styles';
+import dynamic from 'next/dynamic';
+import React from 'react';
+
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import React from "react";
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const BCrumb = [
   {
@@ -18,11 +21,10 @@ const BCrumb = [
 ];
 
 const Gradient = () => {
-
   // chart color
   const theme = useTheme();
   const primary = theme.palette.primary.main;
-  
+
   const optionsgredientchart: any = {
     chart: {
       height: 350,
@@ -115,13 +117,13 @@ const Gradient = () => {
       {/* breadcrumb */}
       <Breadcrumb title="Gradient Chart" items={BCrumb} />
       {/* end breadcrumb */}
-      <ParentCard title='Gradient Chart'>
+      <ParentCard title="Gradient Chart">
         <Chart
           options={optionsgredientchart}
           series={seriesgredientchart}
           type="line"
           height="300px"
-          width={"100%"}
+          width="100%"
         />
       </ParentCard>
     </PageContainer>
