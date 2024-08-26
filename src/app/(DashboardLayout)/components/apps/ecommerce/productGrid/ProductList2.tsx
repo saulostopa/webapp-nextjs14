@@ -27,7 +27,7 @@ import {
 } from '@/store/apps/eCommerce/EcommerceSlicev2';
 import { useDispatch, useSelector } from '@/store/hooks';
 
-import emptyCart from '../../../../../../../../../../../../public/images/products/empty-shopping-cart.svg';
+import emptyCart from '../@/public/images/products/empty-shopping-cart.svg';
 import type { ProductType } from '../../../../types/apps/eCommerce';
 import AlertCart from '../productCart/AlertCart';
 import ProductSearch from './ProductSearch';

@@ -5,8 +5,8 @@ import { config, library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import Container from './utils/container';
-import benefitOneImg from '../../../../../../../public/images/landingpage/benefit-one-v2.png';
-import benefitTwoImg from '../../../../../../../public/images/landingpage/benefit-two-v2.png';
+import benefitOneImg from '@/public/images/landingpage/benefit-one-v2.png';
+import benefitTwoImg from '@/public/images/landingpage/benefit-two-v2.png';
 
 config.autoAddCss = false;
 library.add(fas);

@@ -25,7 +25,7 @@ import {
 } from '@/store/apps/contacts/ContactSlice';
 import { useDispatch, useSelector } from '@/store/hooks';
 
-import emailIcon from '../../../../../../../../../../../public/images/breadcrumb/emailSv.png';
+import emailIcon from '@/public/images/breadcrumb/emailSv.png';
 import type { ContactType } from '../../../types/apps/contact';
 import Scrollbar from '../../custom-scroll/Scrollbar';
 import BlankCard from '../../shared/BlankCard';

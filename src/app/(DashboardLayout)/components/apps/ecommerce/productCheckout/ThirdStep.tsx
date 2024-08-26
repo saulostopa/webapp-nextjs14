@@ -7,9 +7,9 @@ import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import React from 'react';
 
-import payment from '../../../../../../../../../../../../public/images/products/payment.svg';
-import mastercard from '../../../../../../../../../../../../public/images/svgs/mastercard.svg';
-import Paypal from '../../../../../../../../../../../../public/images/svgs/paypal.svg';
+import payment from '../@/public/images/products/payment.svg';
+import mastercard from '../@/public/images/svgs/mastercard.svg';
+import Paypal from '../@/public/images/svgs/paypal.svg';
 
 interface deliveryType {
   id: number;

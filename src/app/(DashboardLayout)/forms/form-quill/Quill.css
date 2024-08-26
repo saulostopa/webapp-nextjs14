@@ -7,7 +7,7 @@
 }
 .darkbg .ql-container.ql-snow,
 .darkbg .ql-toolbar.ql-snow,
-.darkbg .ql-snow .ql-tooltip input[type="text"] {
+.darkbg .ql-snow .ql-tooltip input[type='text'] {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -18,23 +18,23 @@
 }
 
 .darkbg .ql-snow .ql-picker,
-.darkbg .ql-snow .ql-tooltip input[type="text"] {
+.darkbg .ql-snow .ql-tooltip input[type='text'] {
   color: white;
 }
 
 .darkbg .ql-snow .ql-picker-options,
 .darkbg .ql-snow .ql-tooltip,
-.darkbg .ql-snow .ql-tooltip input[type="text"] {
+.darkbg .ql-snow .ql-tooltip input[type='text'] {
   background-color: #484b52;
 }
 
-.darkbg .ql-snow .ql-tooltip[data-mode="link"]::before {
+.darkbg .ql-snow .ql-tooltip[data-mode='link']::before {
   color: white;
 }
 
 .ql-editor,
 .ql-snow * {
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 16px;
 }
 
@@ -78,7 +78,7 @@
   box-shadow: 0 5px 15px rgb(0 0 0 / 12%);
   border-radius: 5px;
 }
-.ql-snow .ql-tooltip input[type="text"] {
+.ql-snow .ql-tooltip input[type='text'] {
   height: auto;
   padding: 5px 8px;
   border-radius: 5px;

@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 
-import payment from '../../../../../../../../../../../../public/images/products/payment-complete.gif';
+import payment from '../@/public/images/products/payment-complete.gif';
 
 const FinalStep = () => {
   return (

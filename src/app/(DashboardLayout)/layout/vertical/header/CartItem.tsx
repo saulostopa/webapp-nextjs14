@@ -12,7 +12,7 @@ import { decrement, increment } from '@/store/apps/eCommerce/ECommerceSlice';
 import { useDispatch, useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
 
-import emptyCart from '../../../../../../../../../../../public/images/products/empty-shopping-cart.svg';
+import emptyCart from '@/public/images/products/empty-shopping-cart.svg';
 
 const CartItems = () => {
   const dispatch = useDispatch();

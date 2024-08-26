@@ -4,7 +4,7 @@ import Container from '@mui/material/Container';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import type { styled, Theme } from '@mui/material/styles';
+import { styled, type Theme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { IconMenu2 } from '@tabler/icons-react';

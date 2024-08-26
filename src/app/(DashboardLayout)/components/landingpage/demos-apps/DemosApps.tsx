@@ -7,25 +7,25 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 
-import app7 from '../../../../../../../../../../../public/images/landingpage/apps/app-blog.jpg';
-import app13 from '../../../../../../../../../../../public/images/landingpage/apps/app-blog-detail.jpg';
-import app1 from '../../../../../../../../../../../public/images/landingpage/apps/app-calendar.jpg';
-import app2 from '../../../../../../../../../../../public/images/landingpage/apps/app-chat.jpg';
-import app3 from '../../../../../../../../../../../public/images/landingpage/apps/app-contact.jpg';
-import app11 from '../../../../../../../../../../../public/images/landingpage/apps/app-ecommerce-checkout.jpg';
-import app14 from '../../../../../../../../../../../public/images/landingpage/apps/app-ecommerce-detail.jpg';
-import app12 from '../../../../../../../../../../../public/images/landingpage/apps/app-ecommerce-list.jpg';
-import app9 from '../../../../../../../../../../../public/images/landingpage/apps/app-ecommerce-shop.jpg';
-import app4 from '../../../../../../../../../../../public/images/landingpage/apps/app-email.jpg';
-import app5 from '../../../../../../../../../../../public/images/landingpage/apps/app-note.jpg';
-import app8 from '../../../../../../../../../../../public/images/landingpage/apps/app-ticket.jpg';
-import app6 from '../../../../../../../../../../../public/images/landingpage/apps/app-user-profile.jpg';
-import darkDemo from '../../../../../../../../../../../public/images/landingpage/demos/demo-dark.jpg';
-import horizontalDemo from '../../../../../../../../../../../public/images/landingpage/demos/demo-horizontal.jpg';
+import app7 from '@/public/images/landingpage/apps/app-blog.jpg';
+import app13 from '@/public/images/landingpage/apps/app-blog-detail.jpg';
+import app1 from '@/public/images/landingpage/apps/app-calendar.jpg';
+import app2 from '@/public/images/landingpage/apps/app-chat.jpg';
+import app3 from '@/public/images/landingpage/apps/app-contact.jpg';
+import app11 from '@/public/images/landingpage/apps/app-ecommerce-checkout.jpg';
+import app14 from '@/public/images/landingpage/apps/app-ecommerce-detail.jpg';
+import app12 from '@/public/images/landingpage/apps/app-ecommerce-list.jpg';
+import app9 from '@/public/images/landingpage/apps/app-ecommerce-shop.jpg';
+import app4 from '@/public/images/landingpage/apps/app-email.jpg';
+import app5 from '@/public/images/landingpage/apps/app-note.jpg';
+import app8 from '@/public/images/landingpage/apps/app-ticket.jpg';
+import app6 from '@/public/images/landingpage/apps/app-user-profile.jpg';
+import darkDemo from '@/public/images/landingpage/demos/demo-dark.jpg';
+import horizontalDemo from '@/public/images/landingpage/demos/demo-horizontal.jpg';
 // images
-import mainDemo from '../../../../../../../../../../../public/images/landingpage/demos/demo-main.jpg';
-import minisidebarDemo from '../../../../../../../../../../../public/images/landingpage/demos/demo-minisidebar.jpg';
-import rtlDemo from '../../../../../../../../../../../public/images/landingpage/demos/demo-rtl.jpg';
+import mainDemo from '@/public/images/landingpage/demos/demo-main.jpg';
+import minisidebarDemo from '@/public/images/landingpage/demos/demo-minisidebar.jpg';
+import rtlDemo from '@/public/images/landingpage/demos/demo-rtl.jpg';
 import DemoTitle from './DemoTitle';
 
 interface sliderData {

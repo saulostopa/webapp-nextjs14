@@ -22,7 +22,7 @@ import {
 } from '@/store/apps/eCommerce/ECommerceSlice';
 import { useDispatch, useSelector } from '@/store/hooks';
 
-import emptyCart from '../../../../../../../../../../../../public/images/products/empty-shopping-cart.svg';
+import emptyCart from '../@/public/images/products/empty-shopping-cart.svg';
 import type { ProductType } from '../../../../types/apps/eCommerce';
 
 const AddToCart = () => {

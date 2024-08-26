@@ -24,7 +24,7 @@ import {
 } from '@/store/apps/email/EmailSlice';
 import { useDispatch, useSelector } from '@/store/hooks';
 
-import emailIcon from '../../../../../../../../../../../public/images/breadcrumb/emailSv.png';
+import emailIcon from '@/public/images/breadcrumb/emailSv.png';
 import type { EmailType } from '../../../types/apps/email';
 
 const ReactQuill: any = dynamic(

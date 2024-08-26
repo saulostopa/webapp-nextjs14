@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Container from '@/components/utils/container';
-import heroImg from '../../../../../../../../public/images/landingpage/workout-hero.png';
+import heroImg from '@/public/images/landingpage/workout-hero.png';
 
 const Hero = ({ teaser, teaserDescription }) => {
   return (

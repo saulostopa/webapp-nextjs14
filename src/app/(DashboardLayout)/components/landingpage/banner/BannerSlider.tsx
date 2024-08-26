@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Image from 'next/image';
 import React from 'react';
 
-import bannerbgImg1 from '../../../../../../../../../../../public/images/landingpage/slider-group.png';
+import bannerbgImg1 from '@/public/images/landingpage/slider-group.png';
 
 const BannerSlider = () => {
   return (

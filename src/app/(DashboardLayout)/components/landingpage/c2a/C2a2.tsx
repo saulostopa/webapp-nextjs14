@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
-import type { styled, Theme } from '@mui/material/styles';
+import { styled, type Theme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Image from 'next/image';
@@ -12,7 +12,7 @@ import React from 'react';
 import { useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
 
-import c2aImg from '../../../../../../../../../../../public/images/landingpage/background/c2a.png';
+import c2aImg from '@/public/images/landingpage/background/c2a.png';
 
 const StyledButton = styled(Button)(() => ({
   padding: '10px 35px',

@@ -12,7 +12,7 @@ import React from 'react';
 import { addContact } from '@/store/apps/contacts/ContactSlice';
 import { useDispatch, useSelector } from '@/store/hooks';
 
-import user1 from '../../../../../../../../../../../public/images/profile/user-1.jpg';
+import user1 from '@/public/images/profile/user-1.jpg';
 
 const ContactAdd = () => {
   const dispatch = useDispatch();
