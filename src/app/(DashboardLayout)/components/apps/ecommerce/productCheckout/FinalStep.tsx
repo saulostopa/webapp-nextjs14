@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 
-import payment from '../@/public/images/products/payment-complete.gif';
+// import payment from '../@/public/images/products/payment-complete.gif';
 
 const FinalStep = () => {
   return (
@@ -12,7 +12,7 @@ const FinalStep = () => {
         <Typography variant="h6" mt={1} mb={4} color="primary">
           Your order id: 3fa7-69e1-79b4-dbe0d35f5f5d
         </Typography>
-        <Image src={payment} alt="payment" width={300} />
+        {/* <Image src={payment} alt="payment" width={300} /> */}
         <br />
         <br />
         <Typography variant="body2">

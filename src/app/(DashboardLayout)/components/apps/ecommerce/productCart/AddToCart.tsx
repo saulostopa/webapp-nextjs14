@@ -22,7 +22,7 @@ import {
 } from '@/store/apps/eCommerce/ECommerceSlice';
 import { useDispatch, useSelector } from '@/store/hooks';
 
-import emptyCart from '../@/public/images/products/empty-shopping-cart.svg';
+// import emptyCart from '../@/public/images/products/empty-shopping-cart.svg';
 import type { ProductType } from '../../../../types/apps/eCommerce';
 
 const AddToCart = () => {
@@ -120,7 +120,7 @@ const AddToCart = () => {
         </Box>
       ) : (
         <Box textAlign="center" mb={3}>
-          <Image src={emptyCart} alt="cart" width={200} />
+          {/* <Image src={emptyCart} alt="cart" width={200} /> */}
           <Typography variant="h5" mb={2}>
             Cart is Empty
           </Typography>

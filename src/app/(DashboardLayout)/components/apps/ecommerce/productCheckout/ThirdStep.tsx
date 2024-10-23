@@ -7,9 +7,9 @@ import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import React from 'react';
 
-import payment from '../@/public/images/products/payment.svg';
-import mastercard from '../@/public/images/svgs/mastercard.svg';
-import Paypal from '../@/public/images/svgs/paypal.svg';
+// import payment from '../@/public/images/products/payment.svg';
+// import mastercard from '../@/public/images/svgs/mastercard.svg';
+// import Paypal from '../@/public/images/svgs/paypal.svg';
 
 interface deliveryType {
   id: number;
@@ -43,13 +43,13 @@ const Payment: paymentType[] = [
     title: 'Pay with Paypal',
     description:
       'You will be redirected to PayPal website to complete your purchase securely.',
-    icons: Paypal,
+    // icons: Paypal,
   },
   {
     value: 'credit_card',
     title: 'Credit / Debit Card',
     description: 'We support Mastercard, Visa, Discover and Stripe.',
-    icons: mastercard,
+    // icons: mastercard,
   },
   {
     value: 'cash',
@@ -159,11 +159,11 @@ const ThirdStep = () => {
             </Grid>
           </Grid>
           <Grid lg={4} xs={12} item>
-            <Image
+            {/* <Image
               src={payment}
               alt="payment"
               style={{ height: '265px', width: '265px' }}
-            />
+            /> */}
           </Grid>
         </Grid>
       </Paper>
