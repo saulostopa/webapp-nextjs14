@@ -12,13 +12,13 @@ const Banner5 = () => {
     <BlankCard>
       <CardContent sx={{ p: '30px' }}>
         <Box textAlign="center">
-          <Image
+          {/* <Image
             src="/images/products/empty-shopping-cart.svg"
             width={200}
             height={200}
             alt="star"
             style={{ width: '200px' }}
-          />
+          /> */}
 
           <Typography variant="h5" mt={3}>
             Oop, Your cart is empty!

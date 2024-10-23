@@ -27,7 +27,7 @@ import {
 } from '@/store/apps/eCommerce/EcommerceSlicev2';
 import { useDispatch, useSelector } from '@/store/hooks';
 
-import emptyCart from '../@/public/images/products/empty-shopping-cart.svg';
+// import emptyCart from '../@/public/images/products/empty-shopping-cart.svg';
 import type { ProductType } from '../../../../types/apps/eCommerce';
 import AlertCart from '../productCart/AlertCart';
 import ProductSearch from './ProductSearch';
@@ -317,7 +317,7 @@ const ProductList2 = ({ onClick }: Props) => {
         ) : (
           <Grid item xs={12} lg={12} md={12} sm={12}>
             <Box textAlign="center" mt={6}>
-              <Image src={emptyCart} alt="cart" width={200} />
+              {/* <Image src={emptyCart} alt="cart" width={200} /> */}
               <Typography variant="h2">There is no Product</Typography>
               <Typography variant="h6" mb={3}>
                 The Product you are searching is no longer available.
