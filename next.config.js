@@ -9,6 +9,9 @@ const nextConfig = {
     //   transform: '@mui/material/{{member}}',
     // },
   },
+  env: {
+    NEXT_PUBLIC_COMPANY_NAME: 'S2Pro'
+  },
 };
 
 module.exports = nextConfig;
