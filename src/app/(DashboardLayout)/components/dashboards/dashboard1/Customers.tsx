@@ -1,13 +1,14 @@
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import dynamic from "next/dynamic";
-import React from "react";
-import { useTheme } from "@mui/material/styles";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import DashboardCard from "../../shared/DashboardCard";
-import SkeletonCustomersCard from "../skeleton/CustomerCard";
+import dynamic from 'next/dynamic';
+import React from 'react';
 
+import DashboardCard from '../../shared/DashboardCard';
+import SkeletonCustomersCard from '../skeleton/CustomerCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 interface CustomersCardProps {
   isLoading: boolean;
@@ -22,9 +23,9 @@ const Customers = ({ isLoading }: CustomersCardProps) => {
   // chart
   const optionscolumnchart: any = {
     chart: {
-      type: "area",
+      type: 'area',
       fontFamily: "'Plus Jakarta Sans', sans-serif;",
-      foreColor: "#adb0bb",
+      foreColor: '#adb0bb',
       toolbar: {
         show: false,
       },
@@ -36,11 +37,11 @@ const Customers = ({ isLoading }: CustomersCardProps) => {
     },
     colors: [primary, secondary],
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 2,
     },
     fill: {
-      type: "gradient",
+      type: 'gradient',
       gradient: {
         shadeIntensity: 0,
         inverseColors: false,
@@ -53,7 +54,7 @@ const Customers = ({ isLoading }: CustomersCardProps) => {
       size: 0,
     },
     tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
+      theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
       fillSeriesColor: false,
     },
   };
@@ -66,70 +67,69 @@ const Customers = ({ isLoading }: CustomersCardProps) => {
 
   return (
     <>
-       {isLoading ? (
+      {isLoading ? (
         <SkeletonCustomersCard />
       ) : (
         <DashboardCard
-      title="Customers"
-      subtitle="Last 7 days"
-      action={
-        <Box textAlign="right">
-          <Typography variant="h5" display="block">
-            6,380
-          </Typography>
-          <Box
-            bgcolor="success.light"
-            color="success.main"
-            fontSize="12px"
-            p="0px 7px"
-            border="1px solid "
-            borderRadius={2}
-          >
-            +26.5%
-          </Box>
-        </Box>
-      }
-    >
-      <>
-        <Box mt={5}>
-          <Chart
-            options={optionscolumnchart}
-            series={seriescolumnchart}
-            type="area"
-            height={103}
-            width={"100%"}
-          />
-        </Box>
+          title="Customers"
+          subtitle="Last 7 days"
+          action={
+            <Box textAlign="right">
+              <Typography variant="h5" display="block">
+                6,380
+              </Typography>
+              <Box
+                bgcolor="success.light"
+                color="success.main"
+                fontSize="12px"
+                p="0px 7px"
+                border="1px solid "
+                borderRadius={2}
+              >
+                +26.5%
+              </Box>
+            </Box>
+          }
+        >
+          <>
+            <Box mt={5}>
+              <Chart
+                options={optionscolumnchart}
+                series={seriescolumnchart}
+                type="area"
+                height={103}
+                width="100%"
+              />
+            </Box>
 
-        <Stack direction="row" spacing={2} mt={4}>
-          <Typography variant="subtitle1" color="textSecondary">
-            April 07 - April 14
-          </Typography>
-          <Typography
-            variant="subtitle1"
-            color="textSecondary"
-            ml="auto !important"
-          >
-            6,380
-          </Typography>
-        </Stack>
-        <Stack direction="row" spacing={2} mt={1}>
-          <Typography variant="subtitle1" color="textSecondary">
-            Last Week
-          </Typography>
-          <Typography
-            variant="subtitle1"
-            color="textSecondary"
-            ml="auto !important"
-          >
-            4,298
-          </Typography>
-        </Stack>
-      </>
-    </DashboardCard>
+            <Stack direction="row" spacing={2} mt={4}>
+              <Typography variant="subtitle1" color="textSecondary">
+                April 07 - April 14
+              </Typography>
+              <Typography
+                variant="subtitle1"
+                color="textSecondary"
+                ml="auto !important"
+              >
+                6,380
+              </Typography>
+            </Stack>
+            <Stack direction="row" spacing={2} mt={1}>
+              <Typography variant="subtitle1" color="textSecondary">
+                Last Week
+              </Typography>
+              <Typography
+                variant="subtitle1"
+                color="textSecondary"
+                ml="auto !important"
+              >
+                4,298
+              </Typography>
+            </Stack>
+          </>
+        </DashboardCard>
       )}
     </>
-    
   );
 };
 

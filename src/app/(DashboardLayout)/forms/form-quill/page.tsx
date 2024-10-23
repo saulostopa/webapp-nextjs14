@@ -1,40 +1,40 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { useTheme } from "@mui/material/styles";
-import "./Quill.css";
+import './Quill.css';
+import 'react-quill/dist/quill.snow.css';
 
-import dynamic from "next/dynamic";
-import "react-quill/dist/quill.snow.css";
+import Paper from '@mui/material/Paper';
+import { useTheme } from '@mui/material/styles';
+import dynamic from 'next/dynamic';
+import React, { useState } from 'react';
+
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+
 const ReactQuill: any = dynamic(
   async () => {
-    const { default: RQ } = await import("react-quill");
+    const { default: RQ } = await import('react-quill');
     // eslint-disable-next-line react/display-name
     return ({ ...props }) => <RQ {...props} />;
   },
   {
     ssr: false,
-  }
+  },
 );
-
-import Paper from "@mui/material/Paper";
-
-import Breadcrumb from "@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb";
-import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
-import ParentCard from "@/app/(DashboardLayout)/components/shared/ParentCard";
 
 const BCrumb = [
   {
-    to: "/",
-    title: "Home",
+    to: '/',
+    title: 'Home',
   },
   {
-    title: "Quill Editor",
+    title: 'Quill Editor',
   },
 ];
 
 const QuillEditor = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   const theme = useTheme();
   const borderColor = theme.palette.divider;

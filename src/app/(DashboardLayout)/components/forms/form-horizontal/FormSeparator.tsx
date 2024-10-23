@@ -5,13 +5,14 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import React from 'react';
-import CustomFormLabel from '../theme-elements/CustomFormLabel';
-import CustomTextField from '../theme-elements/CustomTextField';
-import CustomOutlinedInput from '../theme-elements/CustomOutlinedInput';
-import CustomSelect from '../theme-elements/CustomSelect';
 import { Stack } from '@mui/system';
 import { IconEye, IconEyeOff } from '@tabler/icons-react';
+import React from 'react';
+
+import CustomFormLabel from '../theme-elements/CustomFormLabel';
+import CustomOutlinedInput from '../theme-elements/CustomOutlinedInput';
+import CustomSelect from '../theme-elements/CustomSelect';
+import CustomTextField from '../theme-elements/CustomTextField';
 
 const countries = [
   {
@@ -42,7 +43,9 @@ const FormSeparator = () => {
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => {
     event.preventDefault();
   };
 
@@ -57,7 +60,10 @@ const FormSeparator = () => {
       <Grid container spacing={3}>
         {/* 1 */}
         <Grid item xs={12} sm={3} display="flex" alignItems="center">
-          <CustomFormLabel htmlFor="fs-uname" sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}>
+          <CustomFormLabel
+            htmlFor="fs-uname"
+            sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}
+          >
             Username
           </CustomFormLabel>
         </Grid>
@@ -66,13 +72,18 @@ const FormSeparator = () => {
         </Grid>
         {/* 2 */}
         <Grid item xs={12} sm={3} display="flex" alignItems="center">
-          <CustomFormLabel htmlFor="fs-email" sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}>
+          <CustomFormLabel
+            htmlFor="fs-email"
+            sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}
+          >
             Email
           </CustomFormLabel>
         </Grid>
         <Grid item xs={12} sm={9}>
           <CustomOutlinedInput
-            endAdornment={<InputAdornment position="end">@example.com</InputAdornment>}
+            endAdornment={
+              <InputAdornment position="end">@example.com</InputAdornment>
+            }
             id="fs-email"
             placeholder="john.deo"
             fullWidth
@@ -80,7 +91,10 @@ const FormSeparator = () => {
         </Grid>
         {/* 2 */}
         <Grid item xs={12} sm={3} display="flex" alignItems="center">
-          <CustomFormLabel htmlFor="fs-pwd" sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}>
+          <CustomFormLabel
+            htmlFor="fs-pwd"
+            sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}
+          >
             Password
           </CustomFormLabel>
         </Grid>
@@ -95,7 +109,11 @@ const FormSeparator = () => {
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
                 >
-                  {showPassword ? <IconEyeOff size="20" /> : <IconEye size="20" />}
+                  {showPassword ? (
+                    <IconEyeOff size="20" />
+                  ) : (
+                    <IconEye size="20" />
+                  )}
                 </IconButton>
               </InputAdornment>
             }
@@ -105,7 +123,7 @@ const FormSeparator = () => {
           />
         </Grid>
         <Grid item xs={12}>
-          <Divider sx={{mx: "-24px"}} />
+          <Divider sx={{ mx: '-24px' }} />
           <Typography variant="h6" mt={2}>
             Personal Info
           </Typography>
@@ -113,7 +131,10 @@ const FormSeparator = () => {
 
         {/* 4 */}
         <Grid item xs={12} sm={3} display="flex" alignItems="center">
-          <CustomFormLabel htmlFor="fs-fname" sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}>
+          <CustomFormLabel
+            htmlFor="fs-fname"
+            sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}
+          >
             Full Name
           </CustomFormLabel>
         </Grid>
@@ -122,7 +143,10 @@ const FormSeparator = () => {
         </Grid>
         {/* 4 */}
         <Grid item xs={12} sm={3} display="flex" alignItems="center">
-          <CustomFormLabel htmlFor="fs-country" sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}>
+          <CustomFormLabel
+            htmlFor="fs-country"
+            sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}
+          >
             Country
           </CustomFormLabel>
         </Grid>
@@ -143,23 +167,34 @@ const FormSeparator = () => {
         </Grid>
         {/* 4 */}
         <Grid item xs={12} sm={3} display="flex" alignItems="center">
-          <CustomFormLabel htmlFor="fs-date" sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}>
+          <CustomFormLabel
+            htmlFor="fs-date"
+            sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}
+          >
             Birth Date
           </CustomFormLabel>
         </Grid>
         <Grid item xs={12} sm={9}>
-          <CustomTextField type="date" id="fs-date" placeholder="John Deo" fullWidth />
+          <CustomTextField
+            type="date"
+            id="fs-date"
+            placeholder="John Deo"
+            fullWidth
+          />
         </Grid>
         {/* 4 */}
         <Grid item xs={12} sm={3} display="flex" alignItems="center">
-          <CustomFormLabel htmlFor="fs-phone" sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}>
+          <CustomFormLabel
+            htmlFor="fs-phone"
+            sx={{ mt: 0, mb: { xs: '-10px', sm: 0 } }}
+          >
             Phone no
           </CustomFormLabel>
         </Grid>
         <Grid item xs={12} sm={9}>
           <CustomTextField id="fs-phone" placeholder="123 4567 201" fullWidth />
         </Grid>
-        <Grid item xs={12} sm={3}></Grid>
+        <Grid item xs={12} sm={3} />
         <Grid item xs={12} sm={9}>
           <Stack direction="row" spacing={2}>
             <Button variant="contained" color="primary">

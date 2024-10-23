@@ -1,6 +1,8 @@
-import mock from '../mock';
 import { Chance } from 'chance';
-import { PostType } from '@/app/(DashboardLayout)/types/apps/userProfile';
+
+import type { PostType } from '@/app/(DashboardLayout)/types/apps/userProfile';
+
+import mock from '../mock';
 
 const chance = new Chance();
 
@@ -10,7 +12,7 @@ const posts: PostType[] = [
     id: chance.integer({ min: 1, max: 2000 }),
     profile: {
       id: chance.integer({ min: 1, max: 2000 }),
-      avatar: "/images/profile/user-1.jpg",
+      avatar: '/images/profile/user-1.jpg',
       name: 'Nirav Joshi',
       time: '15 min ago',
     },
@@ -18,7 +20,7 @@ const posts: PostType[] = [
       content: chance.paragraph({ sentences: 2 }),
       images: [
         {
-          img: "/images/products/s1.jpg",
+          img: '/images/products/s1.jpg',
           featured: true,
         },
       ],
@@ -31,7 +33,7 @@ const posts: PostType[] = [
           id: chance.integer({ min: 1, max: 2000 }),
           profile: {
             id: chance.integer({ min: 1, max: 2000 }),
-            avatar: "/images/profile/user-3.jpg",
+            avatar: '/images/profile/user-3.jpg',
             name: 'Deran Mac',
             time: '8 min ago ',
           },
@@ -48,7 +50,7 @@ const posts: PostType[] = [
           id: chance.integer({ min: 1, max: 2000 }),
           profile: {
             id: chance.integer({ min: 1, max: 2000 }),
-            avatar: "/images/profile/user-4.jpg",
+            avatar: '/images/profile/user-4.jpg',
             name: 'Jonathan Bg',
             time: '5 min ago ',
           },
@@ -63,7 +65,7 @@ const posts: PostType[] = [
                 id: chance.integer({ min: 1, max: 2000 }),
                 profile: {
                   id: chance.integer({ min: 1, max: 2000 }),
-                  avatar: "/images/profile/user-5.jpg",
+                  avatar: '/images/profile/user-5.jpg',
                   name: 'Carry minati',
                   time: 'just now ',
                 },
@@ -85,7 +87,7 @@ const posts: PostType[] = [
     id: chance.integer({ min: 1, max: 2000 }),
     profile: {
       id: chance.integer({ min: 1, max: 2000 }),
-      avatar: "/images/profile/user-5.jpg",
+      avatar: '/images/profile/user-5.jpg',
       name: 'Carry Minati',
       time: 'now',
     },
@@ -103,7 +105,7 @@ const posts: PostType[] = [
     id: chance.integer({ min: 1, max: 2000 }),
     profile: {
       id: chance.integer({ min: 1, max: 2000 }),
-      avatar: "/images/profile/user-2.jpg",
+      avatar: '/images/profile/user-2.jpg',
       name: 'Genelia Desouza',
       time: '15 min ago ',
     },
@@ -111,11 +113,11 @@ const posts: PostType[] = [
       content: chance.paragraph({ sentences: 2 }),
       images: [
         {
-          img: "/images/products/s2.jpg",
+          img: '/images/products/s2.jpg',
           title: 'Image Title',
         },
         {
-          img: "/images/products/s4.jpg",
+          img: '/images/products/s4.jpg',
           title: 'Painter',
         },
       ],
@@ -128,7 +130,7 @@ const posts: PostType[] = [
           id: chance.integer({ min: 1, max: 2000 }),
           profile: {
             id: chance.integer({ min: 1, max: 2000 }),
-            avatar: "/images/profile/user-3.jpg",
+            avatar: '/images/profile/user-3.jpg',
             name: 'Ritesh Deshmukh',
             time: '15 min ago ',
           },
@@ -148,7 +150,7 @@ const posts: PostType[] = [
     id: chance.integer({ min: 1, max: 2000 }),
     profile: {
       id: chance.integer({ min: 1, max: 2000 }),
-      avatar: "/images/profile/user-6.jpg",
+      avatar: '/images/profile/user-6.jpg',
       name: 'Himesh R',
       time: '15 min ago ',
     },
@@ -239,7 +241,8 @@ mock.onPost('/api/data/posts/replies/like').reply((config) => {
       comment.data.likes.value = comment.data.likes.like
         ? comment.data.likes.value + 1
         : comment.data.likes.value - 1;
-    if (post && post.data && post.data.comments) post.data.comments[commentIndex] = comment;
+    if (post && post.data && post.data.comments)
+      post.data.comments[commentIndex] = comment;
 
     return [200, { posts: [...posts] }];
   } catch (err) {

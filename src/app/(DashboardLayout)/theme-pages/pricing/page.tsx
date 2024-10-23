@@ -1,6 +1,5 @@
-'use client'
+'use client';
 
-import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import CardContent from '@mui/material/CardContent';
@@ -10,16 +9,16 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import { styled, useTheme } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
-import { useTheme, styled } from '@mui/material/styles';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-
 import { IconCheck, IconX } from '@tabler/icons-react';
-import BlankCard from '@/app/(DashboardLayout)/components/shared/BlankCard';
 import Image from 'next/image';
+import React from 'react';
 
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import BlankCard from '@/app/(DashboardLayout)/components/shared/BlankCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -37,7 +36,7 @@ const pricing = [
     package: 'Silver',
     plan: 'Free',
     monthlyplan: 'Free',
-    avatar: "/images/backgrounds/silver.png",
+    avatar: '/images/backgrounds/silver.png',
     badge: false,
     btntext: 'Choose Silver',
     rules: [
@@ -67,7 +66,7 @@ const pricing = [
     id: 2,
     package: 'Bronze',
     monthlyplan: 10.99,
-    avatar: "/images/backgrounds/bronze.png",
+    avatar: '/images/backgrounds/bronze.png',
     badge: true,
     btntext: 'Choose Bronze',
     rules: [
@@ -97,7 +96,7 @@ const pricing = [
     id: 3,
     package: 'Gold',
     monthlyplan: 22.99,
-    avatar: "/images/backgrounds/gold.png",
+    avatar: '/images/backgrounds/gold.png',
     badge: false,
     btntext: 'Choose Gold',
     rules: [
@@ -155,7 +154,12 @@ const Pricing = () => {
           <Typography variant="h2">
             Flexible Plans Tailored to Fit Your Community&apos;s Unique Needs!
           </Typography>
-          <Box display="flex" alignItems="center" mt={3} justifyContent="center">
+          <Box
+            display="flex"
+            alignItems="center"
+            mt={3}
+            justifyContent="center"
+          >
             <Typography variant="subtitle1">Monthly</Typography>
             <Switch onChange={() => setShow(!show)} />
             <Typography variant="subtitle1">Yearly</Typography>
@@ -167,7 +171,9 @@ const Pricing = () => {
           <Grid item xs={12} lg={4} sm={6} key={i}>
             <BlankCard>
               <CardContent sx={{ p: '30px' }}>
-                {price.badge ? <StyledChip label="Popular" size="small"></StyledChip> : null}
+                {price.badge ? (
+                  <StyledChip label="Popular" size="small" />
+                ) : null}
 
                 <Typography
                   variant="subtitle1"
@@ -178,7 +184,12 @@ const Pricing = () => {
                 >
                   {price.package}
                 </Typography>
-                <Image src={price.avatar} alt={price.avatar} width={90} height={90} />
+                <Image
+                  src={price.avatar}
+                  alt={price.avatar}
+                  width={90}
+                  height={90}
+                />
                 <Box my={4}>
                   {price.plan == 'Free' ? (
                     <Box fontSize="50px" mt={5} fontWeight="600">
@@ -229,17 +240,19 @@ const Pricing = () => {
                     {price.rules.map((rule, i) => (
                       <Box key={i}>
                         {rule.limit ? (
-                          <>
-                            <ListItem disableGutters>
-                              <ListItemIcon sx={{ color: 'primary.main', minWidth: '32px' }}>
-                                <IconCheck width={18} />
-                              </ListItemIcon>
-                              <ListItemText>{rule.title}</ListItemText>
-                            </ListItem>
-                          </>
+                          <ListItem disableGutters>
+                            <ListItemIcon
+                              sx={{ color: 'primary.main', minWidth: '32px' }}
+                            >
+                              <IconCheck width={18} />
+                            </ListItemIcon>
+                            <ListItemText>{rule.title}</ListItemText>
+                          </ListItem>
                         ) : (
                           <ListItem disableGutters sx={{ color: 'grey.400' }}>
-                            <ListItemIcon sx={{ color: 'grey.400', minWidth: '32px' }}>
+                            <ListItemIcon
+                              sx={{ color: 'grey.400', minWidth: '32px' }}
+                            >
                               <IconX width={18} />
                             </ListItemIcon>
                             <ListItemText>{rule.title}</ListItemText>

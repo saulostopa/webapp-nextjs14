@@ -1,24 +1,25 @@
-"use client";
-import React from "react";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import RTL from "@/app/(DashboardLayout)/layout/shared/customizer/RTL";
-import { ThemeSettings } from "@/utils/theme/Theme";
-import { store } from "@/store/store";
-import { useSelector } from "@/store/hooks";
-import { AppState } from "@/store/store";
-import { Provider } from "react-redux";
+'use client';
 
+import '@/app/api/index';
+import '@/utils/i18n';
+import 'react-quill/dist/quill.snow.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+import Box from '@mui/material/Box';
 // import NextNProgress from "nextjs-progressbar";
-import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
-import "@/app/api/index";
-import "@/utils/i18n";
-import { NextAppDirEmotionCacheProvider } from "@/utils/theme/EmotionCache";
-import "react-quill/dist/quill.snow.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import CircularProgress from '@mui/material/CircularProgress';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import React from 'react';
+import { Provider } from 'react-redux';
 
+import RTL from '@/app/(DashboardLayout)/layout/shared/customizer/RTL';
+import { useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
+import { store } from '@/store/store';
+import { NextAppDirEmotionCacheProvider } from '@/utils/theme/EmotionCache';
+import { ThemeSettings } from '@/utils/theme/Theme';
 
 export const MyApp = ({ children }: { children: React.ReactNode }) => {
   const theme = ThemeSettings();
@@ -26,8 +27,7 @@ export const MyApp = ({ children }: { children: React.ReactNode }) => {
   const customizer = useSelector((state: AppState) => state.customizer);
 
   return (
-    <>
-      <NextAppDirEmotionCacheProvider options={{ key: 'modernize' }}>
+    <NextAppDirEmotionCacheProvider options={{ key: 'modernize' }}>
       <ThemeProvider theme={theme}>
         <RTL direction={customizer.activeDir}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
@@ -35,8 +35,7 @@ export const MyApp = ({ children }: { children: React.ReactNode }) => {
           {children}
         </RTL>
       </ThemeProvider>
-      </NextAppDirEmotionCacheProvider>
-    </>
+    </NextAppDirEmotionCacheProvider>
   );
 };
 
@@ -59,11 +58,11 @@ export default function RootLayout({
           ) : (
             <Box
               sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-                height: "100vh",
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+                height: '100vh',
               }}
             >
               <CircularProgress />

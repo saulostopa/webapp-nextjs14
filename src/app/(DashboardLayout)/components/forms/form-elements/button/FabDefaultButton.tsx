@@ -1,8 +1,8 @@
-import React from 'react';
 import Fab from '@mui/material/Fab';
 import Stack from '@mui/material/Stack';
-import Tooltip from '@mui/material/Tooltip'
+import Tooltip from '@mui/material/Tooltip';
 import { IconClipboard, IconPlus, IconSend } from '@tabler/icons-react';
+import React from 'react';
 
 const FabDefaultButton = () => (
   <Stack spacing={1} direction="row" justifyContent="center">

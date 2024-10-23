@@ -1,4 +1,3 @@
-import React from "react";
 import Avatar from '@mui/material/Avatar';
 import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
@@ -8,7 +7,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {
@@ -16,14 +15,15 @@ import {
   IconMenu2,
   IconPhone,
   IconVideo,
-} from "@tabler/icons-react";
-import { useSelector } from "@/store/hooks";
+} from '@tabler/icons-react';
+import { formatDistanceToNowStrict } from 'date-fns';
+import Image from 'next/image';
+import React from 'react';
 
-import { ChatsType } from "../../../types/apps/chat";
-import { formatDistanceToNowStrict } from "date-fns";
-import ChatInsideSidebar from "./ChatInsideSidebar";
-import Scrollbar from "../../../components/custom-scroll/Scrollbar";
-import Image from "next/image";
+import { useSelector } from '@/store/hooks';
+
+import type { ChatsType } from '../../../types/apps/chat';
+import ChatInsideSidebar from './ChatInsideSidebar';
 
 interface ChatContentProps {
   toggleChatSidebar: () => void;
@@ -33,10 +33,10 @@ const ChatContent: React.FC<ChatContentProps> = ({
   toggleChatSidebar,
 }: any) => {
   const [open, setOpen] = React.useState(true);
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
 
   const chatDetails: ChatsType = useSelector(
-    (state) => state.chatReducer.chats[state.chatReducer.chatContent - 1]
+    (state) => state.chatReducer.chats[state.chatReducer.chatContent - 1],
   );
 
   return (
@@ -50,8 +50,8 @@ const ChatContent: React.FC<ChatContentProps> = ({
             <Box display="flex" alignItems="center" p={2}>
               <Box
                 sx={{
-                  display: { xs: "block", md: "block", lg: "none" },
-                  mr: "10px",
+                  display: { xs: 'block', md: 'block', lg: 'none' },
+                  mr: '10px',
                 }}
               >
                 <IconMenu2 stroke={1.5} onClick={toggleChatSidebar} />
@@ -60,22 +60,26 @@ const ChatContent: React.FC<ChatContentProps> = ({
                 <ListItemAvatar>
                   <Badge
                     color={
-                      chatDetails.status === "online"
-                        ? "success"
-                        : chatDetails.status === "busy"
-                        ? "error"
-                        : chatDetails.status === "away"
-                        ? "warning"
-                        : "secondary"
+                      chatDetails.status === 'online'
+                        ? 'success'
+                        : chatDetails.status === 'busy'
+                          ? 'error'
+                          : chatDetails.status === 'away'
+                            ? 'warning'
+                            : 'secondary'
                     }
                     variant="dot"
                     anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "right",
+                      vertical: 'bottom',
+                      horizontal: 'right',
                     }}
                     overlap="circular"
                   >
-                    <Avatar alt={chatDetails.name} src={chatDetails.thumb} sx={{width: 40, height: 40}} />
+                    <Avatar
+                      alt={chatDetails.name}
+                      src={chatDetails.thumb}
+                      sx={{ width: 40, height: 40 }}
+                    />
                   </Badge>
                 </ListItemAvatar>
                 <ListItemText
@@ -85,7 +89,7 @@ const ChatContent: React.FC<ChatContentProps> = ({
                   secondary={chatDetails.status}
                 />
               </ListItem>
-              <Stack direction={"row"}>
+              <Stack direction="row">
                 <IconButton aria-label="phone">
                   <IconPhone stroke={1.5} />
                 </IconButton>
@@ -111,9 +115,9 @@ const ChatContent: React.FC<ChatContentProps> = ({
             <Box width="100%">
               <Box
                 sx={{
-                  height: "650px",
-                  overflow: "auto",
-                  maxHeight: "800px",
+                  height: '650px',
+                  overflow: 'auto',
+                  maxHeight: '800px',
                 }}
               >
                 <Box p={3}>
@@ -136,41 +140,42 @@ const ChatContent: React.FC<ChatContentProps> = ({
                                   color="grey.400"
                                   mb={1}
                                 >
-                                  {chatDetails.name},{" "}
+                                  {chatDetails.name},{' '}
                                   {formatDistanceToNowStrict(
                                     new Date(chat.createdAt),
                                     {
                                       addSuffix: false,
-                                    }
-                                  )}{" "}
+                                    },
+                                  )}{' '}
                                   ago
                                 </Typography>
                               ) : null}
-                              {chat.type === "text" ? (
+                              {chat.type === 'text' ? (
                                 <Box
                                   mb={2}
                                   sx={{
                                     p: 1,
-                                    backgroundColor: "grey.100",
-                                    mr: "auto",
-                                    maxWidth: "320px",
+                                    backgroundColor: 'grey.100',
+                                    mr: 'auto',
+                                    maxWidth: '320px',
                                   }}
                                 >
                                   {chat.msg}
                                 </Box>
                               ) : null}
-                              {chat.type === "image" ? (
+                              {chat.type === 'image' ? (
                                 <Box
                                   mb={1}
                                   sx={{
-                                    overflow: "hidden",
-                                    lineHeight: "0px",
+                                    overflow: 'hidden',
+                                    lineHeight: '0px',
                                   }}
                                 >
                                   <Image
                                     src={chat.msg}
                                     alt="attach"
-                                    width="150" height="150"
+                                    width="150"
+                                    height="150"
                                   />
                                 </Box>
                               ) : null}
@@ -186,7 +191,7 @@ const ChatContent: React.FC<ChatContentProps> = ({
                             <Box
                               alignItems="flex-end"
                               display="flex"
-                              flexDirection={"column"}
+                              flexDirection="column"
                             >
                               {chat.createdAt ? (
                                 <Typography
@@ -198,33 +203,34 @@ const ChatContent: React.FC<ChatContentProps> = ({
                                     new Date(chat.createdAt),
                                     {
                                       addSuffix: false,
-                                    }
-                                  )}{" "}
+                                    },
+                                  )}{' '}
                                   ago
                                 </Typography>
                               ) : null}
-                              {chat.type === "text" ? (
+                              {chat.type === 'text' ? (
                                 <Box
                                   mb={1}
                                   sx={{
                                     p: 1,
-                                    backgroundColor: "primary.light",
-                                    ml: "auto",
-                                    maxWidth: "320px",
+                                    backgroundColor: 'primary.light',
+                                    ml: 'auto',
+                                    maxWidth: '320px',
                                   }}
                                 >
                                   {chat.msg}
                                 </Box>
                               ) : null}
-                              {chat.type === "image" ? (
+                              {chat.type === 'image' ? (
                                 <Box
                                   mb={1}
-                                  sx={{ overflow: "hidden", lineHeight: "0px" }}
+                                  sx={{ overflow: 'hidden', lineHeight: '0px' }}
                                 >
                                   <Image
                                     src={chat.msg}
                                     alt="attach"
-                                    width="250" height="165"
+                                    width="250"
+                                    height="165"
                                   />
                                 </Box>
                               ) : null}
@@ -249,7 +255,7 @@ const ChatContent: React.FC<ChatContentProps> = ({
                 />
               </Box>
             ) : (
-              ""
+              ''
             )}
           </Box>
         </Box>
@@ -260,8 +266,8 @@ const ChatContent: React.FC<ChatContentProps> = ({
           {/* ------------------------------------------- */}
           <Box
             sx={{
-              display: { xs: "flex", md: "flex", lg: "none" },
-              mr: "10px",
+              display: { xs: 'flex', md: 'flex', lg: 'none' },
+              mr: '10px',
             }}
           >
             <IconMenu2 stroke={1.5} onClick={toggleChatSidebar} />

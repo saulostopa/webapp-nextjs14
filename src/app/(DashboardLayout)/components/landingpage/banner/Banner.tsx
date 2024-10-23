@@ -1,25 +1,23 @@
-import React from "react";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import BannerContent from "./BannerContent";
-import Image from "next/image";
-import BannerSlider from "./BannerSlider";
+import React from 'react';
+
+import BannerContent from './BannerContent';
+import BannerSlider from './BannerSlider';
 
 const Banner = () => {
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
 
   return (
-    <Box my={10} sx={{ overflow: "hidden" }}>
+    <Box my={10} sx={{ overflow: 'hidden' }}>
       <Container maxWidth="lg">
         <Grid container spacing={3} alignItems="center" justifyContent="center">
           <Grid item xs={12} lg={11} sm={10}>
             <BannerContent />
           </Grid>
-          
         </Grid>
       </Container>
       <BannerSlider />

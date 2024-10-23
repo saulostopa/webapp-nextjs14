@@ -1,6 +1,6 @@
-import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import type { DialogProps } from '@mui/material/Dialog';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -10,10 +10,10 @@ import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
+import React from 'react';
 
 import CustomSelect from '../../forms/theme-elements/CustomSelect';
 import CustomSwitch from '../../forms/theme-elements/CustomSwitch';
-import { DialogProps } from '@mui/material/Dialog';
 
 const MaxWidthDialog = () => {
   const [open, setOpen] = React.useState(false);
@@ -38,10 +38,20 @@ const MaxWidthDialog = () => {
 
   return (
     <>
-      <Button variant="contained" color="primary" fullWidth onClick={handleClickOpen}>
+      <Button
+        variant="contained"
+        color="primary"
+        fullWidth
+        onClick={handleClickOpen}
+      >
         Open Maxwidth Dialog
       </Button>
-      <Dialog fullWidth={fullWidth} maxWidth={maxWidth} open={open} onClose={handleClose}>
+      <Dialog
+        fullWidth={fullWidth}
+        maxWidth={maxWidth}
+        open={open}
+        onClose={handleClose}
+      >
         <DialogTitle>Optional sizes</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -79,7 +89,12 @@ const MaxWidthDialog = () => {
             </FormControl>
             <FormControlLabel
               sx={{ mt: 1 }}
-              control={<CustomSwitch checked={fullWidth} onChange={handleFullWidthChange} />}
+              control={
+                <CustomSwitch
+                  checked={fullWidth}
+                  onChange={handleFullWidthChange}
+                />
+              }
               label="Full width"
             />
           </Box>

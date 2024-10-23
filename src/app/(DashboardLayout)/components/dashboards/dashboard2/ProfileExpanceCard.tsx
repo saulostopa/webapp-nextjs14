@@ -6,14 +6,16 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import DashboardCard from "../../shared/DashboardCard";
-import { IconDotsVertical } from "@tabler/icons-react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from "@mui/material/styles";
-import React from "react";
-import Image from "next/image";
+import { IconDotsVertical } from '@tabler/icons-react';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import React from 'react';
+
+import DashboardCard from '../../shared/DashboardCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const ProfielExpanceCard = () => {
   const theme = useTheme();
@@ -37,37 +39,37 @@ const ProfielExpanceCard = () => {
 
   const stats = [
     {
-      title: "$63,489.50",
-      subtitle: "Earning this year",
+      title: '$63,489.50',
+      subtitle: 'Earning this year',
       color: error,
       lightcolor: errorlight,
       profit: false,
-      icon: "/images/svgs/icon-biology.svg",
+      icon: '/images/svgs/icon-biology.svg',
     },
     {
-      title: "$48,820.00",
-      subtitle: "Profit this year",
+      title: '$48,820.00',
+      subtitle: 'Profit this year',
       color: info,
       lightcolor: infolight,
       profit: true,
-      icon: "/images/svgs/icon-erase.svg",
+      icon: '/images/svgs/icon-erase.svg',
     },
     {
-      title: "$103,582.50",
-      subtitle: "Overall earnings",
+      title: '$103,582.50',
+      subtitle: 'Overall earnings',
       color: secondary,
       lightcolor: secondarylight,
       profit: false,
-      icon: "/images/svgs/icon-globe.svg",
+      icon: '/images/svgs/icon-globe.svg',
     },
   ];
 
   // chart
   const optionscolumnchart: any = {
     chart: {
-      type: "bar",
+      type: 'bar',
       fontFamily: "'Plus Jakarta Sans', sans-serif;",
-      foreColor: "#adb0bb",
+      foreColor: '#adb0bb',
       toolbar: {
         show: false,
       },
@@ -78,7 +80,7 @@ const ProfielExpanceCard = () => {
     plotOptions: {
       bar: {
         horizontal: false,
-        columnWidth: "27%",
+        columnWidth: '27%',
         borderRadius: 6,
       },
     },
@@ -93,11 +95,11 @@ const ProfielExpanceCard = () => {
       show: false,
     },
     grid: {
-      borderColor: "rgba(0,0,0,0.1)",
+      borderColor: 'rgba(0,0,0,0.1)',
       padding: { top: 0, bottom: -8, left: 20, right: 20 },
     },
     xaxis: {
-      categories: ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"],
+      categories: ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb'],
       axisBorder: {
         show: false,
       },
@@ -109,17 +111,17 @@ const ProfielExpanceCard = () => {
       opacity: 1,
     },
     tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
+      theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
       fillSeriesColor: false,
     },
   };
   const seriescolumnchart = [
     {
-      name: "Profit",
+      name: 'Profit',
       data: [60, 40, 37, 35, 35, 20, 30],
     },
     {
-      name: "Expenses",
+      name: 'Expenses',
       data: [15, 30, 15, 35, 25, 30, 30],
     },
   ];
@@ -131,9 +133,9 @@ const ProfielExpanceCard = () => {
         <>
           <IconButton
             id="basic-button"
-            aria-controls={open ? "basic-menu" : undefined}
+            aria-controls={open ? 'basic-menu' : undefined}
             aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
+            aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
           >
             <IconDotsVertical />
@@ -144,11 +146,11 @@ const ProfielExpanceCard = () => {
             open={open}
             onClose={handleClose}
             MenuListProps={{
-              "aria-labelledby": "basic-button",
+              'aria-labelledby': 'basic-button',
             }}
             transformOrigin={{
-              vertical: "top",
-              horizontal: "right",
+              vertical: 'top',
+              horizontal: 'right',
             }}
           >
             <MenuItem onClick={handleClose}>Add</MenuItem>
@@ -167,7 +169,7 @@ const ProfielExpanceCard = () => {
                 series={seriescolumnchart}
                 type="bar"
                 height={300}
-                width={"100%"}
+                width="100%"
               />
             </Box>
           </Grid>
@@ -190,11 +192,29 @@ const ProfielExpanceCard = () => {
                         height: 46,
                       }}
                     >
-                      <Image src={stat.icon} alt="icon" width={24} height={24} />
+                      <Image
+                        src={stat.icon}
+                        alt="icon"
+                        width={24}
+                        height={24}
+                      />
                     </Avatar>
                     <Box>
                       <Typography variant="h6" mb="4px">
-                        {stat.title} { stat.profit ? <Typography component="span" variant="subtitle2" ml={1} fontSize="12px" color="success.main">+23%</Typography> : ""}
+                        {stat.title}{' '}
+                        {stat.profit ? (
+                          <Typography
+                            component="span"
+                            variant="subtitle2"
+                            ml={1}
+                            fontSize="12px"
+                            color="success.main"
+                          >
+                            +23%
+                          </Typography>
+                        ) : (
+                          ''
+                        )}
                       </Typography>
                       <Typography variant="subtitle2" color="textSecondary">
                         {stat.subtitle}

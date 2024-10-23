@@ -1,14 +1,15 @@
-import React from 'react';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Stack from '@mui/material/Stack';
+import { IconLock, IconMail, IconUser } from '@tabler/icons-react';
+import React from 'react';
+
+import ParentCard from '../../shared/ParentCard';
 import CustomCheckbox from '../theme-elements/CustomCheckbox';
 import CustomFormLabel from '../theme-elements/CustomFormLabel';
-import ParentCard from '../../shared/ParentCard';
-import { IconLock, IconMail, IconUser } from '@tabler/icons-react';
 
 const FbLeftIconForm = () => {
   const [state, setState] = React.useState({
@@ -20,21 +21,19 @@ const FbLeftIconForm = () => {
   };
 
   return (
-    <ParentCard title='Form with Left Icon' footer={
-      <>
+    <ParentCard
+      title="Form with Left Icon"
+      footer={
         <Stack direction="row" spacing={2}>
-          <Button
-            color="primary"
-            variant="contained">
+          <Button color="primary" variant="contained">
             Submit
           </Button>
           <Button variant="contained" color="error">
             Cancel
           </Button>
         </Stack>
-
-      </>
-    }>
+      }
+    >
       <form>
         <FormControl fullWidth>
           <CustomFormLabel
@@ -87,7 +86,9 @@ const FbLeftIconForm = () => {
         </FormControl>
 
         <FormControl fullWidth>
-          <CustomFormLabel htmlFor="cpwd-text">Confirm Password</CustomFormLabel>
+          <CustomFormLabel htmlFor="cpwd-text">
+            Confirm Password
+          </CustomFormLabel>
           <OutlinedInput
             startAdornment={
               <InputAdornment position="start">
@@ -102,7 +103,11 @@ const FbLeftIconForm = () => {
 
         <FormControlLabel
           control={
-            <CustomCheckbox checked={state.checkedA} onChange={handleChange} name="checkedA" />
+            <CustomCheckbox
+              checked={state.checkedA}
+              onChange={handleChange}
+              name="checkedA"
+            />
           }
           sx={{
             mt: '10px',

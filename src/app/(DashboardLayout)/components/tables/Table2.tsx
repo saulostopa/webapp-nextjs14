@@ -1,4 +1,3 @@
-import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Chip from '@mui/material/Chip';
@@ -12,59 +11,86 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography'
-import BlankCard from '../shared/BlankCard';
+import Typography from '@mui/material/Typography';
 import { Box, Stack } from '@mui/system';
-import { IconDotsVertical, IconEdit, IconPlus, IconTrash } from '@tabler/icons-react';
+import {
+  IconDotsVertical,
+  IconEdit,
+  IconPlus,
+  IconTrash,
+} from '@tabler/icons-react';
+import React from 'react';
+
+import BlankCard from '../shared/BlankCard';
 
 const rows = [
   {
     status: 'active',
-    avatar: "/images/profile/user-1.jpg",
+    avatar: '/images/profile/user-1.jpg',
     name: 'Olivia Rhye',
     project: 'Xtreme admin',
     percent: 60,
-    users: [{ img: "/images/profile/user-1.jpg" }, { img: "/images/profile/user-2.jpg" }],
+    users: [
+      { img: '/images/profile/user-1.jpg' },
+      { img: '/images/profile/user-2.jpg' },
+    ],
   },
   {
     status: 'cancel',
-    avatar: "/images/profile/user-2.jpg",
+    avatar: '/images/profile/user-2.jpg',
     name: 'Barbara Steele',
     project: 'Adminpro admin',
     percent: 30,
-    users: [{ img: "/images/profile/user-1.jpg" }, { img: "/images/profile/user-2.jpg" }, { img: "/images/profile/user-3.jpg" }],
+    users: [
+      { img: '/images/profile/user-1.jpg' },
+      { img: '/images/profile/user-2.jpg' },
+      { img: '/images/profile/user-3.jpg' },
+    ],
   },
   {
     status: 'active',
-    avatar: "/images/profile/user-3.jpg",
+    avatar: '/images/profile/user-3.jpg',
     name: 'Leonard Gordon',
     project: 'Monster admin',
     percent: 45,
-    users: [{ img: "/images/profile/user-3.jpg" }, { img: "/images/profile/user-2.jpg" }],
+    users: [
+      { img: '/images/profile/user-3.jpg' },
+      { img: '/images/profile/user-2.jpg' },
+    ],
   },
   {
     status: 'pending',
-    avatar: "/images/profile/user-4.jpg",
+    avatar: '/images/profile/user-4.jpg',
     name: 'Evelyn Pope',
     project: 'Materialpro admin',
     percent: 37,
-    users: [{ img: "/images/profile/user-1.jpg" }, { img: "/images/profile/user-2.jpg" }, { img: "/images/profile/user-5.jpg" }],
+    users: [
+      { img: '/images/profile/user-1.jpg' },
+      { img: '/images/profile/user-2.jpg' },
+      { img: '/images/profile/user-5.jpg' },
+    ],
   },
   {
     status: 'cancel',
-    avatar: "/images/profile/user-5.jpg",
+    avatar: '/images/profile/user-5.jpg',
     name: 'Tommy Garza',
     project: 'Elegant admin',
     percent: 87,
-    users: [{ img: "/images/profile/user-5.jpg" }, { img: "/images/profile/user-6.jpg" }],
+    users: [
+      { img: '/images/profile/user-5.jpg' },
+      { img: '/images/profile/user-6.jpg' },
+    ],
   },
   {
     status: 'pending',
-    avatar: "/images/profile/user-6.jpg",
+    avatar: '/images/profile/user-6.jpg',
     name: 'Isabel Vasquez',
     project: 'Spike admin',
     percent: 32,
-    users: [{ img: "/images/profile/user-2.jpg" }, { img: "/images/profile/user-4.jpg" }],
+    users: [
+      { img: '/images/profile/user-2.jpg' },
+      { img: '/images/profile/user-4.jpg' },
+    ],
   },
 ];
 
@@ -96,15 +122,22 @@ const Table2 = () => {
               <TableCell>
                 <Typography variant="h6">Status</Typography>
               </TableCell>
-              <TableCell></TableCell>
+              <TableCell />
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+              <TableRow
+                key={row.name}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
                 <TableCell>
                   <Stack direction="row" alignItems="center" spacing={2}>
-                    <Avatar src={row.avatar} alt={row.avatar} sx={{ width: 42, height: 42 }} />
+                    <Avatar
+                      src={row.avatar}
+                      alt={row.avatar}
+                      sx={{ width: 42, height: 42 }}
+                    />
                     <Box>
                       <Typography variant="h6">{row.name}</Typography>
                     </Box>
@@ -135,14 +168,14 @@ const Table2 = () => {
                         row.status == 'active'
                           ? (theme) => theme.palette.primary.light
                           : row.status == 'cancel'
-                          ? (theme) => theme.palette.error.light
-                          : (theme) => theme.palette.success.light,
+                            ? (theme) => theme.palette.error.light
+                            : (theme) => theme.palette.success.light,
                       color:
                         row.status == 'active'
                           ? (theme) => theme.palette.primary.main
                           : row.status == 'cancel'
-                          ? (theme) => theme.palette.error.main
-                          : (theme) => theme.palette.success.main,
+                            ? (theme) => theme.palette.error.main
+                            : (theme) => theme.palette.success.main,
                     }}
                   />
                 </TableCell>

@@ -1,4 +1,3 @@
-import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -7,12 +6,6 @@ import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-
-// components
-import BlankCard from '../../shared/BlankCard';
-import CustomTextField from '../../forms/theme-elements/CustomTextField';
-import CustomFormLabel from '../../forms/theme-elements/CustomFormLabel';
-import CustomSwitch from '../../forms/theme-elements/CustomSwitch';
 import { Stack } from '@mui/system';
 import {
   IconArticle,
@@ -23,6 +16,13 @@ import {
   IconPlayerPause,
   IconTruckDelivery,
 } from '@tabler/icons-react';
+import React from 'react';
+
+import CustomFormLabel from '../../forms/theme-elements/CustomFormLabel';
+import CustomSwitch from '../../forms/theme-elements/CustomSwitch';
+import CustomTextField from '../../forms/theme-elements/CustomTextField';
+// components
+import BlankCard from '../../shared/BlankCard';
 
 const NotificationTab = () => {
   return (
@@ -35,20 +35,29 @@ const NotificationTab = () => {
                 Notification Preferences
               </Typography>
               <Typography color="textSecondary">
-                Select the notificaitons ou would like to receive via email. Please note that you
-                cannot opt out of receving service messages, such as payment, security or legal
-                notifications.
+                Select the notificaitons ou would like to receive via email.
+                Please note that you cannot opt out of receving service
+                messages, such as payment, security or legal notifications.
               </Typography>
 
-              <CustomFormLabel htmlFor="text-email">Email Address*</CustomFormLabel>
+              <CustomFormLabel htmlFor="text-email">
+                Email Address*
+              </CustomFormLabel>
               <CustomTextField id="text-email" variant="outlined" fullWidth />
-              <Typography color="textSecondary">Required for notificaitons.</Typography>
+              <Typography color="textSecondary">
+                Required for notificaitons.
+              </Typography>
 
               {/* list 1 */}
               <Stack direction="row" spacing={2} mt={4}>
                 <Avatar
                   variant="rounded"
-                  sx={{ bgcolor: 'grey.100', color: 'grey.500', width: 48, height: 48 }}
+                  sx={{
+                    bgcolor: 'grey.100',
+                    color: 'grey.500',
+                    width: 48,
+                    height: 48,
+                  }}
                 >
                   <IconArticle size="22" />
                 </Avatar>
@@ -69,7 +78,12 @@ const NotificationTab = () => {
               <Stack direction="row" spacing={2} mt={3}>
                 <Avatar
                   variant="rounded"
-                  sx={{ bgcolor: 'grey.100', color: 'grey.500', width: 48, height: 48 }}
+                  sx={{
+                    bgcolor: 'grey.100',
+                    color: 'grey.500',
+                    width: 48,
+                    height: 48,
+                  }}
                 >
                   <IconCheckbox size="22" />
                 </Avatar>
@@ -90,7 +104,12 @@ const NotificationTab = () => {
               <Stack direction="row" spacing={2} mt={3}>
                 <Avatar
                   variant="rounded"
-                  sx={{ bgcolor: 'grey.100', color: 'grey.500', width: 48, height: 48 }}
+                  sx={{
+                    bgcolor: 'grey.100',
+                    color: 'grey.500',
+                    width: 48,
+                    height: 48,
+                  }}
                 >
                   <IconClock size="22" />
                 </Avatar>
@@ -111,7 +130,12 @@ const NotificationTab = () => {
               <Stack direction="row" spacing={2} mt={3}>
                 <Avatar
                   variant="rounded"
-                  sx={{ bgcolor: 'grey.100', color: 'grey.500', width: 48, height: 48 }}
+                  sx={{
+                    bgcolor: 'grey.100',
+                    color: 'grey.500',
+                    width: 48,
+                    height: 48,
+                  }}
                 >
                   <IconTruckDelivery size="22" />
                 </Avatar>
@@ -132,7 +156,12 @@ const NotificationTab = () => {
               <Stack direction="row" spacing={2} mt={3}>
                 <Avatar
                   variant="rounded"
-                  sx={{ bgcolor: 'grey.100', color: 'grey.500', width: 48, height: 48 }}
+                  sx={{
+                    bgcolor: 'grey.100',
+                    color: 'grey.500',
+                    width: 48,
+                    height: 48,
+                  }}
                 >
                   <IconMail size="22" />
                 </Avatar>
@@ -167,7 +196,12 @@ const NotificationTab = () => {
               <Stack direction="row" spacing={2} mt={4}>
                 <Avatar
                   variant="rounded"
-                  sx={{ bgcolor: 'grey.100', color: 'grey.500', width: 48, height: 48 }}
+                  sx={{
+                    bgcolor: 'grey.100',
+                    color: 'grey.500',
+                    width: 48,
+                    height: 48,
+                  }}
                 >
                   <IconClock size="22" />
                 </Avatar>
@@ -203,7 +237,12 @@ const NotificationTab = () => {
               <Stack direction="row" spacing={2} mt={4}>
                 <Avatar
                   variant="rounded"
-                  sx={{ bgcolor: 'grey.100', color: 'grey.500', width: 48, height: 48 }}
+                  sx={{
+                    bgcolor: 'grey.100',
+                    color: 'grey.500',
+                    width: 48,
+                    height: 48,
+                  }}
                 >
                   <IconPlayerPause size="22" />
                 </Avatar>

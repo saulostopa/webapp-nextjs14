@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
 import List from '@mui/material/List';
-import { useSelector, useDispatch } from "@/store/hooks";
-import {
-  SelectContact,
-  fetchContacts,
-  DeleteContact,
-  toggleStarredContact,
-} from "@/store/apps/contacts/ContactSlice";
+import { useEffect } from 'react';
 
-import Scrollbar from "../../../components/custom-scroll/Scrollbar";
-import ContactListItem from "./ContactListItem";
-import type { ContactType } from "../../../types/apps/contact";
+import {
+  DeleteContact,
+  fetchContacts,
+  SelectContact,
+  toggleStarredContact,
+} from '@/store/apps/contacts/ContactSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import type { ContactType } from '../../../types/apps/contact';
+import Scrollbar from '../../custom-scroll/Scrollbar';
+import ContactListItem from './ContactListItem';
 
 type Props = {
   showrightSidebar: () => void;
@@ -30,54 +31,54 @@ const ContactList = ({ showrightSidebar }: Props) => {
   const getVisibleContacts = (
     contacts: ContactType[],
     filter: string,
-    contactSearch: string
+    contactSearch: string,
   ) => {
     switch (filter) {
-      case "show_all":
+      case 'show_all':
         return contacts.filter(
           (c) =>
             !c.deleted &&
-            c.firstname.toLocaleLowerCase().includes(contactSearch)
+            c.firstname.toLocaleLowerCase().includes(contactSearch),
         );
 
-      case "frequent_contact":
+      case 'frequent_contact':
         return contacts.filter(
           (c) =>
             !c.deleted &&
             c.frequentlycontacted &&
-            c.firstname.toLocaleLowerCase().includes(contactSearch)
+            c.firstname.toLocaleLowerCase().includes(contactSearch),
         );
 
-      case "starred_contact":
+      case 'starred_contact':
         return contacts.filter(
           (c) =>
             !c.deleted &&
             c.starred &&
-            c.firstname.toLocaleLowerCase().includes(contactSearch)
+            c.firstname.toLocaleLowerCase().includes(contactSearch),
         );
 
-      case "engineering_department":
+      case 'engineering_department':
         return contacts.filter(
           (c) =>
             !c.deleted &&
-            c.department === "Engineering" &&
-            c.firstname.toLocaleLowerCase().includes(contactSearch)
+            c.department === 'Engineering' &&
+            c.firstname.toLocaleLowerCase().includes(contactSearch),
         );
 
-      case "support_department":
+      case 'support_department':
         return contacts.filter(
           (c) =>
             !c.deleted &&
-            c.department === "Support" &&
-            c.firstname.toLocaleLowerCase().includes(contactSearch)
+            c.department === 'Support' &&
+            c.firstname.toLocaleLowerCase().includes(contactSearch),
         );
 
-      case "sales_department":
+      case 'sales_department':
         return contacts.filter(
           (c) =>
             !c.deleted &&
-            c.department === "Sales" &&
-            c.firstname.toLocaleLowerCase().includes(contactSearch)
+            c.department === 'Sales' &&
+            c.firstname.toLocaleLowerCase().includes(contactSearch),
         );
 
       default:
@@ -88,8 +89,8 @@ const ContactList = ({ showrightSidebar }: Props) => {
     getVisibleContacts(
       state.contactsReducer.contacts,
       state.contactsReducer.currentFilter,
-      state.contactsReducer.contactSearch
-    )
+      state.contactsReducer.contactSearch,
+    ),
   );
 
   const active = useSelector((state) => state.contactsReducer.contactContent);
@@ -97,8 +98,8 @@ const ContactList = ({ showrightSidebar }: Props) => {
   return (
     <Scrollbar
       sx={{
-        height: { lg: "calc(100vh - 100px)", md: "100vh" },
-        maxHeight: "800px",
+        height: { lg: 'calc(100vh - 100px)', md: '100vh' },
+        maxHeight: '800px',
       }}
     >
       <List>

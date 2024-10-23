@@ -1,6 +1,7 @@
-import React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import React from 'react';
+
 import AnimationFadeIn from '../animation/Animation';
 
 const TestimonialTitle = () => {
@@ -23,7 +24,8 @@ const TestimonialTitle = () => {
               },
             }}
           >
-            Don’t just take our words for it, See what developers like you are saying
+            Don’t just take our words for it, See what developers like you are
+            saying
           </Typography>
         </AnimationFadeIn>
       </Grid>

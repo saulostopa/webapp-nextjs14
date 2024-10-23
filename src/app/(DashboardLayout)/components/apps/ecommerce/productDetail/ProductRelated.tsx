@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
@@ -6,12 +5,15 @@ import Rating from '@mui/material/Rating';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { useSelector, useDispatch } from "@/store/hooks";
-import { fetchProducts } from "@/store/apps/eCommerce/ECommerceSlice";
-import Link from "next/link";
-import BlankCard from "../../../shared/BlankCard";
-import { ProductType } from "../../../../types/apps/eCommerce";
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useEffect } from 'react';
+
+import { fetchProducts } from '@/store/apps/eCommerce/ECommerceSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import type { ProductType } from '../../../../types/apps/eCommerce';
+import BlankCard from '../../../shared/BlankCard';
 
 const ProductRelated = () => {
   const dispatch = useDispatch();
@@ -29,7 +31,7 @@ const ProductRelated = () => {
 
   // Get Products
   const Relatedproducts = useSelector((state) =>
-    filterRelatedProduct(state.ecommerceReducer.products)
+    filterRelatedProduct(state.ecommerceReducer.products),
   );
 
   // skeleton
@@ -73,9 +75,15 @@ const ProductRelated = () => {
                     animation="wave"
                     width="100%"
                     height={270}
-                  ></Skeleton>
+                  />
                 ) : (
-                  <Image src={product.photo} alt="img" width={250} height={268} style={{ width: "100%" }} />
+                  <Image
+                    src={product.photo}
+                    alt="img"
+                    width={250}
+                    height={268}
+                    style={{ width: '100%' }}
+                  />
                 )}
               </Typography>
               <CardContent sx={{ p: 3, pt: 2 }}>
@@ -89,9 +97,9 @@ const ProductRelated = () => {
                   <Stack direction="row" alignItems="center">
                     <Typography variant="h5">${product.price}</Typography>
                     <Typography
-                      color={"GrayText"}
+                      color="GrayText"
                       ml={1}
-                      sx={{ textDecoration: "line-through" }}
+                      sx={{ textDecoration: 'line-through' }}
                     >
                       ${product.salesPrice}
                     </Typography>

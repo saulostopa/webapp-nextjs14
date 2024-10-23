@@ -1,4 +1,3 @@
-import { useSelector, useDispatch } from '@/store/hooks';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
@@ -6,21 +5,22 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
+import {
+  IconAlertCircle,
+  IconFlag,
+  IconFolder,
+  IconMail,
+  IconNote,
+  IconSend,
+  IconStar,
+  IconTrash,
+} from '@tabler/icons-react';
 
 import { setVisibilityFilter } from '@/store/apps/email/EmailSlice';
-import EmailCompose from './EmailCompose';
+import { useDispatch, useSelector } from '@/store/hooks';
 
-import Scrollbar from '../../../components/custom-scroll/Scrollbar';
-import {
-  IconMail,
-  IconSend,
-  IconFlag,
-  IconTrash,
-  IconStar,
-  IconAlertCircle,
-  IconFolder,
-  IconNote,
-} from '@tabler/icons-react';
+import Scrollbar from '../../custom-scroll/Scrollbar';
+import EmailCompose from './EmailCompose';
 
 interface fitlerType {
   id?: number;
@@ -125,7 +125,12 @@ const EmailFilter = () => {
         <EmailCompose />
       </Box>
       <List>
-      <Scrollbar sx={{ height: { lg: 'calc(100vh - 100px)', md: '100vh' }, maxHeight: '800px' }}>
+        <Scrollbar
+          sx={{
+            height: { lg: 'calc(100vh - 100px)', md: '100vh' },
+            maxHeight: '800px',
+          }}
+        >
           {filterData.map((filter) => {
             if (filter.filterbyTitle) {
               return (
@@ -140,7 +145,8 @@ const EmailFilter = () => {
                   {filter.filterbyTitle}
                 </Typography>
               );
-            } else if (filter.divider) {
+            }
+            if (filter.divider) {
               return <Divider key={filter.id} />;
             }
 
@@ -162,7 +168,9 @@ const EmailFilter = () => {
                 <ListItemIcon sx={{ minWidth: '30px', color: filter.color }}>
                   <filter.icon stroke="1.5" size={19} />
                 </ListItemIcon>
-                <ListItemText sx={{ textTransform: 'capitalize' }}>{filter.name}</ListItemText>
+                <ListItemText sx={{ textTransform: 'capitalize' }}>
+                  {filter.name}
+                </ListItemText>
               </ListItemButton>
             );
           })}

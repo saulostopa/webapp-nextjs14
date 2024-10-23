@@ -3,8 +3,9 @@ import Badge from '@mui/material/Badge';
 import Button from '@mui/material/Button';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import BlankCard from '../../shared/BlankCard';
 import { Box, Stack } from '@mui/system';
+
+import BlankCard from '../../shared/BlankCard';
 
 const Banner3 = () => {
   return (
@@ -15,14 +16,18 @@ const Banner3 = () => {
         </Typography>
         <Box textAlign="center">
           <Badge badgeContent={1} color="error" overlap="circular">
-            <Avatar src={"/images/profile/user-1.jpg"} alt="userBg" sx={{ width: 140, height: 140 }} />
+            <Avatar
+              src="/images/profile/user-1.jpg"
+              alt="userBg"
+              sx={{ width: 140, height: 140 }}
+            />
           </Badge>
 
           <Typography variant="h5" mt={3}>
             Tommoie Henderson
           </Typography>
           <Typography variant="subtitle1" color="textSecondary" mt={1} mb={2}>
-            Accept the request and <br/> type a message
+            Accept the request and <br /> type a message
           </Typography>
 
           <Stack direction="row" spacing={2} justifyContent="center">

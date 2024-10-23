@@ -1,7 +1,8 @@
 import Card from '@mui/material/Card';
 import { useTheme } from '@mui/material/styles';
-import { AppState } from '@/store/store';
-import {useSelector} from '@/store/hooks';
+
+import { useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
 
 type Props = {
   className?: string;
@@ -17,7 +18,12 @@ const BlankCard = ({ children, className, sx }: Props) => {
 
   return (
     <Card
-      sx={{ p: 0, border: !customizer.isCardShadow ? `1px solid ${borderColor}` : 'none' , position: 'relative', sx }}
+      sx={{
+        p: 0,
+        border: !customizer.isCardShadow ? `1px solid ${borderColor}` : 'none',
+        position: 'relative',
+        sx,
+      }}
       className={className}
       elevation={customizer.isCardShadow ? 9 : 0}
       variant={!customizer.isCardShadow ? 'outlined' : undefined}

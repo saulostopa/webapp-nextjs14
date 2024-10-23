@@ -1,16 +1,17 @@
-"use client"
+'use client';
 
-import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import { useState } from 'react';
+
 import ContactDetails from '@/app/(DashboardLayout)/components/apps/contacts/ContactDetails';
+import ContactFilter from '@/app/(DashboardLayout)/components/apps/contacts/ContactFilter';
 import ContactList from '@/app/(DashboardLayout)/components/apps/contacts/ContactList';
 import ContactSearch from '@/app/(DashboardLayout)/components/apps/contacts/ContactSearch';
-import ContactFilter from '@/app/(DashboardLayout)/components/apps/contacts/ContactFilter';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import AppCard from '@/app/(DashboardLayout)/components/shared/AppCard';
 
 const drawerWidth = 240;
@@ -34,7 +35,11 @@ const Contacts = () => {
           onClose={() => setLeftSidebarOpen(false)}
           sx={{
             width: drawerWidth,
-            [`& .MuiDrawer-paper`]: { width: drawerWidth, position: 'relative', zIndex: 2 },
+            [`& .MuiDrawer-paper`]: {
+              width: drawerWidth,
+              position: 'relative',
+              zIndex: 2,
+            },
             flexShrink: 0,
           }}
           variant={lgUp ? 'permanent' : 'temporary'}

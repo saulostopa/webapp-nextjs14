@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
-import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Slider from '@mui/material/Slider';
-import {SliderThumb} from '@mui/material/Slider';
-import { SliderValueLabelProps } from '@mui/material/Slider';
+import type { SliderValueLabelProps } from '@mui/material/Slider';
+import Slider, { SliderThumb } from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+import { Stack } from '@mui/system';
+import { IconVolume, IconVolume2 } from '@tabler/icons-react';
+import React from 'react';
+
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import CustomRangeSlider from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomRangeSlider';
 import CustomSlider from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomSlider';
-import { IconVolume, IconVolume2 } from '@tabler/icons-react';
-import { Stack } from '@mui/system';
+import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -115,7 +115,9 @@ const MuiSlider = () => {
             <ChildCard title="Range">
               <CustomRangeSlider
                 slots={{ thumb: AirbnbThumbComponent }}
-                getAriaLabel={(index: any) => (index === 0 ? 'Minimum price' : 'Maximum price')}
+                getAriaLabel={(index: any) =>
+                  index === 0 ? 'Minimum price' : 'Maximum price'
+                }
                 defaultValue={[20, 40]}
               />
             </ChildCard>
@@ -143,7 +145,11 @@ const MuiSlider = () => {
             <ChildCard title="Volume">
               <Stack direction="row" spacing={1}>
                 <IconVolume2 width={20} />
-                <Slider aria-label="Volume" value={value} onChange={handleChange} />
+                <Slider
+                  aria-label="Volume"
+                  value={value}
+                  onChange={handleChange}
+                />
                 <IconVolume width={20} />
               </Stack>
             </ChildCard>

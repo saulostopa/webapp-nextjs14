@@ -1,6 +1,8 @@
-import mock from '../mock';
 import { Chance } from 'chance';
-import { TicketType } from '@/app/(DashboardLayout)/types/apps/ticket';
+
+import type { TicketType } from '@/app/(DashboardLayout)/types/apps/ticket';
+
+import mock from '../mock';
 
 const chance = new Chance();
 
@@ -12,7 +14,7 @@ const TicketData: TicketType[] = [
       'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
     Status: 'Closed',
     Label: 'error',
-    thumb: "/images/profile/user-1.jpg",
+    thumb: '/images/profile/user-1.jpg',
     AgentName: 'Liam',
     Date: chance.date(),
     deleted: false,
@@ -24,7 +26,7 @@ const TicketData: TicketType[] = [
       'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
     Status: 'Pending',
     Label: 'warning',
-    thumb: "/images/profile/user-2.jpg",
+    thumb: '/images/profile/user-2.jpg',
     AgentName: 'Steve',
     Date: chance.date(),
     deleted: false,
@@ -36,7 +38,7 @@ const TicketData: TicketType[] = [
       'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
     Status: 'Open',
     Label: 'success',
-    thumb: "/images/profile/user-3.jpg",
+    thumb: '/images/profile/user-3.jpg',
     AgentName: 'Jack',
     Date: chance.date(),
     deleted: false,
@@ -48,7 +50,7 @@ const TicketData: TicketType[] = [
       'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
     Status: 'Closed',
     Label: 'error',
-    thumb: "/images/profile/user-4.jpg",
+    thumb: '/images/profile/user-4.jpg',
     AgentName: 'Steve',
     Date: chance.date(),
     deleted: false,
@@ -60,7 +62,7 @@ const TicketData: TicketType[] = [
       'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
     Status: 'Closed',
     Label: 'error',
-    thumb: "/images/profile/user-5.jpg",
+    thumb: '/images/profile/user-5.jpg',
     AgentName: 'Liam',
     Date: chance.date(),
     deleted: false,
@@ -72,7 +74,7 @@ const TicketData: TicketType[] = [
       'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
     Status: 'Pending',
     Label: 'warning',
-    thumb: "/images/profile/user-1.jpg",
+    thumb: '/images/profile/user-1.jpg',
     AgentName: 'Jack',
     Date: chance.date(),
     deleted: false,
@@ -84,7 +86,7 @@ const TicketData: TicketType[] = [
       'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
     Status: 'Open',
     Label: 'success',
-    thumb: "/images/profile/user-2.jpg",
+    thumb: '/images/profile/user-2.jpg',
     AgentName: 'Steve',
     Date: chance.date(),
     deleted: false,
@@ -96,7 +98,7 @@ const TicketData: TicketType[] = [
       'ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
     Status: 'Closed',
     Label: 'error',
-    thumb: "/images/profile/user-3.jpg",
+    thumb: '/images/profile/user-3.jpg',
     AgentName: 'John',
     Date: chance.date(),
     deleted: false,

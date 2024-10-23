@@ -1,12 +1,14 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from "@mui/material/styles";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { IconGridDots } from "@tabler/icons-react";
-import DashboardCard from "../../shared/DashboardCard";
+import { IconGridDots } from '@tabler/icons-react';
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+import DashboardCard from '../../shared/DashboardCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const SalesOverview = () => {
   // chart color
@@ -15,12 +17,12 @@ const SalesOverview = () => {
   const secondary = theme.palette.secondary.main;
   const primarylight = theme.palette.primary.light;
   const textColor =
-    theme.palette.mode === "dark" ? "rgba(255,255,255,0.8)" : "#2A3547";
+    theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.8)' : '#2A3547';
 
   // chart
   const optionscolumnchart: any = {
     chart: {
-      type: "donut",
+      type: 'donut',
       fontFamily: "'Plus Jakarta Sans', sans-serif;",
 
       toolbar: {
@@ -28,13 +30,13 @@ const SalesOverview = () => {
       },
       height: 275,
     },
-    labels: ["Profit", "Revenue", "Expance"],
+    labels: ['Profit', 'Revenue', 'Expance'],
     colors: [primary, primarylight, secondary],
     plotOptions: {
       pie: {
         donut: {
-          size: "89%",
-          background: "transparent",
+          size: '89%',
+          background: 'transparent',
 
           labels: {
             show: true,
@@ -48,9 +50,9 @@ const SalesOverview = () => {
             total: {
               show: true,
               color: textColor,
-              fontSize: "20px",
-              fontWeight: "600",
-              label: "$500,458",
+              fontSize: '20px',
+              fontWeight: '600',
+              label: '$500,458',
             },
           },
         },
@@ -66,90 +68,88 @@ const SalesOverview = () => {
       show: false,
     },
     tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
+      theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
       fillSeriesColor: false,
     },
   };
   const seriescolumnchart = [55, 55, 55];
 
   return (
-    <>
-      <DashboardCard title="Sales Overview" subtitle="Every month">
-        <>
-          <Box mt={3} height="255px">
-            <Chart
-              options={optionscolumnchart}
-              series={seriescolumnchart}
-              type="donut"
-              height="275px"
-              width={"100%"}
-            />
-          </Box>
+    <DashboardCard title="Sales Overview" subtitle="Every month">
+      <>
+        <Box mt={3} height="255px">
+          <Chart
+            options={optionscolumnchart}
+            series={seriescolumnchart}
+            type="donut"
+            height="275px"
+            width="100%"
+          />
+        </Box>
 
-          <Stack
-            direction="row"
-            spacing={2}
-            justifyContent="space-between"
-            mt={7}
-          >
-            <Stack direction="row" spacing={2} alignItems="center">
-              <Box
-                width={38}
-                height={38}
-                bgcolor="primary.light"
+        <Stack
+          direction="row"
+          spacing={2}
+          justifyContent="space-between"
+          mt={7}
+        >
+          <Stack direction="row" spacing={2} alignItems="center">
+            <Box
+              width={38}
+              height={38}
+              bgcolor="primary.light"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Typography
+                color="primary.main"
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
               >
-                <Typography
-                  color="primary.main"
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                >
-                  <IconGridDots width={22} />
-                </Typography>
-              </Box>
-              <Box>
-                <Typography variant="h6" fontWeight="600">
-                  $23,450
-                </Typography>
-                <Typography variant="subtitle2" color="textSecondary">
-                  Profit
-                </Typography>
-              </Box>
-            </Stack>
-            <Stack direction="row" spacing={2} alignItems="center">
-              <Box
-                width={38}
-                height={38}
-                bgcolor="secondary.light"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-              >
-                <Typography
-                  color="secondary.main"
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                >
-                  <IconGridDots width={22} />
-                </Typography>
-              </Box>
-              <Box>
-                <Typography variant="h6" fontWeight="600">
-                  $23,450
-                </Typography>
-                <Typography variant="subtitle2" color="textSecondary">
-                  Expance
-                </Typography>
-              </Box>
-            </Stack>
+                <IconGridDots width={22} />
+              </Typography>
+            </Box>
+            <Box>
+              <Typography variant="h6" fontWeight="600">
+                $23,450
+              </Typography>
+              <Typography variant="subtitle2" color="textSecondary">
+                Profit
+              </Typography>
+            </Box>
           </Stack>
-        </>
-      </DashboardCard>
-    </>
+          <Stack direction="row" spacing={2} alignItems="center">
+            <Box
+              width={38}
+              height={38}
+              bgcolor="secondary.light"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Typography
+                color="secondary.main"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <IconGridDots width={22} />
+              </Typography>
+            </Box>
+            <Box>
+              <Typography variant="h6" fontWeight="600">
+                $23,450
+              </Typography>
+              <Typography variant="subtitle2" color="textSecondary">
+                Expance
+              </Typography>
+            </Box>
+          </Stack>
+        </Stack>
+      </>
+    </DashboardCard>
   );
 };
 

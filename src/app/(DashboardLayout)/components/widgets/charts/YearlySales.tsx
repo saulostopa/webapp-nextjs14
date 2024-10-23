@@ -1,10 +1,11 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from "@mui/material/styles";
-
-import DashboardWidgetCard from "../../shared/DashboardWidgetCard";
 import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+import DashboardWidgetCard from '../../shared/DashboardWidgetCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const YearlySales = () => {
   // chart color
@@ -15,9 +16,9 @@ const YearlySales = () => {
   // chart
   const optionscolumnchart: any = {
     chart: {
-      type: "bar",
+      type: 'bar',
       fontFamily: "'Plus Jakarta Sans', sans-serif;",
-      foreColor: "#adb0bb",
+      foreColor: '#adb0bb',
       toolbar: {
         show: false,
       },
@@ -34,9 +35,9 @@ const YearlySales = () => {
     plotOptions: {
       bar: {
         borderRadius: 4,
-        columnWidth: "45%",
+        columnWidth: '45%',
         distributed: true,
-        endingShape: "rounded",
+        endingShape: 'rounded',
       },
     },
     dataLabels: {
@@ -53,7 +54,7 @@ const YearlySales = () => {
       },
     },
     xaxis: {
-      categories: [["Apr"], ["May"], ["June"], ["July"], ["Aug"], ["Sept"]],
+      categories: [['Apr'], ['May'], ['June'], ['July'], ['Aug'], ['Sept']],
       axisBorder: {
         show: false,
       },
@@ -64,39 +65,37 @@ const YearlySales = () => {
       },
     },
     tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
+      theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
     },
   };
   const seriescolumnchart = [
     {
-      name: "",
+      name: '',
       data: [20, 15, 30, 25, 10, 15],
     },
   ];
 
   return (
-    <>
-      <DashboardWidgetCard
-        title="Yearly Sales"
-        subtitle="Total Sales"
-        dataLabel1="Salary"
-        dataItem1="$36,358"
-        dataLabel2="Expance"
-        dataItem2="$5,296"
-      >
-        <>
-          <Box height="310px">
-            <Chart
-              options={optionscolumnchart}
-              series={seriescolumnchart}
-              type="bar"
-              height="295px"
-              width={"100%"}
-            />
-          </Box>
-        </>
-      </DashboardWidgetCard>
-    </>
+    <DashboardWidgetCard
+      title="Yearly Sales"
+      subtitle="Total Sales"
+      dataLabel1="Salary"
+      dataItem1="$36,358"
+      dataLabel2="Expance"
+      dataItem2="$5,296"
+    >
+      <>
+        <Box height="310px">
+          <Chart
+            options={optionscolumnchart}
+            series={seriescolumnchart}
+            type="bar"
+            height="295px"
+            width="100%"
+          />
+        </Box>
+      </>
+    </DashboardWidgetCard>
   );
 };
 

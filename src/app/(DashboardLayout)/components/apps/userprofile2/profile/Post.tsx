@@ -1,13 +1,15 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "@/store/hooks";
-import { fetchPosts } from "@/store/apps/userProfile/UserProfileSlice2";
-import PostItem from "./PostItem";
-import { PostTextBox } from "./PostTextBox";
-import { PostType } from "../../../../types/apps/userProfile";
-import { TaskCard } from "./TaskCard";
-import BlankCard from "../../../shared/BlankCard";
+import { useEffect } from 'react';
+
+import { fetchPosts } from '@/store/apps/userProfile/UserProfileSlice2';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import type { PostType } from '../../../../types/apps/userProfile';
+import BlankCard from '../../../shared/BlankCard';
+import PostItem from './PostItem';
+import { PostTextBox } from './PostTextBox';
+import { TaskCard } from './TaskCard';
 
 const Post = () => {
   const dispatch = useDispatch();
@@ -16,7 +18,7 @@ const Post = () => {
   }, [dispatch]);
 
   const getPosts: PostType[] = useSelector(
-    (state) => state.userpostsReducer2.posts
+    (state) => state.userpostsReducer2.posts,
   );
 
   return (

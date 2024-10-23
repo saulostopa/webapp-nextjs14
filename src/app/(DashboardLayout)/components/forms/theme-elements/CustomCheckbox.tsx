@@ -1,6 +1,7 @@
+import type { CheckboxProps } from '@mui/material/Checkbox';
+import Checkbox from '@mui/material/Checkbox';
+import { styled } from '@mui/material/styles';
 import * as React from 'react';
-import { styled } from '@mui/material/styles'
-import Checkbox, { CheckboxProps } from '@mui/material/Checkbox';
 
 const BpIcon = styled('span')(({ theme }) => ({
   borderRadius: 3,
@@ -21,7 +22,10 @@ const BpIcon = styled('span')(({ theme }) => ({
     outlineOffset: 2,
   },
   'input:hover ~ &': {
-    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.primary : theme.palette.primary,
+    backgroundColor:
+      theme.palette.mode === 'dark'
+        ? theme.palette.primary
+        : theme.palette.primary,
   },
   'input:disabled ~ &': {
     boxShadow: 'none',
@@ -54,7 +58,9 @@ function CustomCheckbox(props: CheckboxProps) {
       checkedIcon={
         <BpCheckedIcon
           sx={{
-            backgroundColor: props.color ? `${props.color}.main` : 'primary.main',
+            backgroundColor: props.color
+              ? `${props.color}.main`
+              : 'primary.main',
           }}
         />
       }

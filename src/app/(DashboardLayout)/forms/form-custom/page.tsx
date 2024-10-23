@@ -1,6 +1,5 @@
-"use client"
+'use client';
 
-import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
@@ -8,31 +7,29 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import RadioGroup from '@mui/material/RadioGroup';
-import { SliderValueLabelProps } from '@mui/material/Slider';
+import type { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
-import { SliderThumb } from '@mui/material/Slider';
-
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-
+import { Stack } from '@mui/system';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { IconVolume, IconVolume2 } from '@tabler/icons-react';
+import React from 'react';
 
-import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import CustomCheckbox from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomCheckbox';
+import CustomDisabledButton from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomDisabledButton';
+import CustomFormLabel from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel';
+import CustomOutlinedButton from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomOutlinedButton';
+import CustomRadio from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomRadio';
+import CustomRangeSlider from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomRangeSlider';
 import CustomSelect from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomSelect';
 import CustomSlider from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomSlider';
-import CustomRangeSlider from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomRangeSlider';
 import CustomSwitch from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomSwitch';
-import CustomDisabledButton from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomDisabledButton';
-import CustomOutlinedButton from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomOutlinedButton';
-import CustomFormLabel from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel';
-import CustomCheckbox from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomCheckbox';
-import CustomRadio from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomRadio';
+import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
 import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import { IconVolume, IconVolume2 } from '@tabler/icons-react';
-import { Stack } from '@mui/system';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 function CustomThumbComponent(props: SliderValueLabelProps) {
   const { children, ...other } = props;
@@ -100,8 +97,15 @@ export default function FormCustom() {
         <Grid container spacing={3}>
           <Grid item xs={12} sm={12} lg={4}>
             <CustomFormLabel htmlFor="name">Name</CustomFormLabel>
-            <CustomTextField id="name" placeholder="Enter text" variant="outlined" fullWidth />
-            <CustomFormLabel htmlFor="demo-simple-select">Select Dropdown</CustomFormLabel>
+            <CustomTextField
+              id="name"
+              placeholder="Enter text"
+              variant="outlined"
+              fullWidth
+            />
+            <CustomFormLabel htmlFor="demo-simple-select">
+              Select Dropdown
+            </CustomFormLabel>
             <CustomSelect
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -119,7 +123,12 @@ export default function FormCustom() {
           {/* ----------------------------------- */}
           <Grid item xs={12} sm={12} lg={4}>
             <CustomFormLabel htmlFor="cname">Company Name</CustomFormLabel>
-            <CustomTextField id="cname" placeholder="Enter text" variant="outlined" fullWidth />
+            <CustomTextField
+              id="cname"
+              placeholder="Enter text"
+              variant="outlined"
+              fullWidth
+            />
             <CustomFormLabel htmlFor="time">Time</CustomFormLabel>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <TimePicker
@@ -197,16 +206,28 @@ export default function FormCustom() {
           {/* ----------------------------------- */}
           <Grid item xs={12} sm={12} lg={12}>
             <CustomFormLabel>Lorem ipsum dolor sit amet</CustomFormLabel>
-            <RadioGroup aria-label="gender" defaultValue="radio1" name="radio-buttons-group">
+            <RadioGroup
+              aria-label="gender"
+              defaultValue="radio1"
+              name="radio-buttons-group"
+            >
               <Grid container>
                 <Grid item xs={12} sm={4} lg={4}>
                   <FormControl component="fieldset">
-                    <FormControlLabel value="radio1" control={<CustomRadio />} label="Male" />
+                    <FormControlLabel
+                      value="radio1"
+                      control={<CustomRadio />}
+                      label="Male"
+                    />
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={4} lg={4}>
                   <FormControl component="fieldset">
-                    <FormControlLabel value="radio2" control={<CustomRadio />} label="Female" />
+                    <FormControlLabel
+                      value="radio2"
+                      control={<CustomRadio />}
+                      label="Female"
+                    />
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={4} lg={4}>
@@ -226,7 +247,11 @@ export default function FormCustom() {
           {/* ----------------------------------- */}
           <Grid item xs={12} sm={12} lg={12}>
             <CustomFormLabel>Industry Type</CustomFormLabel>
-            <RadioGroup aria-label="gender" defaultValue="radio1" name="radio-buttons-group">
+            <RadioGroup
+              aria-label="gender"
+              defaultValue="radio1"
+              name="radio-buttons-group"
+            >
               <Grid container>
                 <Grid item xs={12} sm={4} lg={4}>
                   <FormControlLabel
@@ -235,7 +260,10 @@ export default function FormCustom() {
                   />
                 </Grid>
                 <Grid item xs={12} sm={4} lg={4}>
-                  <FormControlLabel control={<CustomCheckbox />} label="Enter text" />
+                  <FormControlLabel
+                    control={<CustomCheckbox />}
+                    label="Enter text"
+                  />
                 </Grid>
                 <Grid item xs={12} sm={4} lg={4}>
                   <FormControlLabel
@@ -254,19 +282,31 @@ export default function FormCustom() {
             <CustomFormLabel>Slider</CustomFormLabel>
             <CustomRangeSlider
               slots={{ thumb: CustomThumbComponent }}
-              getAriaLabel={(index) => (index === 0 ? 'Minimum price' : 'Maximum price')}
+              getAriaLabel={(index) =>
+                index === 0 ? 'Minimum price' : 'Maximum price'
+              }
               defaultValue={[20, 40]}
             />
             <Grid container spacing={2} mt={1}>
               <Grid item xs={12} sm={6} lg={6}>
-                <CustomSelect id="range1" value={select1} onChange={handleChange4} fullWidth>
+                <CustomSelect
+                  id="range1"
+                  value={select1}
+                  onChange={handleChange4}
+                  fullWidth
+                >
                   <MenuItem value={1}>750</MenuItem>
                   <MenuItem value={2}>850</MenuItem>
                   <MenuItem value={3}>950</MenuItem>
                 </CustomSelect>
               </Grid>
               <Grid item xs={12} sm={6} lg={6}>
-                <CustomSelect id="rang2" value={select2} onChange={handleChange5} fullWidth>
+                <CustomSelect
+                  id="rang2"
+                  value={select2}
+                  onChange={handleChange5}
+                  fullWidth
+                >
                   <MenuItem value={1}>950</MenuItem>
                   <MenuItem value={2}>1050</MenuItem>
                   <MenuItem value={3}>1150</MenuItem>
@@ -274,7 +314,11 @@ export default function FormCustom() {
               </Grid>
             </Grid>
             <CustomFormLabel sx={{ mt: 3 }}>Volume</CustomFormLabel>
-            <CustomSlider aria-label="Volume" value={value3} onChange={handleChange6} />
+            <CustomSlider
+              aria-label="Volume"
+              value={value3}
+              onChange={handleChange6}
+            />
             <Box display="flex" alignItems="stretch">
               <Typography>
                 <IconVolume2 width={20} />
@@ -295,10 +339,16 @@ export default function FormCustom() {
             <CustomFormLabel>Switch</CustomFormLabel>
             <Grid container spacing={0}>
               <Grid item xs={12} sm={6} lg={3}>
-                <FormControlLabel control={<CustomSwitch />} label="Enter text" />
+                <FormControlLabel
+                  control={<CustomSwitch />}
+                  label="Enter text"
+                />
               </Grid>
               <Grid item xs={12} sm={6} lg={3}>
-                <FormControlLabel control={<CustomSwitch defaultChecked />} label="Enter text" />
+                <FormControlLabel
+                  control={<CustomSwitch defaultChecked />}
+                  label="Enter text"
+                />
               </Grid>
               <Grid item xs={12} sm={6} lg={3}>
                 <FormControlLabel
@@ -306,9 +356,10 @@ export default function FormCustom() {
                     <CustomSwitch
                       disabled
                       sx={{
-                        '& .MuiSwitch-switchBase.Mui-disabled+.MuiSwitch-track': {
-                          opacity: 1,
-                        },
+                        '& .MuiSwitch-switchBase.Mui-disabled+.MuiSwitch-track':
+                          {
+                            opacity: 1,
+                          },
                       }}
                     />
                   }
@@ -346,7 +397,9 @@ export default function FormCustom() {
                 <CustomDisabledButton variant="contained" disabled>
                   Add New
                 </CustomDisabledButton>
-                <CustomOutlinedButton variant="outlined">Add New</CustomOutlinedButton>
+                <CustomOutlinedButton variant="outlined">
+                  Add New
+                </CustomOutlinedButton>
               </Stack>
               <Stack direction="row" spacing={1}>
                 <Button variant="contained" color="secondary">
@@ -362,5 +415,4 @@ export default function FormCustom() {
       </ParentCard>
     </PageContainer>
   );
-};
-
+}

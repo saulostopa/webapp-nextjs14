@@ -1,10 +1,10 @@
-"use client"
+'use client';
 
 import Grid from '@mui/material/Grid';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ProfileBanner from '@/app/(DashboardLayout)/components/apps/userprofile/profile/ProfileBanner';
-import GalleryCard from '@/app/(DashboardLayout)/components/apps/userprofile/gallery/GalleryCard';
 
+import GalleryCard from '@/app/(DashboardLayout)/components/apps/userprofile/gallery/GalleryCard';
+import ProfileBanner from '@/app/(DashboardLayout)/components/apps/userprofile/profile/ProfileBanner';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 
 const Gallery = () => {
   return (

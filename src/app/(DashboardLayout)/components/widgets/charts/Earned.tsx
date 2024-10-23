@@ -1,10 +1,12 @@
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from '@mui/material/styles';
 import CardContent from '@mui/material/CardContent';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import BlankCard from '../../shared/BlankCard';
 import { Stack } from '@mui/system';
+import dynamic from 'next/dynamic';
+
+import BlankCard from '../../shared/BlankCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const Earned = () => {
   // chart color
@@ -73,7 +75,13 @@ const Earned = () => {
           </Typography>
         </Stack>
       </CardContent>
-      <Chart options={optionscolumnchart} series={seriescolumnchart} type="area" height="90px" width={"100%"}/>
+      <Chart
+        options={optionscolumnchart}
+        series={seriescolumnchart}
+        type="area"
+        height="90px"
+        width="100%"
+      />
     </BlankCard>
   );
 };

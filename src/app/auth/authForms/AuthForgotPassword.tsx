@@ -1,13 +1,12 @@
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import Link from "next/link";
+import Link from 'next/link';
 
-import CustomTextField from "@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField";
-import CustomFormLabel from "@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel";
+import CustomFormLabel from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel';
+import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
 
-export default function AuthForgotPassword(){
- return (
-  <>
+export default function AuthForgotPassword() {
+  return (
     <Stack mt={4} spacing={2}>
       <CustomFormLabel htmlFor="reset-email">Email Adddress</CustomFormLabel>
       <CustomTextField id="reset-email" variant="outlined" fullWidth />
@@ -32,5 +31,5 @@ export default function AuthForgotPassword(){
         Back to Login
       </Button>
     </Stack>
-  </>
-)};
+  );
+}

@@ -1,8 +1,9 @@
-import React from 'react';
 import Button from '@mui/material/Button';
-import CustomTextField from '../theme-elements/CustomTextField';
-import CustomFormLabel from '../theme-elements/CustomFormLabel';
+import React from 'react';
+
 import ParentCard from '../../shared/ParentCard';
+import CustomFormLabel from '../theme-elements/CustomFormLabel';
+import CustomTextField from '../theme-elements/CustomTextField';
 
 const FbReadonlyForm = () => {
   return (
@@ -37,7 +38,9 @@ const FbReadonlyForm = () => {
             readOnly: true,
           }}
         />
-        <CustomFormLabel htmlFor="ro-outlined-password-input">Password</CustomFormLabel>
+        <CustomFormLabel htmlFor="ro-outlined-password-input">
+          Password
+        </CustomFormLabel>
 
         <CustomTextField
           id="ro-outlined-password-input"

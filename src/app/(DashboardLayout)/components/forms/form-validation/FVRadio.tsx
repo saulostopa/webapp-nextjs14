@@ -1,7 +1,3 @@
-import React from 'react';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
-
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
@@ -10,6 +6,9 @@ import FormHelperText from '@mui/material/FormHelperText';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import Stack from '@mui/material/Stack';
+import { useFormik } from 'formik';
+import React from 'react';
+import * as yup from 'yup';
 
 const validationSchema = yup.object({
   color: yup.string().required('Color selection is required'),

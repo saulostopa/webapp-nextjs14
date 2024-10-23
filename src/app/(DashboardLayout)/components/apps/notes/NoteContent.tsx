@@ -1,18 +1,19 @@
-import React from 'react';
-import { useSelector, useDispatch } from '@/store/hooks';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Fab from '@mui/material/Fab';
 import FormLabel from '@mui/material/FormLabel';
 import IconButton from '@mui/material/IconButton';
+import { useTheme } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { useTheme } from '@mui/material/styles';
 import { IconCheck, IconMenu2 } from '@tabler/icons-react';
+import React from 'react';
 
 import { UpdateNote } from '@/store/apps/notes/NotesSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import type { NotesType } from '../../../types/apps/notes';
 import AddNotes from './AddNotes';
-import { NotesType } from '../../../types/apps/notes';
 
 interface colorsType {
   lineColor: string;
@@ -21,10 +22,9 @@ interface colorsType {
 }
 
 interface Props {
-  
   // toggleNoteSidebar: func,
 
-  toggleNoteSidebar: (event: React.MouseEvent<HTMLElement>) => void,
+  toggleNoteSidebar: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
 const NoteContent = ({ toggleNoteSidebar }: Props) => {
@@ -64,11 +64,21 @@ const NoteContent = ({ toggleNoteSidebar }: Props) => {
   ];
 
   return (
-    <Box sx={{ height: { lg: 'calc(100vh - 250px)', sm: '100vh' }, maxHeight: '700px' }}>
+    <Box
+      sx={{
+        height: { lg: 'calc(100vh - 250px)', sm: '100vh' },
+        maxHeight: '700px',
+      }}
+    >
       {/* ------------------------------------------- */}
       {/* Header Part */}
       {/* ------------------------------------------- */}
-      <Box display="flex" alignItems="center" justifyContent="space-between" p={2}>
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        p={2}
+      >
         <IconButton onClick={toggleNoteSidebar}>
           <IconMenu2 stroke={1.5} />
         </IconButton>
@@ -81,7 +91,12 @@ const NoteContent = ({ toggleNoteSidebar }: Props) => {
       {noteDetails && noteDetails.deleted === false ? (
         <Box p={3}>
           <FormLabel htmlFor="outlined-multiline-static">
-            <Typography variant="h6" mb={2} fontWeight={600} color="text.primary">
+            <Typography
+              variant="h6"
+              mb={2}
+              fontWeight={600}
+              color="text.primary"
+            >
               Edit Note
             </Typography>
           </FormLabel>
@@ -94,7 +109,9 @@ const NoteContent = ({ toggleNoteSidebar }: Props) => {
             rows={5}
             variant="outlined"
             value={noteDetails.title}
-            onChange={(e) => dispatch(UpdateNote(noteDetails.id, 'title', e.target.value))}
+            onChange={(e) =>
+              dispatch(UpdateNote(noteDetails.id, 'title', e.target.value))
+            }
           />
           <br />
           <Typography variant="h6" mt={3} mb={2} fontWeight={600}>
@@ -112,18 +129,25 @@ const NoteContent = ({ toggleNoteSidebar }: Props) => {
               size="small"
               key={color1.id}
               color={color1?.disp}
-              onClick={() => dispatch(UpdateNote(noteDetails.id, 'color', color1.disp))}
+              onClick={() =>
+                dispatch(UpdateNote(noteDetails.id, 'color', color1.disp))
+              }
             >
-              {noteDetails.color === color1.disp ? <IconCheck width="16" /> : ''}
+              {noteDetails.color === color1.disp ? (
+                <IconCheck width="16" />
+              ) : (
+                ''
+              )}
             </Fab>
           ))}
         </Box>
       ) : (
-        <Box sx={{ textAlign: 'center', fontSize: '24px', mt: 2 }}>Select a Note</Box>
+        <Box sx={{ textAlign: 'center', fontSize: '24px', mt: 2 }}>
+          Select a Note
+        </Box>
       )}
     </Box>
   );
 };
-
 
 export default NoteContent;

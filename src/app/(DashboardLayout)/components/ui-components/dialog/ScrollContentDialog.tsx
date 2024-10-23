@@ -1,12 +1,12 @@
-import React from 'react';
 import Button from '@mui/material/Button';
+import type { DialogProps } from '@mui/material/Dialog';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import {DialogProps} from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
-import Stack from '@mui/material/Stack'
+import Stack from '@mui/material/Stack';
+import React from 'react';
 
 const ScrollContentDialog = () => {
   const [open, setOpen] = React.useState(false);
@@ -34,10 +34,18 @@ const ScrollContentDialog = () => {
   return (
     <>
       <Stack spacing={2}>
-        <Button variant="contained" color="success" onClick={handleClickOpen('paper')}>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={handleClickOpen('paper')}
+        >
           Scroll with Paper
         </Button>
-        <Button variant="contained" color="secondary" onClick={handleClickOpen('body')}>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handleClickOpen('body')}
+        >
           Scroll with Body
         </Button>
       </Stack>

@@ -1,45 +1,45 @@
-import React from "react";
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
-import { Theme } from '@mui/material/styles';
+import { styled, type Theme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { styled } from '@mui/material/styles';
-import c2aImg from "/public/images/landingpage/background/c2a.png";
-import Image from "next/image";
-import { AppState } from "@/store/store";
-import { useSelector } from "@/store/hooks";
+import Image from 'next/image';
+import React from 'react';
+
+import { useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
+
+import c2aImg from '@/public/images/landingpage/background/c2a.png';
 
 const StyledButton = styled(Button)(() => ({
-  padding: "10px 35px",
-  fontSize: "16px",
-  borderRadius: "30px",
+  padding: '10px 35px',
+  fontSize: '16px',
+  borderRadius: '30px',
 }));
 
 const C2a2 = () => {
   const customizer = useSelector((state: AppState) => state.customizer);
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
   return (
     <Box
       sx={{
         borderRadius: 0,
-        backgroundColor: (theme) => theme.palette.background.paper, paddingTop: {
-          lg: "80px"
-        }
+        backgroundColor: (theme) => theme.palette.background.paper,
+        paddingTop: {
+          lg: '80px',
+        },
       }}
     >
       <Container maxWidth="lg">
         <Box
           sx={{
             backgroundColor:
-              customizer.activeMode == "dark"
-                ? "background.default"
+              customizer.activeMode == 'dark'
+                ? 'background.default'
                 : (theme) => theme.palette.text.primary,
-            
           }}
           p={4}
           position="relative"
@@ -52,16 +52,16 @@ const C2a2 = () => {
                 fontWeight={600}
                 sx={{
                   color:
-                    customizer.activeMode == "dark"
+                    customizer.activeMode == 'dark'
                       ? (theme) => theme.palette.text.primary
                       : (theme) => theme.palette.background.paper,
                   fontSize: {
-                    xs: "30px",
-                    lg: "36px",
+                    xs: '30px',
+                    lg: '36px',
                   },
                   lineHeight: {
-                    xs: "40px",
-                    lg: "56px",
+                    xs: '40px',
+                    lg: '56px',
                   },
                 }}
               >
@@ -78,7 +78,7 @@ const C2a2 = () => {
                 alignItems="center"
                 sx={{
                   color:
-                    customizer.activeMode == "dark"
+                    customizer.activeMode == 'dark'
                       ? (theme) => theme.palette.text.primary
                       : (theme) => theme.palette.background.paper,
                 }}
@@ -87,7 +87,7 @@ const C2a2 = () => {
                 Connect with us either on discord or email us
               </Typography>
 
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={3} mt={3}>
+              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3} mt={3}>
                 <StyledButton
                   variant="contained"
                   color="primary"
@@ -111,17 +111,17 @@ const C2a2 = () => {
                 <Box
                   sx={{
                     position: {
-                      lg: "absolute",
+                      lg: 'absolute',
                     },
-                    top: "-70px",
-                    right: "-20px",
+                    top: '-70px',
+                    right: '-20px',
                   }}
                 >
                   <Image src={c2aImg} alt="img" />
                 </Box>
               </Grid>
             ) : (
-              ""
+              ''
             )}
           </Grid>
         </Box>

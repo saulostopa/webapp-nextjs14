@@ -1,7 +1,8 @@
-import axios from '../../../utils/axios';
-import { createSlice } from '@reduxjs/toolkit';
-import { AppDispatch } from '../../store';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+
+import axios from '../../../utils/axios';
+import type { AppDispatch } from '../../store';
 
 const API_URL = '/api/data/notes/NotesData';
 
@@ -56,14 +57,28 @@ export const NotesSlice = createSlice({
         state.notes.push(action.payload);
       },
       prepare: (id, title, color) => {
-        return { payload: { id, title, color, datef: new Date().toDateString(), deleted: false } };
+        return {
+          payload: {
+            id,
+            title,
+            color,
+            datef: new Date().toDateString(),
+            deleted: false,
+          },
+        };
       },
     },
   },
 });
 
-export const { SearchNotes, getNotes, SelectNote, DeleteNote, UpdateNote, addNote } =
-  NotesSlice.actions;
+export const {
+  SearchNotes,
+  getNotes,
+  SelectNote,
+  DeleteNote,
+  UpdateNote,
+  addNote,
+} = NotesSlice.actions;
 
 export const fetchNotes = () => async (dispatch: AppDispatch) => {
   try {

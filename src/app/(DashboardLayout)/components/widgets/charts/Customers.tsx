@@ -1,12 +1,14 @@
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from "@mui/material/styles";
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { IconArrowDownRight } from "@tabler/icons-react";
-import DashboardCard from "../../shared/DashboardCard";
+import { IconArrowDownRight } from '@tabler/icons-react';
+import dynamic from 'next/dynamic';
+
+import DashboardCard from '../../shared/DashboardCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const Customers = () => {
   // chart color
@@ -18,9 +20,9 @@ const Customers = () => {
   // chart
   const optionscolumnchart: any = {
     chart: {
-      type: "area",
+      type: 'area',
       fontFamily: "'Plus Jakarta Sans', sans-serif;",
-      foreColor: "#adb0bb",
+      foreColor: '#adb0bb',
       toolbar: {
         show: false,
       },
@@ -28,22 +30,22 @@ const Customers = () => {
       sparkline: {
         enabled: true,
       },
-      group: "sparklines",
+      group: 'sparklines',
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 2,
     },
     fill: {
       colors: [secondarylight],
-      type: "solid",
+      type: 'solid',
       opacity: 0.05,
     },
     markers: {
       size: 0,
     },
     tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
+      theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
       x: {
         show: false,
       },
@@ -51,45 +53,41 @@ const Customers = () => {
   };
   const seriescolumnchart = [
     {
-      name: "",
+      name: '',
       color: secondary,
       data: [30, 25, 35, 20, 30, 40],
     },
   ];
 
   return (
-    <>
-      <DashboardCard
-        footer={
-          <>
-            <Box height="80px">
-              <Chart
-                options={optionscolumnchart}
-                series={seriescolumnchart}
-                type="area"
-                height={80}
-                width={"100%"}
-              />
-            </Box>
-          </>
-        }
-      >
-        <>
-          <Typography variant="subtitle2" color="textSecondary">
-            Customers
+    <DashboardCard
+      footer={
+        <Box height="80px">
+          <Chart
+            options={optionscolumnchart}
+            series={seriescolumnchart}
+            type="area"
+            height={80}
+            width="100%"
+          />
+        </Box>
+      }
+    >
+      <>
+        <Typography variant="subtitle2" color="textSecondary">
+          Customers
+        </Typography>
+        <Typography variant="h4">36,358</Typography>
+        <Stack direction="row" spacing={1} mt={1} alignItems="center">
+          <Avatar sx={{ bgcolor: errorlight, width: 24, height: 24 }}>
+            <IconArrowDownRight width={18} color="#FA896B" />
+          </Avatar>
+          <Typography variant="subtitle2" fontWeight="600">
+            +9%
           </Typography>
-          <Typography variant="h4">36,358</Typography>
-          <Stack direction="row" spacing={1} mt={1} alignItems="center">
-            <Avatar sx={{ bgcolor: errorlight, width: 24, height: 24 }}>
-              <IconArrowDownRight width={18} color="#FA896B" />
-            </Avatar>
-            <Typography variant="subtitle2" fontWeight="600">
-              +9%
-            </Typography>
-          </Stack>
-        </>
-      </DashboardCard>
-    </>
+        </Stack>
+      </>
+    </DashboardCard>
   );
 };
 

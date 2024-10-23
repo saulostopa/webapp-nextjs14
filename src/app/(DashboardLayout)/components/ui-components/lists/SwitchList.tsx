@@ -1,15 +1,13 @@
-import React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
-import BlankCard from '../../shared/BlankCard';
-
-
-import { IconWifi, IconBluetooth } from '@tabler/icons-react';
+import { IconBluetooth, IconWifi } from '@tabler/icons-react';
+import React from 'react';
 
 import CustomSwitch from '../../forms/theme-elements/CustomSwitch';
+import BlankCard from '../../shared/BlankCard';
 
 const SwitchList = () => {
   const [checked, setChecked] = React.useState(['wifi']);
@@ -28,40 +26,38 @@ const SwitchList = () => {
   };
 
   return (
-    <>
-      <BlankCard>
-        <List subheader={<ListSubheader>Settings</ListSubheader>}>
-          <ListItem>
-            <ListItemIcon>
-              <IconWifi width={20} height={20} />
-            </ListItemIcon>
-            <ListItemText id="switch-list-label-wifi" primary="Wi-Fi" />
-            <CustomSwitch
-              edge="end"
-              onChange={handleToggle('wifi')}
-              checked={checked.indexOf('wifi') !== -1}
-              inputProps={{
-                'aria-labelledby': 'switch-list-label-wifi',
-              }}
-            />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <IconBluetooth width={20} height={20} />
-            </ListItemIcon>
-            <ListItemText id="switch-list-label-bluetooth" primary="Bluetooth" />
-            <CustomSwitch
-              edge="end"
-              onChange={handleToggle('bluetooth')}
-              checked={checked.indexOf('bluetooth') !== -1}
-              inputProps={{
-                'aria-labelledby': 'switch-list-label-bluetooth',
-              }}
-            />
-          </ListItem>
-        </List>
-      </BlankCard>
-    </>
+    <BlankCard>
+      <List subheader={<ListSubheader>Settings</ListSubheader>}>
+        <ListItem>
+          <ListItemIcon>
+            <IconWifi width={20} height={20} />
+          </ListItemIcon>
+          <ListItemText id="switch-list-label-wifi" primary="Wi-Fi" />
+          <CustomSwitch
+            edge="end"
+            onChange={handleToggle('wifi')}
+            checked={checked.indexOf('wifi') !== -1}
+            inputProps={{
+              'aria-labelledby': 'switch-list-label-wifi',
+            }}
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <IconBluetooth width={20} height={20} />
+          </ListItemIcon>
+          <ListItemText id="switch-list-label-bluetooth" primary="Bluetooth" />
+          <CustomSwitch
+            edge="end"
+            onChange={handleToggle('bluetooth')}
+            checked={checked.indexOf('bluetooth') !== -1}
+            inputProps={{
+              'aria-labelledby': 'switch-list-label-bluetooth',
+            }}
+          />
+        </ListItem>
+      </List>
+    </BlankCard>
   );
 };
 

@@ -1,9 +1,16 @@
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import InputAdornment from '@mui/material/InputAdornment';
+import {
+  IconBuildingArch,
+  IconMail,
+  IconMessage2,
+  IconPhone,
+  IconUser,
+} from '@tabler/icons-react';
+
 import CustomFormLabel from '../theme-elements/CustomFormLabel';
 import CustomOutlinedInput from '../theme-elements/CustomOutlinedInput';
-import InputAdornment from '@mui/material/InputAdornment';
-import { IconBuildingArch, IconMail, IconMessage2, IconPhone, IconUser } from '@tabler/icons-react';
 
 const BasicIcons = () => {
   return (
@@ -32,9 +39,7 @@ const BasicIcons = () => {
         </Grid>
         {/* 2 */}
         <Grid item xs={12}>
-          <CustomFormLabel htmlFor="bi-company">
-            Company
-          </CustomFormLabel>
+          <CustomFormLabel htmlFor="bi-company">Company</CustomFormLabel>
         </Grid>
         <Grid item xs={12}>
           <CustomOutlinedInput
@@ -50,9 +55,7 @@ const BasicIcons = () => {
         </Grid>
         {/* 3 */}
         <Grid item xs={12}>
-          <CustomFormLabel htmlFor="bi-email">
-            Email
-          </CustomFormLabel>
+          <CustomFormLabel htmlFor="bi-email">Email</CustomFormLabel>
         </Grid>
         <Grid item xs={12}>
           <CustomOutlinedInput
@@ -68,9 +71,7 @@ const BasicIcons = () => {
         </Grid>
         {/* 4 */}
         <Grid item xs={12}>
-          <CustomFormLabel htmlFor="bi-phone">
-            Phone No
-          </CustomFormLabel>
+          <CustomFormLabel htmlFor="bi-phone">Phone No</CustomFormLabel>
         </Grid>
         <Grid item xs={12}>
           <CustomOutlinedInput
@@ -86,9 +87,7 @@ const BasicIcons = () => {
         </Grid>
         {/* 5 */}
         <Grid item xs={12}>
-          <CustomFormLabel htmlFor="bi-message">
-            Message
-          </CustomFormLabel>
+          <CustomFormLabel htmlFor="bi-message">Message</CustomFormLabel>
         </Grid>
         <Grid item xs={12}>
           <CustomOutlinedInput

@@ -1,18 +1,20 @@
-'use client'
+'use client';
 
-import React from 'react';
-import dayjs, { Dayjs } from 'dayjs';
 import Grid from '@mui/material/Grid';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
+import React from 'react';
+
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
+import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -29,7 +31,9 @@ const MuiDateTime = () => {
   const [value2, setValue2] = React.useState<Dayjs | null>(null);
 
   // date time
-  const [value3, setValue3] = React.useState<Dayjs | null>(dayjs('2018-01-01T00:00:00.000Z'));
+  const [value3, setValue3] = React.useState<Dayjs | null>(
+    dayjs('2018-01-01T00:00:00.000Z'),
+  );
 
   return (
     <PageContainer title="Datepicker" description="this is Datepicker">

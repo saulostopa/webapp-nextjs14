@@ -2,8 +2,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Divider from '@mui/material/Divider';
+
 import { useSelector } from '@/store/hooks';
-import { AppState } from '@/store/store';
+import type { AppState } from '@/store/store';
 
 type Props = {
   title: string;

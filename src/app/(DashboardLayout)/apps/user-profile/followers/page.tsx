@@ -1,15 +1,14 @@
-"use client"
+'use client';
 
 import Grid from '@mui/material/Grid';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ProfileBanner from '@/app/(DashboardLayout)/components/apps/userprofile/profile/ProfileBanner';
-import FollowerCard from '@/app/(DashboardLayout)/components/apps/userprofile/followers/FollowerCard';
 
+import FollowerCard from '@/app/(DashboardLayout)/components/apps/userprofile/followers/FollowerCard';
+import ProfileBanner from '@/app/(DashboardLayout)/components/apps/userprofile/profile/ProfileBanner';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 
 const Followers = () => {
   return (
     <PageContainer title="Followers" description="this is Followers">
-     
       <Grid container spacing={3}>
         <Grid item sm={12}>
           <ProfileBanner />

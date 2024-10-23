@@ -5,12 +5,14 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import Link from "next/link";
-import { loginType } from "@/app/(DashboardLayout)/types/auth/auth";
-import CustomCheckbox from "@/app/(DashboardLayout)/components/forms/theme-elements/CustomCheckbox";
-import CustomTextField from "@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField";
-import CustomFormLabel from "@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel";
-import AuthSocialButtons from "./AuthSocialButtons";
+import Link from 'next/link';
+
+import CustomCheckbox from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomCheckbox';
+import CustomFormLabel from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel';
+import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
+import type { loginType } from '@/app/(DashboardLayout)/types/auth/auth';
+
+import AuthSocialButtons from './AuthSocialButtons';
 
 const AuthLogin = ({ title, subtitle, subtext }: loginType) => (
   <>
@@ -69,8 +71,8 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => (
           href="/auth/auth1/forgot-password"
           fontWeight="500"
           sx={{
-            textDecoration: "none",
-            color: "primary.main",
+            textDecoration: 'none',
+            color: 'primary.main',
           }}
         >
           Forgot Password ?

@@ -1,13 +1,15 @@
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import BlankCard from '../../shared/BlankCard';
 import { Stack } from '@mui/system';
+import dynamic from 'next/dynamic';
+
+import BlankCard from '../../shared/BlankCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const CurrentValue = () => {
   // chart color
@@ -15,7 +17,8 @@ const CurrentValue = () => {
   const primary = theme.palette.primary.main;
   const primarylight = theme.palette.primary.light;
   const secondary = theme.palette.secondary.main;
-  const textColor = theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.8)' : '#2A3547';
+  const textColor =
+    theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.8)' : '#2A3547';
 
   // chart
   const optionscolumnchart: any = {
@@ -242,14 +245,18 @@ const CurrentValue = () => {
                     series={seriescolumnchart}
                     type="bar"
                     height="200px"
-                    width={"100%"}
+                    width="100%"
                   />
                 </Box>
                 <Box mt={4}>
                   <Typography variant="h6" fontWeight={400} mb={1}>
                     Income
                   </Typography>
-                  <Stack direction="row" spacing={2} justifyContent="space-between">
+                  <Stack
+                    direction="row"
+                    spacing={2}
+                    justifyContent="space-between"
+                  >
                     <Typography variant="h4">$25,260</Typography>
                     <Typography variant="subtitle1" color="success.main">
                       +1.25%
@@ -269,14 +276,18 @@ const CurrentValue = () => {
                     series={seriescolumn2chart}
                     type="bar"
                     height="200px"
-                    width={"100%"}
+                    width="100%"
                   />
                 </Box>
                 <Box mt={4}>
                   <Typography variant="h6" fontWeight={400} mb={1}>
                     Expance
                   </Typography>
-                  <Stack direction="row" spacing={2} justifyContent="space-between">
+                  <Stack
+                    direction="row"
+                    spacing={2}
+                    justifyContent="space-between"
+                  >
                     <Typography variant="h4">$12,260</Typography>
                     <Typography variant="subtitle1" color="success.main">
                       +4.25%
@@ -296,14 +307,18 @@ const CurrentValue = () => {
                     series={seriescolumn3chart}
                     type="donut"
                     height="220px"
-                    width={"100%"}
+                    width="100%"
                   />
                 </Box>
                 <Box mt={4}>
                   <Typography variant="h6" fontWeight={400} mb={1}>
                     Current Year
                   </Typography>
-                  <Stack direction="row" spacing={2} justifyContent="space-between">
+                  <Stack
+                    direction="row"
+                    spacing={2}
+                    justifyContent="space-between"
+                  >
                     <Typography variant="h4">$98,260</Typography>
                     <Typography variant="subtitle1" color="success.main">
                       +2.5%

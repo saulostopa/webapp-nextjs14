@@ -1,9 +1,13 @@
-import React from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import React from 'react';
 
 const OutlinedColorButtons = () => (
-  <Stack spacing={1} direction={{ xs: 'column', sm: 'row' }} justifyContent="center">
+  <Stack
+    spacing={1}
+    direction={{ xs: 'column', sm: 'row' }}
+    justifyContent="center"
+  >
     <Button variant="outlined" color="primary">
       Primary
     </Button>

@@ -1,9 +1,10 @@
-import React from "react";
 import Drawer from '@mui/material/Drawer';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import ProductFilter2 from "./ProductFilter2";
-import ProductFilter from "./ProductFilter";
+import React from 'react';
+
+import ProductFilter from './ProductFilter';
+import ProductFilter2 from './ProductFilter2';
 
 const drawerWidth = 250;
 
@@ -13,7 +14,7 @@ interface Props {
 }
 
 const ProductSidebar2 = ({ isMobileSidebarOpen, onSidebarClose }: Props) => {
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
 
   return (
     <>
@@ -28,12 +29,12 @@ const ProductSidebar2 = ({ isMobileSidebarOpen, onSidebarClose }: Props) => {
         <Drawer
           open={isMobileSidebarOpen}
           onClose={onSidebarClose}
-          variant={lgUp ? "permanent" : "temporary"}
+          variant={lgUp ? 'permanent' : 'temporary'}
           sx={{
             width: drawerWidth,
             flexShrink: 0,
             zIndex: lgUp ? 0 : 1,
-            [`& .MuiDrawer-paper`]: { position: "relative" },
+            [`& .MuiDrawer-paper`]: { position: 'relative' },
           }}
         >
           {/* ------------------------------------------- */}

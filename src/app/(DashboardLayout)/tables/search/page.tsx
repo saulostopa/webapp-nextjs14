@@ -1,9 +1,10 @@
-'use client'
+'use client';
 
 import Box from '@mui/material/Box';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+
 import ProductTableList from '@/app/(DashboardLayout)/components/apps/ecommerce/ProductTableList/ProductTableList';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {

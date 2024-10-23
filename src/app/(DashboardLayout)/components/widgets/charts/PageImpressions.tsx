@@ -1,13 +1,15 @@
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import BlankCard from '../../shared/BlankCard';
 import { Stack } from '@mui/system';
 import { IconArrowDownRight } from '@tabler/icons-react';
+import dynamic from 'next/dynamic';
+
+import BlankCard from '../../shared/BlankCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const PageImpressions = () => {
   // chart color
@@ -29,7 +31,14 @@ const PageImpressions = () => {
         enabled: true,
       },
     },
-    colors: [secondarylight, secondarylight, secondary, secondarylight, secondarylight, secondarylight],
+    colors: [
+      secondarylight,
+      secondarylight,
+      secondary,
+      secondarylight,
+      secondarylight,
+      secondarylight,
+    ],
     plotOptions: {
       bar: {
         borderRadius: 4,
@@ -85,9 +94,14 @@ const PageImpressions = () => {
 
         <Grid container spacing={3}>
           <Grid item xs={5}>
-            
-            <Typography variant="h4" mt={3} fontWeight={600}>$456,120</Typography>
-            <Typography variant="subtitle2" fontSize="12px" color="textSecondary">
+            <Typography variant="h4" mt={3} fontWeight={600}>
+              $456,120
+            </Typography>
+            <Typography
+              variant="subtitle2"
+              fontSize="12px"
+              color="textSecondary"
+            >
               (Change Yesterday)
             </Typography>
             <Stack direction="row" spacing={1} mt={1} alignItems="center">
@@ -105,7 +119,7 @@ const PageImpressions = () => {
               series={seriescolumnchart}
               type="bar"
               height="100px"
-              width={"100%"}
+              width="100%"
             />
           </Grid>
         </Grid>

@@ -11,18 +11,18 @@
   }
 
   .bg-s2pro-secondary {
-    border-color: #23232F;
+    border-color: #23232f;
   }
   .bg-s2pro-primary {
-    background-color: #00D77A;
+    background-color: #00d77a;
   }
   .text-s2pro-primary {
     color: #fff;
   }
   .text-s2pro-secondary {
-    color: #00D77A;
+    color: #00d77a;
   }
   .focus:text-s2pro-primary {
-    color: #00D77A;
+    color: #00d77a;
   }
 }

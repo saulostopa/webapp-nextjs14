@@ -1,12 +1,15 @@
-"use client"
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from '@mui/material/styles';
+'use client';
+
 import Grid from '@mui/material/Grid';
+import { useTheme } from '@mui/material/styles';
+import dynamic from 'next/dynamic';
+import React from 'react';
+
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import React from "react";
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const BCrumb = [
   {
@@ -19,7 +22,6 @@ const BCrumb = [
 ];
 
 const DoughnutChart = () => {
-
   // chart color
   const theme = useTheme();
   const primary = theme.palette.primary.main;
@@ -103,13 +105,19 @@ const DoughnutChart = () => {
               series={seriesdoughnutchart}
               type="donut"
               height="300px"
-              width={"100%"}
+              width="100%"
             />
           </ParentCard>
         </Grid>
         <Grid item lg={6} md={12} xs={12}>
-          <ParentCard title='Pie Charts'>
-            <Chart options={optionspiechart} series={seriespiechart} type="pie" height="300px" width={"100%"} />
+          <ParentCard title="Pie Charts">
+            <Chart
+              options={optionspiechart}
+              series={seriespiechart}
+              type="pie"
+              height="300px"
+              width="100%"
+            />
           </ParentCard>
         </Grid>
       </Grid>

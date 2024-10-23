@@ -1,11 +1,12 @@
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+
 import { useSelector } from '@/store/hooks';
-import { AppState } from '@/store/store';
+import type { AppState } from '@/store/store';
 
 type Props = {
   title?: string;
@@ -37,7 +38,10 @@ const DashboardCard = ({
 
   return (
     <Card
-      sx={{ padding: 0, border: !customizer.isCardShadow ?  `1px solid ${borderColor}` : 'none' }}
+      sx={{
+        padding: 0,
+        border: !customizer.isCardShadow ? `1px solid ${borderColor}` : 'none',
+      }}
       elevation={customizer.isCardShadow ? 9 : 0}
       variant={!customizer.isCardShadow ? 'outlined' : undefined}
     >
@@ -49,13 +53,14 @@ const DashboardCard = ({
           </Typography>
         </CardContent>
       ) : (
-        <CardContent sx={{p: "30px"}}>
+        <CardContent sx={{ p: '30px' }}>
           {title ? (
             <Stack
-              direction="row" flexWrap="wrap"
+              direction="row"
+              flexWrap="wrap"
               spacing={2}
               justifyContent="space-between"
-              alignItems={'center'}
+              alignItems="center"
               mb={3}
             >
               <Box>

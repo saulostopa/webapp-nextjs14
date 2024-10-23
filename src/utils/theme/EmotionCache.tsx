@@ -1,10 +1,13 @@
 'use client';
 
-import * as React from 'react';
+import type {
+  EmotionCache,
+  Options as OptionsOfCreateCache,
+} from '@emotion/cache';
 import createCache from '@emotion/cache';
-import { useServerInsertedHTML } from 'next/navigation';
 import { CacheProvider as DefaultCacheProvider } from '@emotion/react';
-import type { EmotionCache, Options as OptionsOfCreateCache } from '@emotion/cache';
+import { useServerInsertedHTML } from 'next/navigation';
+import * as React from 'react';
 
 export type NextAppDirEmotionCacheProviderProps = {
   /** This is the options passed to createCache() from 'import createCache from "@emotion/cache"' */
@@ -18,11 +21,12 @@ export type NextAppDirEmotionCacheProviderProps = {
 };
 
 // This implementation is taken from https://github.com/garronej/tss-react/blob/main/src/next/appDir.tsx
-export function NextAppDirEmotionCacheProvider(props: NextAppDirEmotionCacheProviderProps) {
+export function NextAppDirEmotionCacheProvider(
+  props: NextAppDirEmotionCacheProviderProps,
+) {
   const { options, CacheProvider = DefaultCacheProvider, children } = props;
 
   const [{ cache, flush }] = React.useState(() => {
-    
     const cache = createCache(options);
     cache.compat = true;
     const prevInsert = cache.insert;
@@ -34,7 +38,7 @@ export function NextAppDirEmotionCacheProvider(props: NextAppDirEmotionCacheProv
       }
       return prevInsert(...args);
     };
-    
+
     const flush = () => {
       const prevInserted = inserted;
       inserted = [];

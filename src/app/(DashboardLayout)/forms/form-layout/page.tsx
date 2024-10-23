@@ -1,17 +1,18 @@
-'use client'
+'use client';
 
 import Grid from '@mui/material/Grid';
-import {
-  FbOrdinaryForm,
-  FbDefaultForm,
-  FbBasicHeaderForm,
-  FbReadonlyForm,
-  FbDisabledForm,
-  FbLeftIconForm,
-  FbRightIconForm,
-  FbInputVariants,
-} from '@/app/(DashboardLayout)/components/forms/form-layouts/index';
+
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import {
+  FbBasicHeaderForm,
+  FbDefaultForm,
+  FbDisabledForm,
+  FbInputVariants,
+  FbLeftIconForm,
+  FbOrdinaryForm,
+  FbReadonlyForm,
+  FbRightIconForm,
+} from '@/app/(DashboardLayout)/components/forms/form-layouts/index';
 import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
@@ -29,7 +30,7 @@ const FormLayouts = () => (
     {/* breadcrumb */}
     <Breadcrumb title="Form Layouts" items={BCrumb} />
     {/* end breadcrumb */}
-    
+
     <Grid container spacing={3}>
       <Grid item lg={12} md={12} xs={12}>
         <FbOrdinaryForm />

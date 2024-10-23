@@ -1,15 +1,16 @@
-"use client"
+'use client';
 
-import { useState } from "react";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import EmailList from '@/app/(DashboardLayout)/components/apps/email/EmailList';
-import EmailFilter from '@/app/(DashboardLayout)/components/apps/email/EmailFilter';
-import EmailSearch from '@/app/(DashboardLayout)/components/apps/email/EmailSearch';
+import { useState } from 'react';
+
 import EmailContent from '@/app/(DashboardLayout)/components/apps/email/EmailContent';
+import EmailFilter from '@/app/(DashboardLayout)/components/apps/email/EmailFilter';
+import EmailList from '@/app/(DashboardLayout)/components/apps/email/EmailList';
+import EmailSearch from '@/app/(DashboardLayout)/components/apps/email/EmailSearch';
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import AppCard from '@/app/(DashboardLayout)/components/shared/AppCard';
 
@@ -19,12 +20,11 @@ const secdrawerWidth = 340;
 const Email = () => {
   const [isLeftSidebarOpen, setLeftSidebarOpen] = useState(false);
   const [isRightSidebarOpen, setRightSidebarOpen] = useState(false);
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
-  const mdUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
+  const mdUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('md'));
 
   return (
     <PageContainer title="Email" description="this is Email">
-      
       <AppCard>
         {/* ------------------------------------------- */}
         {/* Left part */}
@@ -37,12 +37,12 @@ const Email = () => {
             width: drawerWidth,
             [`& .MuiDrawer-paper`]: {
               width: drawerWidth,
-              position: "relative",
+              position: 'relative',
               zIndex: 2,
             },
             flexShrink: 0,
           }}
-          variant={lgUp ? "permanent" : "temporary"}
+          variant={lgUp ? 'permanent' : 'temporary'}
         >
           <EmailFilter />
         </Drawer>
@@ -54,7 +54,7 @@ const Email = () => {
         <Box
           sx={{
             minWidth: secdrawerWidth,
-            width: { xs: "100%", md: secdrawerWidth, lg: secdrawerWidth },
+            width: { xs: '100%', md: secdrawerWidth, lg: secdrawerWidth },
             flexShrink: 0,
           }}
         >
@@ -73,9 +73,9 @@ const Email = () => {
             variant="permanent"
             sx={{
               zIndex: 0,
-              width: "200px",
-              flex: "1 1 auto",
-              [`& .MuiDrawer-paper`]: { position: "relative" },
+              width: '200px',
+              flex: '1 1 auto',
+              [`& .MuiDrawer-paper`]: { position: 'relative' },
             }}
           >
             <Box>
@@ -90,7 +90,7 @@ const Email = () => {
             sx={{
               width: drawerWidth,
               flexShrink: 0,
-              [`& .MuiDrawer-paper`]: { width: "85%" },
+              [`& .MuiDrawer-paper`]: { width: '85%' },
             }}
             variant="temporary"
           >
@@ -100,10 +100,10 @@ const Email = () => {
                 color="primary"
                 size="small"
                 onClick={() => setRightSidebarOpen(false)}
-                sx={{ mb: 3, display: { xs: "block", md: "none", lg: "none" } }}
+                sx={{ mb: 3, display: { xs: 'block', md: 'none', lg: 'none' } }}
               >
-                {" "}
-                Back{" "}
+                {' '}
+                Back{' '}
               </Button>
               <EmailContent />
             </Box>

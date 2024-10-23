@@ -1,9 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-"use client";
 
-import React, { useEffect } from "react";
-import { fetchBlogPosts, fetchBlogPost } from "@/store/apps/blog/BlogSlice";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+'use client';
+
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -16,30 +14,38 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import Breadcrumb from "@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb";
 import {
   IconEye,
   IconMessage2,
   IconPoint,
   IconQuote,
-} from "@tabler/icons-react";
-import { format } from "date-fns";
-import BlogComment from "./BlogComment";
-import { uniqueId } from "lodash";
-import { addComment } from "@/store/apps/blog/BlogSlice";
-import BlankCard from "../../../shared/BlankCard";
-import { useDispatch, useSelector } from "@/store/hooks";
-import { AppState } from "@/store/store";
-import type { BlogPostType, BlogType } from "../../../../types/apps/blog";
+} from '@tabler/icons-react';
+import { format } from 'date-fns';
+import { uniqueId } from 'lodash';
+import { usePathname, useRouter } from 'next/navigation';
+import React, { useEffect } from 'react';
+
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+import {
+  addComment,
+  fetchBlogPost,
+  fetchBlogPosts,
+} from '@/store/apps/blog/BlogSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
+
+import type { BlogPostType, BlogType } from '../../../../types/apps/blog';
+import BlankCard from '../../../shared/BlankCard';
+import BlogComment from './BlogComment';
 
 const BlogDetail = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const pathName = usePathname();
 
-  const getTitle: string | any = pathName.split("/").pop();
+  const getTitle: string | any = pathName.split('/').pop();
 
-  const [replyTxt, setReplyTxt] = React.useState("");
+  const [replyTxt, setReplyTxt] = React.useState('');
 
   useEffect(() => {
     dispatch(fetchBlogPosts());
@@ -48,46 +54,46 @@ const BlogDetail = () => {
   const paramCase = (t: string) =>
     t
       .toLowerCase()
-      .replace(/ /g, "-")
-      .replace(/[^\w-]+/g, "");
+      .replace(/ /g, '-')
+      .replace(/[^\w-]+/g, '');
 
   // Get post
   const getPost = useSelector((state: AppState) => state.blogReducer.blogposts);
   console.log(getPost);
   const post: BlogPostType | any = getPost.find(
-    (p: BlogPostType) => getTitle === paramCase(p.title)
+    (p: BlogPostType) => getTitle === paramCase(p.title),
   );
 
   const BCrumb = [
     {
-      to: "/",
-      title: "Home",
+      to: '/',
+      title: 'Home',
     },
     {
-      to: "/apps/blog/posts",
-      title: "Blog",
+      to: '/apps/blog/posts',
+      title: 'Blog',
     },
     {
-      title: "Blog post",
+      title: 'Blog post',
     },
   ];
 
   const onSubmit = async (id: number, reply: string) => {
-    const replyId: string = uniqueId("#comm_");
+    const replyId: string = uniqueId('#comm_');
     const newReply = {
       id: replyId,
       profile: {
-        id: uniqueId("#REPLY_"),
+        id: uniqueId('#REPLY_'),
         avatar: post?.author.avatar,
         name: post?.author.name,
-        time: "now",
+        time: 'now',
       },
       comment: reply,
       replies: [],
     };
     dispatch(addComment(id, newReply));
     dispatch(fetchBlogPost(getTitle));
-    setReplyTxt("");
+    setReplyTxt('');
   };
 
   // skeleton
@@ -109,17 +115,15 @@ const BlogDetail = () => {
           <BlankCard>
             <>
               {isLoading ? (
-                <>
-                  <Skeleton
-                    animation="wave"
-                    variant="rectangular"
-                    width="100%"
-                    height={440}
-                    sx={{
-                      borderRadius: (theme) => theme.shape.borderRadius / 5,
-                    }}
-                  ></Skeleton>
-                </>
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  width="100%"
+                  height={440}
+                  sx={{
+                    borderRadius: (theme) => theme.shape.borderRadius / 5,
+                  }}
+                />
               ) : (
                 <CardMedia
                   component="img"
@@ -129,38 +133,35 @@ const BlogDetail = () => {
                 />
               )}
               <CardContent>
-                <Stack direction="row" sx={{ marginTop: "-45px" }}>
+                <Stack direction="row" sx={{ marginTop: '-45px' }}>
                   <Tooltip
-                    title={post ? post?.author.name : ""}
+                    title={post ? post?.author.name : ''}
                     placement="top"
                   >
-                    <Avatar
-                      aria-label="recipe"
-                      src={post?.author.avatar}
-                    ></Avatar>
+                    <Avatar aria-label="recipe" src={post?.author.avatar} />
                   </Tooltip>
                   <Chip
                     sx={{
-                      marginLeft: "auto",
-                      marginTop: "-21px",
-                      backgroundColor: "white",
+                      marginLeft: 'auto',
+                      marginTop: '-21px',
+                      backgroundColor: 'white',
                     }}
                     label="2 min Read"
                     size="small"
-                  ></Chip>
+                  />
                 </Stack>
                 <Chip
                   label={post?.category}
                   size="small"
                   sx={{ marginTop: 2 }}
-                ></Chip>
+                />
                 <Box my={3}>
                   <Typography
                     gutterBottom
                     variant="h1"
                     fontWeight={600}
                     color="inherit"
-                    sx={{ textDecoration: "none" }}
+                    sx={{ textDecoration: 'none' }}
                   >
                     {post?.title}
                   </Typography>
@@ -177,9 +178,9 @@ const BlogDetail = () => {
                     <IconPoint size="16" />
                     <small>
                       {post ? (
-                        <>{format(new Date(post.createdAt), "E, MMM d")}</>
+                        <>{format(new Date(post.createdAt), 'E, MMM d')}</>
                       ) : (
-                        ""
+                        ''
                       )}
                     </small>
                   </Stack>
@@ -262,7 +263,7 @@ const BlogDetail = () => {
                   fullWidth
                   value={replyTxt}
                   onChange={(e) => setReplyTxt(e.target.value)}
-                ></TextField>
+                />
                 <br />
                 <br />
                 <Button
@@ -287,7 +288,7 @@ const BlogDetail = () => {
                     px={1.5}
                     py={1}
                     color="primary.main"
-                    bgcolor={"primary.light"}
+                    bgcolor="primary.light"
                   >
                     <Typography variant="h6" fontWeight={600}>
                       {post?.comments.length}
@@ -306,7 +307,7 @@ const BlogDetail = () => {
           </Box>
         </>
       ) : (
-        "No found"
+        'No found'
       )}
     </Box>
   );

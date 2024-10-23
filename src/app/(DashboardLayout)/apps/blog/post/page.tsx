@@ -1,7 +1,7 @@
-"use client"
+'use client';
 
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import BlogListing from '@/app/(DashboardLayout)/components/apps/blog/BlogListing';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 
 const Blog = () => {
   return (

@@ -1,19 +1,18 @@
-import React from 'react';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
-// import { Link } from 'react-router-dom';
-import Link from 'next/link';
-
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { useFormik } from 'formik';
+// import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import React from 'react';
+import * as yup from 'yup';
 
-import CustomTextField from '../theme-elements/CustomTextField';
-import CustomFormLabel from '../theme-elements/CustomFormLabel';
 import CustomCheckbox from '../theme-elements/CustomCheckbox';
+import CustomFormLabel from '../theme-elements/CustomFormLabel';
+import CustomTextField from '../theme-elements/CustomTextField';
 
 const validationSchema = yup.object({
   firstName: yup
@@ -21,15 +20,24 @@ const validationSchema = yup.object({
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Firstname is Required'),
-  lastName: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Lastname is Required'),
-  email: yup.string().email('Enter a valid email').required('Email is required'),
+  lastName: yup
+    .string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Lastname is Required'),
+  email: yup
+    .string()
+    .email('Enter a valid email')
+    .required('Email is required'),
   password: yup
     .string()
     .min(8, 'Password should be of minimum 8 characters length')
     .required('Password is required'),
   changepassword: yup.string().when('password', {
-    is: (val: string) => (val && val.length > 0 ? true : false),
-    then: yup.string().oneOf([yup.ref('password')], 'Both password need to be the same'),
+    is: (val: string) => !!(val && val.length > 0),
+    then: yup
+      .string()
+      .oneOf([yup.ref('password')], 'Both password need to be the same'),
   }),
 });
 
@@ -41,7 +49,7 @@ const FVRegister = () => {
       password: '',
       changepassword: '',
     },
-    validationSchema: validationSchema,
+    validationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     },
@@ -76,7 +84,12 @@ const FVRegister = () => {
           />
         </Box>
       </Stack>
-      <Stack justifyContent="space-between" direction="row" alignItems="center" mb={2}>
+      <Stack
+        justifyContent="space-between"
+        direction="row"
+        alignItems="center"
+        mb={2}
+      >
         <FormGroup>
           <FormControlLabel
             control={<CustomCheckbox defaultChecked />}

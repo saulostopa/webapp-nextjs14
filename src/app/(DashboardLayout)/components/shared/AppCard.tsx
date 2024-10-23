@@ -1,6 +1,7 @@
 import Card from '@mui/material/Card';
+
 import { useSelector } from '@/store/hooks';
-import { AppState } from '@/store/store';
+import type { AppState } from '@/store/store';
 
 type Props = {
   children: JSX.Element | JSX.Element[];

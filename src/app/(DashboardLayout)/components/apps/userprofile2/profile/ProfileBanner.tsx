@@ -1,33 +1,30 @@
 import Avatar from '@mui/material/Avatar';
+import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import CardMedia from '@mui/material/CardMedia';
-import Badge from '@mui/material/Badge';
-import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import { useSelector } from "@/store/hooks";
-import {
-  IconPlus,
-} from "@tabler/icons-react";
-import ProfileTab from "./ProfileTab";
-import BlankCard from "../../../shared/BlankCard";
-import React from "react";
-import Image from "next/image";
+import Typography from '@mui/material/Typography';
+import { IconPlus } from '@tabler/icons-react';
+import React from 'react';
+
+import { useSelector } from '@/store/hooks';
+
+import BlankCard from '../../../shared/BlankCard';
+import ProfileTab from './ProfileTab';
 
 const ProfileBanner = () => {
   const customizer = useSelector((state) => state.customizer);
   const br = `${customizer.borderRadius}px`;
 
   const ProfileImage = styled(Box)(() => ({
-    backgroundImage: "linear-gradient(#50b2fc,#f44c66)",
-    borderRadius: "50%",
-    width: "110px",
-    height: "110px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundImage: 'linear-gradient(#50b2fc,#f44c66)',
+    borderRadius: '50%',
+    width: '110px',
+    height: '110px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   }));
 
   return (
@@ -35,7 +32,7 @@ const ProfileBanner = () => {
       <Avatar
         src="/images/backgrounds/profilebg-2.jpg"
         alt="profilecover"
-        sx={{ width: "100%", borderRadius: br, height: "330px" }}
+        sx={{ width: '100%', borderRadius: br, height: '330px' }}
       />
       <Box mx={3} mt={-6}>
         <BlankCard>
@@ -45,8 +42,8 @@ const ProfileBanner = () => {
                 badgeContent={<IconPlus size={20} />}
                 color="primary"
                 anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "right",
+                  vertical: 'bottom',
+                  horizontal: 'right',
                 }}
               >
                 <Avatar
@@ -56,13 +53,19 @@ const ProfileBanner = () => {
                 />
               </Badge>
               <Box>
-                <Typography variant="h3" display="flex" alignItems="center" gap={1}>
-                Mike Nielsen{" "}
+                <Typography
+                  variant="h3"
+                  display="flex"
+                  alignItems="center"
+                  gap={1}
+                >
+                  Mike Nielsen{' '}
                   <Box
                     bgcolor="primary.light"
                     color="primary.main"
                     fontSize="12px"
-                    p="0px 7px" lineHeight="20px"
+                    p="0px 7px"
+                    lineHeight="20px"
                     border="1px solid "
                     borderRadius={2}
                   >
@@ -82,10 +85,10 @@ const ProfileBanner = () => {
                   <Box
                     component="span"
                     sx={{
-                      width: "10px",
-                      height: "10px",
-                      borderRadius: "100%",
-                      backgroundColor: "success.main",
+                      width: '10px',
+                      height: '10px',
+                      borderRadius: '100%',
+                      backgroundColor: 'success.main',
                     }}
                   />
                   Active
@@ -95,7 +98,7 @@ const ProfileBanner = () => {
                 <Button variant="contained">Edit Profile</Button>
               </Box>
             </Stack>
-            {/**TabbingPart**/}
+            {/** TabbingPart* */}
             <ProfileTab />
           </Box>
         </BlankCard>

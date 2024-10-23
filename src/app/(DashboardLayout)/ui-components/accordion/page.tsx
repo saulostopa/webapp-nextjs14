@@ -1,18 +1,18 @@
-'use client'
+'use client';
 
-import * as React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
-
 import { IconChevronDown } from '@tabler/icons-react';
+import * as React from 'react';
+
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -27,10 +27,11 @@ const BCrumb = [
 const MuiAccordion = () => {
   // controlled accodion
   const [expanded, setExpanded] = React.useState<string | false>(false);
-  const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-    setExpanded(isExpanded ? panel : false);
-  };
-  
+  const handleChange =
+    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+      setExpanded(isExpanded ? panel : false);
+    };
+
   return (
     <PageContainer title="Accordian" description="this is Accordian">
       {/* breadcrumb */}
@@ -51,8 +52,9 @@ const MuiAccordion = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography variant="subtitle1" color="textSecondary">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-                    lacus ex, sit amet blandit leo lobortis eget.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse malesuada lacus ex, sit amet blandit leo
+                    lobortis eget.
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -67,8 +69,9 @@ const MuiAccordion = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography variant="subtitle1" color="textSecondary">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-                    lacus ex, sit amet blandit leo lobortis eget.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse malesuada lacus ex, sit amet blandit leo
+                    lobortis eget.
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -86,7 +89,10 @@ const MuiAccordion = () => {
           </Grid>
           <Grid item xs={12} display="flex" alignItems="stretch">
             <ChildCard title="Controlled">
-              <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+              <Accordion
+                expanded={expanded === 'panel1'}
+                onChange={handleChange('panel1')}
+              >
                 <AccordionSummary
                   expandIcon={<IconChevronDown />}
                   aria-controls="panel1bh-content"
@@ -101,12 +107,15 @@ const MuiAccordion = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography variant="subtitle1" color="textSecondary">
-                    Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam
-                    eget maximus est, id dignissim quam.
+                    Nulla facilisi. Phasellus sollicitudin nulla et quam mattis
+                    feugiat. Aliquam eget maximus est, id dignissim quam.
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-              <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+              <Accordion
+                expanded={expanded === 'panel2'}
+                onChange={handleChange('panel2')}
+              >
                 <AccordionSummary
                   expandIcon={<IconChevronDown />}
                   aria-controls="panel2bh-content"
@@ -121,12 +130,16 @@ const MuiAccordion = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography variant="subtitle1" color="textSecondary">
-                    Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius
-                    pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet.
+                    Donec placerat, lectus sed mattis semper, neque lectus
+                    feugiat lectus, varius pulvinar diam eros in elit.
+                    Pellentesque convallis laoreet laoreet.
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-              <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+              <Accordion
+                expanded={expanded === 'panel3'}
+                onChange={handleChange('panel3')}
+              >
                 <AccordionSummary
                   expandIcon={<IconChevronDown />}
                   aria-controls="panel3bh-content"
@@ -141,12 +154,16 @@ const MuiAccordion = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography variant="subtitle1" color="textSecondary">
-                    Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet
-                    egestas eros, vitae egestas augue. Duis vel est augue.
+                    Nunc vitae orci ultricies, auctor nunc in, volutpat nisl.
+                    Integer sit amet egestas eros, vitae egestas augue. Duis vel
+                    est augue.
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-              <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+              <Accordion
+                expanded={expanded === 'panel4'}
+                onChange={handleChange('panel4')}
+              >
                 <AccordionSummary
                   expandIcon={<IconChevronDown />}
                   aria-controls="panel4bh-content"
@@ -158,8 +175,9 @@ const MuiAccordion = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography variant="subtitle1" color="textSecondary">
-                    Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet
-                    egestas eros, vitae egestas augue. Duis vel est augue.
+                    Nunc vitae orci ultricies, auctor nunc in, volutpat nisl.
+                    Integer sit amet egestas eros, vitae egestas augue. Duis vel
+                    est augue.
                   </Typography>
                 </AccordionDetails>
               </Accordion>

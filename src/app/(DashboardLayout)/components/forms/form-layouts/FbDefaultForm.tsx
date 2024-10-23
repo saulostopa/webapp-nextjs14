@@ -1,16 +1,17 @@
-import React from 'react';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import RadioGroup from '@mui/material/RadioGroup';
-import CustomTextField from '../theme-elements/CustomTextField';
-import CustomSelect from '../theme-elements/CustomSelect';
-import CustomCheckbox from '../theme-elements/CustomCheckbox';
-import CustomRadio from '../theme-elements/CustomRadio';
-import CustomFormLabel from '../theme-elements/CustomFormLabel';
+import React from 'react';
+
 import ParentCard from '../../shared/ParentCard';
+import CustomCheckbox from '../theme-elements/CustomCheckbox';
+import CustomFormLabel from '../theme-elements/CustomFormLabel';
+import CustomRadio from '../theme-elements/CustomRadio';
+import CustomSelect from '../theme-elements/CustomSelect';
+import CustomTextField from '../theme-elements/CustomTextField';
 
 const numbers = [
   {
@@ -72,8 +73,15 @@ const FbDefaultForm = () => {
           fullWidth
         />
         <CustomFormLabel htmlFor="email-text">Email</CustomFormLabel>
-        <CustomTextField id="email-text" type="email" variant="outlined" fullWidth />
-        <CustomFormLabel htmlFor="default-outlined-password-input">Password</CustomFormLabel>
+        <CustomTextField
+          id="email-text"
+          type="email"
+          variant="outlined"
+          fullWidth
+        />
+        <CustomFormLabel htmlFor="default-outlined-password-input">
+          Password
+        </CustomFormLabel>
 
         <CustomTextField
           id="default-outlined-password-input"
@@ -82,7 +90,9 @@ const FbDefaultForm = () => {
           variant="outlined"
           fullWidth
         />
-        <CustomFormLabel htmlFor="outlined-multiline-static">Textarea</CustomFormLabel>
+        <CustomFormLabel htmlFor="outlined-multiline-static">
+          Textarea
+        </CustomFormLabel>
 
         <CustomTextField
           id="outlined-multiline-static"
@@ -140,7 +150,12 @@ const FbDefaultForm = () => {
           </Grid>
           <Grid item lg={4} md={6} sm={12}>
             <FormControl component="fieldset">
-              <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange2}>
+              <RadioGroup
+                aria-label="gender"
+                name="gender1"
+                value={value}
+                onChange={handleChange2}
+              >
                 <FormControlLabel
                   value="radio1"
                   control={<CustomRadio />}
@@ -160,7 +175,9 @@ const FbDefaultForm = () => {
             </FormControl>
           </Grid>
         </Grid>
-        <CustomFormLabel htmlFor="standard-select-number">Select</CustomFormLabel>
+        <CustomFormLabel htmlFor="standard-select-number">
+          Select
+        </CustomFormLabel>
         <CustomSelect
           fullWidth
           id="standard-select-number"

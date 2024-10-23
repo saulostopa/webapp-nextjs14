@@ -1,6 +1,7 @@
-'use client'
+'use client';
 
-import * as React from 'react';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
@@ -15,13 +16,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import BlankCard from '@/app/(DashboardLayout)/components/shared/BlankCard';
+import * as React from 'react';
 
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import BlankCard from '@/app/(DashboardLayout)/components/shared/BlankCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 function createData(
   imgsrc?: string,
@@ -53,7 +53,11 @@ function Row(props: { row: ReturnType<typeof createData> }) {
     <>
       <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
         <TableCell>
-          <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
+          <IconButton
+            aria-label="expand row"
+            size="small"
+            onClick={() => setOpen(!open)}
+          >
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
@@ -155,7 +159,9 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                       </TableCell>
                       <TableCell>
                         <Typography fontWeight="600">
-                          {Math.round(historyRow.amount * historyRow.price * 100) / 100}
+                          {Math.round(
+                            historyRow.amount * historyRow.price * 100,
+                          ) / 100}
                         </Typography>
                       </TableCell>
                     </TableRow>
@@ -181,14 +187,45 @@ const BCrumb = [
 ];
 
 const rows = [
-  createData("/images/products/s1.jpg", 'Good butterscotch ice-cream', 'Sunil Joshi', true, 250, '2'),
-  createData("/images/products/s2.jpg", 'Supreme fresh tomato available', 'John Deo', false, 450, '1'),
-  createData("/images/products/s3.jpg", 'Red color candy from Gucci', 'Andrew McDownland', false, 150, '2'),
-  createData("/images/products/s4.jpg", 'Stylish night lamp for night', 'Christopher Jamil', true, 550, '6'),
+  createData(
+    '/images/products/s1.jpg',
+    'Good butterscotch ice-cream',
+    'Sunil Joshi',
+    true,
+    250,
+    '2',
+  ),
+  createData(
+    '/images/products/s2.jpg',
+    'Supreme fresh tomato available',
+    'John Deo',
+    false,
+    450,
+    '1',
+  ),
+  createData(
+    '/images/products/s3.jpg',
+    'Red color candy from Gucci',
+    'Andrew McDownland',
+    false,
+    150,
+    '2',
+  ),
+  createData(
+    '/images/products/s4.jpg',
+    'Stylish night lamp for night',
+    'Christopher Jamil',
+    true,
+    550,
+    '6',
+  ),
 ];
 
 const CollapsibleTable = () => (
-  <PageContainer title="Collapsible Table" description="this is Collapsible Table">
+  <PageContainer
+    title="Collapsible Table"
+    description="this is Collapsible Table"
+  >
     {/* breadcrumb */}
     <Breadcrumb title="Collapsible Table" items={BCrumb} />
     {/* end breadcrumb */}

@@ -1,4 +1,3 @@
-import mock from './mock';
 import './blog/blogData';
 import './contacts/ContactsData';
 import './chat/Chatdata';
@@ -11,5 +10,7 @@ import './userprofile/PostData';
 import './userprofile/PostData2';
 import './userprofile/UsersData';
 import './dashboard/LatestReviewsData';
+
+import mock from './mock';
 
 mock.onAny().passThrough();

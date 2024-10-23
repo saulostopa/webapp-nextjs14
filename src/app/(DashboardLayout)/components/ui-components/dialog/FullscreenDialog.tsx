@@ -1,4 +1,3 @@
-import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -7,11 +6,12 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Slide from '@mui/material/Slide';
+import Toolbar from '@mui/material/Toolbar';
+import type { TransitionProps } from '@mui/material/transitions';
+import Typography from '@mui/material/Typography';
 import { IconX } from '@tabler/icons-react';
-import { TransitionProps } from '@mui/material/transitions';
+import React from 'react';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -35,13 +35,28 @@ const FullscreenDialog = () => {
 
   return (
     <>
-      <Button variant="contained" color="error" fullWidth onClick={handleClickOpen}>
+      <Button
+        variant="contained"
+        color="error"
+        fullWidth
+        onClick={handleClickOpen}
+      >
         Open Fullscreen Dialog
       </Button>
-      <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+      <Dialog
+        fullScreen
+        open={open}
+        onClose={handleClose}
+        TransitionComponent={Transition}
+      >
         <AppBar sx={{ position: 'relative' }}>
           <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+            <IconButton
+              edge="start"
+              color="inherit"
+              onClick={handleClose}
+              aria-label="close"
+            >
               <IconX width={24} height={24} />
             </IconButton>
             <Typography ml={2} flex={1} variant="h6" component="div">
@@ -58,7 +73,10 @@ const FullscreenDialog = () => {
           </ListItem>
           <Divider />
           <ListItem button>
-            <ListItemText primary="Default notification ringtone" secondary="Tethys" />
+            <ListItemText
+              primary="Default notification ringtone"
+              secondary="Tethys"
+            />
           </ListItem>
         </List>
       </Dialog>

@@ -1,6 +1,5 @@
-
-import { styled } from '@mui/material/styles';
 import Slider from '@mui/material/Slider';
+import { styled } from '@mui/material/styles';
 
 const CustomRangeSlider = styled(Slider)(({ theme }) => ({
   '& .MuiSlider-rail': {

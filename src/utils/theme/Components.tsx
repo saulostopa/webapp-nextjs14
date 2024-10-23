@@ -1,167 +1,167 @@
 // project imports
 import './DefaultColors';
-import { Theme } from '@mui/material/styles';
+
+import type { Theme } from '@mui/material/styles';
 
 const components: any = (theme: Theme) => {
   return {
     MuiCssBaseline: {
       styleOverrides: {
-        "*": {
-          boxSizing: "border-box",
+        '*': {
+          boxSizing: 'border-box',
         },
         html: {
-          height: "100%",
-          width: "100%",
+          height: '100%',
+          width: '100%',
         },
         a: {
-          textDecoration: "none",
+          textDecoration: 'none',
         },
         body: {
-          height: "100%",
+          height: '100%',
           margin: 0,
           padding: 0,
         },
-        "#root": {
-          height: "100%",
+        '#root': {
+          height: '100%',
         },
         "*[dir='rtl'] .welcome-bg": {
-          transform: "scaleX(-1)",
+          transform: 'scaleX(-1)',
         },
         "*[dir='rtl'] .welcome-bg2": {
-          transform: "scaleX(-1)",
+          transform: 'scaleX(-1)',
         },
         "*[dir='rtl'] .top-img": {
-          transform: "scaleX(-1)",
+          transform: 'scaleX(-1)',
         },
-        ".border-none": {
-          border: "0px",
+        '.border-none': {
+          border: '0px',
           td: {
-            border: "0px",
+            border: '0px',
           },
         },
-        ".btn-xs": {
-          minWidth: "30px !important",
-          width: "30px",
-          height: "30px",
-          borderRadius: "6px !important",
-          padding: "0px !important",
+        '.btn-xs': {
+          minWidth: '30px !important',
+          width: '30px',
+          height: '30px',
+          borderRadius: '6px !important',
+          padding: '0px !important',
         },
-        ".hover-text-primary:hover .text-hover": {
+        '.hover-text-primary:hover .text-hover': {
           color: theme.palette.primary.main,
         },
-        ".hoverCard:hover": {
-          scale: "1.01",
-          transition: " 0.1s ease-in",
+        '.hoverCard:hover': {
+          scale: '1.01',
+          transition: ' 0.1s ease-in',
         },
-        ".signup-bg": {
-          position: "absolute",
+        '.signup-bg': {
+          position: 'absolute',
           top: 0,
           right: 0,
-          height: "100%",
+          height: '100%',
         },
-        ".MuiBox-root": {
+        '.MuiBox-root': {
           borderRadius: theme.shape.borderRadius,
         },
-        ".MuiCardHeader-action": {
-          alignSelf: "center !important",
+        '.MuiCardHeader-action': {
+          alignSelf: 'center !important',
         },
-        ".emoji-picker-react .emoji-scroll-wrapper": {
-          overflowX: "hidden",
+        '.emoji-picker-react .emoji-scroll-wrapper': {
+          overflowX: 'hidden',
         },
-        ".scrollbar-container": {
-          borderRight: "0 !important",
+        '.scrollbar-container': {
+          borderRight: '0 !important',
         },
-        ".theme-timeline .MuiTimelineOppositeContent-root": {
-          minWidth: "90px",
+        '.theme-timeline .MuiTimelineOppositeContent-root': {
+          minWidth: '90px',
         },
-        ".MuiAlert-root .MuiAlert-icon": {
-          color: "inherit!important",
+        '.MuiAlert-root .MuiAlert-icon': {
+          color: 'inherit!important',
         },
-        ".MuiTimelineConnector-root": {
-          width: "1px !important",
+        '.MuiTimelineConnector-root': {
+          width: '1px !important',
         },
-        " .simplebar-scrollbar:before": {
+        ' .simplebar-scrollbar:before': {
           background: `${theme.palette.grey[300]} !important`,
         },
-        "@keyframes gradient": {
-          "0%": {
-            backgroundPosition: "0% 50%",
+        '@keyframes gradient': {
+          '0%': {
+            backgroundPosition: '0% 50%',
           },
-          "50%": {
-            backgroundPosition: " 100% 50%",
+          '50%': {
+            backgroundPosition: ' 100% 50%',
           },
-          "100% ": {
-            backgroundPosition: " 0% 50%",
+          '100% ': {
+            backgroundPosition: ' 0% 50%',
           },
         },
-        "@keyframes heartbit": {
-          "0%": {
-            transform:  'scale(0)',
-            opacity: "0",
+        '@keyframes heartbit': {
+          '0%': {
+            transform: 'scale(0)',
+            opacity: '0',
           },
-          "25%" :{
+          '25%': {
             transform: 'scale(0.1)',
-            opacity: 0.1
+            opacity: 0.1,
           },
-          "50%" : {
+          '50%': {
             transform: 'scale(0.5)',
             opacity: 0.3,
           },
-          "75%" :{
+          '75%': {
             transform: 'scale(0.8)',
             opacity: 0.5,
           },
-          "100%" :{
+          '100%': {
             transform: 'scale(1)',
             opacity: 0,
-          }
-
-        },
-        "@keyframes slide": {
-          "0%": {
-            transform:  'translate3d(0px, 0px, 0px)',
           },
-          "100%" :{
+        },
+        '@keyframes slide': {
+          '0%': {
+            transform: 'translate3d(0px, 0px, 0px)',
+          },
+          '100%': {
             transform: 'translate3d(-100%, 0px, 0px)',
-          }
-        },
-        ".rounded-bars .apexcharts-bar-series.apexcharts-plot-series .apexcharts-series path":
-          {
-            clipPath: "inset(0 0 5% 0 round 20px)",
           },
-        ".btn-rounded-circle-40": {
-          minWidth: "40px !important",
-          padding: "0 !important",
-          height: "40px",
-          borderRadius: "100%  !important",
         },
-        ".text-truncate-2": {
-          overflow: "hidden",
-          display: "-webkit-box",
-          maxHeight: "4rem",
-          textOverflow: "ellipsis",
-          whiteSpace: "normal",
+        '.rounded-bars .apexcharts-bar-series.apexcharts-plot-series .apexcharts-series path':
+          {
+            clipPath: 'inset(0 0 5% 0 round 20px)',
+          },
+        '.btn-rounded-circle-40': {
+          minWidth: '40px !important',
+          padding: '0 !important',
+          height: '40px',
+          borderRadius: '100%  !important',
+        },
+        '.text-truncate-2': {
+          overflow: 'hidden',
+          display: '-webkit-box',
+          maxHeight: '4rem',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'normal',
           WebkitLineClamp: 2,
-          WebkitBoxOrient: "vertical",
+          WebkitBoxOrient: 'vertical',
         },
-        ".welcome-bg": {
-          position: "absolute",
-          right: "0",
-          bottom: "0",
+        '.welcome-bg': {
+          position: 'absolute',
+          right: '0',
+          bottom: '0',
         },
-        ".welcome-bg2": {
-          position: "absolute",
-          right: "-15px",
-          bottom: "0",
+        '.welcome-bg2': {
+          position: 'absolute',
+          right: '-15px',
+          bottom: '0',
         },
-        ".dxm-background": {
-          strokeWidth: "0",
+        '.dxm-background': {
+          strokeWidth: '0',
         },
-        ".dxm-control-bar": {
-          display: "none",
+        '.dxm-control-bar': {
+          display: 'none',
         },
-        ".top-img": {
-          position: "absolute",  
+        '.top-img': {
+          position: 'absolute',
           right: 0,
           top: 0,
         },
@@ -215,7 +215,7 @@ const components: any = (theme: Theme) => {
         root: {
           textTransform: 'none',
           boxShadow: 'none',
-          borderRadius: "25px" 
+          borderRadius: '25px',
         },
         text: {
           padding: '5px 15px',
@@ -313,9 +313,9 @@ const components: any = (theme: Theme) => {
     MuiCard: {
       styleOverrides: {
         root: {
-          width: "100%",
-          padding: "30px",
-          backgroundImage: "none",
+          width: '100%',
+          padding: '30px',
+          backgroundImage: 'none',
         },
       },
     },
@@ -437,7 +437,9 @@ const components: any = (theme: Theme) => {
         root: {
           '& .MuiOutlinedInput-notchedOutline': {
             borderColor:
-              theme.palette.mode === 'dark' ? theme.palette.grey[200] : theme.palette.grey[300],
+              theme.palette.mode === 'dark'
+                ? theme.palette.grey[200]
+                : theme.palette.grey[300],
           },
           '&:hover .MuiOutlinedInput-notchedOutline': {
             borderColor: theme.palette.grey[300],
@@ -476,7 +478,8 @@ const components: any = (theme: Theme) => {
     MuiPopover: {
       styleOverrides: {
         paper: {
-          boxShadow: 'rgb(145 158 171 / 30%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px'
+          boxShadow:
+            'rgb(145 158 171 / 30%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px',
         },
       },
     },

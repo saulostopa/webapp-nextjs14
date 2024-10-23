@@ -2,30 +2,31 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { IconTemplate, IconLayoutGridAdd, IconId } from "@tabler/icons-react";
-import BlankCard from "../../../../components/shared/BlankCard";
+import { IconId, IconLayoutGridAdd, IconTemplate } from '@tabler/icons-react';
+
+import BlankCard from '../../../shared/BlankCard';
 
 const tasks = [
   {
     icon: <IconTemplate size="21" />,
-    title: "680",
-    subtext: "Tasks Done",
-    color: "primary.light",
-    darkcolor: "primary.main",
+    title: '680',
+    subtext: 'Tasks Done',
+    color: 'primary.light',
+    darkcolor: 'primary.main',
   },
   {
     icon: <IconLayoutGridAdd size="21" />,
-    title: "42",
-    subtext: "Projects",
-    color: "success.light",
-    darkcolor: "success.main",
+    title: '42',
+    subtext: 'Projects',
+    color: 'success.light',
+    darkcolor: 'success.main',
   },
   {
     icon: <IconId size="21" />,
-    title: "$780",
-    subtext: "Sales",
-    color: "error.light",
-    darkcolor: "error.main",
+    title: '$780',
+    subtext: 'Sales',
+    color: 'error.light',
+    darkcolor: 'error.main',
   },
 ];
 
@@ -42,8 +43,8 @@ export const TaskCard = () => {
                   alignItems="center"
                   justifyContent="center"
                   sx={{
-                    height: "48px",
-                    width: "48px",
+                    height: '48px',
+                    width: '48px',
                     backgroundColor: task.color,
                     color: task.darkcolor,
                   }}
@@ -51,9 +52,7 @@ export const TaskCard = () => {
                   {task.icon}
                 </Box>
                 <Box>
-                  <Typography variant="h5">
-                    {task.title}
-                  </Typography>
+                  <Typography variant="h5">{task.title}</Typography>
                   <Typography variant="subtitle2">{task.subtext}</Typography>
                 </Box>
               </Stack>

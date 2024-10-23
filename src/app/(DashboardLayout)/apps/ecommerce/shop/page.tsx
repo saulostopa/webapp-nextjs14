@@ -1,10 +1,11 @@
-"use client"
+'use client';
 
-import React from 'react';
 import Box from '@mui/material/Box';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import React from 'react';
+
 import ProductList from '@/app/(DashboardLayout)/components/apps/ecommerce/productGrid/ProductList';
 import ProductSidebar from '@/app/(DashboardLayout)/components/apps/ecommerce/productGrid/ProductSidebar';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import AppCard from '@/app/(DashboardLayout)/components/shared/AppCard';
 
 const Ecommerce = () => {
@@ -24,7 +25,9 @@ const Ecommerce = () => {
         {/* Right part */}
         {/* ------------------------------------------- */}
         <Box p={3} flexGrow={1}>
-          <ProductList onClick={() => setMobileSidebarOpen(!isMobileSidebarOpen)} />
+          <ProductList
+            onClick={() => setMobileSidebarOpen(!isMobileSidebarOpen)}
+          />
         </Box>
       </AppCard>
     </PageContainer>

@@ -1,21 +1,16 @@
-import React from "react";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { Theme } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { styled } from '@mui/material/styles';
-
+import Typography from '@mui/material/Typography';
+import React from 'react';
 
 const StyledButton = styled(Button)(() => ({
-  padding: "13px 35px",
-  fontSize: "16px",
-  borderRadius: "30px",
+  padding: '13px 35px',
+  fontSize: '16px',
+  borderRadius: '30px',
 }));
 
 const BannerContent = () => {
-  
-
   return (
     <>
       <Stack justifyContent="center" spacing={1} gap={2}>
@@ -25,10 +20,10 @@ const BannerContent = () => {
           textAlign="center"
           sx={{
             fontSize: {
-              md: "52px",
+              md: '52px',
             },
             lineHeight: {
-              md: "62px",
+              md: '62px',
             },
           }}
         >
@@ -42,8 +37,9 @@ const BannerContent = () => {
         </Stack>
       </Stack>
       <Stack
-        direction={{ xs: "column", sm: "row" }}
-        spacing={2} mt={6}
+        direction={{ xs: 'column', sm: 'row' }}
+        spacing={2}
+        mt={6}
         alignItems="center"
         justifyContent="center"
       >
@@ -54,8 +50,6 @@ const BannerContent = () => {
           Documentation
         </StyledButton>
       </Stack>
-
-      
     </>
   );
 };

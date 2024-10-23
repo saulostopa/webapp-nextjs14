@@ -1,11 +1,12 @@
-"use client";
+'use client';
 
-import React from "react";
 import Box from '@mui/material/Box';
-import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
-import ProductList2 from "@/app/(DashboardLayout)/components/apps/ecommerce/productGrid/ProductList2";
-import ProductSidebar2 from "@/app/(DashboardLayout)/components/apps/ecommerce/productGrid/ProductSidebar2";
-import AppCard from "@/app/(DashboardLayout)/components/shared/AppCard";
+import React from 'react';
+
+import ProductList2 from '@/app/(DashboardLayout)/components/apps/ecommerce/productGrid/ProductList2';
+import ProductSidebar2 from '@/app/(DashboardLayout)/components/apps/ecommerce/productGrid/ProductSidebar2';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import AppCard from '@/app/(DashboardLayout)/components/shared/AppCard';
 
 const EcommerceShop2 = () => {
   const [isMobileSidebarOpen, setMobileSidebarOpen] = React.useState(true);

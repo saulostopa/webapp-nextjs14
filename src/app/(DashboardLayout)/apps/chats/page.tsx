@@ -1,12 +1,13 @@
-"use client"
+'use client';
 
-import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ChatSidebar from '@/app/(DashboardLayout)/components/apps/chats/ChatSidebar';
+import React, { useState } from 'react';
+
 import ChatContent from '@/app/(DashboardLayout)/components/apps/chats/ChatContent';
 import ChatMsgSent from '@/app/(DashboardLayout)/components/apps/chats/ChatMsgSent';
+import ChatSidebar from '@/app/(DashboardLayout)/components/apps/chats/ChatSidebar';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import AppCard from '@/app/(DashboardLayout)/components/shared/AppCard';
 
 const Chats = () => {

@@ -1,5 +1,3 @@
-import React, { useEffect } from "react";
-import { filter, orderBy } from "lodash";
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -7,28 +5,32 @@ import Fab from '@mui/material/Fab';
 import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Link from "next/link";
-import { useSelector, useDispatch } from "@/store/hooks";
-import {
-  fetchProducts,
-  addToCart,
-  filterReset,
-} from "@/store/apps/eCommerce/EcommerceSlicev2";
-import ProductSearch from "./ProductSearch";
 import {
   IconBasket,
   IconHeart,
   IconMenu2,
   IconStarFilled,
-} from "@tabler/icons-react";
-import AlertCart from "../productCart/AlertCart";
-import emptyCart from "/public/images/products/empty-shopping-cart.svg";
-import { ProductType } from "../../../../types/apps/eCommerce";
-import Image from "next/image";
+} from '@tabler/icons-react';
+import { filter, orderBy } from 'lodash';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useEffect } from 'react';
+
+import {
+  addToCart,
+  fetchProducts,
+  filterReset,
+} from '@/store/apps/eCommerce/EcommerceSlicev2';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import emptyCart from '../@/public/images/products/empty-shopping-cart.svg';
+import type { ProductType } from '../../../../types/apps/eCommerce';
+import AlertCart from '../productCart/AlertCart';
+import ProductSearch from './ProductSearch';
 
 interface Props {
   onClick: (event: React.SyntheticEvent | Event) => void;
@@ -36,7 +38,7 @@ interface Props {
 
 const ProductList2 = ({ onClick }: Props) => {
   const dispatch = useDispatch();
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
   const customizer = useSelector((state) => state.customizer);
   const br = `${customizer.borderRadius}px`;
 
@@ -48,59 +50,59 @@ const ProductList2 = ({ onClick }: Props) => {
     products: ProductType[],
     sortBy: string,
     filters: any,
-    search: string
+    search: string,
   ) => {
     // SORT BY
-    if (sortBy === "newest") {
-      products = orderBy(products, ["created"], ["desc"]);
+    if (sortBy === 'newest') {
+      products = orderBy(products, ['created'], ['desc']);
     }
-    if (sortBy === "priceDesc") {
-      products = orderBy(products, ["price"], ["desc"]);
+    if (sortBy === 'priceDesc') {
+      products = orderBy(products, ['price'], ['desc']);
     }
-    if (sortBy === "priceAsc") {
-      products = orderBy(products, ["price"], ["asc"]);
+    if (sortBy === 'priceAsc') {
+      products = orderBy(products, ['price'], ['asc']);
     }
-    if (sortBy === "discount") {
-      products = orderBy(products, ["discount"], ["desc"]);
+    if (sortBy === 'discount') {
+      products = orderBy(products, ['discount'], ['desc']);
     }
 
     // FILTER PRODUCTS
-    if (filters.category !== "All") {
-      //products = filter(products, (_product) => includes(_product.category, filters.category));
+    if (filters.category !== 'All') {
+      // products = filter(products, (_product) => includes(_product.category, filters.category));
       products = products.filter((_product) =>
-        _product.category.includes(filters.category)
+        _product.category.includes(filters.category),
       );
     }
 
-    //FILTER PRODUCTS BY GENDER
-    if (filters.gender !== "All") {
+    // FILTER PRODUCTS BY GENDER
+    if (filters.gender !== 'All') {
       products = filter(
         products,
-        (_product) => _product.gender === filters.gender
+        (_product) => _product.gender === filters.gender,
       );
     }
 
-    //FILTER PRODUCTS BY GENDER
-    if (filters.color !== "All") {
+    // FILTER PRODUCTS BY GENDER
+    if (filters.color !== 'All') {
       products = products.filter((_product) =>
-        _product.colors.includes(filters.color)
+        _product.colors.includes(filters.color),
       );
     }
 
-    //FILTER PRODUCTS BY Search
-    if (search !== "") {
+    // FILTER PRODUCTS BY Search
+    if (search !== '') {
       products = products.filter((_product) =>
-        _product.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+        _product.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()),
       );
     }
 
-    //FILTER PRODUCTS BY Price
-    if (filters.price !== "All") {
-      const minMax = filters.price ? filters.price.split("-") : "";
+    // FILTER PRODUCTS BY Price
+    if (filters.price !== 'All') {
+      const minMax = filters.price ? filters.price.split('-') : '';
       products = products.filter((_product) =>
         filters.price
           ? _product.price >= minMax[0] && _product.price <= minMax[1]
-          : true
+          : true,
       );
     }
 
@@ -112,8 +114,8 @@ const ProductList2 = ({ onClick }: Props) => {
       state.ecommerceReducer.products,
       state.ecommerceReducer.sortBy,
       state.ecommerceReducer.filters,
-      state.ecommerceReducer.productSearch
-    )
+      state.ecommerceReducer.productSearch,
+    ),
   );
 
   // for alert when added something to cart
@@ -124,7 +126,7 @@ const ProductList2 = ({ onClick }: Props) => {
   };
 
   const handleClose = (reason: string) => {
-    if (reason === "clickaway") {
+    if (reason === 'clickaway') {
       return;
     }
     setCartalert(false);
@@ -180,16 +182,14 @@ const ProductList2 = ({ onClick }: Props) => {
                 {/* Product Card */}
                 {/* ------------------------------------------- */}
                 {isLoading ? (
-                  <>
-                    <Skeleton
-                      variant="rectangular"
-                      width={270}
-                      height={300}
-                      sx={{
-                        borderRadius: (theme) => theme.shape.borderRadius / 20,
-                      }}
-                    ></Skeleton>
-                  </>
+                  <Skeleton
+                    variant="rectangular"
+                    width={270}
+                    height={300}
+                    sx={{
+                      borderRadius: (theme) => theme.shape.borderRadius / 20,
+                    }}
+                  />
                 ) : (
                   <Box
                     position="relative"
@@ -197,9 +197,9 @@ const ProductList2 = ({ onClick }: Props) => {
                     width="100%"
                     sx={{
                       borderRadius: 0,
-                      "&:hover .wishList": {
-                        right: "0 !important",
-                        visibility: "visible",
+                      '&:hover .wishList': {
+                        right: '0 !important',
+                        visibility: 'visible',
                       },
                     }}
                   >
@@ -210,26 +210,30 @@ const ProductList2 = ({ onClick }: Props) => {
                       <Avatar
                         src={product.photo}
                         alt="img"
-                        sx={{ width: "100%", height: "256px", borderRadius: br }}
+                        sx={{
+                          width: '100%',
+                          height: '256px',
+                          borderRadius: br,
+                        }}
                       />
                     </Typography>
                     <Box
                       className="wishList"
                       sx={{
-                        position: "absolute",
-                        top: "37%",
-                        right: "-100px",
-                        transition: "all .3s ease-in-out",
-                        visibility: "hidden",
+                        position: 'absolute',
+                        top: '37%',
+                        right: '-100px',
+                        transition: 'all .3s ease-in-out',
+                        visibility: 'hidden',
                       }}
                     >
                       <Stack
                         direction="row"
                         spacing={2}
                         sx={{
-                          bottom: "75px",
-                          right: "15px",
-                          position: "absolute",
+                          bottom: '75px',
+                          right: '15px',
+                          position: 'absolute',
                         }}
                       >
                         <Tooltip title="Add To Favourites">
@@ -239,8 +243,8 @@ const ProductList2 = ({ onClick }: Props) => {
                               dispatch(addToCart(product)) && handleClick()
                             }
                             sx={{
-                              height: "36px",
-                              width: "36px",
+                              height: '36px',
+                              width: '36px',
                               backgroundColor: (theme) =>
                                 theme.palette.warning.contrastText,
                             }}
@@ -255,8 +259,8 @@ const ProductList2 = ({ onClick }: Props) => {
                               dispatch(addToCart(product)) && handleClick()
                             }
                             sx={{
-                              height: "36px",
-                              width: "36px",
+                              height: '36px',
+                              width: '36px',
                               backgroundColor: (theme) =>
                                 theme.palette.warning.contrastText,
                             }}
@@ -311,23 +315,21 @@ const ProductList2 = ({ onClick }: Props) => {
             ))}
           </>
         ) : (
-          <>
-            <Grid item xs={12} lg={12} md={12} sm={12}>
-              <Box textAlign="center" mt={6}>
-                <Image src={emptyCart} alt="cart" width={200} />
-                <Typography variant="h2">There is no Product</Typography>
-                <Typography variant="h6" mb={3}>
-                  The Product you are searching is no longer available.
-                </Typography>
-                <Button
-                  variant="contained"
-                  onClick={() => dispatch(filterReset())}
-                >
-                  Try Again
-                </Button>
-              </Box>
-            </Grid>
-          </>
+          <Grid item xs={12} lg={12} md={12} sm={12}>
+            <Box textAlign="center" mt={6}>
+              <Image src={emptyCart} alt="cart" width={200} />
+              <Typography variant="h2">There is no Product</Typography>
+              <Typography variant="h6" mb={3}>
+                The Product you are searching is no longer available.
+              </Typography>
+              <Button
+                variant="contained"
+                onClick={() => dispatch(filterReset())}
+              >
+                Try Again
+              </Button>
+            </Box>
+          </Grid>
         )}
       </Grid>
     </Box>

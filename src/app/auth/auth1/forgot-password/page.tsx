@@ -1,19 +1,21 @@
-"use client";
+'use client';
+
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
-import Logo from "@/app/(DashboardLayout)/layout/shared/logo/Logo";
-import AuthForgotPassword from "../../authForms/AuthForgotPassword";
-import { useSelector } from "@/store/hooks";
-import { AppState } from "@/store/store";
+
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
+import { useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
+
+import AuthForgotPassword from '../../authForms/AuthForgotPassword';
 
 export default function ForgotPassword() {
-
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
   const customizer = useSelector((state: AppState) => state.customizer);
 
   return (
@@ -26,38 +28,38 @@ export default function ForgotPassword() {
           position="relative"
           width="100%"
           sx={{
-            maxWidth: "1600px",
-            height: "calc(100vh - 20px)",
-            margin: "10px auto",
+            maxWidth: '1600px',
+            height: 'calc(100vh - 20px)',
+            margin: '10px auto',
             background: (theme) => theme.palette.grey[200],
-            overflow: "hidden",
+            overflow: 'hidden',
             borderRadius: customizer.borderRadius / 18,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           <Box
             sx={{
-              position: "relative",
-              "&:before": {
+              position: 'relative',
+              '&:before': {
                 content: "''",
-                position: "absolute",
-                left: "-125px",
-                bottom: "-60px",
-                width: "300px",
-                height: "300px",
-                borderRadius: "100%",
-                backgroundColor: "error.main",
+                position: 'absolute',
+                left: '-125px',
+                bottom: '-60px',
+                width: '300px',
+                height: '300px',
+                borderRadius: '100%',
+                backgroundColor: 'error.main',
               },
-              "&:after": {
+              '&:after': {
                 content: "''",
-                position: "absolute",
-                top: "-65px",
-                right: "-60px",
-                width: "304px",
-                height: "315px",
-                backgroundRepeat: "no-repeat",
+                position: 'absolute',
+                top: '-65px',
+                right: '-60px',
+                width: '304px',
+                height: '315px',
+                backgroundRepeat: 'no-repeat',
                 background: "url('/images/backgrounds/shap-login.png')",
               },
             }}
@@ -65,20 +67,20 @@ export default function ForgotPassword() {
             <Box
               width="100%"
               sx={{
-                position: "relative",
+                position: 'relative',
                 borderRadius: customizer.borderRadius / 18,
                 zIndex: 1,
                 margin: {
-                  lg: "50px auto 50px auto",
-                  sm: "0 20px ",
-                  xs: "0 15px",
+                  lg: '50px auto 50px auto',
+                  sm: '0 20px ',
+                  xs: '0 15px',
                 },
-                boxShadow: "0 2px 30px 15px rgba(37,83,185,.1)",
-                backgroundColor: "white",
+                boxShadow: '0 2px 30px 15px rgba(37,83,185,.1)',
+                backgroundColor: 'white',
                 maxWidth: {
-                  xs: "340px",
-                  sm: "500px",
-                  lg: "1320px",
+                  xs: '340px',
+                  sm: '500px',
+                  lg: '1320px',
                 },
               }}
             >
@@ -108,16 +110,16 @@ export default function ForgotPassword() {
                         src="/images/backgrounds/login3-bg.png"
                         alt="login"
                         sx={{
-                          width: "500px",
-                          height: "500px",
-                          maxWidth: "100%",
+                          width: '500px',
+                          height: '500px',
+                          maxWidth: '100%',
                           borderRadius: 0,
-                          margin: "0 auto",
+                          margin: '0 auto',
                         }}
                       />
                     </Grid>
                   ) : (
-                    ""
+                    ''
                   )}
                   <Grid item xs={12} sm={12} lg={6}>
                     <Box
@@ -155,4 +157,4 @@ export default function ForgotPassword() {
   );
 }
 
-ForgotPassword.layout = "Blank";
+ForgotPassword.layout = 'Blank';

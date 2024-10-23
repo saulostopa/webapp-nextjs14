@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import 'react-quill/dist/quill.snow.css';
+
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -8,40 +9,42 @@ import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { useTheme } from '@mui/material/styles';
+import { IconAlertCircle, IconStar, IconTrash } from '@tabler/icons-react';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import React, { useState } from 'react';
 
-import { EmailType } from "../../../types/apps/email";
-import { IconStar, IconAlertCircle, IconTrash } from "@tabler/icons-react";
-import { useSelector, useDispatch } from "@/store/hooks";
 import {
-  starEmail,
-  importantEmail,
   deleteEmail,
-} from "@/store/apps/email/EmailSlice";
-import emailIcon from "/public/images/breadcrumb/emailSv.png";
-import dynamic from "next/dynamic";
-import "react-quill/dist/quill.snow.css";
+  importantEmail,
+  starEmail,
+} from '@/store/apps/email/EmailSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import emailIcon from '@/public/images/breadcrumb/emailSv.png';
+import type { EmailType } from '../../../types/apps/email';
+
 const ReactQuill: any = dynamic(
   async () => {
-    const { default: RQ } = await import("react-quill");
+    const { default: RQ } = await import('react-quill');
     // eslint-disable-next-line react/display-name
     return ({ ...props }) => <RQ {...props} />;
   },
   {
     ssr: false,
-  }
+  },
 );
-import Image from "next/image";
 
 const EmailContent = () => {
   const emailDetails: EmailType = useSelector(
-    (state) => state.emailReducer.emails[state.emailReducer.emailContent - 1]
+    (state) => state.emailReducer.emails[state.emailReducer.emailContent - 1],
   );
 
   const [show, setShow] = useState(false);
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   const toggleEditor = () => {
     setShow(!show);
@@ -57,25 +60,25 @@ const EmailContent = () => {
   return emailDetails && !emailDetails.trash ? (
     <Box>
       <Stack p={2} gap={0} direction="row">
-        <Tooltip title={emailDetails.starred ? "Unstar" : "Star"}>
+        <Tooltip title={emailDetails.starred ? 'Unstar' : 'Star'}>
           <IconButton onClick={() => dispatch(starEmail(emailDetails.id))}>
             <IconStar
               stroke={1.3}
               size="18"
               style={{
-                fill: emailDetails.starred ? warningColor : "",
-                stroke: emailDetails.starred ? warningColor : "",
+                fill: emailDetails.starred ? warningColor : '',
+                stroke: emailDetails.starred ? warningColor : '',
               }}
             />
           </IconButton>
         </Tooltip>
-        <Tooltip title={emailDetails ? "Important" : "Not Important"}>
+        <Tooltip title={emailDetails ? 'Important' : 'Not Important'}>
           <IconButton onClick={() => dispatch(importantEmail(emailDetails.id))}>
             <IconAlertCircle
               size="18"
               stroke={1.3}
               style={{
-                fill: emailDetails.important ? errorColor : "",
+                fill: emailDetails.important ? errorColor : '',
               }}
             />
           </IconButton>
@@ -103,14 +106,14 @@ const EmailContent = () => {
           </Box>
           <Chip
             label={emailDetails.label}
-            sx={{ ml: "auto", height: "21px" }}
+            sx={{ ml: 'auto', height: '21px' }}
             size="small"
             color={
-              emailDetails.label === "Promotional"
-                ? "primary"
-                : emailDetails.label === "Social"
-                ? "error"
-                : "success"
+              emailDetails.label === 'Promotional'
+                ? 'primary'
+                : emailDetails.label === 'Social'
+                  ? 'error'
+                  : 'success'
             }
           />
         </Box>
@@ -144,8 +147,8 @@ const EmailContent = () => {
                       <Avatar
                         variant="rounded"
                         sx={{
-                          width: "48px",
-                          height: "48px",
+                          width: '48px',
+                          height: '48px',
                           bgcolor: (theme: any) => theme.palette.grey[100],
                         }}
                       >
@@ -153,10 +156,10 @@ const EmailContent = () => {
                           src={attach.image}
                           alt="av"
                           variant="rounded"
-                          sx={{ width: "24px", height: "24px" }}
-                        ></Avatar>
+                          sx={{ width: '24px', height: '24px' }}
+                        />
                       </Avatar>
-                      <Box mr={"auto"}>
+                      <Box mr="auto">
                         <Typography variant="subtitle2" fontWeight={600} mb={1}>
                           {attach.title}
                         </Typography>
@@ -209,9 +212,9 @@ const EmailContent = () => {
     <Box
       p={3}
       height="50vh"
-      display={"flex"}
+      display="flex"
       justifyContent="center"
-      alignItems={"center"}
+      alignItems="center"
     >
       {/* ------------------------------------------- */}
       {/* If no Email  */}
@@ -221,8 +224,8 @@ const EmailContent = () => {
         <br />
         <Image
           src={emailIcon}
-          alt={"emailIcon"}
-          style={{ width: "250px", height: "250px" }}
+          alt="emailIcon"
+          style={{ width: '250px', height: '250px' }}
         />
       </Box>
     </Box>

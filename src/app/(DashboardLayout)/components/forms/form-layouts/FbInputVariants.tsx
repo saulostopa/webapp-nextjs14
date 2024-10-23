@@ -1,12 +1,13 @@
+import FormControl from '@mui/material/FormControl';
 import React from 'react';
-import FormControl from '@mui/material/FormControl'
-import CustomTextField from '../theme-elements/CustomTextField';
-import CustomFormLabel from '../theme-elements/CustomFormLabel';
+
 import ParentCard from '../../shared/ParentCard';
+import CustomFormLabel from '../theme-elements/CustomFormLabel';
+import CustomTextField from '../theme-elements/CustomTextField';
 
 const FbInputVariants = () => {
   return (
-    <ParentCard title='Input Variants'>
+    <ParentCard title="Input Variants">
       <form>
         <CustomFormLabel
           sx={{
@@ -37,10 +38,12 @@ const FbInputVariants = () => {
           variant="outlined"
           fullWidth
           required
-         error
+          error
         />
         <FormControl fullWidth error>
-          <CustomFormLabel htmlFor="error-text-input">Input with Error text</CustomFormLabel>
+          <CustomFormLabel htmlFor="error-text-input">
+            Input with Error text
+          </CustomFormLabel>
           <CustomTextField
             id="error-text-input"
             variant="outlined"

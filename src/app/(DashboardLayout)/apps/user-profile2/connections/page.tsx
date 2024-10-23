@@ -1,11 +1,11 @@
-"use client"
+'use client';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ProfileBanner from '@/app/(DashboardLayout)/components/apps/userprofile2/profile/ProfileBanner';
-import GalleryCard from '@/app/(DashboardLayout)/components/apps/userprofile2/connections/GalleryCard';
 
+import GalleryCard from '@/app/(DashboardLayout)/components/apps/userprofile2/connections/GalleryCard';
+import ProfileBanner from '@/app/(DashboardLayout)/components/apps/userprofile2/profile/ProfileBanner';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 
 const Gallery = () => {
   return (
@@ -15,8 +15,8 @@ const Gallery = () => {
           <ProfileBanner />
         </Grid>
         <Grid item sm={12}>
-        <Box mx={3}>
-          <GalleryCard />
+          <Box mx={3}>
+            <GalleryCard />
           </Box>
         </Grid>
       </Grid>

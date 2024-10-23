@@ -1,12 +1,13 @@
-'use client'
+'use client';
 
 import Grid from '@mui/material/Grid';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
 import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
 import ClickPopover from '@/app/(DashboardLayout)/components/ui-components/popover/ClickPopover';
 import HoverPopover from '@/app/(DashboardLayout)/components/ui-components/popover/HoverPopover';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -41,5 +42,5 @@ const MuiPopover = () => {
       </ParentCard>
     </PageContainer>
   );
-}
+};
 export default MuiPopover;

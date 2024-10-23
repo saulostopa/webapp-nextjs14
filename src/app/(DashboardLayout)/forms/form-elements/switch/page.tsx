@@ -1,16 +1,17 @@
-'use client'
+'use client';
 
 import Grid from '@mui/material/Grid';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import ColorsSwitch from '@/app/(DashboardLayout)/components/forms/form-elements/switch/Colors';
 import CustomExSwitch from '@/app/(DashboardLayout)/components/forms/form-elements/switch/Custom';
 import DefaultSwitch from '@/app/(DashboardLayout)/components/forms/form-elements/switch/Default';
 import DefaultLabelSwitch from '@/app/(DashboardLayout)/components/forms/form-elements/switch/DefaultLabel';
-import SizesSwitch from '@/app/(DashboardLayout)/components/forms/form-elements/switch/Sizes';
-import ColorsSwitch from '@/app/(DashboardLayout)/components/forms/form-elements/switch/Colors';
 import PositionSwitch from '@/app/(DashboardLayout)/components/forms/form-elements/switch/Position';
+import SizesSwitch from '@/app/(DashboardLayout)/components/forms/form-elements/switch/Sizes';
+import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {

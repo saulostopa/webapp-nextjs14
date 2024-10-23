@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
-import List from "@mui/material/List";
-import { useSelector, useDispatch } from "@/store/hooks";
-import EmailListItem from "./EmailListItem";
+import List from '@mui/material/List';
+import React, { useEffect } from 'react';
+
 import {
+  checkEmail,
+  deleteEmail,
   fetchEmails,
+  importantEmail,
   SelectEmail,
   starEmail,
-  importantEmail,
-  deleteEmail,
-  checkEmail,
-} from "@/store/apps/email/EmailSlice";
+} from '@/store/apps/email/EmailSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
 
-import Scrollbar from "../../../components/custom-scroll/Scrollbar";
-import { EmailType } from "../../../types/apps/email";
+import type { EmailType } from '../../../types/apps/email';
+import Scrollbar from '../../custom-scroll/Scrollbar';
+import EmailListItem from './EmailListItem';
 
 interface Props {
   showrightSidebar: any;
@@ -28,75 +29,75 @@ const EmailList = ({ showrightSidebar }: Props) => {
   const getVisibleEmail = (
     emails: EmailType[],
     filter: string,
-    emailSearch: string
+    emailSearch: string,
   ) => {
     switch (filter) {
-      case "inbox":
+      case 'inbox':
         return emails.filter(
           (t) =>
             t.inbox &&
             !t.trash &&
-            t.from.toLocaleLowerCase().includes(emailSearch)
+            t.from.toLocaleLowerCase().includes(emailSearch),
         );
-      case "sent":
+      case 'sent':
         return emails.filter(
           (t) =>
             t.sent &&
             !t.trash &&
-            t.from.toLocaleLowerCase().includes(emailSearch)
+            t.from.toLocaleLowerCase().includes(emailSearch),
         );
-      case "draft":
+      case 'draft':
         return emails.filter(
           (t) =>
             t.draft &&
             !t.trash &&
-            t.from.toLocaleLowerCase().includes(emailSearch)
+            t.from.toLocaleLowerCase().includes(emailSearch),
         );
-      case "spam":
+      case 'spam':
         return emails.filter(
           (t) =>
             t.spam &&
             !t.trash &&
-            t.from.toLocaleLowerCase().includes(emailSearch)
+            t.from.toLocaleLowerCase().includes(emailSearch),
         );
-      case "trash":
+      case 'trash':
         return emails.filter(
-          (t) => t.trash && t.from.toLocaleLowerCase().includes(emailSearch)
+          (t) => t.trash && t.from.toLocaleLowerCase().includes(emailSearch),
         );
-      case "starred":
+      case 'starred':
         return emails.filter(
           (t) =>
             t.starred &&
             !t.trash &&
-            t.from.toLocaleLowerCase().includes(emailSearch)
+            t.from.toLocaleLowerCase().includes(emailSearch),
         );
-      case "important":
+      case 'important':
         return emails.filter(
           (t) =>
             t.important &&
             !t.trash &&
-            t.from.toLocaleLowerCase().includes(emailSearch)
+            t.from.toLocaleLowerCase().includes(emailSearch),
         );
-      case "Promotional":
+      case 'Promotional':
         return emails.filter(
           (t) =>
-            t.label === "Promotional" &&
+            t.label === 'Promotional' &&
             !t.trash &&
-            t.from.toLocaleLowerCase().includes(emailSearch)
+            t.from.toLocaleLowerCase().includes(emailSearch),
         );
-      case "Social":
+      case 'Social':
         return emails.filter(
           (t) =>
-            t.label === "Social" &&
+            t.label === 'Social' &&
             !t.trash &&
-            t.from.toLocaleLowerCase().includes(emailSearch)
+            t.from.toLocaleLowerCase().includes(emailSearch),
         );
-      case "Health":
+      case 'Health':
         return emails.filter(
           (t) =>
-            t.label === "Health" &&
+            t.label === 'Health' &&
             !t.trash &&
-            t.from.toLocaleLowerCase().includes(emailSearch)
+            t.from.toLocaleLowerCase().includes(emailSearch),
         );
       default:
         throw new Error(`Unknown filter: ${filter}`);
@@ -107,8 +108,8 @@ const EmailList = ({ showrightSidebar }: Props) => {
     getVisibleEmail(
       state.emailReducer.emails,
       state.emailReducer.currentFilter,
-      state.emailReducer.emailSearch
-    )
+      state.emailReducer.emailSearch,
+    ),
   );
 
   const active = useSelector((state) => state.emailReducer.emailContent);
@@ -117,8 +118,8 @@ const EmailList = ({ showrightSidebar }: Props) => {
     <List>
       <Scrollbar
         sx={{
-          height: { lg: "calc(100vh - 100px)", md: "100vh" },
-          maxHeight: "800px",
+          height: { lg: 'calc(100vh - 100px)', md: '100vh' },
+          maxHeight: '800px',
         }}
       >
         {/* ------------------------------------------- */}

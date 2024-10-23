@@ -1,21 +1,20 @@
-"use client";
-import React from "react";
-import { useEffect, useState } from "react";
+'use client';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
+import React, { useEffect, useState } from 'react';
 
-import WelcomeCard from "@/app/(DashboardLayout)/components/dashboards/dashboard2/WelcomeCard";
-import TopCards from "@/app/(DashboardLayout)/components/dashboards/dashboard2/TopCards";
-import ProfielExpanceCard from "@/app/(DashboardLayout)/components/dashboards/dashboard2/ProfileExpanceCard";
-import ProductSales from "@/app/(DashboardLayout)/components/dashboards/dashboard2/ProductSales";
-import TrafficDistribution from "@/app/(DashboardLayout)/components/dashboards/dashboard2/TrafficDistribution";
-import NewGoals from "@/app/(DashboardLayout)/components/dashboards/dashboard2/NewGoals";
-import ProfileCard from "@/app/(DashboardLayout)/components/dashboards/dashboard2/ProfileCard";
-import BlogCard from "@/app/(DashboardLayout)/components/dashboards/dashboard2/BlogCard";
-import TopEmployess from "@/app/(DashboardLayout)/components/dashboards/dashboard2/TopEmployess";
-import UpcomingSchedules from "@/app/(DashboardLayout)/components/dashboards/dashboard2/UpcomingSchedules";
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import BlogCard from '@/app/(DashboardLayout)/components/dashboards/dashboard2/BlogCard';
+import NewGoals from '@/app/(DashboardLayout)/components/dashboards/dashboard2/NewGoals';
+import ProductSales from '@/app/(DashboardLayout)/components/dashboards/dashboard2/ProductSales';
+import ProfileCard from '@/app/(DashboardLayout)/components/dashboards/dashboard2/ProfileCard';
+import ProfielExpanceCard from '@/app/(DashboardLayout)/components/dashboards/dashboard2/ProfileExpanceCard';
+import TopCards from '@/app/(DashboardLayout)/components/dashboards/dashboard2/TopCards';
+import TopEmployess from '@/app/(DashboardLayout)/components/dashboards/dashboard2/TopEmployess';
+import TrafficDistribution from '@/app/(DashboardLayout)/components/dashboards/dashboard2/TrafficDistribution';
+import UpcomingSchedules from '@/app/(DashboardLayout)/components/dashboards/dashboard2/UpcomingSchedules';
+import WelcomeCard from '@/app/(DashboardLayout)/components/dashboards/dashboard2/WelcomeCard';
 
 export default function Dashboard2() {
   const [isLoading, setLoading] = useState(true);

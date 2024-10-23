@@ -1,18 +1,18 @@
-'use client'
+'use client';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import BasicIcons from '@/app/(DashboardLayout)/components/forms/form-horizontal/BasicIcons';
+import BasicLayout from '@/app/(DashboardLayout)/components/forms/form-horizontal/BasicLayout';
+import CollapsibleForm from '@/app/(DashboardLayout)/components/forms/form-horizontal/CollapsibleForm';
+import FormLabelAlignment from '@/app/(DashboardLayout)/components/forms/form-horizontal/FormLabelAlignment';
+import FormSeparator from '@/app/(DashboardLayout)/components/forms/form-horizontal/FormSeparator';
+import FormTabs from '@/app/(DashboardLayout)/components/forms/form-horizontal/FormTabs';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
 // components
 import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import BasicLayout from '@/app/(DashboardLayout)/components/forms/form-horizontal/BasicLayout';
-import BasicIcons from '@/app/(DashboardLayout)/components/forms/form-horizontal/BasicIcons';
-import FormSeparator from '@/app/(DashboardLayout)/components/forms/form-horizontal/FormSeparator';
-import FormLabelAlignment from '@/app/(DashboardLayout)/components/forms/form-horizontal/FormLabelAlignment';
-import CollapsibleForm from '@/app/(DashboardLayout)/components/forms/form-horizontal/CollapsibleForm';
-import FormTabs from '@/app/(DashboardLayout)/components/forms/form-horizontal/FormTabs';
 
 const BCrumb = [
   {
@@ -26,7 +26,10 @@ const BCrumb = [
 
 const FormHorizontal = () => {
   return (
-    <PageContainer title="Horizontal Form" description="this is Horizontal Form">
+    <PageContainer
+      title="Horizontal Form"
+      description="this is Horizontal Form"
+    >
       {/* breadcrumb */}
       <Breadcrumb title="Horizontal Form" items={BCrumb} />
       {/* end breadcrumb */}
@@ -52,11 +55,15 @@ const FormHorizontal = () => {
           </ParentCard>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="h5" mb={3}>Collapsible Section</Typography>
+          <Typography variant="h5" mb={3}>
+            Collapsible Section
+          </Typography>
           <CollapsibleForm />
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="h5" mb={3}>Form with Tabs</Typography>
+          <Typography variant="h5" mb={3}>
+            Form with Tabs
+          </Typography>
           <FormTabs />
         </Grid>
       </Grid>

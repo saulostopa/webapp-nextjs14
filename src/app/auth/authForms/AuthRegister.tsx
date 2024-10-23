@@ -2,12 +2,14 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import Link from "next/link";
-import CustomTextField from "@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField";
-import CustomFormLabel from "@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel";
-import { Stack } from "@mui/system";
-import { registerType } from "@/app/(DashboardLayout)/types/auth/auth";
-import AuthSocialButtons from "./AuthSocialButtons";
+import { Stack } from '@mui/system';
+import Link from 'next/link';
+
+import CustomFormLabel from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel';
+import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
+import type { registerType } from '@/app/(DashboardLayout)/types/auth/auth';
+
+import AuthSocialButtons from './AuthSocialButtons';
 
 const AuthRegister = ({ title, subtitle, subtext }: registerType) => (
   <>

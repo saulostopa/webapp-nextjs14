@@ -1,4 +1,3 @@
-import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -7,11 +6,16 @@ import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import { Stack } from '@mui/system';
+import {
+  IconDeviceLaptop,
+  IconDeviceMobile,
+  IconDotsVertical,
+} from '@tabler/icons-react';
+import React from 'react';
 
 // components
 import BlankCard from '../../shared/BlankCard';
-import { Stack } from '@mui/system';
-import { IconDeviceLaptop, IconDeviceMobile, IconDotsVertical } from '@tabler/icons-react';
 
 const SecurityTab = () => {
   return (
@@ -23,10 +27,15 @@ const SecurityTab = () => {
               <Typography variant="h4" mb={2}>
                 Two-factor Authentication
               </Typography>
-              <Stack direction="row" justifyContent="space-between" alignItems="center" mb={4}>
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                mb={4}
+              >
                 <Typography variant="subtitle1" color="textSecondary">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis sapiente sunt
-                  earum officiis laboriosam ut.
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Corporis sapiente sunt earum officiis laboriosam ut.
                 </Typography>
                 <Button variant="contained" color="primary">
                   Enable
@@ -87,7 +96,12 @@ const SecurityTab = () => {
             <CardContent>
               <Avatar
                 variant="rounded"
-                sx={{ bgcolor: 'primary.light', color: 'primary.main', width: 48, height: 48 }}
+                sx={{
+                  bgcolor: 'primary.light',
+                  color: 'primary.main',
+                  width: 48,
+                  height: 48,
+                }}
               >
                 <IconDeviceLaptop size="26" />
               </Avatar>
@@ -103,7 +117,13 @@ const SecurityTab = () => {
               </Button>
 
               {/* list 1 */}
-              <Stack direction="row" spacing={2} py={2} mt={3} alignItems="center">
+              <Stack
+                direction="row"
+                spacing={2}
+                py={2}
+                mt={3}
+                alignItems="center"
+              >
                 <IconDeviceMobile size="26" />
 
                 <Box>

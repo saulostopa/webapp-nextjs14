@@ -1,40 +1,40 @@
-import React from "react";
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import { Theme } from '@mui/material/styles';
+import { styled, type Theme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { styled } from '@mui/material/styles';
-import Logo from "@/app/(DashboardLayout)/layout/shared/logo/Logo";
-import Navigations from "./Navigations";
-import MobileSidebar from "./MobileSidebar";
-import { IconMenu2 } from "@tabler/icons-react";
+import { IconMenu2 } from '@tabler/icons-react';
+import React from 'react';
+
+import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
+
+import MobileSidebar from './MobileSidebar';
+import Navigations from './Navigations';
 
 const LpHeader = () => {
   const AppBarStyled = styled(AppBar)(({ theme }) => ({
-    justifyContent: "center",
-    [theme.breakpoints.up("lg")]: {
-      minHeight: "100px",
+    justifyContent: 'center',
+    [theme.breakpoints.up('lg')]: {
+      minHeight: '100px',
     },
     backgroundColor: theme.palette.background.default,
   }));
 
   const ToolbarStyled = styled(Toolbar)(({ theme }) => ({
-    width: "100%",
-    justifyContent: "space-between",
-    paddingLeft: "0 !important",
-    paddingRight: "0 !important",
+    width: '100%',
+    justifyContent: 'space-between',
+    paddingLeft: '0 !important',
+    paddingRight: '0 !important',
     color: theme.palette.text.secondary,
   }));
 
   //   sidebar
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
-  const lgDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("lg"));
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
+  const lgDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
 
   const [open, setOpen] = React.useState(false);
 
@@ -103,7 +103,7 @@ const LpHeader = () => {
         PaperProps={{
           sx: {
             width: 270,
-            border: "0 !important",
+            border: '0 !important',
             boxShadow: (theme) => theme.shadows[8],
           },
         }}

@@ -1,4 +1,3 @@
-import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -6,16 +5,15 @@ import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-
-
-// components
-import BlankCard from '../../shared/BlankCard';
-import CustomTextField from '../../forms/theme-elements/CustomTextField';
-import CustomFormLabel from '../../forms/theme-elements/CustomFormLabel';
-import CustomSelect from '../../forms/theme-elements/CustomSelect';
-
 // images
 import { Stack } from '@mui/system';
+import React from 'react';
+
+import CustomFormLabel from '../../forms/theme-elements/CustomFormLabel';
+import CustomSelect from '../../forms/theme-elements/CustomSelect';
+import CustomTextField from '../../forms/theme-elements/CustomTextField';
+// components
+import BlankCard from '../../shared/BlankCard';
 
 // locations
 const locations = [
@@ -80,15 +78,22 @@ const AccountTab = () => {
             <Typography variant="h5" mb={1}>
               Change Profile
             </Typography>
-            <Typography color="textSecondary" mb={3}>Change your profile picture from here</Typography>
+            <Typography color="textSecondary" mb={3}>
+              Change your profile picture from here
+            </Typography>
             <Box textAlign="center" display="flex" justifyContent="center">
               <Box>
                 <Avatar
-                  src={"/images/profile/user-1.jpg"}
-                  alt={"user1"}
+                  src="/images/profile/user-1.jpg"
+                  alt="user1"
                   sx={{ width: 120, height: 120, margin: '0 auto' }}
                 />
-                <Stack direction="row" justifyContent="center" spacing={2} my={3}>
+                <Stack
+                  direction="row"
+                  justifyContent="center"
+                  spacing={2}
+                  my={3}
+                >
                   <Button variant="contained" color="primary" component="label">
                     Upload
                     <input hidden accept="image/*" multiple type="file" />
@@ -112,7 +117,9 @@ const AccountTab = () => {
             <Typography variant="h5" mb={1}>
               Change Password
             </Typography>
-            <Typography color="textSecondary" mb={3}>To change your password please confirm here</Typography>
+            <Typography color="textSecondary" mb={3}>
+              To change your password please confirm here
+            </Typography>
             <form>
               <CustomFormLabel
                 sx={{
@@ -130,7 +137,9 @@ const AccountTab = () => {
                 type="password"
               />
               {/* 2 */}
-              <CustomFormLabel htmlFor="text-npwd">New Password</CustomFormLabel>
+              <CustomFormLabel htmlFor="text-npwd">
+                New Password
+              </CustomFormLabel>
               <CustomTextField
                 id="text-npwd"
                 value="MathewAnderson"
@@ -139,7 +148,9 @@ const AccountTab = () => {
                 type="password"
               />
               {/* 3 */}
-              <CustomFormLabel htmlFor="text-conpwd">Confirm Password</CustomFormLabel>
+              <CustomFormLabel htmlFor="text-conpwd">
+                Confirm Password
+              </CustomFormLabel>
               <CustomTextField
                 id="text-conpwd"
                 value="MathewAnderson"
@@ -158,7 +169,9 @@ const AccountTab = () => {
             <Typography variant="h5" mb={1}>
               Personal Details
             </Typography>
-            <Typography color="textSecondary" mb={3}>To change your personal detail , edit and save from here</Typography>
+            <Typography color="textSecondary" mb={3}>
+              To change your personal detail , edit and save from here
+            </Typography>
             <form>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
@@ -297,7 +310,12 @@ const AccountTab = () => {
             </form>
           </CardContent>
         </BlankCard>
-        <Stack direction="row" spacing={2} sx={{ justifyContent: 'end' }} mt={3}>
+        <Stack
+          direction="row"
+          spacing={2}
+          sx={{ justifyContent: 'end' }}
+          mt={3}
+        >
           <Button size="large" variant="contained" color="primary">
             Save
           </Button>

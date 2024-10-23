@@ -1,7 +1,4 @@
 // third-party
-import { format } from 'date-fns';
-import NextLink  from 'next/link';
-import { useDispatch } from '@/store/hooks';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
@@ -12,9 +9,14 @@ import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { IconEye, IconMessage2, IconPoint } from '@tabler/icons-react';
+import { format } from 'date-fns';
+import NextLink from 'next/link';
+
 import { fetchBlogPost } from '@/store/apps/blog/BlogSlice';
+import { useDispatch } from '@/store/hooks';
+
+import type { BlogPostType } from '../../../types/apps/blog';
 import BlankCard from '../../shared/BlankCard';
-import { BlogPostType } from '../../../types/apps/blog';
 
 interface Btype {
   post: BlogPostType;
@@ -23,7 +25,8 @@ interface Btype {
 
 const BlogCard = ({ post }: Btype) => {
   const dispatch = useDispatch();
-  const { coverImg, title, view, comments, category, author, createdAt }: any = post;
+  const { coverImg, title, view, comments, category, author, createdAt }: any =
+    post;
 
   const linkTo = title
     .toLowerCase()
@@ -39,20 +42,29 @@ const BlogCard = ({ post }: Btype) => {
             href={`/apps/blog/detail/${linkTo}`}
             onClick={() => dispatch(fetchBlogPost(linkTo))}
           >
-            <CardMedia component="img" height="240" image={coverImg} alt="green iguana" />
+            <CardMedia
+              component="img"
+              height="240"
+              image={coverImg}
+              alt="green iguana"
+            />
           </Typography>
           <CardContent>
             <Stack direction="row" sx={{ marginTop: '-45px' }}>
               <Tooltip title={author?.name} placement="top">
-                <Avatar aria-label="recipe" src={author?.avatar}></Avatar>
+                <Avatar aria-label="recipe" src={author?.avatar} />
               </Tooltip>
               <Chip
-                sx={{ marginLeft: 'auto', marginTop: '-21px', backgroundColor: 'white' }}
+                sx={{
+                  marginLeft: 'auto',
+                  marginTop: '-21px',
+                  backgroundColor: 'white',
+                }}
                 label="2 min Read"
                 size="small"
-              ></Chip>
+              />
             </Stack>
-            <Chip label={category} size="small" sx={{ marginTop: 2 }}></Chip>
+            <Chip label={category} size="small" sx={{ marginTop: 2 }} />
             <Box my={3}>
               <Typography
                 gutterBottom

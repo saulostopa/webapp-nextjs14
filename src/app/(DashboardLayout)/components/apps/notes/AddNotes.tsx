@@ -1,5 +1,3 @@
-import * as React from 'react';
-import { addNote } from '@/store/apps/notes/NotesSlice';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -8,8 +6,11 @@ import DialogContentText from '@mui/material/DialogContentText';
 import Fab from '@mui/material/Fab';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { useSelector, useDispatch } from '@/store/hooks';
 import { IconCheck } from '@tabler/icons-react';
+import * as React from 'react';
+
+import { addNote } from '@/store/apps/notes/NotesSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
 
 interface Props {
   colors: any[];
@@ -36,7 +37,12 @@ const AddNotes = ({ colors }: Props) => {
 
   return (
     <>
-      <Button variant="contained" disableElevation color="primary" onClick={handleClickOpen}>
+      <Button
+        variant="contained"
+        disableElevation
+        color="primary"
+        onClick={handleClickOpen}
+      >
         Add Note
       </Button>
       <Dialog open={open} onClose={handleClose}>
@@ -45,8 +51,8 @@ const AddNotes = ({ colors }: Props) => {
             Add New Note
           </Typography>
           <DialogContentText>
-            To add new notes please enter your description and choose note colors. and press the
-            submit button to add new note.
+            To add new notes please enter your description and choose note
+            colors. and press the submit button to add new note.
           </DialogContentText>
           <TextField
             multiline

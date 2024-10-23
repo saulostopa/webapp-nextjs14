@@ -1,5 +1,6 @@
-import React from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
+import React from 'react';
+
 import CustomTextField from '../../theme-elements/CustomTextField';
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
@@ -72,7 +73,8 @@ const top100Films = [
   { label: 'Alien', year: 1979 },
   { label: 'Sunset Boulevard', year: 1950 },
   {
-    label: 'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb',
+    label:
+      'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb',
     year: 1964,
   },
   { label: 'The Great Dictator', year: 1940 },
@@ -141,7 +143,11 @@ const SizesAutocomplete = () => (
         mb: 2,
       }}
       renderInput={(params) => (
-        <CustomTextField {...params} placeholder="Size Medium" aria-label="Size Medium" />
+        <CustomTextField
+          {...params}
+          placeholder="Size Medium"
+          aria-label="Size Medium"
+        />
       )}
     />
     <Autocomplete
@@ -151,7 +157,11 @@ const SizesAutocomplete = () => (
       fullWidth
       size="small"
       renderInput={(params) => (
-        <CustomTextField {...params} placeholder="Size Small" aria-label="Size Small" />
+        <CustomTextField
+          {...params}
+          placeholder="Size Small"
+          aria-label="Size Small"
+        />
       )}
     />
   </>

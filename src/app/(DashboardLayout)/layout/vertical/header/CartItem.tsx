@@ -4,23 +4,22 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import Link from "next/link";
-import { IconMinus, IconPlus } from "@tabler/icons-react";
-import { useSelector, useDispatch } from "@/store/hooks";
-import emptyCart from "/public/images/products/empty-shopping-cart.svg";
-import {
-  increment,
-  decrement,
-} from "@/store/apps/eCommerce/ECommerceSlice";
-import { AppState } from "@/store/store";
-import Image from "next/image";
+import { IconMinus, IconPlus } from '@tabler/icons-react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+import { decrement, increment } from '@/store/apps/eCommerce/ECommerceSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
+
+import emptyCart from '@/public/images/products/empty-shopping-cart.svg';
 
 const CartItems = () => {
   const dispatch = useDispatch();
 
   // Get Products
   const Cartproduct = useSelector(
-    (state: AppState) => state.ecommerceReducer.cart
+    (state: AppState) => state.ecommerceReducer.cart,
   );
 
   const Increase = (productId: string) => {
@@ -42,9 +41,9 @@ const CartItems = () => {
                   src={product.photo}
                   alt={product.photo}
                   sx={{
-                    borderRadius: "10px",
-                    height: "75px",
-                    width: "95px",
+                    borderRadius: '10px',
+                    height: '75px',
+                    width: '95px',
                   }}
                 />
                 <Box>
@@ -54,9 +53,9 @@ const CartItems = () => {
                     fontWeight={600}
                   >
                     {product.title}
-                  </Typography>{" "}
+                  </Typography>{' '}
                   <Typography color="textSecondary" fontSize="12px">
-                    {" "}
+                    {' '}
                     {product.category}
                   </Typography>
                   <Stack
@@ -80,7 +79,7 @@ const CartItems = () => {
                       </Button>
                       <Button
                         color="inherit"
-                        sx={{ bgcolor: "transparent", color: "text.secondary" }}
+                        sx={{ bgcolor: 'transparent', color: 'text.secondary' }}
                         variant="text"
                       >
                         {product.qty}

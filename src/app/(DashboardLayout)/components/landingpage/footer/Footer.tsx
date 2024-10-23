@@ -1,16 +1,17 @@
-import React from "react";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import React from 'react';
+
 const Footer = () => {
   return (
     <Box
       sx={{
         borderRadius: 0,
         backgroundColor: (theme) => theme.palette.background.paper,
-        padding: "30px 0 30px",
+        padding: '30px 0 30px',
       }}
     >
       <Container maxWidth="lg">
@@ -24,9 +25,9 @@ const Footer = () => {
                 href="https://wrappixel.com/"
               >
                 <Typography component="span" display="inline">
-                  {" "}
+                  {' '}
                   Wrappixel
-                </Typography>{" "}
+                </Typography>{' '}
               </Link>
               .
             </Typography>

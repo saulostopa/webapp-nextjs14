@@ -1,22 +1,23 @@
-import React from "react";
-import DashboardCard from "../../shared/DashboardCard";
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Box from '@mui/material/Box';
-import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
+import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
-import Tab from "@mui/material/Tab";
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import TabPanel from "@mui/lab/TabPanel";
-import { IconClock, IconDotsVertical } from "@tabler/icons-react";
-import Scrollbar from "@/app/(DashboardLayout)/components/custom-scroll/Scrollbar";
+import { IconClock, IconDotsVertical } from '@tabler/icons-react';
+import React from 'react';
+
+import Scrollbar from '@/app/(DashboardLayout)/components/custom-scroll/Scrollbar';
+
+import DashboardCard from '../../shared/DashboardCard';
 
 const UpcomingSchedules = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -29,7 +30,7 @@ const UpcomingSchedules = () => {
   };
 
   // tabs
-  const [value, setValue] = React.useState("1");
+  const [value, setValue] = React.useState('1');
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -42,9 +43,9 @@ const UpcomingSchedules = () => {
         <>
           <IconButton
             id="basic-button"
-            aria-controls={open ? "basic-menu" : undefined}
+            aria-controls={open ? 'basic-menu' : undefined}
             aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
+            aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
           >
             <IconDotsVertical />
@@ -55,11 +56,11 @@ const UpcomingSchedules = () => {
             open={open}
             onClose={handleClose}
             MenuListProps={{
-              "aria-labelledby": "basic-button",
+              'aria-labelledby': 'basic-button',
             }}
             transformOrigin={{
-              vertical: "top",
-              horizontal: "right",
+              vertical: 'top',
+              horizontal: 'right',
             }}
           >
             <MenuItem onClick={handleClose}>Add</MenuItem>
@@ -71,19 +72,19 @@ const UpcomingSchedules = () => {
     >
       <>
         <TabContext value={value}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <TabList
               onChange={handleChange}
               aria-label="lab API tabs example"
               variant="fullWidth"
               sx={{
-                "& .MuiTab-root.Mui-selected": {
+                '& .MuiTab-root.Mui-selected': {
                   background: (theme) => theme.palette.primary.main,
-                  color: "white",
-                  borderRadius: "8px",
+                  color: 'white',
+                  borderRadius: '8px',
                 },
-                "& .MuiTabs-indicator": {
-                  display: "none",
+                '& .MuiTabs-indicator': {
+                  display: 'none',
                 },
               }}
             >
@@ -95,12 +96,12 @@ const UpcomingSchedules = () => {
           <TabPanel
             value="1"
             sx={{
-              "&.MuiTabPanel-root": {
-                padding: "24px 0 0",
+              '&.MuiTabPanel-root': {
+                padding: '24px 0 0',
               },
             }}
           >
-            <Scrollbar sx={{ height: "340px" }}>
+            <Scrollbar sx={{ height: '340px' }}>
               <Grid container>
                 <Grid item xs={2} textAlign="left">
                   <Stack direction="column" spacing={4}>
@@ -123,9 +124,9 @@ const UpcomingSchedules = () => {
                     <Box
                       p={2}
                       sx={{
-                        borderWidth: "0 0 0 5px",
-                        borderStyle: "solid",
-                        borderColor: "primary.main",
+                        borderWidth: '0 0 0 5px',
+                        borderStyle: 'solid',
+                        borderColor: 'primary.main',
                       }}
                     >
                       <Typography variant="h6">Marketing Meeting</Typography>
@@ -143,7 +144,7 @@ const UpcomingSchedules = () => {
                       <Stack direction="row" alignItems="center" spacing={2}>
                         <AvatarGroup
                           max={4}
-                          sx={{ justifyContent: "flex-end" }}
+                          sx={{ justifyContent: 'flex-end' }}
                         >
                           <Avatar
                             alt="Remy Sharp"
@@ -174,9 +175,9 @@ const UpcomingSchedules = () => {
                     <Box
                       p={2}
                       sx={{
-                        borderWidth: "0 0 0 5px",
-                        borderStyle: "solid",
-                        borderColor: "success.main",
+                        borderWidth: '0 0 0 5px',
+                        borderStyle: 'solid',
+                        borderColor: 'success.main',
                       }}
                     >
                       <Typography variant="h6">Applied mathematics</Typography>
@@ -194,7 +195,7 @@ const UpcomingSchedules = () => {
                       <Stack direction="row" alignItems="center" spacing={2}>
                         <AvatarGroup
                           max={4}
-                          sx={{ justifyContent: "flex-end" }}
+                          sx={{ justifyContent: 'flex-end' }}
                         >
                           <Avatar
                             alt="Remy Sharp"
@@ -225,9 +226,9 @@ const UpcomingSchedules = () => {
                     <Box
                       p={2}
                       sx={{
-                        borderWidth: "0 0 0 5px",
-                        borderStyle: "solid",
-                        borderColor: "error.main",
+                        borderWidth: '0 0 0 5px',
+                        borderStyle: 'solid',
+                        borderColor: 'error.main',
                       }}
                     >
                       <Typography variant="h6">
@@ -247,7 +248,7 @@ const UpcomingSchedules = () => {
                       <Stack direction="row" alignItems="center" spacing={2}>
                         <AvatarGroup
                           max={4}
-                          sx={{ justifyContent: "flex-end" }}
+                          sx={{ justifyContent: 'flex-end' }}
                         >
                           <Avatar
                             alt="Remy Sharp"
@@ -281,12 +282,12 @@ const UpcomingSchedules = () => {
           <TabPanel
             value="2"
             sx={{
-              "&.MuiTabPanel-root": {
-                padding: "24px 0 0",
+              '&.MuiTabPanel-root': {
+                padding: '24px 0 0',
               },
             }}
           >
-            <Scrollbar sx={{ height: "340px" }}>
+            <Scrollbar sx={{ height: '340px' }}>
               <Grid container>
                 <Grid item xs={2} textAlign="left">
                   <Stack direction="column" spacing={4}>
@@ -309,9 +310,9 @@ const UpcomingSchedules = () => {
                     <Box
                       p={2}
                       sx={{
-                        borderWidth: "0 0 0 5px",
-                        borderStyle: "solid",
-                        borderColor: "success.main",
+                        borderWidth: '0 0 0 5px',
+                        borderStyle: 'solid',
+                        borderColor: 'success.main',
                       }}
                     >
                       <Typography variant="h6">Marketing Meeting</Typography>
@@ -329,7 +330,7 @@ const UpcomingSchedules = () => {
                       <Stack direction="row" alignItems="center" spacing={2}>
                         <AvatarGroup
                           max={4}
-                          sx={{ justifyContent: "flex-end" }}
+                          sx={{ justifyContent: 'flex-end' }}
                         >
                           <Avatar
                             alt="Remy Sharp"
@@ -360,9 +361,9 @@ const UpcomingSchedules = () => {
                     <Box
                       p={2}
                       sx={{
-                        borderWidth: "0 0 0 5px",
-                        borderStyle: "solid",
-                        borderColor: "error.main",
+                        borderWidth: '0 0 0 5px',
+                        borderStyle: 'solid',
+                        borderColor: 'error.main',
                       }}
                     >
                       <Typography variant="h6">Applied mathematics</Typography>
@@ -380,7 +381,7 @@ const UpcomingSchedules = () => {
                       <Stack direction="row" alignItems="center" spacing={2}>
                         <AvatarGroup
                           max={4}
-                          sx={{ justifyContent: "flex-end" }}
+                          sx={{ justifyContent: 'flex-end' }}
                         >
                           <Avatar
                             alt="Remy Sharp"
@@ -411,9 +412,9 @@ const UpcomingSchedules = () => {
                     <Box
                       p={2}
                       sx={{
-                        borderWidth: "0 0 0 5px",
-                        borderStyle: "solid",
-                        borderColor: "primary.main",
+                        borderWidth: '0 0 0 5px',
+                        borderStyle: 'solid',
+                        borderColor: 'primary.main',
                       }}
                     >
                       <Typography variant="h6">
@@ -433,7 +434,7 @@ const UpcomingSchedules = () => {
                       <Stack direction="row" alignItems="center" spacing={2}>
                         <AvatarGroup
                           max={4}
-                          sx={{ justifyContent: "flex-end" }}
+                          sx={{ justifyContent: 'flex-end' }}
                         >
                           <Avatar
                             alt="Remy Sharp"
@@ -467,12 +468,12 @@ const UpcomingSchedules = () => {
           <TabPanel
             value="3"
             sx={{
-              "&.MuiTabPanel-root": {
-                padding: "24px 0 0",
+              '&.MuiTabPanel-root': {
+                padding: '24px 0 0',
               },
             }}
           >
-            <Scrollbar sx={{ height: "340px" }}>
+            <Scrollbar sx={{ height: '340px' }}>
               <Grid container>
                 <Grid item xs={2} textAlign="left">
                   <Stack direction="column" spacing={4}>
@@ -495,9 +496,9 @@ const UpcomingSchedules = () => {
                     <Box
                       p={2}
                       sx={{
-                        borderWidth: "0 0 0 5px",
-                        borderStyle: "solid",
-                        borderColor: "secondary.main",
+                        borderWidth: '0 0 0 5px',
+                        borderStyle: 'solid',
+                        borderColor: 'secondary.main',
                       }}
                     >
                       <Typography variant="h6">Marketing Meeting</Typography>
@@ -515,7 +516,7 @@ const UpcomingSchedules = () => {
                       <Stack direction="row" alignItems="center" spacing={2}>
                         <AvatarGroup
                           max={4}
-                          sx={{ justifyContent: "flex-end" }}
+                          sx={{ justifyContent: 'flex-end' }}
                         >
                           <Avatar
                             alt="Remy Sharp"
@@ -546,9 +547,9 @@ const UpcomingSchedules = () => {
                     <Box
                       p={2}
                       sx={{
-                        borderWidth: "0 0 0 5px",
-                        borderStyle: "solid",
-                        borderColor: "warning.main",
+                        borderWidth: '0 0 0 5px',
+                        borderStyle: 'solid',
+                        borderColor: 'warning.main',
                       }}
                     >
                       <Typography variant="h6">Applied mathematics</Typography>
@@ -566,7 +567,7 @@ const UpcomingSchedules = () => {
                       <Stack direction="row" alignItems="center" spacing={2}>
                         <AvatarGroup
                           max={4}
-                          sx={{ justifyContent: "flex-end" }}
+                          sx={{ justifyContent: 'flex-end' }}
                         >
                           <Avatar
                             alt="Remy Sharp"
@@ -597,9 +598,9 @@ const UpcomingSchedules = () => {
                     <Box
                       p={2}
                       sx={{
-                        borderWidth: "0 0 0 5px",
-                        borderStyle: "solid",
-                        borderColor: "success.main",
+                        borderWidth: '0 0 0 5px',
+                        borderStyle: 'solid',
+                        borderColor: 'success.main',
                       }}
                     >
                       <Typography variant="h6">
@@ -619,7 +620,7 @@ const UpcomingSchedules = () => {
                       <Stack direction="row" alignItems="center" spacing={2}>
                         <AvatarGroup
                           max={4}
-                          sx={{ justifyContent: "flex-end" }}
+                          sx={{ justifyContent: 'flex-end' }}
                         >
                           <Avatar
                             alt="Remy Sharp"

@@ -1,6 +1,7 @@
-import mock from '../mock';
-import { sub } from 'date-fns';
 import { Chance } from 'chance';
+import { sub } from 'date-fns';
+
+import mock from '../mock';
 
 const chance = new Chance();
 
@@ -17,7 +18,7 @@ const ProductsData = [
     stock: true,
     qty: 1,
     colors: ['#1890FF'],
-    photo: "/images/products/bproduct-1.jpg",
+    photo: '/images/products/bproduct-1.jpg',
     id: 1,
     created: sub(new Date(), { days: 8, hours: 6, minutes: 20 }),
     description: chance.paragraph({ sentences: 2 }),
@@ -34,7 +35,7 @@ const ProductsData = [
     stock: false,
     qty: 1,
     colors: ['#1890FF', '#94D82D', '#FF4842'],
-    photo: "/images/products/bproduct-2.jpg",
+    photo: '/images/products/bproduct-2.jpg',
     id: 2,
     created: sub(new Date(), { days: 10, hours: 8, minutes: 69 }),
     description: chance.paragraph({ sentences: 2 }),
@@ -51,7 +52,7 @@ const ProductsData = [
     stock: true,
     qty: 1,
     colors: ['#FF4842', '#1890FF', '#94D82D'],
-    photo: "/images/products/bproduct-3.jpg",
+    photo: '/images/products/bproduct-3.jpg',
     id: 3,
     created: sub(new Date(), { days: 8, hours: 6, minutes: 20 }),
     description: chance.paragraph({ sentences: 2 }),
@@ -68,7 +69,7 @@ const ProductsData = [
     stock: true,
     qty: 1,
     colors: ['#1890FF', '#94D82D', '#FFC107'],
-    photo: "/images/products/bproduct-4.jpg",
+    photo: '/images/products/bproduct-4.jpg',
     id: 4,
     created: sub(new Date(), { days: 4, hours: 9, minutes: 40 }),
     description: chance.paragraph({ sentences: 2 }),
@@ -85,7 +86,7 @@ const ProductsData = [
     stock: false,
     qty: 1,
     colors: ['#00AB55', '#000000'],
-    photo: "/images/products/bproduct-5.jpg",
+    photo: '/images/products/bproduct-5.jpg',
     id: 5,
     created: sub(new Date(), { days: 2, hours: 5, minutes: 50 }),
     description: chance.paragraph({ sentences: 2 }),
@@ -102,7 +103,7 @@ const ProductsData = [
     stock: true,
     qty: 1,
     colors: ['#FFC0CB', '#FF4842'],
-    photo: "/images/products/bproduct-6.jpg",
+    photo: '/images/products/bproduct-6.jpg',
     id: 6,
     created: sub(new Date(), { days: 2, hours: 9, minutes: 45 }),
     description: chance.paragraph({ sentences: 2 }),
@@ -119,7 +120,7 @@ const ProductsData = [
     stock: true,
     qty: 1,
     colors: ['#FF4842', '#1890FF', '#94D82D'],
-    photo: "/images/products/bproduct-7.jpg",
+    photo: '/images/products/bproduct-7.jpg',
     id: 7,
     created: sub(new Date(), { days: 6, hours: 10, minutes: 0 }),
     description: chance.paragraph({ sentences: 2 }),
@@ -136,7 +137,7 @@ const ProductsData = [
     stock: true,
     qty: 1,
     colors: ['#1890FF', '#94D82D', '#FFC107'],
-    photo: "/images/products/bproduct-8.jpg",
+    photo: '/images/products/bproduct-8.jpg',
     id: 8,
     created: sub(new Date(), { days: 7, hours: 5, minutes: 20 }),
     description: chance.paragraph({ sentences: 2 }),
@@ -170,7 +171,7 @@ const ProductsData = [
     stock: true,
     qty: 1,
     colors: ['#FFC0CB', '#FF4842'],
-    photo: "/images/products/bproduct-10.jpg",
+    photo: '/images/products/bproduct-10.jpg',
     id: 10,
     created: sub(new Date(), { days: 6, hours: 6, minutes: 20 }),
     description: chance.paragraph({ sentences: 2 }),
@@ -187,7 +188,7 @@ const ProductsData = [
     stock: true,
     qty: 1,
     colors: ['#FF4842', '#1890FF', '#94D82D'],
-    photo: "/images/products/bproduct-11.jpg",
+    photo: '/images/products/bproduct-11.jpg',
     id: 11,
     created: sub(new Date(), { days: 1, hours: 6, minutes: 20 }),
     description: chance.paragraph({ sentences: 2 }),
@@ -204,7 +205,7 @@ const ProductsData = [
     stock: true,
     qty: 1,
     colors: ['#1890FF', '#94D82D', '#FFC107'],
-    photo: "/images/products/bproduct-12.jpg",
+    photo: '/images/products/bproduct-12.jpg',
     id: 12,
     created: sub(new Date(), { days: 9, hours: 6, minutes: 20 }),
     description: chance.paragraph({ sentences: 2 }),

@@ -1,4 +1,3 @@
-import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -7,13 +6,19 @@ import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import { Stack } from '@mui/system';
+import {
+  IconCirclePlus,
+  IconCreditCard,
+  IconPackage,
+  IconPencilMinus,
+} from '@tabler/icons-react';
+import React from 'react';
 
+import CustomFormLabel from '../../forms/theme-elements/CustomFormLabel';
+import CustomTextField from '../../forms/theme-elements/CustomTextField';
 // components
 import BlankCard from '../../shared/BlankCard';
-import CustomTextField from '../../forms/theme-elements/CustomTextField';
-import CustomFormLabel from '../../forms/theme-elements/CustomFormLabel';
-import { Stack } from '@mui/system';
-import { IconCirclePlus, IconCreditCard, IconPackage, IconPencilMinus } from '@tabler/icons-react';
 
 const BillsTab = () => {
   return (
@@ -53,25 +58,45 @@ const BillsTab = () => {
                   <CustomFormLabel sx={{ mt: 0 }} htmlFor="text-baddress">
                     Business Address*
                   </CustomFormLabel>
-                  <CustomTextField id="text-baddress" value="" variant="outlined" fullWidth />
+                  <CustomTextField
+                    id="text-baddress"
+                    value=""
+                    variant="outlined"
+                    fullWidth
+                  />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <CustomFormLabel sx={{ mt: 0 }} htmlFor="text-bcy">
                     Country*
                   </CustomFormLabel>
-                  <CustomTextField id="text-bcy" value="Romania" variant="outlined" fullWidth />
+                  <CustomTextField
+                    id="text-bcy"
+                    value="Romania"
+                    variant="outlined"
+                    fullWidth
+                  />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <CustomFormLabel sx={{ mt: 0 }} htmlFor="text-fname">
                     First Name*
                   </CustomFormLabel>
-                  <CustomTextField id="text-fname" value="" variant="outlined" fullWidth />
+                  <CustomTextField
+                    id="text-fname"
+                    value=""
+                    variant="outlined"
+                    fullWidth
+                  />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <CustomFormLabel sx={{ mt: 0 }} htmlFor="text-lname">
                     Last Name*
                   </CustomFormLabel>
-                  <CustomTextField id="text-lname" value="" variant="outlined" fullWidth />
+                  <CustomTextField
+                    id="text-lname"
+                    value=""
+                    variant="outlined"
+                    fullWidth
+                  />
                 </Grid>
               </Grid>
             </CardContent>
@@ -84,19 +109,30 @@ const BillsTab = () => {
             <CardContent>
               <Typography variant="h4" display="flex" mb={2}>
                 Current Plan :
-                <Typography variant="h4" component="div" ml="2px" color="success.main">
+                <Typography
+                  variant="h4"
+                  component="div"
+                  ml="2px"
+                  color="success.main"
+                >
                   Executive
                 </Typography>
               </Typography>
               <Typography color="textSecondary">
-                Thanks for being a premium member and supporting our development.
+                Thanks for being a premium member and supporting our
+                development.
               </Typography>
 
               {/* list 1 */}
               <Stack direction="row" spacing={2} mt={4} mb={2}>
                 <Avatar
                   variant="rounded"
-                  sx={{ bgcolor: 'grey.100', color: 'grey.500', width: 48, height: 48 }}
+                  sx={{
+                    bgcolor: 'grey.100',
+                    color: 'grey.500',
+                    width: 48,
+                    height: 48,
+                  }}
                 >
                   <IconPackage size="22" />
                 </Avatar>
@@ -136,12 +172,19 @@ const BillsTab = () => {
               <Typography variant="h4" mb={2}>
                 Payment Method
               </Typography>
-              <Typography color="textSecondary">On 26 December, 2023</Typography>
+              <Typography color="textSecondary">
+                On 26 December, 2023
+              </Typography>
               {/* list 1 */}
               <Stack direction="row" spacing={2} mt={4}>
                 <Avatar
                   variant="rounded"
-                  sx={{ bgcolor: 'grey.100', color: 'grey.500', width: 48, height: 48 }}
+                  sx={{
+                    bgcolor: 'grey.100',
+                    color: 'grey.500',
+                    width: 48,
+                    height: 48,
+                  }}
                 >
                   <IconCreditCard size="22" />
                 </Avatar>
@@ -162,8 +205,8 @@ const BillsTab = () => {
                 </Box>
               </Stack>
               <Typography color="textSecondary" my={1}>
-                If you updated your payment method, it will only be dislpayed here after your next
-                billing cycle.
+                If you updated your payment method, it will only be dislpayed
+                here after your next billing cycle.
               </Typography>
               <Button variant="outlined" color="error">
                 Cancel Subscription

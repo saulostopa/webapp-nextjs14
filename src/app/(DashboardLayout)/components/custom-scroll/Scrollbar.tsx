@@ -1,11 +1,12 @@
-import SimpleBar from "simplebar-react";
-import "simplebar-react/dist/simplebar.min.css";
+import 'simplebar-react/dist/simplebar.min.css';
+
 import Box from '@mui/material/Box';
-import { SxProps } from '@mui/system';
 import { styled } from '@mui/material/styles';
+import type { SxProps } from '@mui/system';
+import SimpleBar from 'simplebar-react';
 
 const SimpleBarStyle = styled(SimpleBar)(() => ({
-  maxHeight: "100%",
+  maxHeight: '100%',
 }));
 
 interface PropsType {
@@ -18,10 +19,10 @@ const Scrollbar = (props: PropsType) => {
 
   const isMobile =
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
+      navigator.userAgent,
     );
   if (isMobile) {
-    return <Box sx={{ overflowX: "auto" }}>{children}</Box>;
+    return <Box sx={{ overflowX: 'auto' }}>{children}</Box>;
   }
 
   return (

@@ -2,29 +2,22 @@ import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import DashboardCard from "../../shared/DashboardCard";
-import React from "react";
+import React from 'react';
 
-import VectorMap, {
-  Layer,
-  Tooltip,
-  LoadingIndicator,
-  Size,
-} from "devextreme-react/vector-map";
+import DashboardCard from '../../shared/DashboardCard';
 // import * as mapsData from "devextreme/dist/js/vectormap-data/usa.js";
-import { markers } from "./data";
 
-const mapsData = require("devextreme/dist/js/vectormap-data/usa.js");
+const mapsData = require('devextreme/dist/js/vectormap-data/usa.js');
 
 const bounds = [-118, 52, -80, 20];
 
 function TooltipTemplate(info: any) {
-  const name = info.attribute("name");
+  const name = info.attribute('name');
 
   return (
-    <>
-      <Typography variant="subtitle2" fontSize="12px" fontWeight={500}>{info.attribute("name")}</Typography>
-    </>
+    <Typography variant="subtitle2" fontSize="12px" fontWeight={500}>
+      {info.attribute('name')}
+    </Typography>
   );
 }
 
@@ -33,11 +26,13 @@ const VisitUsa = () => {
     <DashboardCard title="Visit From USA" subtitle="Top locations">
       <>
         <Box>
-          <Box mb={3} height="250px"
+          <Box
+            mb={3}
+            height="250px"
             sx={{
-              ".dxm-background": {
+              '.dxm-background': {
                 fill: (theme) =>
-                  theme.palette.mode == "dark" ? "#111936" : "white",
+                  theme.palette.mode == 'dark' ? '#111936' : 'white',
               },
             }}
           >

@@ -1,7 +1,8 @@
-import axios from '../../../utils/axios';
-import { filter, map } from 'lodash';
 import { createSlice } from '@reduxjs/toolkit';
-import { AppDispatch } from '../../store';
+import { filter, map } from 'lodash';
+
+import axios from '../../../utils/axios';
+import type { AppDispatch } from '../../store';
 
 const API_URL = '/api/data/eCommerce/ProductsData';
 
@@ -131,7 +132,10 @@ export const EcommerceSlice = createSlice({
 
     // delete Cart
     deleteCart(state: StateType, action) {
-      const updateCart = filter(state.cart, (item) => item.id !== action.payload);
+      const updateCart = filter(
+        state.cart,
+        (item) => item.id !== action.payload,
+      );
       state.cart = updateCart;
     },
   },

@@ -1,13 +1,15 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from '@mui/material/styles';
 import CardContent from '@mui/material/CardContent';
 import MenuItem from '@mui/material/MenuItem';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import BlankCard from '../../shared/BlankCard';
-import { Stack, Box } from '@mui/system';
+import { Box, Stack } from '@mui/system';
+import dynamic from 'next/dynamic';
+import React from 'react';
+
 import CustomSelect from '../../forms/theme-elements/CustomSelect';
+import BlankCard from '../../shared/BlankCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const MostVisited = () => {
   // for select
@@ -100,7 +102,13 @@ const MostVisited = () => {
           </CustomSelect>
         </Stack>
         <Box className="rounded-bars">
-          <Chart options={optionscolumnchart} series={seriescolumnchart} type="bar" height="250px" width={"100%"} />
+          <Chart
+            options={optionscolumnchart}
+            series={seriescolumnchart}
+            type="bar"
+            height="250px"
+            width="100%"
+          />
         </Box>
         <Stack direction="row" spacing={2} justifyContent="center">
           <Box display="flex" alignItems="center" gap={1}>
@@ -111,7 +119,7 @@ const MostVisited = () => {
                 backgroundColor: 'primary.main',
                 borderRadius: '100%',
               }}
-            ></Box>
+            />
             <Typography variant="subtitle2" color="textSecondary">
               San Francisco
             </Typography>
@@ -124,7 +132,7 @@ const MostVisited = () => {
                 backgroundColor: 'secondary.main',
                 borderRadius: '100%',
               }}
-            ></Box>
+            />
             <Typography variant="subtitle2" color="textSecondary">
               Diego
             </Typography>

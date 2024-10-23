@@ -1,24 +1,25 @@
-'use client'
+'use client';
 
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Rating from '@mui/material/Rating';
-import Stack from '@mui/material/Stack';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
-import { IconContainerProps } from '@mui/material/Rating';
-import { IconStar } from '@tabler/icons-react';
-import { styled } from '@mui/material/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import type { IconContainerProps } from '@mui/material/Rating';
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+import { IconStar } from '@tabler/icons-react';
+import * as React from 'react';
+
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -86,7 +87,7 @@ const customIcons: {
 };
 function IconContainer(props: IconContainerProps) {
   const { value, ...other } = props;
-  
+
   return <span {...other}>{customIcons[value].icon}</span>;
 }
 
@@ -147,9 +148,17 @@ const MuiRating = () => {
                   onChangeActive={(event, newHover) => {
                     setHover(newHover);
                   }}
-                  emptyIcon={<IconStar width={20} style={{ opacity: 0.55 }} fontSize="inherit" />}
+                  emptyIcon={
+                    <IconStar
+                      width={20}
+                      style={{ opacity: 0.55 }}
+                      fontSize="inherit"
+                    />
+                  }
                 />
-                {value !== null && <Box>{labels[hover !== -1 ? hover : value]}</Box>}
+                {value !== null && (
+                  <Box>{labels[hover !== -1 ? hover : value]}</Box>
+                )}
               </Stack>
             </ChildCard>
           </Grid>
@@ -160,7 +169,9 @@ const MuiRating = () => {
                 <StyledRating
                   name="customized-color"
                   defaultValue={2}
-                  getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
+                  getLabelText={(value) =>
+                    `${value} Heart${value !== 1 ? 's' : ''}`
+                  }
                   precision={0.5}
                   icon={<FavoriteIcon fontSize="inherit" />}
                   emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}

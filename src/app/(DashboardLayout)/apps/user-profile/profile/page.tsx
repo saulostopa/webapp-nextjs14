@@ -1,17 +1,16 @@
-"use client"
+'use client';
 
 import Grid from '@mui/material/Grid';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 
-import ProfileBanner from '@/app/(DashboardLayout)/components/apps/userprofile/profile/ProfileBanner';
 import IntroCard from '@/app/(DashboardLayout)/components/apps/userprofile/profile/IntroCard';
 import PhotosCard from '@/app/(DashboardLayout)/components/apps/userprofile/profile/PhotosCard';
 import Post from '@/app/(DashboardLayout)/components/apps/userprofile/profile/Post';
+import ProfileBanner from '@/app/(DashboardLayout)/components/apps/userprofile/profile/ProfileBanner';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 
 const UserProfile = () => {
   return (
     <PageContainer title="Profile" description="this is Profile">
-
       <Grid container spacing={3}>
         <Grid item sm={12}>
           <ProfileBanner />

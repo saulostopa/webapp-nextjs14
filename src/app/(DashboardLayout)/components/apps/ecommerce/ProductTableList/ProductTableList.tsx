@@ -1,12 +1,10 @@
-import * as React from 'react';
-import { alpha, useTheme } from '@mui/material/styles';
-import { format } from 'date-fns';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import Paper from '@mui/material/Paper';
+import { alpha, useTheme } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -20,12 +18,21 @@ import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { visuallyHidden } from '@mui/utils';
-import { useSelector, useDispatch } from '@/store/hooks';
+import {
+  IconDotsVertical,
+  IconFilter,
+  IconSearch,
+  IconTrash,
+} from '@tabler/icons-react';
+import { format } from 'date-fns';
+import * as React from 'react';
+
 import { fetchProducts } from '@/store/apps/eCommerce/ECommerceSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import type { ProductType } from '../../../../types/apps/eCommerce';
 import CustomCheckbox from '../../../forms/theme-elements/CustomCheckbox';
 import CustomSwitch from '../../../forms/theme-elements/CustomSwitch';
-import { IconDotsVertical, IconFilter, IconSearch, IconTrash } from '@tabler/icons-react';
-import { ProductType } from '../../../../types/apps/eCommerce';
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -43,7 +50,10 @@ type Order = 'asc' | 'desc';
 function getComparator<Key extends keyof any>(
   order: Order,
   orderBy: Key,
-): (a: { [key in Key]: number | string }, b: { [key in Key]: number | string }) => number {
+): (
+  a: { [key in Key]: number | string },
+  b: { [key in Key]: number | string },
+) => number {
   return order === 'desc'
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
@@ -114,10 +124,18 @@ interface EnhancedTableProps {
 }
 
 function EnhancedTableHead(props: EnhancedTableProps) {
-  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
-  const createSortHandler = (property: any) => (event: React.MouseEvent<unknown>) => {
-    onRequestSort(event, property);
-  };
+  const {
+    onSelectAllClick,
+    order,
+    orderBy,
+    numSelected,
+    rowCount,
+    onRequestSort,
+  } = props;
+  const createSortHandler =
+    (property: any) => (event: React.MouseEvent<unknown>) => {
+      onRequestSort(event, property);
+    };
 
   return (
     <TableHead>
@@ -174,12 +192,20 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
         pr: { xs: 1, sm: 1 },
         ...(numSelected > 0 && {
           bgcolor: (theme) =>
-            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
+            alpha(
+              theme.palette.primary.main,
+              theme.palette.action.activatedOpacity,
+            ),
         }),
       }}
     >
       {numSelected > 0 ? (
-        <Typography sx={{ flex: '1 1 100%' }} color="inherit" variant="subtitle2" component="div">
+        <Typography
+          sx={{ flex: '1 1 100%' }}
+          color="inherit"
+          variant="subtitle2"
+          component="div"
+        >
           {numSelected} selected
         </Typography>
       ) : (
@@ -227,12 +253,14 @@ const ProductTableList = () => {
 
   const dispatch = useDispatch();
 
-  //Fetch Products
+  // Fetch Products
   React.useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  const getProducts: ProductType[] = useSelector((state) => state.ecommerceReducer.products);
+  const getProducts: ProductType[] = useSelector(
+    (state) => state.ecommerceReducer.products,
+  );
 
   const [rows, setRows] = React.useState<any>(getProducts);
   const [search, setSearch] = React.useState('');
@@ -250,7 +278,10 @@ const ProductTableList = () => {
   };
 
   // This is for the sorting
-  const handleRequestSort = (event: React.MouseEvent<unknown>, property: any) => {
+  const handleRequestSort = (
+    event: React.MouseEvent<unknown>,
+    property: any,
+  ) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
@@ -292,7 +323,9 @@ const ProductTableList = () => {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
@@ -304,7 +337,8 @@ const ProductTableList = () => {
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+  const emptyRows =
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
   const theme = useTheme();
   const borderColor = theme.palette.divider;
@@ -317,7 +351,10 @@ const ProductTableList = () => {
           search={search}
           handleSearch={(event: any) => handleSearch(event)}
         />
-        <Paper variant="outlined" sx={{ mx: 2, mt: 1, border: `1px solid ${borderColor}` }}>
+        <Paper
+          variant="outlined"
+          sx={{ mx: 2, mt: 1, border: `1px solid ${borderColor}` }}
+        >
           <TableContainer>
             <Table
               sx={{ minWidth: 750 }}
@@ -361,7 +398,11 @@ const ProductTableList = () => {
 
                         <TableCell>
                           <Box display="flex" alignItems="center">
-                            <Avatar src={row.photo} alt="product" sx={{ width: 56, height: 56 }} />
+                            <Avatar
+                              src={row.photo}
+                              alt="product"
+                              sx={{ width: 56, height: 56 }}
+                            />
                             <Box
                               sx={{
                                 ml: 2,
@@ -370,14 +411,19 @@ const ProductTableList = () => {
                               <Typography variant="h6" fontWeight="600">
                                 {row.title}
                               </Typography>
-                              <Typography color="textSecondary" variant="subtitle2">
+                              <Typography
+                                color="textSecondary"
+                                variant="subtitle2"
+                              >
                                 {row.category}
                               </Typography>
                             </Box>
                           </Box>
                         </TableCell>
                         <TableCell>
-                          <Typography>{format(new Date(row.created), 'E, MMM d yyyy')}</Typography>
+                          <Typography>
+                            {format(new Date(row.created), 'E, MMM d yyyy')}
+                          </Typography>
                         </TableCell>
 
                         <TableCell>
@@ -443,7 +489,9 @@ const ProductTableList = () => {
         </Paper>
         <Box ml={2}>
           <FormControlLabel
-            control={<CustomSwitch checked={dense} onChange={handleChangeDense} />}
+            control={
+              <CustomSwitch checked={dense} onChange={handleChangeDense} />
+            }
             label="Dense padding"
           />
         </Box>

@@ -1,10 +1,12 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import { useDispatch, useSelector } from '@/store/hooks';
-import { TicketType } from '../../../types/apps/ticket';
+import Typography from '@mui/material/Typography';
+
 import { setVisibilityFilter } from '@/store/apps/tickets/TicketSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import type { TicketType } from '../../../types/apps/ticket';
 
 const BoxStyled = styled(Box)(() => ({
   padding: '30px',
@@ -18,7 +20,9 @@ const BoxStyled = styled(Box)(() => ({
 
 const TicketFilter = () => {
   const dispatch = useDispatch();
-  const counter: TicketType[] = useSelector((state) => state.ticketReducer.tickets);
+  const counter: TicketType[] = useSelector(
+    (state) => state.ticketReducer.tickets,
+  );
   const pendingC = counter.filter((t) => t.Status === 'Pending').length;
   const openC = counter.filter((t) => t.Status === 'Open').length;
   const closeC = counter.filter((t) => t.Status === 'Closed').length;

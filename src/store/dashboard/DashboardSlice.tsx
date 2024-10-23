@@ -1,9 +1,10 @@
-import axios from "../../utils/axios";
-import { filter, map } from "lodash";
-import { createSlice } from "@reduxjs/toolkit";
-import { AppDispatch } from "../store";
+import { createSlice } from '@reduxjs/toolkit';
+import { filter, map } from 'lodash';
 
-const API_URL = "/api/data/dashboard/LatestReviewsData";
+import axios from '../../utils/axios';
+import type { AppDispatch } from '../store';
+
+const API_URL = '/api/data/dashboard/LatestReviewsData';
 
 interface StateType {
   products: any[];
@@ -23,22 +24,22 @@ interface StateType {
 
 const initialState = {
   products: [],
-  productSearch: "",
-  sortBy: "newest",
+  productSearch: '',
+  sortBy: 'newest',
   cart: [],
   total: 0,
   filters: {
-    category: "All",
-    color: "All",
-    gender: "All",
-    price: "All",
-    rating: "",
+    category: 'All',
+    color: 'All',
+    gender: 'All',
+    price: 'All',
+    rating: '',
   },
-  error: "",
+  error: '',
 };
 
 export const DashboardSlice = createSlice({
-  name: "ecommerce",
+  name: 'ecommerce',
   initialState,
   reducers: {
     // HAS ERROR
@@ -83,11 +84,11 @@ export const DashboardSlice = createSlice({
 
     //  FILTER Reset
     filterReset(state) {
-      state.filters.category = "All";
-      state.filters.color = "All";
-      state.filters.gender = "All";
-      state.filters.price = "All";
-      state.sortBy = "newest";
+      state.filters.category = 'All';
+      state.filters.color = 'All';
+      state.filters.gender = 'All';
+      state.filters.price = 'All';
+      state.sortBy = 'newest';
     },
 
     // ADD TO CART
@@ -134,7 +135,7 @@ export const DashboardSlice = createSlice({
     deleteCart(state: StateType, action) {
       const updateCart = filter(
         state.cart,
-        (item) => item.id !== action.payload
+        (item) => item.id !== action.payload,
       );
       state.cart = updateCart;
     },

@@ -1,25 +1,26 @@
-import React from "react";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import BlankCard from "../../shared/BlankCard";
-import AnimationFadeIn from "../animation/Animation";
+import Typography from '@mui/material/Typography';
+import React from 'react';
+
+import BlankCard from '../../shared/BlankCard';
+import AnimationFadeIn from '../animation/Animation';
 
 const ImgCard = styled(BlankCard)(() => ({
   backgroundImage: `url('/images/landingpage/shape/line-bg.svg')`,
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center center",
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center center',
 }));
 
 const StyledButton = styled(Button)(() => ({
-  padding: "13px 48px",
-  fontSize: "16px",
-  borderRadius: "30px",
+  padding: '13px 48px',
+  fontSize: '16px',
+  borderRadius: '30px',
 }));
 
 const C2a = () => {
@@ -28,8 +29,8 @@ const C2a = () => {
       pt={7}
       sx={{
         pb: {
-          xs: "70px",
-          lg: "120px",
+          xs: '70px',
+          lg: '120px',
         },
         backgroundColor: (theme) => theme.palette.background.paper,
       }}
@@ -54,7 +55,7 @@ const C2a = () => {
                     </Typography>
                   </Box>
                   <Stack
-                    direction={{ xs: "column", sm: "row" }}
+                    direction={{ xs: 'column', sm: 'row' }}
                     spacing={3}
                     mt={5}
                     justifyContent="center"

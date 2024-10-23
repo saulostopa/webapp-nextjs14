@@ -6,23 +6,24 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/system';
 import { IconMapPin } from '@tabler/icons-react';
+
 import BlankCard from '../../shared/BlankCard';
 
 const followerCard = [
   {
     title: 'Andrew Grant',
     location: 'El Salvador',
-    avatar: "/images/profile/user-1.jpg",
+    avatar: '/images/profile/user-1.jpg',
   },
   {
     title: 'Leo Pratt',
     location: 'Bulgaria',
-    avatar: "/images/profile/user-2.jpg",
+    avatar: '/images/profile/user-2.jpg',
   },
   {
     title: 'Charles Nunez',
     location: 'Nepal',
-    avatar: "/images/profile/user-3.jpg",
+    avatar: '/images/profile/user-3.jpg',
   },
 ];
 
@@ -33,7 +34,12 @@ const FollowerCard = () => {
         <Grid item xs={12} sm={4} key={index}>
           <BlankCard>
             <CardContent>
-              <Stack direction="row" spacing={2} alignItems="center" justifyContent="space-between">
+              <Stack
+                direction="row"
+                spacing={2}
+                alignItems="center"
+                justifyContent="space-between"
+              >
                 <Stack direction="row" spacing={2}>
                   <Avatar src={card.avatar} alt={card.avatar} />
                   <Box>

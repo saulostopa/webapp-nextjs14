@@ -1,10 +1,12 @@
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from '@mui/material/styles';
 import CardContent from '@mui/material/CardContent';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import BlankCard from '../../shared/BlankCard';
 import { Stack } from '@mui/system';
+import dynamic from 'next/dynamic';
+
+import BlankCard from '../../shared/BlankCard';
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const Views = () => {
   // chart color
@@ -91,7 +93,12 @@ const Views = () => {
     <BlankCard>
       <CardContent sx={{ p: '30px' }}>
         <Typography variant="h4">15,480</Typography>
-        <Stack direction="row" spacing={2} justifyContent="space-between" mb={2}>
+        <Stack
+          direction="row"
+          spacing={2}
+          justifyContent="space-between"
+          mb={2}
+        >
           <Typography variant="subtitle2" color="textSecondary">
             Views
           </Typography>
@@ -99,7 +106,13 @@ const Views = () => {
             -4.150%
           </Typography>
         </Stack>
-        <Chart options={optionscolumnchart} series={seriescolumnchart} type="bar" height="80px" width={"100%"} />
+        <Chart
+          options={optionscolumnchart}
+          series={seriescolumnchart}
+          type="bar"
+          height="80px"
+          width="100%"
+        />
       </CardContent>
     </BlankCard>
   );

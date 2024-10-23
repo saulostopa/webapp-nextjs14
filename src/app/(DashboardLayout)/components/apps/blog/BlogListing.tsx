@@ -1,12 +1,14 @@
-import { useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import Pagination from '@mui/material/Pagination';
-import BlogCard from './BlogCard';
 import { orderBy } from 'lodash';
-import { useSelector, useDispatch } from '@/store/hooks';
+import { useEffect } from 'react';
+
 import { fetchBlogPosts } from '@/store/apps/blog/BlogSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import type { BlogPostType } from '../../../types/apps/blog';
+import BlogCard from './BlogCard';
 import BlogFeaturedCard from './BlogFeaturedCard';
-import { BlogPostType } from '../../../types/apps/blog';
 
 const BlogListing = () => {
   const dispatch = useDispatch();
@@ -15,8 +17,11 @@ const BlogListing = () => {
     dispatch(fetchBlogPosts());
   }, [dispatch]);
 
-  
-  const filterBlogs = (posts: BlogPostType[], sortBy: string, _cSearch: string) => {
+  const filterBlogs = (
+    posts: BlogPostType[],
+    sortBy: string,
+    _cSearch: string,
+  ) => {
     // SORT BY
 
     if (sortBy === 'newest') {
@@ -37,7 +42,7 @@ const BlogListing = () => {
 
   const filterFeaturedpost = (posts: BlogPostType[]) => {
     return (posts = posts.filter((t) => t.featured));
-  }; 
+  };
 
   const blogPosts = useSelector((state) =>
     filterBlogs(
@@ -46,7 +51,9 @@ const BlogListing = () => {
       state.blogReducer.blogSearch,
     ),
   );
-  const featuredPost = useSelector((state) => filterFeaturedpost(state.blogReducer.blogposts));
+  const featuredPost = useSelector((state) =>
+    filterFeaturedpost(state.blogReducer.blogposts),
+  );
 
   return (
     <Grid container spacing={3}>
@@ -57,7 +64,11 @@ const BlogListing = () => {
         return <BlogCard post={post} key={post.id} />;
       })}
       <Grid item lg={12} sm={12} mt={3}>
-        <Pagination count={10} color="primary" sx={{ display: 'flex', justifyContent: 'center' }} />
+        <Pagination
+          count={10}
+          color="primary"
+          sx={{ display: 'flex', justifyContent: 'center' }}
+        />
       </Grid>
     </Grid>
   );

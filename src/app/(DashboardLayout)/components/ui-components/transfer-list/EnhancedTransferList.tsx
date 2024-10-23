@@ -1,5 +1,3 @@
-import React from 'react';
-import { useTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import CardHeader from '@mui/material/CardHeader';
 import Divider from '@mui/material/Divider';
@@ -10,8 +8,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
-
-import { IconChevronRight, IconChevronLeft } from '@tabler/icons-react';
+import { useTheme } from '@mui/material/styles';
+import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
+import React from 'react';
 
 import CustomCheckbox from '../../forms/theme-elements/CustomCheckbox';
 
@@ -48,7 +47,8 @@ const EnhancedTransferList = () => {
     setChecked(newChecked);
   };
 
-  const numberOfChecked = (items: readonly number[]) => intersection(checked, items).length;
+  const numberOfChecked = (items: readonly number[]) =>
+    intersection(checked, items).length;
 
   const handleToggleAll = (items: readonly number[]) => () => {
     if (numberOfChecked(items) === items.length) {
@@ -80,8 +80,13 @@ const EnhancedTransferList = () => {
         avatar={
           <CustomCheckbox
             onClick={handleToggleAll(items)}
-            checked={numberOfChecked(items) === items.length && items.length !== 0}
-            indeterminate={numberOfChecked(items) !== items.length && numberOfChecked(items) !== 0}
+            checked={
+              numberOfChecked(items) === items.length && items.length !== 0
+            }
+            indeterminate={
+              numberOfChecked(items) !== items.length &&
+              numberOfChecked(items) !== 0
+            }
             disabled={items.length === 0}
             inputProps={{
               'aria-label': 'all items selected',
@@ -106,7 +111,12 @@ const EnhancedTransferList = () => {
           const labelId = `transfer-list-all-item-${value}-label`;
 
           return (
-            <ListItem key={value} role="listitem" button onClick={handleToggle(value)}>
+            <ListItem
+              key={value}
+              role="listitem"
+              button
+              onClick={handleToggle(value)}
+            >
               <ListItemIcon>
                 <CustomCheckbox
                   checked={checked.indexOf(value) !== -1}

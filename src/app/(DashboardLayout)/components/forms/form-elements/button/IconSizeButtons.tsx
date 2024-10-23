@@ -1,8 +1,8 @@
-import React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import { IconBell } from '@tabler/icons-react';
+import React from 'react';
 
 const IconSizeButtons = () => (
   <Stack spacing={1} direction="row" justifyContent="center">

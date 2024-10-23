@@ -1,15 +1,15 @@
-'use client'
+'use client';
 
 import Grid from '@mui/material/Grid';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import Banner1 from '@/app/(DashboardLayout)/components/widgets/banners/Banner1';
 import Banner2 from '@/app/(DashboardLayout)/components/widgets/banners/Banner2';
 import Banner3 from '@/app/(DashboardLayout)/components/widgets/banners/Banner3';
 import Banner4 from '@/app/(DashboardLayout)/components/widgets/banners/Banner4';
 import Banner5 from '@/app/(DashboardLayout)/components/widgets/banners/Banner5';
 import Banner6 from '@/app/(DashboardLayout)/components/widgets/banners/Banner6';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {

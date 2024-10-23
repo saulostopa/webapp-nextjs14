@@ -1,18 +1,19 @@
-'use client'
+'use client';
 
 import Grid from '@mui/material/Grid';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
 import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
-import SimpleDialog from '@/app/(DashboardLayout)/components/ui-components/dialog/SimpleDialog';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
 import AlertDialog from '@/app/(DashboardLayout)/components/ui-components/dialog/AlertDialog';
-import TransitionDialog from '@/app/(DashboardLayout)/components/ui-components/dialog/TransitionDialog';
 import FormDialog from '@/app/(DashboardLayout)/components/ui-components/dialog/FormDialog';
 import FullscreenDialog from '@/app/(DashboardLayout)/components/ui-components/dialog/FullscreenDialog';
 import MaxWidthDialog from '@/app/(DashboardLayout)/components/ui-components/dialog/MaxWidthDialog';
-import ScrollContentDialog from '@/app/(DashboardLayout)/components/ui-components/dialog/ScrollContentDialog';
 import ResponsiveDialog from '@/app/(DashboardLayout)/components/ui-components/dialog/ResponsiveDialog';
+import ScrollContentDialog from '@/app/(DashboardLayout)/components/ui-components/dialog/ScrollContentDialog';
+import SimpleDialog from '@/app/(DashboardLayout)/components/ui-components/dialog/SimpleDialog';
+import TransitionDialog from '@/app/(DashboardLayout)/components/ui-components/dialog/TransitionDialog';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {

@@ -1,13 +1,10 @@
-import React from "react";
-import DashboardCard from "../../shared/DashboardCard";
-import { alpha, useTheme } from "@mui/material/styles";
-import { format } from "date-fns";
-import { Icon } from "@iconify/react";
+import { Icon } from '@iconify/react';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import Rating from '@mui/material/Rating';
+import { alpha, useTheme } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -20,12 +17,17 @@ import TextField from '@mui/material/TextField';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { visuallyHidden } from "@mui/utils";
-import { useSelector, useDispatch } from "@/store/hooks";
-import { fetchProducts } from "@/store/dashboard/DashboardSlice";
-import CustomCheckbox from "../../forms/theme-elements/CustomCheckbox";
-import { ProductType } from "@/app/(DashboardLayout)/types/dashboard";
-import { IconDotsVertical } from "@tabler/icons-react";
+import { visuallyHidden } from '@mui/utils';
+import { IconDotsVertical } from '@tabler/icons-react';
+import { format } from 'date-fns';
+import React from 'react';
+
+import type { ProductType } from '@/app/(DashboardLayout)/types/dashboard';
+import { fetchProducts } from '@/store/dashboard/DashboardSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import CustomCheckbox from '../../forms/theme-elements/CustomCheckbox';
+import DashboardCard from '../../shared/DashboardCard';
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -38,16 +40,16 @@ function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   return 0;
 }
 
-type Order = "asc" | "desc";
+type Order = 'asc' | 'desc';
 
 function getComparator<Key extends keyof any>(
   order: Order,
-  orderBy: Key
+  orderBy: Key,
 ): (
   a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string }
+  b: { [key in Key]: number | string },
 ) => number {
-  return order === "desc"
+  return order === 'desc'
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
@@ -75,44 +77,44 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
   {
-    id: "pname",
+    id: 'pname',
     numeric: false,
     disablePadding: false,
-    label: "Products",
+    label: 'Products',
   },
 
   {
-    id: "cname",
+    id: 'cname',
     numeric: false,
     disablePadding: false,
-    label: "Customer",
+    label: 'Customer',
   },
 
   {
-    id: "description",
+    id: 'description',
     numeric: false,
     disablePadding: false,
-    label: "Reviews",
+    label: 'Reviews',
   },
 
   {
-    id: "status",
+    id: 'status',
     numeric: false,
     disablePadding: false,
-    label: "Status",
+    label: 'Status',
   },
 
   {
-    id: "created",
+    id: 'created',
     numeric: false,
     disablePadding: false,
-    label: "Date",
+    label: 'Date',
   },
   {
-    id: "action",
+    id: 'action',
     numeric: false,
     disablePadding: false,
-    label: "Action",
+    label: 'Action',
   },
 ];
 
@@ -148,26 +150,26 @@ function EnhancedTableHead(props: EnhancedTableProps) {
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
             inputProps={{
-              "aria-label": "select all desserts",
+              'aria-label': 'select all desserts',
             }}
           />
         </TableCell>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "right" : "left"}
-            padding={headCell.disablePadding ? "none" : "normal"}
+            align={headCell.numeric ? 'right' : 'left'}
+            padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : "asc"}
+              direction={orderBy === headCell.id ? order : 'asc'}
               onClick={createSortHandler(headCell.id)}
             >
               <Typography variant="h6">{headCell.label}</Typography>
               {orderBy === headCell.id ? (
                 <Box component="span" sx={visuallyHidden}>
-                  {order === "desc" ? "sorted descending" : "sorted ascending"}
+                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
                 </Box>
               ) : null}
             </TableSortLabel>
@@ -197,14 +199,14 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           bgcolor: (theme) =>
             alpha(
               theme.palette.primary.main,
-              theme.palette.action.activatedOpacity
+              theme.palette.action.activatedOpacity,
             ),
         }),
       }}
     >
       {numSelected > 0 ? (
         <Typography
-          sx={{ flex: "1 1 100%" }}
+          sx={{ flex: '1 1 100%' }}
           color="inherit"
           variant="subtitle2"
           component="div"
@@ -212,7 +214,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           {numSelected} selected
         </Typography>
       ) : (
-        <Box sx={{ flex: "1 1 100%" }}>
+        <Box sx={{ flex: '1 1 100%' }}>
           <TextField
             InputProps={{
               startAdornment: (
@@ -255,25 +257,25 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 }
 
 const LatestReviews = () => {
-  const [order, setOrder] = React.useState<Order>("asc");
-  const [orderBy, setOrderBy] = React.useState<any>("id");
+  const [order, setOrder] = React.useState<Order>('asc');
+  const [orderBy, setOrderBy] = React.useState<any>('id');
   const [selected, setSelected] = React.useState<readonly string[]>([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const dispatch = useDispatch();
 
-  //Fetch Products
+  // Fetch Products
   React.useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
   const getProducts: ProductType[] = useSelector(
-    (state) => state.ecommerceReducer.products
+    (state) => state.ecommerceReducer.products,
   );
 
   const [rows, setRows] = React.useState<any>(getProducts);
-  const [search, setSearch] = React.useState("");
+  const [search, setSearch] = React.useState('');
 
   React.useEffect(() => {
     setRows(getProducts);
@@ -290,10 +292,10 @@ const LatestReviews = () => {
   // This is for the sorting
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
-    property: any
+    property: any,
   ) => {
-    const isAsc = orderBy === property && order === "asc";
-    setOrder(isAsc ? "desc" : "asc");
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
   };
 
@@ -322,7 +324,7 @@ const LatestReviews = () => {
     } else if (selectedIndex > 0) {
       newSelected = newSelected.concat(
         selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1)
+        selected.slice(selectedIndex + 1),
       );
     }
 
@@ -334,7 +336,7 @@ const LatestReviews = () => {
   };
 
   const handleChangeRowsPerPage = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
@@ -398,7 +400,7 @@ const LatestReviews = () => {
                             color="primary"
                             checked={isItemSelected}
                             inputProps={{
-                              "aria-labelledby": labelId,
+                              'aria-labelledby': labelId,
                             }}
                           />
                         </TableCell>
@@ -478,20 +480,20 @@ const LatestReviews = () => {
                                 color: row.stock
                                   ? (theme) => theme.palette.success.main
                                   : (theme) => theme.palette.error.main,
-                                p: "2px 7px",
+                                p: '2px 7px',
                                 borderRadius: 2,
-                                border: "1px solid",
+                                border: '1px solid',
                               }}
                             >
-                              {" "}
-                              {row.stock ? "Confirmed" : "Pending"}
+                              {' '}
+                              {row.stock ? 'Confirmed' : 'Pending'}
                             </Box>
                           </Box>
                         </TableCell>
 
                         <TableCell>
                           <Typography fontWeight={500} variant="subtitle1">
-                            {format(new Date(row.created), "MMM d")}
+                            {format(new Date(row.created), 'MMM d')}
                           </Typography>
                         </TableCell>
                         <TableCell>
@@ -535,6 +537,5 @@ const LatestReviews = () => {
     </DashboardCard>
   );
 };
-
 
 export default LatestReviews;

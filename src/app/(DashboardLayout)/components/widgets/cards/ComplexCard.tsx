@@ -1,4 +1,3 @@
-import Link  from 'next/link';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
@@ -8,13 +7,15 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { IconMessage2, IconEye, IconPoint } from '@tabler/icons-react';
+import { IconEye, IconMessage2, IconPoint } from '@tabler/icons-react';
+import Link from 'next/link';
+
 import BlankCard from '../../shared/BlankCard';
 
 const complexCard = [
   {
-    avatar: "/images/profile/user-1.jpg",
-    coveravatar: "/images/blog/blog-img1.jpg",
+    avatar: '/images/profile/user-1.jpg',
+    coveravatar: '/images/blog/blog-img1.jpg',
     title: 'As yen tumbles, gadget-loving Japan goes for iPhones',
     category: 'Social',
     name: 'Georgeanna Ramero',
@@ -23,9 +24,10 @@ const complexCard = [
     time: 'Mon, Dec 19',
   },
   {
-    avatar: "/images/profile/user-2.jpg",
-    coveravatar: "/images/blog/blog-img2.jpg",
-    title: 'Intel loses bid to revive antitrust case against patent foe Fortress',
+    avatar: '/images/profile/user-2.jpg',
+    coveravatar: '/images/blog/blog-img2.jpg',
+    title:
+      'Intel loses bid to revive antitrust case against patent foe Fortress',
     category: 'Gadget',
     name: 'Georgeanna Ramero',
     view: '4,150',
@@ -33,8 +35,8 @@ const complexCard = [
     time: 'Sun, Dec 18',
   },
   {
-    avatar: "/images/profile/user-3.jpg",
-    coveravatar: "/images/blog/blog-img3.jpg",
+    avatar: '/images/profile/user-3.jpg',
+    coveravatar: '/images/blog/blog-img3.jpg',
     title: 'COVID outbreak deepens as more lockdowns loom in China',
     category: 'Health',
     name: 'Georgeanna Ramero',
@@ -62,15 +64,23 @@ const ComplexCard = () => {
               <CardContent>
                 <Stack direction="row" sx={{ marginTop: '-45px' }}>
                   <Tooltip title={author.name} placement="top">
-                    <Avatar aria-label="recipe" src={author.avatar}></Avatar>
+                    <Avatar aria-label="recipe" src={author.avatar} />
                   </Tooltip>
                   <Chip
-                    sx={{ marginLeft: 'auto', marginTop: '-21px', backgroundColor: 'white' }}
+                    sx={{
+                      marginLeft: 'auto',
+                      marginTop: '-21px',
+                      backgroundColor: 'white',
+                    }}
                     label="2 min Read"
                     size="small"
-                  ></Chip>
+                  />
                 </Stack>
-                <Chip label={author.category} size="small" sx={{ marginTop: 2 }}></Chip>
+                <Chip
+                  label={author.category}
+                  size="small"
+                  sx={{ marginTop: 2 }}
+                />
                 <Box my={3}>
                   <Typography
                     gutterBottom

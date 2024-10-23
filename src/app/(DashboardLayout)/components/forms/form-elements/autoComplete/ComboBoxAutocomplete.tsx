@@ -1,8 +1,9 @@
 // import Autocomplete from '@mui/material/Autocomplete';
 
-import React from 'react';
-import CustomTextField from '../../theme-elements/CustomTextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import React from 'react';
+
+import CustomTextField from '../../theme-elements/CustomTextField';
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const top100Films = [
@@ -74,7 +75,8 @@ const top100Films = [
   { label: 'Alien', year: 1979 },
   { label: 'Sunset Boulevard', year: 1950 },
   {
-    label: 'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb',
+    label:
+      'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb',
     year: 1964,
   },
   { label: 'The Great Dictator', year: 1940 },
@@ -139,7 +141,11 @@ const ComboBoxAutocomplete = () => (
     options={top100Films}
     fullWidth
     renderInput={(params) => (
-      <CustomTextField {...params} placeholder="Select movie" aria-label="Select movie" />
+      <CustomTextField
+        {...params}
+        placeholder="Select movie"
+        aria-label="Select movie"
+      />
     )}
   />
 );

@@ -1,5 +1,6 @@
-import React from 'react';
 import Box from '@mui/material/Box';
+import React from 'react';
+
 import CustomCheckbox from '../../theme-elements/CustomCheckbox';
 
 const CustomEleCheckbox = () => {
@@ -17,7 +18,11 @@ const CustomEleCheckbox = () => {
         inputProps={{ 'aria-label': 'primary checkbox' }}
       />
 
-      <CustomCheckbox disabled checked inputProps={{ 'aria-label': 'disabled checked checkbox' }} />
+      <CustomCheckbox
+        disabled
+        checked
+        inputProps={{ 'aria-label': 'disabled checked checkbox' }}
+      />
       <CustomCheckbox
         defaultChecked
         indeterminate

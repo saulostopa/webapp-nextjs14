@@ -1,26 +1,29 @@
-"use client";
+'use client';
+
+import '../../../public/css/tailwind.css';
+
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { styled, useTheme } from '@mui/material/styles';
-import React, { useState } from "react";
-import Header from "./layout/vertical/header/Header";
-import Sidebar from "./layout/vertical/sidebar/Sidebar";
-import Customizer from "./layout/shared/customizer/Customizer";
-import Navigation from "./layout/horizontal/navbar/Navigation";
-import HorizontalHeader from "./layout/horizontal/header/Header";
-import { useSelector } from "@/store/hooks";
-import { AppState } from "@/store/store";
-import { usePathname, useSearchParams } from 'next/navigation'
-import '../../../public/css/tailwind.css'
+import { usePathname } from 'next/navigation';
+import React, { useState } from 'react';
 
+import { useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
 
-const PageWrapper = styled("div")(() => ({
-  display: "flex",
+import HorizontalHeader from './layout/horizontal/header/Header';
+import Navigation from './layout/horizontal/navbar/Navigation';
+import Customizer from './layout/shared/customizer/Customizer';
+import Header from './layout/vertical/header/Header';
+import Sidebar from './layout/vertical/sidebar/Sidebar';
+
+const PageWrapper = styled('div')(() => ({
+  display: 'flex',
   flexGrow: 1,
-  paddingBottom: "60px",
-  flexDirection: "column",
+  paddingBottom: '60px',
+  flexDirection: 'column',
   zIndex: 1,
-  backgroundColor: "transparent",
+  backgroundColor: 'transparent',
 }));
 
 interface Props {
@@ -36,20 +39,20 @@ export default function RootLayout({
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const customizer = useSelector((state: AppState) => state.customizer);
   const theme = useTheme();
-  const pathname = usePathname()
-  
-  const MainWrapper = styled("div")(() => ({
-    display: "flex",
-    minHeight: "100vh",
-    width: "100%",
-    padding: customizer.isHorizontal ? 0 : "20px",
+  const pathname = usePathname();
+
+  const MainWrapper = styled('div')(() => ({
+    display: 'flex',
+    minHeight: '100vh',
+    width: '100%',
+    padding: customizer.isHorizontal ? 0 : '20px',
     // backgroundColor: (theme) =>
     //   theme.palette.mode === "dark" ? "#212946" : theme.palette.grey[200]
   }));
 
   return (
     <MainWrapper>
-       <title>Spike NextJs 14.0.3</title>
+      <title>Spike NextJs 14.0.3</title>
       {/* ------------------------------------------- */}
       {/* Main Wrapper */}
       {/* ------------------------------------------- */}
@@ -59,22 +62,22 @@ export default function RootLayout({
         {/* ------------------------------------------- */}
         {/* Sidebar */}
         {/* ------------------------------------------- */}
-        {customizer.isHorizontal ? "" : <Sidebar />}
+        {customizer.isHorizontal ? '' : <Sidebar />}
 
-        {pathname !== "/" ? <HorizontalHeader /> : ""}
-        {pathname !== "/" ? <Navigation /> : ""}
+        {pathname !== '/' ? <HorizontalHeader /> : ''}
+        {pathname !== '/' ? <Navigation /> : ''}
 
         <PageWrapper
           className="page-wrapper"
           sx={{
             ...(customizer.isCollapse && {
-              [theme.breakpoints.up("lg")]: {
+              [theme.breakpoints.up('lg')]: {
                 ml: `${customizer.MiniSidebarWidth}px`,
               },
             }),
             ...(!customizer.isCollapse &&
               !customizer.isHorizontal && {
-                [theme.breakpoints.up("lg")]: {
+                [theme.breakpoints.up('lg')]: {
                   ml: `${customizer.SidebarWidth}px`,
                 },
               }),
@@ -83,13 +86,13 @@ export default function RootLayout({
           <Container
             sx={{
               maxWidth:
-                customizer.isLayout === "boxed" ? "lg" : "100%!important",
+                customizer.isLayout === 'boxed' ? 'lg' : '100%!important',
             }}
           >
             {/* ------------------------------------------- */}
             {/* Header */}
             {/* ------------------------------------------- */}
-            {customizer.isHorizontal ? " " : <Header />}
+            {customizer.isHorizontal ? ' ' : <Header />}
 
             {/* ------------------------------------------- */}
             {/* PageContent */}
@@ -97,7 +100,7 @@ export default function RootLayout({
 
             <Box
               sx={{
-                minHeight: "calc(100vh - 170px)",
+                minHeight: 'calc(100vh - 170px)',
 
                 py: { sm: 3 },
               }}

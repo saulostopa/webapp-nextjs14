@@ -1,10 +1,11 @@
-'use client'
+'use client';
+
+import Grid from '@mui/material/Grid';
 
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import Grid from '@mui/material/Grid';
 import Questions from '@/app/(DashboardLayout)/components/pages/faq/Questions';
 import StillQuestions from '@/app/(DashboardLayout)/components/pages/faq/StillQuestions';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {

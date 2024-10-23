@@ -1,7 +1,7 @@
-import React from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { IconTrash, IconSend } from '@tabler/icons-react';
+import { IconSend, IconTrash } from '@tabler/icons-react';
+import React from 'react';
 
 const TextIconButtons = () => (
   <Stack spacing={1} direction="row" justifyContent="center">

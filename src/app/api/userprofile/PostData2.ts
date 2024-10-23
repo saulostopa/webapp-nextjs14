@@ -1,6 +1,8 @@
-import mock from '../mock';
 import { Chance } from 'chance';
-import { PostType } from '@/app/(DashboardLayout)/types/apps/userProfile';
+
+import type { PostType } from '@/app/(DashboardLayout)/types/apps/userProfile';
+
+import mock from '../mock';
 
 const chance = new Chance();
 
@@ -10,7 +12,7 @@ const posts: PostType[] = [
     id: chance.integer({ min: 1, max: 2000 }),
     profile: {
       id: chance.integer({ min: 1, max: 2000 }),
-      avatar: "/images/profile/user1.jpg",
+      avatar: '/images/profile/user1.jpg',
       name: 'Ralph Edwards',
       time: '15 min ago',
     },
@@ -18,7 +20,7 @@ const posts: PostType[] = [
       content: chance.paragraph({ sentences: 2 }),
       images: [
         {
-          img: "/images/products/s13.jpg",
+          img: '/images/products/s13.jpg',
           featured: true,
         },
       ],
@@ -31,7 +33,7 @@ const posts: PostType[] = [
           id: chance.integer({ min: 1, max: 2000 }),
           profile: {
             id: chance.integer({ min: 1, max: 2000 }),
-            avatar: "/images/profile/user3.jpg",
+            avatar: '/images/profile/user3.jpg',
             name: 'Deran Mac',
             time: '8 min ago ',
           },
@@ -48,7 +50,7 @@ const posts: PostType[] = [
           id: chance.integer({ min: 1, max: 2000 }),
           profile: {
             id: chance.integer({ min: 1, max: 2000 }),
-            avatar: "/images/profile/user4.jpg",
+            avatar: '/images/profile/user4.jpg',
             name: 'Jonathan Bg',
             time: '5 min ago ',
           },
@@ -63,7 +65,7 @@ const posts: PostType[] = [
                 id: chance.integer({ min: 1, max: 2000 }),
                 profile: {
                   id: chance.integer({ min: 1, max: 2000 }),
-                  avatar: "/images/profile/user5.jpg",
+                  avatar: '/images/profile/user5.jpg',
                   name: 'Carry minati',
                   time: 'just now ',
                 },
@@ -85,7 +87,7 @@ const posts: PostType[] = [
     id: chance.integer({ min: 1, max: 2000 }),
     profile: {
       id: chance.integer({ min: 1, max: 2000 }),
-      avatar: "/images/profile/user2.jpg",
+      avatar: '/images/profile/user2.jpg',
       name: 'Ralph Edwards',
       time: '15 min ago',
     },
@@ -93,7 +95,7 @@ const posts: PostType[] = [
       content: chance.paragraph({ sentences: 2 }),
       images: [
         {
-          img: "/images/products/s14.jpg",
+          img: '/images/products/s14.jpg',
           featured: true,
         },
       ],
@@ -108,7 +110,7 @@ const posts: PostType[] = [
     id: chance.integer({ min: 1, max: 2000 }),
     profile: {
       id: chance.integer({ min: 1, max: 2000 }),
-      avatar: "/images/profile/user5.jpg",
+      avatar: '/images/profile/user5.jpg',
       name: 'Floyd Miles',
       time: 'now',
     },
@@ -126,7 +128,7 @@ const posts: PostType[] = [
     id: chance.integer({ min: 1, max: 2000 }),
     profile: {
       id: chance.integer({ min: 1, max: 2000 }),
-      avatar: "/images/profile/user2.jpg",
+      avatar: '/images/profile/user2.jpg',
       name: 'Darrell Steward',
       time: '15 min ago ',
     },
@@ -134,11 +136,11 @@ const posts: PostType[] = [
       content: chance.paragraph({ sentences: 2 }),
       images: [
         {
-          img: "/images/products/s15.jpg",
+          img: '/images/products/s15.jpg',
           title: 'Image Title',
         },
         {
-          img: "/images/products/s16.jpg",
+          img: '/images/products/s16.jpg',
           title: 'Painter',
         },
       ],
@@ -225,7 +227,8 @@ mock.onPost('/api/data/posts2/replies/like').reply((config) => {
       comment.data.likes.value = comment.data.likes.like
         ? comment.data.likes.value + 1
         : comment.data.likes.value - 1;
-    if (post && post.data && post.data.comments) post.data.comments[commentIndex] = comment;
+    if (post && post.data && post.data.comments)
+      post.data.comments[commentIndex] = comment;
 
     return [200, { posts: [...posts] }];
   } catch (err) {

@@ -1,38 +1,33 @@
-'use client'
+'use client';
 
-import React from 'react';
 import Grid from '@mui/material/Grid';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+import React from 'react';
+
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
-
-import DefaultButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/DefaultButtons';
+import ColorButtonGroup from '@/app/(DashboardLayout)/components/forms/form-elements/button/ColorButtonGroup';
 import ColorButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/ColorButtons';
+import DefaultButtonGroup from '@/app/(DashboardLayout)/components/forms/form-elements/button/DefaultButtonGroup';
+import DefaultButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/DefaultButtons';
+import FabColorButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/FabColorButtons';
+import FabDefaultButton from '@/app/(DashboardLayout)/components/forms/form-elements/button/FabDefaultButton';
+import FabSizeButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/FabSizeButtons';
+import IconColorButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/IconColorButtons';
 import IconLoadingButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/IconLoadingButtons';
-import SizeButton from '@/app/(DashboardLayout)/components/forms/form-elements/button/SizeButton';
-
+import IconSizeButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/IconSizeButtons';
+import OutlinedColorButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/OutlinedColorButtons';
 import OutlinedIconButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/OutlinedIconButtons';
 import OutlinedSizeButton from '@/app/(DashboardLayout)/components/forms/form-elements/button/OutlinedSizeButton';
-
-import TextDefaultButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/TextDefaultButtons';
+import SizeButton from '@/app/(DashboardLayout)/components/forms/form-elements/button/SizeButton';
+import SizeButtonGroup from '@/app/(DashboardLayout)/components/forms/form-elements/button/SizeButtonGroup';
+import TextButtonGroup from '@/app/(DashboardLayout)/components/forms/form-elements/button/TextButtonGroup';
 import TextColorButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/TextColorButtons';
+import TextDefaultButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/TextDefaultButtons';
 import TextIconButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/TextIconButtons';
 import TextSizeButton from '@/app/(DashboardLayout)/components/forms/form-elements/button/TextSizeButton';
-
-import IconColorButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/IconColorButtons';
-import IconSizeButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/IconSizeButtons';
-
-import FabDefaultButton from '@/app/(DashboardLayout)/components/forms/form-elements/button/FabDefaultButton';
-import FabColorButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/FabColorButtons';
-import FabSizeButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/FabSizeButtons';
-
-import DefaultButtonGroup from '@/app/(DashboardLayout)/components/forms/form-elements/button/DefaultButtonGroup';
-import SizeButtonGroup from '@/app/(DashboardLayout)/components/forms/form-elements/button/SizeButtonGroup';
 import VerticalButtonGroup from '@/app/(DashboardLayout)/components/forms/form-elements/button/VerticalButtonGroup';
-import ColorButtonGroup from '@/app/(DashboardLayout)/components/forms/form-elements/button/ColorButtonGroup';
-import TextButtonGroup from '@/app/(DashboardLayout)/components/forms/form-elements/button/TextButtonGroup';
-import OutlinedColorButtons from '@/app/(DashboardLayout)/components/forms/form-elements/button/OutlinedColorButtons';
+import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
@@ -51,7 +46,7 @@ const MuiButton = () => (
     {/* end breadcrumb */}
     <Grid container spacing={3}>
       <Grid item xs={12}>
-        <ParentCard title='Buttons'>
+        <ParentCard title="Buttons">
           <Grid container spacing={3}>
             {/* ------------------------- row 1 ------------------------- */}
             <Grid item xs={12} lg={6} display="flex" alignItems="stretch">
@@ -153,7 +148,7 @@ const MuiButton = () => (
         </ParentCard>
       </Grid>
       <Grid item xs={12}>
-        <ParentCard title='Button Group'>
+        <ParentCard title="Button Group">
           <Grid container spacing={3}>
             {/* ------------------------- row 1 ------------------------- */}
             <Grid item xs={12} lg={6} display="flex" alignItems="stretch">
@@ -189,6 +184,6 @@ const MuiButton = () => (
         </ParentCard>
       </Grid>
     </Grid>
-  </PageContainer >
+  </PageContainer>
 );
 export default MuiButton;

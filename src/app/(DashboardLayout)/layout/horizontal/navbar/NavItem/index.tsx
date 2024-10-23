@@ -1,7 +1,4 @@
-import React from "react";
-import Link from "next/link";
-import { Icon } from "@iconify/react";
-
+import { Icon } from '@iconify/react';
 // mui imports
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
@@ -9,8 +6,11 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { styled, useTheme } from '@mui/material/styles';
-import { useSelector } from "@/store/hooks";
-import { AppState } from "@/store/store";
+import Link from 'next/link';
+import React from 'react';
+
+import { useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
 
 type NavGroup = {
   [x: string]: any;
@@ -48,30 +48,30 @@ const NavItem = ({ item, level, pathDirect, onClick }: ItemType) => {
   //   );
 
   const ListItemStyled2 = styled(ListItemButton)(() => ({
-    padding: "5px 10px",
-    gap: "10px",
+    padding: '5px 10px',
+    gap: '10px',
     borderRadius: `${customizer.borderRadius}px`,
-    marginBottom: level > 1 ? "3px" : "0px",
+    marginBottom: level > 1 ? '3px' : '0px',
     color:
       level > 1 && pathDirect === item.href
         ? `${theme.palette.primary.main}!important`
         : theme.palette.text.secondary,
 
-    "&:hover": {
+    '&:hover': {
       backgroundColor: theme.palette.primary.light,
     },
-    "&.Mui-selected": {
+    '&.Mui-selected': {
       color:
         level > 1
           ? `${theme.palette.text.secondary} !important`
-          : item.bgcolor + ".main",
-      "& .MuiTypography-root": {
-        fontWeight: level > 1 ? "600 !important" : 400,
+          : `${item.bgcolor}.main`,
+      '& .MuiTypography-root': {
+        fontWeight: level > 1 ? '600 !important' : 400,
       },
-      backgroundColor: level > 1 ? "transparent" : theme.palette.primary.main,
-      "&:hover": {
-        backgroundColor: level > 1 ? "" : theme.palette.primary.main,
-        color: "white",
+      backgroundColor: level > 1 ? 'transparent' : theme.palette.primary.main,
+      '&:hover': {
+        backgroundColor: level > 1 ? '' : theme.palette.primary.main,
+        color: 'white',
       },
     },
   }));
@@ -82,16 +82,16 @@ const NavItem = ({ item, level, pathDirect, onClick }: ItemType) => {
     target?: any;
     to?: any;
   } = {
-    component: item?.external ? "a" : Link,
+    component: item?.external ? 'a' : Link,
     to: item?.href,
-    href: item?.external ? item?.href : "",
-    target: item?.external ? "_blank" : "",
+    href: item?.external ? item?.href : '',
+    target: item?.external ? '_blank' : '',
   };
   return (
     <List component="li" disablePadding key={item.id}>
       <Link href={`${item?.href}`}>
         <ListItemStyled2
-          //{...listItemProps}
+          // {...listItemProps}
           disabled={item?.disabled}
           selected={pathDirect === item?.href}
           onClick={onClick}
@@ -108,20 +108,20 @@ const NavItem = ({ item, level, pathDirect, onClick }: ItemType) => {
 
           <ListItemIcon
             sx={{
-              minWidth: "auto",
-              p: "3px 0",
+              minWidth: 'auto',
+              p: '3px 0',
               color:
                 level > 1 && pathDirect === item?.href
                   ? `${theme.palette.primary.main}!important`
-                  : "inherit",
+                  : 'inherit',
             }}
           >
             {level > 1 ? (
               <Box
                 sx={{
-                  width: "6px",
-                  height: "6px",
-                  opacity: level > 1 && pathDirect === item?.href ? 1 : "0.3",
+                  width: '6px',
+                  height: '6px',
+                  opacity: level > 1 && pathDirect === item?.href ? 1 : '0.3',
                   backgroundColor:
                     level > 1 && pathDirect === item?.href
                       ? theme.palette.text.secondary
@@ -129,7 +129,7 @@ const NavItem = ({ item, level, pathDirect, onClick }: ItemType) => {
                 }}
               />
             ) : (
-              <Icon icon={"solar:" + item.icon} width="24" height="24" />
+              <Icon icon={`solar:${item.icon}`} width="24" height="24" />
             )}
           </ListItemIcon>
           <ListItemText>{item.title}</ListItemText>

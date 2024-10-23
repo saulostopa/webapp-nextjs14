@@ -1,6 +1,8 @@
-"use client"
+'use client';
 
-import React from 'react';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import './Calendar.css';
+
 import Button from '@mui/material/Button';
 import CardContent from '@mui/material/CardContent';
 import Dialog from '@mui/material/Dialog';
@@ -9,18 +11,17 @@ import DialogContent from '@mui/material/DialogContent';
 import Fab from '@mui/material/Fab';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { Calendar, momentLocalizer } from 'react-big-calendar';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { IconCheck } from '@tabler/icons-react';
 import moment from 'moment';
-import Events from '@/app/(DashboardLayout)/EventData';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
-import './Calendar.css';
+import React from 'react';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
 
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import { IconCheck } from '@tabler/icons-react';
 import BlankCard from '@/app/(DashboardLayout)/components/shared/BlankCard';
+import Events from '@/app/(DashboardLayout)/EventData';
 
 moment.locale('en-GB');
 const localizer = momentLocalizer(moment);
@@ -79,7 +80,9 @@ const BigCalendar = () => {
 
   const editEvent = (event: any) => {
     setOpen(true);
-    const newEditEvent = calevents.find((elem: EvType) => elem.title === event.title);
+    const newEditEvent = calevents.find(
+      (elem: EvType) => elem.title === event.title,
+    );
     setColor(event.color);
     setTitle(newEditEvent.title);
     setColor(newEditEvent.color);
@@ -106,7 +109,8 @@ const BigCalendar = () => {
     setEnd('');
     setUpdate(null);
   };
-  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value);
+  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setTitle(e.target.value);
   const selectinputChangeHandler = (id: string) => setColor(id);
 
   const submitHandler = (e: React.ChangeEvent<any>) => {
@@ -126,7 +130,9 @@ const BigCalendar = () => {
     setEnd(new Date());
   };
   const deleteHandler = (event: EvType) => {
-    const updatecalEvents = calevents.filter((ind: EvType) => ind.title !== event.title);
+    const updatecalEvents = calevents.filter(
+      (ind: EvType) => ind.title !== event.title,
+    );
     setCalEvents(updatecalEvents);
   };
 
@@ -213,7 +219,9 @@ const BigCalendar = () => {
                 inputFormat="MM/dd/yyyy"
                 value={start}
                 onChange={handleStartChange}
-                renderInput={(params: any) => <TextField {...params} fullWidth sx={{ mb: 3 }} />}
+                renderInput={(params: any) => (
+                  <TextField {...params} fullWidth sx={{ mb: 3 }} />
+                )}
               />
               <DatePicker
                 label="End Date"
@@ -226,14 +234,18 @@ const BigCalendar = () => {
                     fullWidth
                     sx={{ mb: 3 }}
                     error={start > end}
-                    helperText={start > end ? 'End date must be later than start date' : ''}
+                    helperText={
+                      start > end
+                        ? 'End date must be later than start date'
+                        : ''
+                    }
                   />
                 )}
               />
             </LocalizationProvider>
 
             {/* ------------------------------------------- */}
-            {/* Calendar Event Color*/}
+            {/* Calendar Event Color */}
             {/* ------------------------------------------- */}
             <Typography variant="h6" fontWeight={600} my={2}>
               Select Event Color

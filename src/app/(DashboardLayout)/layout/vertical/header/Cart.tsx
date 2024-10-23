@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { sum } from "lodash";
-import { IconX } from "@tabler/icons-react";
+import { Icon } from '@iconify/react';
 import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -8,24 +6,28 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { useSelector } from "@/store/hooks";
-import Link from "next/link";
-import CartItems from "./CartItem";
-import { AppState } from "@/store/store";
-import { Icon } from "@iconify/react";
+import { IconX } from '@tabler/icons-react';
+import { sum } from 'lodash';
+import Link from 'next/link';
+import React, { useState } from 'react';
+
+import { useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
+
+import CartItems from './CartItem';
 
 const Cart = () => {
   // Get Products
   const Cartproduct = useSelector(
-    (state: AppState) => state.ecommerceReducer.cart
+    (state: AppState) => state.ecommerceReducer.cart,
   );
-  const bcount = Cartproduct.length > 0 ? Cartproduct.length : "0";
+  const bcount = Cartproduct.length > 0 ? Cartproduct.length : '0';
 
   const checkout = useSelector(
-    (state: AppState) => state.ecommerceReducer.cart
+    (state: AppState) => state.ecommerceReducer.cart,
   );
   const total = sum(
-    checkout.map((product: any) => product.price * product.qty)
+    checkout.map((product: any) => product.price * product.qty),
   );
 
   const [showDrawer, setShowDrawer] = useState(false);
@@ -63,7 +65,7 @@ const Cart = () => {
         anchor="right"
         open={showDrawer}
         onClose={() => setShowDrawer(false)}
-        PaperProps={{ sx: { maxWidth: "500px" } }}
+        PaperProps={{ sx: { maxWidth: '500px' } }}
       >
         <Box
           display="flex"
@@ -115,7 +117,7 @@ const Cart = () => {
               </Button>
             </>
           ) : (
-            ""
+            ''
           )}
         </Box>
       </Drawer>

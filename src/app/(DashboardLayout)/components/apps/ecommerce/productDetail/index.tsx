@@ -1,7 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { usePathname, useSearchParams  } from "next/navigation";
-import Link from "next/link";
-
 // MUI Elements
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -12,26 +8,30 @@ import Fab from '@mui/material/Fab';
 import Grid from '@mui/material/Grid';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
+import { IconCheck, IconMinus, IconPlus } from '@tabler/icons-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
-import {  useSelector, useDispatch } from "@/store/hooks";
-import { AppState } from "@/store/store";
 import {
-  fetchProducts,
   addToCart,
-} from "@/store/apps/eCommerce/ECommerceSlice";
-import { IconCheck, IconMinus, IconPlus } from "@tabler/icons-react";
-import AlertCart from "../productCart/AlertCart";
-import { ProductType } from "../../../../types/apps/eCommerce";
- 
+  fetchProducts,
+} from '@/store/apps/eCommerce/ECommerceSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
+
+import type { ProductType } from '../../../../types/apps/eCommerce';
+import AlertCart from '../productCart/AlertCart';
+
 const ProductDetail = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const router = usePathname();
-  
+
   const getTitle: string | any = router.split('/').pop();
-  
+
   // Get Product
   useEffect(() => {
     dispatch(fetchProducts());
@@ -39,16 +39,16 @@ const ProductDetail = () => {
 
   // Get Products
   const product: ProductType | any = useSelector(
-    (state: AppState) => state.ecommerceReducer.products[getTitle - 1]
+    (state: AppState) => state.ecommerceReducer.products[getTitle - 1],
   );
 
   /// select colors on click
-  const [scolor, setScolor] = useState(product ? product.colors[0] : "");
+  const [scolor, setScolor] = useState(product ? product.colors[0] : '');
   const setColor = (e: string) => {
     setScolor(e);
   };
 
-  //set qty
+  // set qty
   const [count, setCount] = useState(1);
 
   // for alert when added something to cart
@@ -59,7 +59,7 @@ const ProductDetail = () => {
   };
 
   const handleClose = (reason: string) => {
-    if (reason === "clickaway") {
+    if (reason === 'clickaway') {
       return;
     }
     setCartalert(false);
@@ -101,18 +101,18 @@ const ProductDetail = () => {
           {/* ------------------------------------------- */}
           <Typography mt={2} variant="h4" fontWeight={600}>
             <Box
-              component={"small"}
+              component="small"
               color={theme.palette.text.secondary}
-              sx={{ textDecoration: "line-through" }}
+              sx={{ textDecoration: 'line-through' }}
             >
               ${product.salesPrice}
-            </Box>{" "}
+            </Box>{' '}
             ${product.price}
           </Typography>
           {/* ------------------------------------------- */}
           {/* Ratings */}
           {/* ------------------------------------------- */}
-          <Stack direction={"row"} alignItems="center" gap="10px" mt={2} pb={3}>
+          <Stack direction="row" alignItems="center" gap="10px" mt={2} pb={3}>
             <Rating
               name="simple-controlled"
               size="small"
@@ -136,10 +136,10 @@ const ProductDetail = () => {
                 <Fab
                   color="primary"
                   sx={{
-                    transition: "0.1s ease-in",
-                    scale: scolor === color ? "0.9" : "0.7",
+                    transition: '0.1s ease-in',
+                    scale: scolor === color ? '0.9' : '0.7',
                     backgroundColor: `${color}`,
-                    "&:hover": {
+                    '&:hover': {
                       backgroundColor: `${color}`,
                       opacity: 0.7,
                     },
@@ -148,7 +148,7 @@ const ProductDetail = () => {
                   key={color}
                   onClick={() => setColor(color)}
                 >
-                  {scolor === color ? <IconCheck size="1.1rem" /> : ""}
+                  {scolor === color ? <IconCheck size="1.1rem" /> : ''}
                 </Fab>
               ))}
             </Box>
@@ -221,7 +221,7 @@ const ProductDetail = () => {
           <AlertCart handleClose={handleClose} openCartAlert={cartalert} />
         </>
       ) : (
-        "No product"
+        'No product'
       )}
     </Box>
   );

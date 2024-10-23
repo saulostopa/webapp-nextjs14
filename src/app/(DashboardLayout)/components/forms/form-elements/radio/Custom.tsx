@@ -1,5 +1,5 @@
-import React from 'react';
 import Box from '@mui/material/Box';
+import React from 'react';
 
 import CustomRadio from '../../theme-elements/CustomRadio';
 
@@ -19,7 +19,10 @@ const CustomExRadio = () => {
         inputProps={{ 'aria-label': 'primary checkbox' }}
       />
 
-      <CustomRadio disabled inputProps={{ 'aria-label': 'disabled checked checkbox' }} />
+      <CustomRadio
+        disabled
+        inputProps={{ 'aria-label': 'disabled checked checkbox' }}
+      />
       <CustomRadio
         checked={!checked}
         inputProps={{ 'aria-label': 'checkbox with default color' }}

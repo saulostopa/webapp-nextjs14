@@ -27,9 +27,12 @@ const Banner1 = () => {
                 },
               }}
             >
-              <Typography variant="h5">Track your every Transaction Easily</Typography>
+              <Typography variant="h5">
+                Track your every Transaction Easily
+              </Typography>
               <Typography variant="subtitle1" color="textSecondary" my={2}>
-                Track and record your every income and expence easily to control your balance
+                Track and record your every income and expence easily to control
+                your balance
               </Typography>
               <Button variant="contained" color="secondary">
                 Download
@@ -38,7 +41,12 @@ const Banner1 = () => {
           </Grid>
           <Grid item sm={4}>
             <Box mb="-150px">
-              <Image src={"/images/backgrounds/track-bg.png"} alt={"trackBg"} height={195} width={168} />
+              <Image
+                src="/images/backgrounds/track-bg.png"
+                alt="trackBg"
+                height={195}
+                width={168}
+              />
             </Box>
           </Grid>
         </Grid>

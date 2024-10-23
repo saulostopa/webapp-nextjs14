@@ -1,6 +1,7 @@
-import axios from '../../../utils/axios';
 import { createSlice } from '@reduxjs/toolkit';
-import { AppDispatch } from '../../store';
+
+import axios from '../../../utils/axios';
+import type { AppDispatch } from '../../store';
 
 const API_URL = '/api/data/ticket/TicketData';
 
@@ -30,13 +31,16 @@ export const TicketSlice = createSlice({
       state.ticketSearch = action.payload;
     },
     DeleteTicket: (state: StateType, action) => {
-      const index = state.tickets.findIndex((ticket) => ticket.Id === action.payload);
+      const index = state.tickets.findIndex(
+        (ticket) => ticket.Id === action.payload,
+      );
       state.tickets.splice(index, 1);
     },
   },
 });
 
-export const { getTickets, setVisibilityFilter, SearchTicket, DeleteTicket } = TicketSlice.actions;
+export const { getTickets, setVisibilityFilter, SearchTicket, DeleteTicket } =
+  TicketSlice.actions;
 
 export const fetchTickets = () => async (dispatch: AppDispatch) => {
   try {

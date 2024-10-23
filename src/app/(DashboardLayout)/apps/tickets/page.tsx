@@ -1,10 +1,9 @@
-"use client"
+'use client';
 
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import TicketListing from '@/app/(DashboardLayout)/components/apps/tickets/TicketListing';
 import TicketFilter from '@/app/(DashboardLayout)/components/apps/tickets/TicketFilter';
+import TicketListing from '@/app/(DashboardLayout)/components/apps/tickets/TicketListing';
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
-
 
 const TicketList = () => {
   return (

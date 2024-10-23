@@ -1,31 +1,32 @@
-"use client";
-import { useEffect, useState } from "react";
+'use client';
 
 import Grid from '@mui/material/Grid';
-import Breadcrumb from "@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb";
-import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
-import YearlyBreakup from "@/app/(DashboardLayout)/components/widgets/charts/YearlyBreakup";
-import Projects from "@/app/(DashboardLayout)/components/widgets/charts/Projects";
-import Customers from "@/app/(DashboardLayout)/components/widgets/charts/Customers";
-import SalesTwo from "@/app/(DashboardLayout)/components/widgets/charts/SalesTwo";
-import MonthlyEarnings from "@/app/(DashboardLayout)/components/widgets/charts/MonthlyEarnings";
-import SalesOverview from "@/app/(DashboardLayout)/components/widgets/charts/SalesOverview";
-import RevenueUpdates from "@/app/(DashboardLayout)/components/widgets/charts/RevenueUpdates";
-import YearlySales from "@/app/(DashboardLayout)/components/widgets/charts/YearlySales";
-import MostVisited from "@/app/(DashboardLayout)/components/widgets/charts/MostVisited";
-import PageImpressions from "@/app/(DashboardLayout)/components/widgets/charts/PageImpressions";
-import Followers from "@/app/(DashboardLayout)/components/widgets/charts/Followers";
-import Views from "@/app/(DashboardLayout)/components/widgets/charts/Views";
-import Earned from "@/app/(DashboardLayout)/components/widgets/charts/Earned";
-import CurrentValue from "@/app/(DashboardLayout)/components/widgets/charts/CurrentValue";
+import { useEffect, useState } from 'react';
+
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import CurrentValue from '@/app/(DashboardLayout)/components/widgets/charts/CurrentValue';
+import Customers from '@/app/(DashboardLayout)/components/widgets/charts/Customers';
+import Earned from '@/app/(DashboardLayout)/components/widgets/charts/Earned';
+import Followers from '@/app/(DashboardLayout)/components/widgets/charts/Followers';
+import MonthlyEarnings from '@/app/(DashboardLayout)/components/widgets/charts/MonthlyEarnings';
+import MostVisited from '@/app/(DashboardLayout)/components/widgets/charts/MostVisited';
+import PageImpressions from '@/app/(DashboardLayout)/components/widgets/charts/PageImpressions';
+import Projects from '@/app/(DashboardLayout)/components/widgets/charts/Projects';
+import RevenueUpdates from '@/app/(DashboardLayout)/components/widgets/charts/RevenueUpdates';
+import SalesOverview from '@/app/(DashboardLayout)/components/widgets/charts/SalesOverview';
+import SalesTwo from '@/app/(DashboardLayout)/components/widgets/charts/SalesTwo';
+import Views from '@/app/(DashboardLayout)/components/widgets/charts/Views';
+import YearlyBreakup from '@/app/(DashboardLayout)/components/widgets/charts/YearlyBreakup';
+import YearlySales from '@/app/(DashboardLayout)/components/widgets/charts/YearlySales';
+import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
 
 const BCrumb = [
   {
-    to: "/",
-    title: "Home",
+    to: '/',
+    title: 'Home',
   },
   {
-    title: "Charts",
+    title: 'Charts',
   },
 ];
 

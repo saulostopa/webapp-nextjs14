@@ -1,21 +1,23 @@
-import React, { useState } from "react";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles'
-import { IconChevronDown } from "@tabler/icons-react";
-import AppLinks from "@/app/(DashboardLayout)/layout/vertical/header/AppLinks";
-import QuickLinks from "@/app/(DashboardLayout)/layout/vertical/header/QuickLinks";
-import DemosDD from "./DemosDD";
+import { styled } from '@mui/material/styles';
+import { IconChevronDown } from '@tabler/icons-react';
+import React, { useState } from 'react';
+
+import AppLinks from '@/app/(DashboardLayout)/layout/vertical/header/AppLinks';
+import QuickLinks from '@/app/(DashboardLayout)/layout/vertical/header/QuickLinks';
+
+import DemosDD from './DemosDD';
 
 const Navigations = () => {
   const StyledButton = styled(Button)(({ theme }) => ({
-    fontSize: "15px",
+    fontSize: '15px',
     color: theme.palette.text.secondary,
-    fontWeight: 500
+    fontWeight: 500,
   }));
 
   // demos
@@ -46,10 +48,10 @@ const Navigations = () => {
       <StyledButton
         color="inherit"
         variant="text"
-        aria-expanded={open ? "true" : undefined}
+        aria-expanded={open ? 'true' : undefined}
         sx={{
           color: open
-            ? "primary.main"
+            ? 'primary.main'
             : (theme) => theme.palette.text.secondary,
         }}
         onMouseEnter={handleOpen}
@@ -57,17 +59,19 @@ const Navigations = () => {
         endIcon={
           <IconChevronDown
             size="16"
-            style={{ marginLeft: "-5px", marginTop: "2px" }}
+            style={{ marginLeft: '-5px', marginTop: '2px' }}
           />
         }
       >
-        Demos{" "}
+        Demos{' '}
         <Chip
           label="New"
           size="small"
           sx={{
-            color: "primary.main",
-            bgcolor: "primary.light", ml: 1, borderRadius: "8px"
+            color: 'primary.main',
+            bgcolor: 'primary.light',
+            ml: 1,
+            borderRadius: '8px',
           }}
         />
       </StyledButton>
@@ -76,12 +80,12 @@ const Navigations = () => {
           onMouseEnter={handleOpen}
           onMouseLeave={handleClose}
           sx={{
-            position: "absolute",
-            left: "0",
-            right: "0",
-            top: "55px",
-            maxWidth: "1200px",
-            width: "100%",
+            position: 'absolute',
+            left: '0',
+            right: '0',
+            top: '55px',
+            maxWidth: '1200px',
+            width: '100%',
           }}
         >
           <DemosDD />
@@ -95,13 +99,13 @@ const Navigations = () => {
           onMouseLeave={handleClose2}
           sx={{
             color: open2
-              ? "primary.main"
+              ? 'primary.main'
               : (theme) => theme.palette.text.secondary,
           }}
           endIcon={
             <IconChevronDown
               size="16"
-              style={{ marginLeft: "-5px", marginTop: "2px" }}
+              style={{ marginLeft: '-5px', marginTop: '2px' }}
             />
           }
         >
@@ -112,12 +116,12 @@ const Navigations = () => {
             onMouseEnter={handleOpen2}
             onMouseLeave={handleClose2}
             sx={{
-              position: "absolute",
-              left: "0",
-              right: "0",
-              top: "55px",
-              width: "850px",
-              margin: "0 auto",
+              position: 'absolute',
+              left: '0',
+              right: '0',
+              top: '55px',
+              width: '850px',
+              margin: '0 auto',
             }}
           >
             <Grid container>

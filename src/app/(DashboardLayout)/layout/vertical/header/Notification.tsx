@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import { Icon } from '@iconify/react';
 import Avatar from '@mui/material/Avatar';
-import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
-import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import * as dropdownData from "./data";
-import Scrollbar from "@/app/(DashboardLayout)/components/custom-scroll/Scrollbar";
+import { Stack } from '@mui/system';
+import Link from 'next/link';
+import React, { useState } from 'react';
 
-import { Icon } from "@iconify/react";
-import { Stack } from "@mui/system";
-import Link from "next/link";
-import theme from "@/utils/theme";
+import Scrollbar from '@/app/(DashboardLayout)/components/custom-scroll/Scrollbar';
+
+import * as dropdownData from './data';
 
 const Notifications = () => {
   const [anchorEl2, setAnchorEl2] = useState(null);
@@ -40,37 +38,37 @@ const Notifications = () => {
       >
         <Box
           sx={{
-            position: "relative",
-            top: "5px",
-            animationName: "pulse",
+            position: 'relative',
+            top: '5px',
+            animationName: 'pulse',
           }}
         >
           <Icon icon="solar:bell-bing-line-duotone" width="24" height="24" />
           <Box
             sx={{
-              position: "absolute",
-              top: "-14px",
-              right: "-5px",
-              height: "18px",
-              width: "18px",
-              zIndex: "10",
-              border: "2px solid #4bd08b",
-              borderRadius: "70px",
-              animationIterationCount: "infinite !important",
-              animation: "heartbit 1s ease-out"
+              position: 'absolute',
+              top: '-14px',
+              right: '-5px',
+              height: '18px',
+              width: '18px',
+              zIndex: '10',
+              border: '2px solid #4bd08b',
+              borderRadius: '70px',
+              animationIterationCount: 'infinite !important',
+              animation: 'heartbit 1s ease-out',
             }}
-          ></Box>
+          />
           <Box
             sx={{
-              width: "4px",
-              height: "4px",
-              borderRadius: "30px",
-              position: "absolute",
-              right: "2px",
-              top: "-7px",
-              backgroundColor:"success.main"
+              width: '4px',
+              height: '4px',
+              borderRadius: '30px',
+              position: 'absolute',
+              right: '2px',
+              top: '-7px',
+              backgroundColor: 'success.main',
             }}
-          ></Box>
+          />
         </Box>
       </Button>
       {/* ------------------------------------------- */}
@@ -82,11 +80,11 @@ const Notifications = () => {
         keepMounted
         open={Boolean(anchorEl2)}
         onClose={handleClose2}
-        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-        transformOrigin={{ horizontal: "right", vertical: "top" }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         sx={{
-          "& .MuiMenu-paper": {
-            width: "360px",
+          '& .MuiMenu-paper': {
+            width: '360px',
           },
         }}
       >
@@ -100,7 +98,7 @@ const Notifications = () => {
           <Typography variant="h6">Notifications</Typography>
           <Chip label="5 new" color="primary" size="small" />
         </Stack>
-        <Scrollbar sx={{ height: "385px" }}>
+        <Scrollbar sx={{ height: '385px' }}>
           {dropdownData.notifications.map((notification, index) => (
             <Box key={index}>
               <MenuItem sx={{ py: 2, px: 4 }}>
@@ -120,7 +118,7 @@ const Notifications = () => {
                       fontWeight={600}
                       noWrap
                       sx={{
-                        width: "240px",
+                        width: '240px',
                       }}
                     >
                       {notification.title}
@@ -129,7 +127,7 @@ const Notifications = () => {
                       color="textSecondary"
                       variant="subtitle2"
                       sx={{
-                        width: "240px",
+                        width: '240px',
                       }}
                       noWrap
                     >

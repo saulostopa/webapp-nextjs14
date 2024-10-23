@@ -6,23 +6,27 @@ import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/system';
-import { IconPlayerPlay, IconPlayerSkipBack, IconPlayerSkipForward } from '@tabler/icons-react';
+import {
+  IconPlayerPlay,
+  IconPlayerSkipBack,
+  IconPlayerSkipForward,
+} from '@tabler/icons-react';
 
 const musicCard = [
   {
     title: 'Uptown',
     subheader: 'Jon Bon Jovi',
-    img: "/images/blog/blog-img5.jpg",
+    img: '/images/blog/blog-img5.jpg',
   },
   {
     title: 'Blank Space',
     subheader: 'Madonna',
-    img: "/images/blog/blog-img4.jpg",
+    img: '/images/blog/blog-img4.jpg',
   },
   {
     title: 'Lean On',
     subheader: 'Jennifer Lopez',
-    img: "/images/blog/blog-img3.jpg",
+    img: '/images/blog/blog-img3.jpg',
   },
 ];
 
@@ -37,7 +41,11 @@ const MusicCard = () => {
                 <Typography component="div" variant="h5">
                   {card.title}
                 </Typography>
-                <Typography variant="subtitle1" color="text.secondary" component="div">
+                <Typography
+                  variant="subtitle1"
+                  color="text.secondary"
+                  component="div"
+                >
                   {card.subheader}
                 </Typography>
               </CardContent>

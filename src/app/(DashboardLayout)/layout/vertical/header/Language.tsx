@@ -1,36 +1,36 @@
-import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import { useSelector, useDispatch } from '@/store/hooks';
-import { setLanguage } from '@/store/customizer/CustomizerSlice';
 import { Stack } from '@mui/system';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
-import { AppState } from '@/store/store';
+
+import { setLanguage } from '@/store/customizer/CustomizerSlice';
+import { useDispatch, useSelector } from '@/store/hooks';
+import type { AppState } from '@/store/store';
 
 const Languages = [
   {
     flagname: 'English (UK)',
-    icon: "/images/flag/icon-flag-en.svg",
+    icon: '/images/flag/icon-flag-en.svg',
     value: 'en',
   },
   {
     flagname: '中国人 (Chinese)',
-    icon: "/images/flag/icon-flag-cn.svg",
+    icon: '/images/flag/icon-flag-cn.svg',
     value: 'ch',
   },
   {
     flagname: 'français (French)',
-    icon: "/images/flag/icon-flag-fr.svg",
+    icon: '/images/flag/icon-flag-fr.svg',
     value: 'fr',
   },
 
   {
     flagname: 'عربي (Arabic)',
-    icon: "/images/flag/icon-flag-sa.svg",
+    icon: '/images/flag/icon-flag-sa.svg',
     value: 'ar',
   },
 ];
@@ -41,7 +41,8 @@ const Language = () => {
   const open = Boolean(anchorEl);
   const customizer = useSelector((state: AppState) => state.customizer);
   const currentLang =
-    Languages.find((_lang) => _lang.value === customizer.isLanguage) || Languages[1];
+    Languages.find((_lang) => _lang.value === customizer.isLanguage) ||
+    Languages[1];
   const { i18n } = useTranslation();
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -58,13 +59,19 @@ const Language = () => {
     <>
       <Button
         aria-label="more"
-        id="long-button" className="btn-rounded-circle-40"
+        id="long-button"
+        className="btn-rounded-circle-40"
         aria-controls={open ? 'long-menu' : undefined}
         aria-expanded={open ? 'true' : undefined}
-        aria-haspopup="true" color="inherit"
+        aria-haspopup="true"
+        color="inherit"
         onClick={handleClick}
       >
-        <Avatar src={currentLang.icon} alt={currentLang.value} sx={{ width: 20, height: 20 }} />
+        <Avatar
+          src={currentLang.icon}
+          alt={currentLang.value}
+          sx={{ width: 20, height: 20 }}
+        />
       </Button>
       <Menu
         id="long-menu"
@@ -84,7 +91,11 @@ const Language = () => {
             onClick={() => dispatch(setLanguage(option.value))}
           >
             <Stack direction="row" spacing={1} alignItems="center">
-              <Avatar src={option.icon} alt={option.icon} sx={{ width: 20, height: 20 }} />
+              <Avatar
+                src={option.icon}
+                alt={option.icon}
+                sx={{ width: 20, height: 20 }}
+              />
               <Typography> {option.flagname}</Typography>
             </Stack>
           </MenuItem>

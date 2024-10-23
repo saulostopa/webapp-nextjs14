@@ -1,24 +1,24 @@
-'use client'
+'use client';
 
-import { styled } from "@mui/material/styles";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Fab from '@mui/material/Fab';
+import Fade from '@mui/material/Fade';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
-import Fade from '@mui/material/Fade';
+import { styled } from '@mui/material/styles';
+import type { TooltipProps } from '@mui/material/Tooltip';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
-import InlineItemCard from "@/app/(DashboardLayout)/components/shared/InlineItemCard";
+import { IconPlus, IconTrash } from '@tabler/icons-react';
 
+import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
+import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
+import InlineItemCard from '@/app/(DashboardLayout)/components/shared/InlineItemCard';
+import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
 // common component
 import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import ParentCard from '@/app/(DashboardLayout)/components/shared/ParentCard';
-import ChildCard from '@/app/(DashboardLayout)/components/shared/ChildCard';
-
-import { IconPlus, IconTrash } from '@tabler/icons-react';
 
 const BCrumb = [
   {
@@ -85,7 +85,6 @@ const MuiTooltip = () => (
                 </Fab>
               </Tooltip>
             </Stack>
-
           </ChildCard>
         </Grid>
         <Grid item xs={12} sm={6} display="flex" alignItems="stretch">
@@ -97,7 +96,6 @@ const MuiTooltip = () => (
                 </Fab>
               </Tooltip>
             </Box>
-
           </ChildCard>
         </Grid>
 
@@ -108,13 +106,16 @@ const MuiTooltip = () => (
                 <Button variant="outlined">Default Width [300px]</Button>
               </Tooltip>
               <CustomWidthTooltip title={longText}>
-                <Button color="secondary" variant="outlined">Custom Width [500px]</Button>
+                <Button color="secondary" variant="outlined">
+                  Custom Width [500px]
+                </Button>
               </CustomWidthTooltip>
               <NoMaxWidthTooltip title={longText}>
-                <Button color="warning" variant="outlined">No wrapping</Button>
+                <Button color="warning" variant="outlined">
+                  No wrapping
+                </Button>
               </NoMaxWidthTooltip>
             </Stack>
-
           </ChildCard>
         </Grid>
 
@@ -122,60 +123,89 @@ const MuiTooltip = () => (
           <ChildCard title="Transitions">
             <Stack spacing={1} direction="row">
               <Tooltip title="Add">
-                <Button variant="outlined" color="primary">Grow</Button>
+                <Button variant="outlined" color="primary">
+                  Grow
+                </Button>
               </Tooltip>
               <Tooltip
                 TransitionComponent={Fade}
                 TransitionProps={{ timeout: 600 }}
                 title="Add"
               >
-                <Button variant="outlined" color="secondary">Fade</Button>
+                <Button variant="outlined" color="secondary">
+                  Fade
+                </Button>
               </Tooltip>
               <Tooltip TransitionComponent={Zoom} title="Add">
-                <Button variant="outlined" color="warning">Zoom</Button>
+                <Button variant="outlined" color="warning">
+                  Zoom
+                </Button>
               </Tooltip>
             </Stack>
-
           </ChildCard>
         </Grid>
         <Grid item xs={12} display="flex" alignItems="stretch">
           <ChildCard title="Positions">
             <InlineItemCard>
               <Tooltip title="Top Start" placement="top-start">
-                <Button variant="outlined" color="primary">Top Start</Button>
+                <Button variant="outlined" color="primary">
+                  Top Start
+                </Button>
               </Tooltip>
               <Tooltip title="Top" placement="top">
-                <Button variant="outlined" color="secondary">Top</Button>
+                <Button variant="outlined" color="secondary">
+                  Top
+                </Button>
               </Tooltip>
               <Tooltip title="Top End" placement="top-end">
-                <Button variant="outlined" color="warning">Top End</Button>
+                <Button variant="outlined" color="warning">
+                  Top End
+                </Button>
               </Tooltip>
               <Tooltip title="Left Start" placement="left-start">
-                <Button variant="outlined" color="success">Left Start</Button>
+                <Button variant="outlined" color="success">
+                  Left Start
+                </Button>
               </Tooltip>
               <Tooltip title="Left" placement="left">
-                <Button variant="outlined" color="error">Left</Button>
+                <Button variant="outlined" color="error">
+                  Left
+                </Button>
               </Tooltip>
               <Tooltip title="Left End" placement="left-end">
-                <Button variant="outlined" color="primary">Left End</Button>
+                <Button variant="outlined" color="primary">
+                  Left End
+                </Button>
               </Tooltip>
               <Tooltip title="Right Start" placement="right-start">
-                <Button variant="outlined" color="secondary">Right Start</Button>
+                <Button variant="outlined" color="secondary">
+                  Right Start
+                </Button>
               </Tooltip>
               <Tooltip title="Right" placement="right">
-                <Button variant="outlined" color="warning">Right</Button>
+                <Button variant="outlined" color="warning">
+                  Right
+                </Button>
               </Tooltip>
               <Tooltip title="Right End" placement="right-end">
-                <Button variant="outlined" color="success">Right End</Button>
+                <Button variant="outlined" color="success">
+                  Right End
+                </Button>
               </Tooltip>
               <Tooltip title="Bottom Start" placement="bottom-start">
-                <Button variant="outlined" color="error">Bottom Start</Button>
+                <Button variant="outlined" color="error">
+                  Bottom Start
+                </Button>
               </Tooltip>
               <Tooltip title="Bottom" placement="bottom">
-                <Button variant="outlined" color="primary">Bottom</Button>
+                <Button variant="outlined" color="primary">
+                  Bottom
+                </Button>
               </Tooltip>
               <Tooltip title="Bottom End" placement="bottom-end">
-                <Button variant="outlined" color="secondary">Bottom End</Button>
+                <Button variant="outlined" color="secondary">
+                  Bottom End
+                </Button>
               </Tooltip>
             </InlineItemCard>
           </ChildCard>

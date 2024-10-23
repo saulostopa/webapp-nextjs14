@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
 import Divider from '@mui/material/Divider';
-import Fab from '@mui/material/Fab';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
@@ -17,18 +14,21 @@ import {
   IconMessageCircle,
   IconShare,
   IconThumbUp,
-} from "@tabler/icons-react";
-import uniqueId from "lodash/uniqueId";
-import { useDispatch, useSelector } from "@/store/hooks";
+} from '@tabler/icons-react';
+import uniqueId from 'lodash/uniqueId';
+import React, { useState } from 'react';
+
 import {
-  likePosts,
   addComment,
-} from "@/store/apps/userProfile/UserProfileSlice2";
-import PostComments from "./PostComments";
-import {
+  likePosts,
+} from '@/store/apps/userProfile/UserProfileSlice2';
+import { useDispatch, useSelector } from '@/store/hooks';
+
+import type {
   Comment as CommentType,
   PostType,
-} from "../../../../types/apps/userProfile";
+} from '../../../../types/apps/userProfile';
+import PostComments from './PostComments';
 
 interface Props {
   post: PostType;
@@ -40,20 +40,20 @@ const PostItem = ({ post }: Props) => {
   const handleLike = async (postId: number) => {
     dispatch(likePosts(postId));
   };
-  const [comText, setComText] = useState<any>("");
+  const [comText, setComText] = useState<any>('');
 
   const onSubmit = async (id: number, comment: CommentType) => {
-    const commentId = uniqueId("#COMMENT_");
+    const commentId = uniqueId('#COMMENT_');
     const newComment: any = {
       id: commentId,
       profile: {
-        id: uniqueId("#COMMENT_"),
+        id: uniqueId('#COMMENT_'),
         avatar: post?.profile.avatar,
         name: post?.profile.name,
-        time: "now",
+        time: 'now',
       },
       data: {
-        comment: comment,
+        comment,
         likes: {
           like: false,
           value: 0,
@@ -63,14 +63,14 @@ const PostItem = ({ post }: Props) => {
     };
 
     dispatch(addComment(id, newComment));
-    setComText("");
+    setComText('');
   };
 
   return (
     <>
-      <Divider sx={{mt: 3}} />
+      <Divider sx={{ mt: 3 }} />
       <Box my={3}>
-        <Stack direction={"row"} gap={2} alignItems="center">
+        <Stack direction="row" gap={2} alignItems="center">
           <Avatar alt="Remy Sharp" src={post?.profile.avatar} />
           <Box>
             <Typography variant="h6">{post?.profile.name}</Typography>
@@ -84,9 +84,9 @@ const PostItem = ({ post }: Props) => {
             </IconButton>
           </Box>
         </Stack>
-        {/**Post Content**/}
+        {/** Post Content* */}
         <Box py={2}>{post?.data.content}</Box>
-        {/**If Post has Image**/}
+        {/** If Post has Image* */}
         {post.data.images.length > 0 ? (
           <Box>
             <Grid container spacing={3} mb={2}>
@@ -106,7 +106,7 @@ const PostItem = ({ post }: Props) => {
                       }}
                       image={photo.img}
                       alt="cover"
-                      width={"100%"}
+                      width="100%"
                     />
                   </Grid>
                 );
@@ -114,9 +114,9 @@ const PostItem = ({ post }: Props) => {
             </Grid>
           </Box>
         ) : (
-          ""
+          ''
         )}
-        {/**If Post has Video**/}
+        {/** If Post has Video* */}
         {post?.data.video ? (
           <CardMedia
             sx={{
@@ -128,17 +128,17 @@ const PostItem = ({ post }: Props) => {
             src={`https://www.youtube.com/embed/${post?.data.video}`}
           />
         ) : (
-          ""
+          ''
         )}
-        {/**Post Like Comment Share buttons**/}
+        {/** Post Like Comment Share buttons* */}
         <Box>
           <Stack direction="row" gap={1} alignItems="center">
             <Tooltip title="Like" placement="top">
               <IconButton
                 color={
                   post?.data && post?.data.likes && post?.data.likes.like
-                    ? "primary"
-                    : "inherit"
+                    ? 'primary'
+                    : 'inherit'
                 }
                 onClick={() => handleLike(post?.id)}
               >
@@ -157,13 +157,13 @@ const PostItem = ({ post }: Props) => {
               {post?.data.comments ? post?.data.comments.length : 0}
             </Typography>
             <Tooltip title="Share" placement="top">
-              <IconButton sx={{ ml: "auto" }}>
+              <IconButton sx={{ ml: 'auto' }}>
                 <IconShare size="22" />
               </IconButton>
             </Tooltip>
           </Stack>
         </Box>
-        {/**Comments if any**/}
+        {/** Comments if any* */}
         <Box mt={3}>
           {post?.data.comments ? (
             <>
@@ -178,17 +178,17 @@ const PostItem = ({ post }: Props) => {
               })}
             </>
           ) : (
-            ""
+            ''
           )}
         </Box>
       </Box>
       <Divider />
       <Box pt={3}>
-        <Stack direction={"row"} gap={2} alignItems="center">
+        <Stack direction="row" gap={2} alignItems="center">
           <Avatar
             alt="Remy Sharp"
             src={post?.profile.avatar}
-            sx={{ width: "33px", height: "33px" }}
+            sx={{ width: '33px', height: '33px' }}
           />
           <TextField
             placeholder="Comment"
