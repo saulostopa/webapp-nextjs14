@@ -5,8 +5,12 @@ import arabic from './languages/ar.json';
 import chinese from './languages/ch.json';
 import english from './languages/en.json';
 import french from './languages/fr.json';
+import portuguese from './languages/br.json';
 
 const resources = {
+  br: {
+    translation: portuguese,
+  },
   en: {
     translation: english,
   },
