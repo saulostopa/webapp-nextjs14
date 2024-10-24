@@ -30,7 +30,7 @@ import { useDispatch, useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
 
 const SidebarWidth = '320px';
-interface colors {
+interface Colors {
   id: number;
   bgColor: string;
   disp?: string;
@@ -54,7 +54,7 @@ const Customizer: FC = () => {
     },
   }));
 
-  const thColors: colors[] = [
+  const thColors: Colors[] = [
     {
       id: 1,
       bgColor: '#0085db',

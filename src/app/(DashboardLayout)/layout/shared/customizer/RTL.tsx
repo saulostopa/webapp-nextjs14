@@ -30,7 +30,7 @@ const RTL = (props: RTLType) => {
     return <CacheProvider value={styleCache()}>{children}</CacheProvider>;
   }
 
-  return <>{children}</>;
+  return { children };
 };
 
 export default RTL;

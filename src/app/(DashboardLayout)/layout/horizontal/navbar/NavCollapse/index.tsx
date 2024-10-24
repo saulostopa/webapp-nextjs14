@@ -167,6 +167,7 @@ const NavCollapse = ({
           },
 
           color:
+            // eslint-disable-next-line no-nested-ternary
             open && level < 2
               ? `${menu.bgcolor}.main`
               : `inherit` && level > 1 && open
