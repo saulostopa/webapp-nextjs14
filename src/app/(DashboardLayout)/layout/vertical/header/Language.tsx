@@ -68,8 +68,8 @@ const Language = () => {
         onClick={handleClick}
       >
         <Avatar
-          src={currentLang.icon}
-          alt={currentLang.value}
+          src={currentLang?.icon}
+          alt={currentLang?.value}
           sx={{ width: 20, height: 20 }}
         />
       </Button>

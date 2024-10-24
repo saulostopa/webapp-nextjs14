@@ -15,7 +15,6 @@ import { useDispatch, useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
 import { shadows } from '@/utils/theme/Shadows';
 
-import Cart from './Cart';
 import Language from './Language';
 import Notifications from './Notification';
 import Profile from './Profile';
@@ -74,13 +73,7 @@ const Header = () => {
         <Stack spacing={2} direction="row" alignItems="center">
           {smUp ? <Search /> : ''}
           <Language />
-          {/* ------------------------------------------- */}
-          {/* Ecommerce Dropdown */}
-          {/* ------------------------------------------- */}
-          <Cart />
-          {/* ------------------------------------------- */}
-          {/* End Ecommerce Dropdown */}
-          {/* ------------------------------------------- */}
+
           <Notifications />
           <Profile />
         </Stack>

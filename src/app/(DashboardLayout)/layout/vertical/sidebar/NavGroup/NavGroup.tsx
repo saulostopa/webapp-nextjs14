@@ -1,5 +1,5 @@
 import ListSubheader from '@mui/material/ListSubheader';
-import type { styled, Theme } from '@mui/material/styles';
+import { styled, Theme } from '@mui/material/styles';
 import { IconDots } from '@tabler/icons-react';
 import React from 'react';
 

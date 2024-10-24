@@ -6,7 +6,7 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import type { styled, Theme, useTheme } from '@mui/material/styles';
+import { styled, Theme, useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Link from 'next/link';
@@ -50,10 +50,8 @@ export default function NavItem({
 }: ItemType) {
   const lgDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
   const customizer = useSelector((state: AppState) => state.customizer);
-  // const Icon = item?.icon;
   const theme = useTheme();
   const { t } = useTranslation();
-  // const itemIcon = level > 1 ? <Icon size={24} /> : <Icon size="1.5rem" />;
 
   const ListItemStyled = styled(ListItemButton)(() => ({
     whiteSpace: 'nowrap',
@@ -99,15 +97,11 @@ export default function NavItem({
       borderRadius: '8px',
       marginRight: '8px',
       transition: 'all .3s ease-in-out',
-      // color: item.children ? "" : theme.palette.primary.main,
-      // backgroundColor: item.children ? "" : theme.palette.primary.light,
     },
     '&:hover': {
       backgroundColor: 'transparent !important',
-      // color: theme.palette.primary.main,
     },
     '&.Mui-selected': {
-      // color: theme.palette.text.primary,
       backgroundColor: 'transparent !important',
       '.MuiListItemIcon-root': {
         color: theme.palette.primary.main,
@@ -117,29 +111,15 @@ export default function NavItem({
         width: 'calc(100% + 16px)',
       },
       '&:hover': {
-        // backgroundColor: theme.palette.primary.light,
         color: theme.palette.text.primary,
       },
     },
   }));
 
-  const listItemProps: {
-    component: any;
-    href?: string;
-    target?: any;
-    to?: any;
-  } = {
-    component: item?.external ? 'a' : Link,
-    to: item?.href,
-    href: item?.external ? item?.href : '',
-    target: item?.external ? '_blank' : '',
-  };
-
   return (
     <List component="li" disablePadding key={item?.id && item.title}>
       <Link href={item.href}>
         <ListItemStyled
-          // {...listItemProps}
           disabled={item?.disabled}
           selected={pathDirect === item?.href}
           onClick={lgDown ? onClick : undefined}
@@ -147,16 +127,11 @@ export default function NavItem({
             '&:hover': {
               '.MuiListItemIcon-root': {
                 color: `${item.bgcolor}.main`,
-                // backgroundColor: level < 2 ? menu.bgcolor + ".light" : "",
               },
             },
             '&:hover::before': {
               backgroundColor: `${item.bgcolor}.light`,
             },
-            // ".MuiListItemIcon-root": {
-            //   color: item.bgcolor + ".main",
-            //   backgroundColor: item.bgcolor + ".light",
-            // },
             '&.Mui-selected': {
               color:
                 level > 1

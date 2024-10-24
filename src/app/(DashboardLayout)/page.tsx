@@ -9,7 +9,6 @@ import C2a2 from '@/app/(DashboardLayout)/components/landingpage/c2a/C2a2';
 import DemosApps from '@/app/(DashboardLayout)/components/landingpage/demos-apps/DemosApps';
 import Features from '@/app/(DashboardLayout)/components/landingpage/features/Features';
 import Footer from '@/app/(DashboardLayout)/components/landingpage/footer/Footer';
-// components
 import LpHeader from '@/app/(DashboardLayout)/components/landingpage/header/Header';
 import Testimonial from '@/app/(DashboardLayout)/components/landingpage/testimonial/Testimonial';
 import Benefits from '@/components/benefits';
@@ -20,7 +19,6 @@ export default function Landingpage() {
   return (
     <PageContainer title="Landingpage" description="this is Landingpage">
       <LpHeader />
-      {/* <Banner /> */}
       <Hero
         teaser="Treine certo, veja seu desempenho, construa uma vida longa com qualidade"
         teaserDescription="A S2Pro é um App gratuito para você treinar na academia, em casa, espaço crossfit, parques, ou onde quiser. Você pode criar seu próprio treino ou usar os que já temos disponíveis no app."
