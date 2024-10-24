@@ -1,4 +1,4 @@
-type attachType = {
+type AttachType = {
   icon?: string;
   file?: string;
   fileSize?: string;
@@ -9,7 +9,7 @@ type MessageType = {
   msg: string;
   senderId: number | string;
   type: string;
-  attachment: attachType[];
+  attachment: AttachType[];
   id: string;
 };
 

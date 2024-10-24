@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { Icon } from '@iconify/react';
 // mui imports
 import Box from '@mui/material/Box';

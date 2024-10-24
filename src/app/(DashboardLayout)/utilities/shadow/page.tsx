@@ -24,8 +24,8 @@ const Shadow = () => {
     <PageContainer title="Shadow" description="this is Shadow">
       <DashboardCard title="Shadow">
         <Grid container spacing={2}>
-          {[lightTheme, darkTheme].map((theme, index) => (
-            <Grid item xs={6} key={index}>
+          {[lightTheme, darkTheme].map((theme) => (
+            <Grid item xs={6} key={`${theme}`}>
               <ThemeProvider theme={theme}>
                 <Box
                   sx={{
