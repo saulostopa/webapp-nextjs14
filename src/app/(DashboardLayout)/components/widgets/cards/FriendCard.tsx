@@ -36,7 +36,7 @@ const FriendCard = () => {
   return (
     <Grid container spacing={3}>
       {followerCard.map((card) => (
-        <Grid item xs={12} sm={6} lg={3} key={`${card}`}>
+        <Grid item xs={12} sm={6} lg={3} key={`${card.title}`}>
           <BlankCard>
             <CardContent>
               <Avatar src={card.avatar} sx={{ height: 80, width: 80 }} />

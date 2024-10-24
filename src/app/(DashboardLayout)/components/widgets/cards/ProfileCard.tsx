@@ -60,7 +60,7 @@ const ProfileCard = () => {
   return (
     <Grid container spacing={3}>
       {profileCard.map((card) => (
-        <Grid item xs={12} sm={4} key={`${card}`}>
+        <Grid item xs={12} sm={4} key={`${card.name}`}>
           <BlankCard>
             <CardContent>
               <Stack direction="column" gap={2} alignItems="center">

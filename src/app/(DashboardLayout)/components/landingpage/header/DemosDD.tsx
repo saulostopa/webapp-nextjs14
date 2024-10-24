@@ -114,7 +114,7 @@ const DemosDD = () => {
 
       <Stack mt={2} spacing={3} direction={{ xs: 'column', lg: 'row' }}>
         {demos.map((demo) => (
-          <Box key={`${demo}`}>
+          <Box key={`${demo.title}`}>
             {/* <Link href={demo.link}> */}
             <StyledBox>
               <Image
@@ -156,7 +156,7 @@ const DemosDD = () => {
 
       <Stack mt={2} spacing={3} mb={2} direction={{ xs: 'column', lg: 'row' }}>
         {apps.map((app) => (
-          <Box key={`${app}`}>
+          <Box key={`${app.title}`}>
             {/* <Link href={app.link}> */}
             <StyledBox>
               <Image

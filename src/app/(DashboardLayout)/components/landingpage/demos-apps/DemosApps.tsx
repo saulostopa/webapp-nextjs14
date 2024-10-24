@@ -192,7 +192,7 @@ const DemosApps = () => {
         <Box mt={9}>
           <Grid container mt={2} spacing={3}>
             {demos.map((demo) => (
-              <Grid item xs={12} lg={4} key={`${demo}`}>
+              <Grid item xs={12} lg={4} key={`${demo.title}`}>
                 <Box
                   sx={{
                     borderWidth: 1,
@@ -265,7 +265,7 @@ const DemosApps = () => {
         <Box>
           <Grid container mt={2} spacing={3}>
             {apps.map((app) => (
-              <Grid item xs={12} lg={4} key={`${app}`}>
+              <Grid item xs={12} lg={4} key={`${app.title}`}>
                 <Box
                   sx={{
                     borderWidth: 1,

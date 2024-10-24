@@ -77,7 +77,7 @@ export default function Footer() {
           <div>
             <div className="-ml-3 -mt-2 flex w-full flex-wrap lg:ml-0">
               {tFooterMenu.questions.map((question: any) => (
-                <FooterLink key={question} title={question.title} />
+                <FooterLink key={question.title} title={question.title} />
               ))}
             </div>
           </div>

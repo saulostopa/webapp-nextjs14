@@ -12,7 +12,7 @@ const QuickLinks = () => {
         {dropdownData.pageLinks.map((pagelink) => (
           <Link
             href={pagelink.href}
-            key={`${pagelink}`}
+            key={`${pagelink.title}`}
             className="hover-text-primary"
           >
             <Typography

@@ -50,7 +50,7 @@ const EcommerceCard = () => {
   return (
     <Grid container spacing={3}>
       {ecoCard.map((product) => (
-        <Grid item xs={12} sm={4} lg={3} key={`${product}`}>
+        <Grid item xs={12} sm={4} lg={3} key={`${product.title}`}>
           <BlankCard>
             <Typography component={Link} href="/">
               <Image

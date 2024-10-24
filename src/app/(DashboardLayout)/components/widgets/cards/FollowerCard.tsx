@@ -31,7 +31,7 @@ const FollowerCard = () => {
   return (
     <Grid container spacing={3}>
       {followerCard.map((card) => (
-        <Grid item xs={12} sm={4} key={`${card}`}>
+        <Grid item xs={12} sm={4} key={`${card.title}`}>
           <BlankCard>
             <CardContent>
               <Stack

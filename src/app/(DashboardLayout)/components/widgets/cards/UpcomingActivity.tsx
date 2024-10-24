@@ -69,7 +69,7 @@ const UpcomingActivity = () => {
             spacing={3}
             justifyContent="space-between"
             alignItems="center"
-            key={`${stat}`}
+            key={`${stat.title}`}
           >
             <Stack direction="row" alignItems="center" spacing={2}>
               <Avatar

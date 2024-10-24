@@ -139,7 +139,7 @@ const Features = () => {
           <Box mt={10}>
             <Grid container spacing={3}>
               {featuresData.map((feature) => (
-                <Grid item xs={12} sm={4} lg={3} key={`${feature}`}>
+                <Grid item xs={12} sm={4} lg={3} key={`${feature.title}`}>
                   <BlankCard>
                     <CardContent>
                       <Avatar

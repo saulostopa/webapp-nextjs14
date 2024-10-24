@@ -100,7 +100,7 @@ const Notifications = () => {
         </Stack>
         <Scrollbar sx={{ height: '385px' }}>
           {dropdownData.notifications.map((notification) => (
-            <Box key={`${notification}`}>
+            <Box key={`${notification.title}`}>
               <MenuItem sx={{ py: 2, px: 4 }}>
                 <Stack direction="row" spacing={2}>
                   <Avatar

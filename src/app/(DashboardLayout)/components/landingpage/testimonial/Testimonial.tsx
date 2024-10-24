@@ -94,7 +94,7 @@ const Testimonial = () => {
           <AnimationFadeIn>
             <Slider {...settings}>
               {SliderData.map((slider) => (
-                <Box p="15px" key={`${slider}`}>
+                <Box p="15px" key={`${slider.title}`}>
                   <CardContent>
                     <Box textAlign="center" mb={5}>
                       <Rating
