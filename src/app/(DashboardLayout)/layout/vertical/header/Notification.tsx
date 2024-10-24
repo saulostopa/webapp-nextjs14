@@ -99,8 +99,8 @@ const Notifications = () => {
           <Chip label="5 new" color="primary" size="small" />
         </Stack>
         <Scrollbar sx={{ height: '385px' }}>
-          {dropdownData.notifications.map((notification, index) => (
-            <Box key={index}>
+          {dropdownData.notifications.map((notification) => (
+            <Box key={`${notification}`}>
               <MenuItem sx={{ py: 2, px: 4 }}>
                 <Stack direction="row" spacing={2}>
                   <Avatar

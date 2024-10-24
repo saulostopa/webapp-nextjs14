@@ -84,9 +84,9 @@ const Language = () => {
           },
         }}
       >
-        {Languages.map((option, index) => (
+        {Languages.map((option) => (
           <MenuItem
-            key={index}
+            key={`${option}`}
             sx={{ py: 2, px: 3 }}
             onClick={() => dispatch(setLanguage(option.value))}
           >

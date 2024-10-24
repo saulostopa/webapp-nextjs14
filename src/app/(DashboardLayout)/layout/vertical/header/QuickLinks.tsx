@@ -9,8 +9,12 @@ const QuickLinks = () => {
     <>
       <Typography variant="h5">Quick Links</Typography>
       <Stack spacing={2} mt={2}>
-        {dropdownData.pageLinks.map((pagelink, index) => (
-          <Link href={pagelink.href} key={index} className="hover-text-primary">
+        {dropdownData.pageLinks.map((pagelink) => (
+          <Link
+            href={pagelink.href}
+            key={`${pagelink}`}
+            className="hover-text-primary"
+          >
             <Typography
               variant="subtitle2"
               color="textPrimary"
