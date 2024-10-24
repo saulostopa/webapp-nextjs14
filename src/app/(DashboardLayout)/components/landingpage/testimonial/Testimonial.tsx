@@ -93,15 +93,15 @@ const Testimonial = () => {
         <Box mt={5}>
           <AnimationFadeIn>
             <Slider {...settings}>
-              {SliderData.map((slider, index) => (
-                <Box p="15px" key={index}>
+              {SliderData.map((slider) => (
+                <Box p="15px" key={`${slider}`}>
                   <CardContent>
                     <Box textAlign="center" mb={5}>
                       <Rating
                         size="large"
                         name="simple-controlled"
                         value={value}
-                        onChange={(event, newValue) => {
+                        onChange={(_, newValue) => {
                           setValue(newValue);
                         }}
                       />

@@ -1,16 +1,12 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import type { Theme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
 
 import BannerContent from './BannerContent';
 import BannerSlider from './BannerSlider';
 
 const Banner = () => {
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
-
   return (
     <Box my={10} sx={{ overflow: 'hidden' }}>
       <Container maxWidth="lg">

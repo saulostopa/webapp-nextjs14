@@ -5,7 +5,8 @@ import Collapse from '@mui/material/Collapse';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { styled, Theme, useTheme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 // plugins
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';

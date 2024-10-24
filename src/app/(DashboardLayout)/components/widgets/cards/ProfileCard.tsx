@@ -59,8 +59,8 @@ const ProfileCard = () => {
 
   return (
     <Grid container spacing={3}>
-      {profileCard.map((card, index) => (
-        <Grid item xs={12} sm={4} key={index}>
+      {profileCard.map((card) => (
+        <Grid item xs={12} sm={4} key={`${card}`}>
           <BlankCard>
             <CardContent>
               <Stack direction="column" gap={2} alignItems="center">

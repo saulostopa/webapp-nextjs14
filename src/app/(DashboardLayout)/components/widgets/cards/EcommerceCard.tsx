@@ -49,8 +49,8 @@ const ecoCard = [
 const EcommerceCard = () => {
   return (
     <Grid container spacing={3}>
-      {ecoCard.map((product, index) => (
-        <Grid item xs={12} sm={4} lg={3} key={index}>
+      {ecoCard.map((product) => (
+        <Grid item xs={12} sm={4} lg={3} key={`${product}`}>
           <BlankCard>
             <Typography component={Link} href="/">
               <Image

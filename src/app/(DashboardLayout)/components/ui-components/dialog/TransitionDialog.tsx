@@ -45,7 +45,7 @@ const TransitionDialog = () => {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>Use Google's location service?</DialogTitle>
+        <DialogTitle>Use Google`&apos;`s location service?</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
             Let Google help apps determine location. This means sending

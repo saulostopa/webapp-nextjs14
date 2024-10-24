@@ -38,7 +38,7 @@ const ResponsiveDialog = () => {
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
-          Use Google's location service?
+          Use Google`&apos;`s location service?
         </DialogTitle>
         <DialogContent>
           <DialogContentText>

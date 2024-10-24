@@ -9,10 +9,9 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Image from 'next/image';
 import React from 'react';
 
+import c2aImg from '@/public/images/landingpage/background/c2a.png';
 import { useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
-
-import c2aImg from '@/public/images/landingpage/background/c2a.png';
 
 const StyledButton = styled(Button)(() => ({
   padding: '10px 35px',
@@ -37,7 +36,7 @@ const C2a2 = () => {
         <Box
           sx={{
             backgroundColor:
-              customizer.activeMode == 'dark'
+              customizer.activeMode === 'dark'
                 ? 'background.default'
                 : (theme) => theme.palette.text.primary,
           }}
@@ -52,7 +51,7 @@ const C2a2 = () => {
                 fontWeight={600}
                 sx={{
                   color:
-                    customizer.activeMode == 'dark'
+                    customizer.activeMode === 'dark'
                       ? (theme) => theme.palette.text.primary
                       : (theme) => theme.palette.background.paper,
                   fontSize: {
@@ -78,7 +77,7 @@ const C2a2 = () => {
                 alignItems="center"
                 sx={{
                   color:
-                    customizer.activeMode == 'dark'
+                    customizer.activeMode === 'dark'
                       ? (theme) => theme.palette.text.primary
                       : (theme) => theme.palette.background.paper,
                 }}

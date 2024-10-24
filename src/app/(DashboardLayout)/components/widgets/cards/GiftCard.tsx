@@ -23,8 +23,8 @@ const giftCard = [
 const GiftCard = () => {
   return (
     <Grid container spacing={3}>
-      {giftCard.map((card, index) => (
-        <Grid item xs={12} sm={6} key={index}>
+      {giftCard.map((card) => (
+        <Grid item xs={12} sm={6} key={`${card}`}>
           <BlankCard>
             <CardContent>
               <Stack

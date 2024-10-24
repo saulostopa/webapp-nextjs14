@@ -2,7 +2,6 @@ import Button from '@mui/material/Button';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
-import Image from 'next/image';
 import React from 'react';
 
 import BlankCard from '../../shared/BlankCard';

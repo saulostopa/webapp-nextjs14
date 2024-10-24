@@ -26,14 +26,8 @@ import horizontalDemo from '@/public/images/landingpage/demos/demo-horizontal.jp
 import mainDemo from '@/public/images/landingpage/demos/demo-main.jpg';
 import minisidebarDemo from '@/public/images/landingpage/demos/demo-minisidebar.jpg';
 import rtlDemo from '@/public/images/landingpage/demos/demo-rtl.jpg';
-import DemoTitle from './DemoTitle';
 
-interface sliderData {
-  avatar: string | any;
-  link: string;
-  demo: string;
-  applink?: boolean;
-}
+import DemoTitle from './DemoTitle';
 
 interface DemoTypes {
   link: string;
@@ -197,8 +191,8 @@ const DemosApps = () => {
         {/* demos */}
         <Box mt={9}>
           <Grid container mt={2} spacing={3}>
-            {demos.map((demo, index) => (
-              <Grid item xs={12} lg={4} key={index}>
+            {demos.map((demo) => (
+              <Grid item xs={12} lg={4} key={`${demo}`}>
                 <Box
                   sx={{
                     borderWidth: 1,
@@ -270,8 +264,8 @@ const DemosApps = () => {
         {/* apps */}
         <Box>
           <Grid container mt={2} spacing={3}>
-            {apps.map((app, index) => (
-              <Grid item xs={12} lg={4} key={index}>
+            {apps.map((app) => (
+              <Grid item xs={12} lg={4} key={`${app}`}>
                 <Box
                   sx={{
                     borderWidth: 1,

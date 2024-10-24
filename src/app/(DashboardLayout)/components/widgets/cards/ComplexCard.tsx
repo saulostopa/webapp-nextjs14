@@ -49,8 +49,8 @@ const complexCard = [
 const ComplexCard = () => {
   return (
     <Grid container spacing={3}>
-      {complexCard.map((author, index) => (
-        <Grid item xs={12} sm={4} key={index}>
+      {complexCard.map((author) => (
+        <Grid item xs={12} sm={4} key={`${author}`}>
           <BlankCard className="hoverCard">
             <>
               <Typography component={Link} href="/">
