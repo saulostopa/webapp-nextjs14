@@ -1,10 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import arabic from './languages/ar.json';
-import chinese from './languages/ch.json';
 import english from './languages/en.json';
-import french from './languages/fr.json';
 import portuguese from './languages/br.json';
 
 const resources = {
@@ -13,15 +10,6 @@ const resources = {
   },
   en: {
     translation: english,
-  },
-  fr: {
-    translation: french,
-  },
-  ar: {
-    translation: arabic,
-  },
-  ch: {
-    translation: chinese,
   },
 };
 
