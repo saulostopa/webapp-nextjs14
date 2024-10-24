@@ -4,15 +4,12 @@ import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { useTheme } from '@mui/material/styles';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 import React from 'react';
-
-import CustomCheckbox from '../../forms/theme-elements/CustomCheckbox';
 
 function not(a: readonly number[], b: readonly number[]) {
   return a.filter((value) => b.indexOf(value) === -1);
@@ -22,9 +19,9 @@ function intersection(a: readonly number[], b: readonly number[]) {
   return a.filter((value) => b.indexOf(value) !== -1);
 }
 
-function union(a: readonly number[], b: readonly number[]) {
-  return [...a, ...not(b, a)];
-}
+// function union(a: readonly number[], b: readonly number[]) {
+//   return [...a, ...not(b, a)];
+// }
 
 const EnhancedTransferList = () => {
   const [checked, setChecked] = React.useState<readonly number[]>([]);
@@ -50,14 +47,6 @@ const EnhancedTransferList = () => {
   const numberOfChecked = (items: readonly number[]) =>
     intersection(checked, items).length;
 
-  const handleToggleAll = (items: readonly number[]) => () => {
-    if (numberOfChecked(items) === items.length) {
-      setChecked(not(checked, items));
-    } else {
-      setChecked(union(checked, items));
-    }
-  };
-
   const handleCheckedRight = () => {
     setRight(right.concat(leftChecked));
     setLeft(not(left, leftChecked));
@@ -77,22 +66,6 @@ const EnhancedTransferList = () => {
     <Paper variant="outlined" sx={{ border: `1px solid ${borderColor}` }}>
       <CardHeader
         sx={{ px: 2 }}
-        avatar={
-          <CustomCheckbox
-            onClick={handleToggleAll(items)}
-            checked={
-              numberOfChecked(items) === items.length && items.length !== 0
-            }
-            indeterminate={
-              numberOfChecked(items) !== items.length &&
-              numberOfChecked(items) !== 0
-            }
-            disabled={items.length === 0}
-            inputProps={{
-              'aria-label': 'all items selected',
-            }}
-          />
-        }
         title={title}
         subheader={`${numberOfChecked(items)}/${items.length} selected`}
       />
@@ -117,16 +90,6 @@ const EnhancedTransferList = () => {
               button
               onClick={handleToggle(value)}
             >
-              <ListItemIcon>
-                <CustomCheckbox
-                  checked={checked.indexOf(value) !== -1}
-                  tabIndex={-1}
-                  disableRipple
-                  inputProps={{
-                    'aria-labelledby': labelId,
-                  }}
-                />
-              </ListItemIcon>
               <ListItemText id={labelId} primary={`List item ${value + 1}`} />
             </ListItem>
           );
