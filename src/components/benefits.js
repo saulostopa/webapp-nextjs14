@@ -41,7 +41,7 @@ const Benefits = (props) => {
           </div>
         </div>
         <div
-          id={option === 'two' ? t(`id`) : o(`id`)}
+          id={option === 'two' ? t(`id`) : tBenefitOne.id}
           className={`flex flex-wrap items-center w-full lg:w-1/2 ${
             props.imgPos === 'right' ? 'lg:justify-end' : ''
           }`}
@@ -49,7 +49,7 @@ const Benefits = (props) => {
           <div>
             <div className="flex flex-col w-full mt-4">
               <h3 className="max-w-2xl mt-3 text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl dark:text-white">
-                {option === 'two' ? t(`title`) : o(`title`)}
+                {option === 'two' ? t(`title`) : tBenefitOne.title}
               </h3>
               <p className="max-w-2xl py-4 text-lg leading-normal text-gray-500 lg:text-xl xl:text-xl dark:text-gray-300">
                 {option === 'two' ? t('description') : t('description')}
