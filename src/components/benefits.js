@@ -1,4 +1,4 @@
-// import {useTranslations} from 'next-intl';
+// @ts-nocheck
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { config, library } from '@fortawesome/fontawesome-svg-core';
@@ -56,8 +56,8 @@ const Benefits = (props) => {
               </p>
             </div>
             {option === 'one' &&
-              tBenefitOne.raw('items').map((_, key) => (
-                <div className="w-full mt-5" key={key}>
+              tBenefitOne.raw('items').map((item, key) => (
+                <div className="w-full mt-5" key={`${item}-${key}`}>
                   <div className="flex items-start mt-8 space-x-3">
                     <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-s2pro-primary rounded-md w-11 h-11 ">
                       <FontAwesomeIcon

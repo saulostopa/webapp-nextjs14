@@ -138,7 +138,7 @@ const NavCollapse = ({
         item={item}
         level={level + 1}
         pathDirect={pathDirect}
-        hideMenu={hideMenu}
+        // hideMenu={hideMenu}
         onClick={onClick}
       />
     );
