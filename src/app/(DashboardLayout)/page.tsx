@@ -1,16 +1,14 @@
 'use client';
 
-import '../../../public/css/tailwind.css';
-
-import React from 'react';
+import '@/app/global.css';
 
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import C2a2 from '@/app/(DashboardLayout)/components/landingpage/c2a/C2a2';
-import DemosApps from '@/app/(DashboardLayout)/components/landingpage/demos-apps/DemosApps';
-import Features from '@/app/(DashboardLayout)/components/landingpage/features/Features';
+// import C2a2 from '@/app/(DashboardLayout)/components/landingpage/c2a/C2a2';
+// import DemosApps from '@/app/(DashboardLayout)/components/landingpage/demos-apps/DemosApps';
+// import Features from '@/app/(DashboardLayout)/components/landingpage/features/Features';
 import Footer from '@/app/(DashboardLayout)/components/landingpage/footer/Footer';
 import LpHeader from '@/app/(DashboardLayout)/components/landingpage/header/Header';
-import Testimonial from '@/app/(DashboardLayout)/components/landingpage/testimonial/Testimonial';
+// import Testimonial from '@/app/(DashboardLayout)/components/landingpage/testimonial/Testimonial';
 import Benefits from '@/components/benefits';
 import Hero from '@/components/landingpage/hero';
 import SectionTitle from '@/components/sectionTitle';
@@ -31,10 +29,10 @@ export default function Landingpage() {
         de maneira prática e objetiva.
       </SectionTitle>
       <Benefits imgPos="right" option="two" />
-      <DemosApps />
-      <Features />
-      <Testimonial />
-      <C2a2 />
+      {/* <DemosApps /> */}
+      {/* <Features /> */}
+      {/* <Testimonial /> */}
+      {/* <C2a2 /> */}
       <Footer />
     </PageContainer>
   );

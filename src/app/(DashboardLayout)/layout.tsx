@@ -1,15 +1,13 @@
 'use client';
 
-import '../../../public/css/tailwind.css';
+import '@/app/global.css';
 
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import { styled, useTheme } from '@mui/material/styles';
+import { Box, Container, styled, useTheme } from '@mui/material';
 
 import { useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
 
-import Customizer from './layout/shared/customizer/Customizer';
+// import Customizer from './layout/shared/customizer/Customizer';
 
 const PageWrapper = styled('div')(() => ({
   display: 'flex',
@@ -40,7 +38,6 @@ export default function RootLayout({ children }: Props) {
       <title>Spike NextJs 14.0.3</title>
       <Box width="100%">
         <PageWrapper
-          className="page-wrapper"
           sx={{
             ...(customizer.isCollapse && {
               [theme.breakpoints.up('lg')]: {
@@ -71,7 +68,7 @@ export default function RootLayout({ children }: Props) {
               {children}
             </Box>
           </Container>
-          <Customizer />
+          {/* <Customizer /> */}
         </PageWrapper>
       </Box>
     </MainWrapper>

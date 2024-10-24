@@ -16,72 +16,72 @@
     "btnEntrar": "Sign in",
     "btnSobre": "About",
     "about": {
-    "id": "About",
-    "mission": "Vision | Values | Mission",
-    "missionDescription": "S2Pro is a 100% personalized platform for online and in-person training for practitioners and non-practitioners of physical activity, personal trainers, studios, CrossFit boxes and gyms. An App with all the features of your daily training to strengthen your health in a practical and objective way."
+      "id": "About",
+      "mission": "Vision | Values | Mission",
+      "missionDescription": "S2Pro is a 100% personalized platform for online and in-person training for practitioners and non-practitioners of physical activity, personal trainers, studios, CrossFit boxes and gyms. An App with all the features of your daily training to strengthen your health in a practical and objective way."
     },
-    "benefitOne" : {
-        "id": "Benefits",
-        "title": "Benefits",
-        "image": "../../public/img/benefit-one-v2.png",
-        "description": "Complete with your training, exercises, training frequency, absence control, weight control, anamnesis based on Pollock 7 Dobras, among others.",
-        "items" : [
-            {
-                "title": "Tangible results",
-                "desc": "Days trained, weights lifted, exercises performed, among others",
-                "icon": "chart-line"
-            },
-            {
-                "title": "Constant news and tips",
-                "desc": "Updated and relevant content for your training, nutrition and health tips",
-                "icon": "newspaper"
-            },
-            {
-                "title": "Personalized help",
-                "desc": "Support for questions and suggestions with our physical education professionals",
-                "icon": "handshake-angle"
-            }
-        ]
+    "benefitOne": {
+      "id": "Benefits",
+      "title": "Benefits",
+      "image": "@/public/images/landingpage/benefit-one-v2.png",
+      "description": "Complete with your training, exercises, training frequency, absence control, weight control, anamnesis based on Pollock 7 Dobras, among others.",
+      "items": [
+        {
+          "title": "Tangible results",
+          "desc": "Days trained, weights lifted, exercises performed, among others",
+          "icon": "chart-line"
+        },
+        {
+          "title": "Constant news and tips",
+          "desc": "Updated and relevant content for your training, nutrition and health tips",
+          "icon": "newspaper"
+        },
+        {
+          "title": "Personalized help",
+          "desc": "Support for questions and suggestions with our physical education professionals",
+          "icon": "handshake-angle"
+        }
+      ]
     },
-    "benefitTwo" : {
-        "id": "Features",
-        "title": "Main Features",
-        "image": "../../public/img/benefit-two-v2.png",
-        "description": "Below are some of the app's main features.",
-        "items" : [
-            {
-                "title": "Workout control",
-                "desc": "At S2Pro you control your workouts in an easy and practical way",
-                "icon": "mobile-screen-button"
-            },
-            {
-                "title": "Workout statistics",
-                "desc": "Data on weights lifted, days trained, exercises performed, among others",
-                "icon": "signal"
-            },
-            {
-                "title": "Intuitive videos",
-                "desc": "At S2Pro you have example videos of each exercise",
-                "icon": "video"
-            }
-        ]
+    "benefitTwo": {
+      "id": "Features",
+      "title": "Main Features",
+      "image": "@/public/images/landingpage/benefit-two-v2.png",
+      "description": "Below are some of the app's main features.",
+      "items": [
+        {
+          "title": "Workout control",
+          "desc": "At S2Pro you control your workouts in an easy and practical way",
+          "icon": "mobile-screen-button"
+        },
+        {
+          "title": "Workout statistics",
+          "desc": "Data on weights lifted, days trained, exercises performed, among others",
+          "icon": "signal"
+        },
+        {
+          "title": "Intuitive videos",
+          "desc": "At S2Pro you have example videos of each exercise",
+          "icon": "video"
+        }
+      ]
     },
     "popupWidget": {
-        "title": "How can we help you?",
-        "subTitle": "We'll respond within a few hours",
-        "name": "Name",
-        "namePlaceholder": "Mike Wazowski",
-        "emailPlaceholder": "your-email@valid-domain.com",
-        "message": "Message",
-        "messagePlaceholder": "Write your message here...",
-        "errorName": "Please, fill in your name",
-        "errorEmail": "Please, fill in your email",
-        "errorEmailValid": "Please, fill a valid email",
-        "errorMessage": "Please, fill in your message",
-        "messageSuccess": "Message sent successfully!",
-        "messageError": "Error sending message, try again later",
-        "btnSend": "Send",
-        "txtBack": "Back"
+      "title": "How can we help you?",
+      "subTitle": "We'll respond within a few hours",
+      "name": "Name",
+      "namePlaceholder": "Mike Wazowski",
+      "emailPlaceholder": "your-email@valid-domain.com",
+      "message": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "errorName": "Please, fill in your name",
+      "errorEmail": "Please, fill in your email",
+      "errorEmailValid": "Please, fill a valid email",
+      "errorMessage": "Please, fill in your message",
+      "messageSuccess": "Message sent successfully!",
+      "messageError": "Error sending message, try again later",
+      "btnSend": "Send",
+      "txtBack": "Back"
     }
   },
   "LastWorkouts": {
@@ -94,72 +94,72 @@
     "subTitle": "Frequently Asked Questions",
     "description": "See below the most frequently asked questions about online and in-person training",
     "questions": [
-        {
-            "title": "Is it possible to train without a personal trainer?",
-            "desc": "Yes, the App has all the exercises and training necessary for you to achieve your goals with explanatory videos and execution tips."
-        },
-        {
-            "title": "Can I invite a personal trainer to create workouts for me?",
-            "desc": "Yes, the App has an area for personal trainers, where they can create workouts for their students and monitor their progress. With 1 click you send him the invitation."
-        },
-        {
-            "title": "Does the App have absence control and training history?",
-            "desc": "Yes, the App has absence control and training history so you can monitor your progress in addition to anamnesis with Pollok 7 Dobras."
-        },
-        {
-            "title": "Does the App have weight and measurement control?",
-            "desc": "Yes, the App has weight and measurement control so you can monitor your progress."
-        },
-        {
-            "title": "Is it possible to train without a gym?",
-            "desc": "Yes, the App has workouts for those who want to train at home or outdoors."
-        },
-        {
-            "title": "Does the App have power control?",
-            "desc": "No, the App does not have yet food control, but we have a blog with food and health tips."
-        }
+      {
+        "title": "Is it possible to train without a personal trainer?",
+        "desc": "Yes, the App has all the exercises and training necessary for you to achieve your goals with explanatory videos and execution tips."
+      },
+      {
+        "title": "Can I invite a personal trainer to create workouts for me?",
+        "desc": "Yes, the App has an area for personal trainers, where they can create workouts for their students and monitor their progress. With 1 click you send him the invitation."
+      },
+      {
+        "title": "Does the App have absence control and training history?",
+        "desc": "Yes, the App has absence control and training history so you can monitor your progress in addition to anamnesis with Pollok 7 Dobras."
+      },
+      {
+        "title": "Does the App have weight and measurement control?",
+        "desc": "Yes, the App has weight and measurement control so you can monitor your progress."
+      },
+      {
+        "title": "Is it possible to train without a gym?",
+        "desc": "Yes, the App has workouts for those who want to train at home or outdoors."
+      },
+      {
+        "title": "Does the App have power control?",
+        "desc": "No, the App does not have yet food control, but we have a blog with food and health tips."
+      }
     ]
-},
+  },
   "PathnamesPage": {
-      "title": "Pathnames BR",
-      "description": "<p>The pathnames are internationalized too.</p><p>If you're using the default language English, you'll see <code>/en/pathnames</code> in the browser address bar on this page.</p><p>If you change the locale to German, the URL is localized accordingly (<code>/de/pfadnamen</code>).</p>"
+    "title": "Pathnames BR",
+    "description": "<p>The pathnames are internationalized too.</p><p>If you're using the default language English, you'll see <code>/en/pathnames</code> in the browser address bar on this page.</p><p>If you change the locale to German, the URL is localized accordingly (<code>/de/pfadnamen</code>).</p>"
   },
   "Error": {
-      "title": "Something went wrong!",
-      "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>"
+    "title": "Something went wrong!",
+    "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>"
   },
   "NotFoundPage": {
-      "title": "Page not found",
-      "description": "Please double-check the browser address bar or use the navigation to go to a known page."
+    "title": "Page not found",
+    "description": "Please double-check the browser address bar or use the navigation to go to a known page."
   },
   "LocaleLayout": {
     "title": "S2Pro Data & Health"
   },
   "LocaleSwitcher": {
-      "label": "Change language",
-      "locale": "{locale, select, br {🇧🇷 PT} en {🇺🇸 EN} other {Unknown}}"
+    "label": "Change language",
+    "locale": "{locale, select, br {🇧🇷 PT} en {🇺🇸 EN} other {Unknown}}"
   },
   "NavigationMenu": {
     "questions": [
-        {"title": "Home"},
-        {"title": "About"},
-        {"title": "Benefits"},
-        {"title": "Features"},
-        {"title": "Faq"}
+      { "title": "Home" },
+      { "title": "About" },
+      { "title": "Benefits" },
+      { "title": "Features" },
+      { "title": "Faq" }
     ]
   },
   "PageLayout": {
-      "links": {
+    "links": {
       "docs": {
-          "title": "Docs",
-          "description": "Learn more about next-intl in the official docs.",
-          "href": "https://next-intl-docs.vercel.app/"
+        "title": "Docs",
+        "description": "Learn more about next-intl in the official docs.",
+        "href": "https://next-intl-docs.vercel.app/"
       },
       "source": {
-          "title": "Source code",
-          "description": "Browse the source code of this example on GitHub.",
-          "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router"
+        "title": "Source code",
+        "description": "Browse the source code of this example on GitHub.",
+        "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router"
       }
-      }
+    }
   }
 }

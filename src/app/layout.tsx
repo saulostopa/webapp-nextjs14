@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
-import React from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 
 import RTL from '@/app/(DashboardLayout)/layout/shared/customizer/RTL';
@@ -21,7 +21,7 @@ import { store } from '@/store/store';
 import { NextAppDirEmotionCacheProvider } from '@/utils/theme/EmotionCache';
 import { ThemeSettings } from '@/utils/theme/Theme';
 
-export const MyApp = ({ children }: { children: React.ReactNode }) => {
+export function MyApp({ children }: { children: React.ReactNode }) {
   const theme = ThemeSettings();
 
   const customizer = useSelector((state: AppState) => state.customizer);
@@ -37,15 +37,11 @@ export const MyApp = ({ children }: { children: React.ReactNode }) => {
       </ThemeProvider>
     </NextAppDirEmotionCacheProvider>
   );
-};
+}
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const [loading, setLoading] = React.useState(false);
-  React.useEffect(() => {
+export default function RootLayout({ children }: { children: ReactNode }) {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
     setTimeout(() => setLoading(true), 3000);
   }, []);
   return (
@@ -53,8 +49,7 @@ export default function RootLayout({
       <body>
         <Provider store={store}>
           {loading ? (
-            // eslint-disable-next-line react/no-children-prop
-            <MyApp children={children} />
+            <MyApp>{children}</MyApp>
           ) : (
             <Box
               sx={{
