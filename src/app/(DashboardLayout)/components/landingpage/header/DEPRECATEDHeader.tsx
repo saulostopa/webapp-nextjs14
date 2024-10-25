@@ -1,4 +1,5 @@
 import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -7,19 +8,14 @@ import { styled, type Theme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { IconMenu2 } from '@tabler/icons-react';
-import Link from 'next/link';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
 
 import MobileSidebar from './MobileSidebar';
 import Navigations from './Navigations';
 
-export default function Header() {
-  const { t } = useTranslation();
-  const tHeaderMenu: any = t('NavigationMenu', { returnObjects: true });
-
+const LpHeader = () => {
   const AppBarStyled = styled(AppBar)(({ theme }) => ({
     justifyContent: 'center',
     [theme.breakpoints.up('lg')]: {
@@ -50,6 +46,25 @@ export default function Header() {
     setOpen(newOpen);
   };
 
+  // const [y, setY] = React.useState(0);
+
+  // const handleNavigation = React.useCallback(
+  //   (e: Event | any) => {
+  //     const window = e.currentTarget;
+  //     setY(window.scrollY);
+  //   },
+  //   [y]
+  // );
+
+  // React.useEffect(() => {
+  //   setY(window.scrollY);
+  //   window.addEventListener("scroll", handleNavigation);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleNavigation);
+  //   };
+  // }, [handleNavigation]);
+
   return (
     <AppBarStyled position="sticky" elevation={0}>
       <Container maxWidth="lg">
@@ -67,18 +82,15 @@ export default function Header() {
           {lgUp ? (
             <>
               <Stack spacing={1} direction="row" alignItems="center" gap={1}>
-                {tHeaderMenu.questions.map((question: any) => (
-                  <Navigations key={question.title} href={question.title}>
-                    {question.title}
-                  </Navigations>
-                ))}
+                <Navigations />
               </Stack>
-              <Link
-                href="/api/auth/login"
-                className="bg-s2pro-primary rounded-md px-6 py-2 text-white md:ml-5"
+              <Button
+                color="primary"
+                variant="contained"
+                href="https://discord.com/invite/eMzE8F6Wqs"
               >
-                Entrar
-              </Link>
+                Live Help
+              </Button>
             </>
           ) : null}
         </ToolbarStyled>
@@ -100,4 +112,6 @@ export default function Header() {
       </Drawer>
     </AppBarStyled>
   );
-}
+};
+
+export default LpHeader;

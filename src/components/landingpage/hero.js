@@ -15,12 +15,12 @@ const Hero = ({ teaser, teaserDescription }) => {
             <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
               {teaserDescription}
             </p>
-            <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
+            <div className="flex flex-col items-center space-y-3 sm:space-x-4 sm:space-y-0 sm:items-start sm:flex-row">
               <a
                 href="https://web3templates.com/templates/nextly-landing-page-template-for-startups"
                 target="_blank"
                 rel="noopener"
-                className="px-8 py-4 text-lg font-medium text-center text-white bg-s2pro-primary  rounded-md "
+                className="px-8 py-4 text-lg font-medium text-center text-white bg-s2pro-primary rounded-md"
               >
                 Download
               </a>
@@ -31,11 +31,8 @@ const Hero = ({ teaser, teaserDescription }) => {
           <div className="">
             <Image
               src={heroImg}
-              width="0"
-              height="0"
               sizes="100vw"
-              style={{ width: 'auto', height: 'auto' }}
-              className={'object-cover w-auto h-auto'}
+              className="object-cover"
               priority
               alt={teaser}
               loading="eager"
