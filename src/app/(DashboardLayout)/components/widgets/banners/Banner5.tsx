@@ -2,7 +2,6 @@ import Button from '@mui/material/Button';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
-import Image from 'next/image';
 import React from 'react';
 
 import BlankCard from '../../shared/BlankCard';
@@ -12,13 +11,13 @@ const Banner5 = () => {
     <BlankCard>
       <CardContent sx={{ p: '30px' }}>
         <Box textAlign="center">
-          <Image
+          {/* <Image
             src="/images/products/empty-shopping-cart.svg"
             width={200}
             height={200}
             alt="star"
             style={{ width: '200px' }}
-          />
+          /> */}
 
           <Typography variant="h5" mt={3}>
             Oop, Your cart is empty!

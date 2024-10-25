@@ -88,7 +88,7 @@ const customIcons: {
 function IconContainer(props: IconContainerProps) {
   const { value, ...other } = props;
 
-  return <span {...other}>{customIcons[value].icon}</span>;
+  return <span {...other}>{customIcons[value]?.icon}</span>;
 }
 
 const MuiRating = () => {
@@ -108,7 +108,7 @@ const MuiRating = () => {
               <Rating
                 name="simple-controlled"
                 value={value}
-                onChange={(event, newValue) => {
+                onChange={(_, newValue) => {
                   setValue(newValue);
                 }}
               />
@@ -142,10 +142,10 @@ const MuiRating = () => {
                   value={value}
                   precision={0.5}
                   getLabelText={getLabelText}
-                  onChange={(event, newValue) => {
+                  onChange={(_, newValue) => {
                     setValue(newValue);
                   }}
-                  onChangeActive={(event, newHover) => {
+                  onChangeActive={(_, newHover) => {
                     setHover(newHover);
                   }}
                   emptyIcon={
@@ -169,8 +169,8 @@ const MuiRating = () => {
                 <StyledRating
                   name="customized-color"
                   defaultValue={2}
-                  getLabelText={(value) =>
-                    `${value} Heart${value !== 1 ? 's' : ''}`
+                  getLabelText={(labelText) =>
+                    `${labelText} Heart${labelText !== 1 ? 's' : ''}`
                   }
                   precision={0.5}
                   icon={<FavoriteIcon fontSize="inherit" />}
@@ -190,7 +190,9 @@ const MuiRating = () => {
                 name="highlight-selected-only"
                 defaultValue={2}
                 IconContainerComponent={IconContainer}
-                getLabelText={(value: number) => customIcons[value].label}
+                getLabelText={(labelText: number) =>
+                  customIcons[labelText]?.label!
+                }
                 highlightSelectedOnly
               />
             </ChildCard>

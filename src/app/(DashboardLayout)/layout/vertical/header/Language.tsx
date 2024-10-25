@@ -68,8 +68,8 @@ const Language = () => {
         onClick={handleClick}
       >
         <Avatar
-          src={currentLang.icon}
-          alt={currentLang.value}
+          src={currentLang?.icon}
+          alt={currentLang?.value}
           sx={{ width: 20, height: 20 }}
         />
       </Button>
@@ -84,9 +84,9 @@ const Language = () => {
           },
         }}
       >
-        {Languages.map((option, index) => (
+        {Languages.map((option) => (
           <MenuItem
-            key={index}
+            key={`${option.flagname}`}
             sx={{ py: 2, px: 3 }}
             onClick={() => dispatch(setLanguage(option.value))}
           >

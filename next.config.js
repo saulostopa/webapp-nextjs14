@@ -10,7 +10,7 @@ const nextConfig = {
     // },
   },
   env: {
-    NEXT_PUBLIC_COMPANY_NAME: 'S2Pro'
+    NEXT_PUBLIC_COMPANY_NAME: 'S2Pro',
   },
 };
 

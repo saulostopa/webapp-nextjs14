@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Image from 'next/image';
 import Container from '@/components/utils/container';
 import heroImg from '@/public/images/landingpage/workout-hero.png';

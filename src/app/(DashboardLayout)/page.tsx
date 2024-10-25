@@ -1,26 +1,29 @@
 'use client';
 
-import '../../../public/css/tailwind.css';
+import '@/app/global.css';
 
-import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import C2a2 from '@/app/(DashboardLayout)/components/landingpage/c2a/C2a2';
-import DemosApps from '@/app/(DashboardLayout)/components/landingpage/demos-apps/DemosApps';
-import Features from '@/app/(DashboardLayout)/components/landingpage/features/Features';
+// import C2a2 from '@/app/(DashboardLayout)/components/landingpage/c2a/C2a2';
+// import DemosApps from '@/app/(DashboardLayout)/components/landingpage/demos-apps/DemosApps';
+// import Features from '@/app/(DashboardLayout)/components/landingpage/features/Features';
 import Footer from '@/app/(DashboardLayout)/components/landingpage/footer/Footer';
-// components
 import LpHeader from '@/app/(DashboardLayout)/components/landingpage/header/Header';
-import Testimonial from '@/app/(DashboardLayout)/components/landingpage/testimonial/Testimonial';
+import PopUpWidget from '@/app/(DashboardLayout)/components/landingpage/help-email/PopUpWidget';
+// import Testimonial from '@/app/(DashboardLayout)/components/landingpage/testimonial/Testimonial';
 import Benefits from '@/components/benefits';
 import Hero from '@/components/landingpage/hero';
 import SectionTitle from '@/components/sectionTitle';
 
 export default function Landingpage() {
+  const { t } = useTranslation();
+  const tIndexPage: any = t('IndexPage', { returnObjects: true });
+  const tPopUpWidget: any = tIndexPage.popupWidget;
+
   return (
     <PageContainer title="Landingpage" description="this is Landingpage">
       <LpHeader />
-      {/* <Banner /> */}
       <Hero
         teaser="Treine certo, veja seu desempenho, construa uma vida longa com qualidade"
         teaserDescription="A S2Pro é um App gratuito para você treinar na academia, em casa, espaço crossfit, parques, ou onde quiser. Você pode criar seu próprio treino ou usar os que já temos disponíveis no app."
@@ -33,11 +36,12 @@ export default function Landingpage() {
         de maneira prática e objetiva.
       </SectionTitle>
       <Benefits imgPos="right" option="two" />
-      <DemosApps />
-      <Features />
-      <Testimonial />
-      <C2a2 />
+      {/* <DemosApps /> */}
+      {/* <Features /> */}
+      {/* <Testimonial /> */}
+      {/* <C2a2 /> */}
       <Footer />
+      <PopUpWidget items={tPopUpWidget} />
     </PageContainer>
   );
 }

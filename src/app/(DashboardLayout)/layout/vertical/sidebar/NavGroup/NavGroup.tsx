@@ -1,5 +1,6 @@
 import ListSubheader from '@mui/material/ListSubheader';
-import type { styled, Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import { IconDots } from '@tabler/icons-react';
 import React from 'react';
 
@@ -13,7 +14,7 @@ interface ItemType {
   hideMenu: string | boolean;
 }
 
-const NavGroup = ({ item, hideMenu }: ItemType) => {
+const NavGroupComponent = ({ item, hideMenu }: ItemType) => {
   const ListSubheaderStyle = styled((props: Theme | any) => (
     <ListSubheader disableSticky {...props} />
   ))(({ theme }) => ({
@@ -21,7 +22,7 @@ const NavGroup = ({ item, hideMenu }: ItemType) => {
     fontWeight: '700',
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(1),
-    color: (theme: any) => theme.palette.text.Primary,
+    color: (themeColor: any) => themeColor.palette.text.Primary,
     opacity: '0.50',
     lineHeight: '26px',
     padding: '3px 20px',
@@ -35,4 +36,4 @@ const NavGroup = ({ item, hideMenu }: ItemType) => {
   );
 };
 
-export default NavGroup;
+export default NavGroupComponent;

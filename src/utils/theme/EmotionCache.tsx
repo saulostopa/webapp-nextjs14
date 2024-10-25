@@ -20,32 +20,34 @@ export type NextAppDirEmotionCacheProviderProps = {
   children: React.ReactNode;
 };
 
+function getCacheAndFlush(options: any) {
+  const cache = createCache(options);
+  cache.compat = true;
+  const prevInsert = cache.insert;
+  let inserted: string[] = [];
+  cache.insert = (...args) => {
+    const serialized = args[1];
+    if (cache.inserted[serialized.name] === undefined) {
+      inserted.push(serialized.name);
+    }
+    return prevInsert(...args);
+  };
+
+  const flush = () => {
+    const prevInserted = inserted;
+    inserted = [];
+    return prevInserted;
+  };
+  return { cache, flush };
+}
+
 // This implementation is taken from https://github.com/garronej/tss-react/blob/main/src/next/appDir.tsx
 export function NextAppDirEmotionCacheProvider(
   props: NextAppDirEmotionCacheProviderProps,
 ) {
   const { options, CacheProvider = DefaultCacheProvider, children } = props;
 
-  const [{ cache, flush }] = React.useState(() => {
-    const cache = createCache(options);
-    cache.compat = true;
-    const prevInsert = cache.insert;
-    let inserted: string[] = [];
-    cache.insert = (...args) => {
-      const serialized = args[1];
-      if (cache.inserted[serialized.name] === undefined) {
-        inserted.push(serialized.name);
-      }
-      return prevInsert(...args);
-    };
-
-    const flush = () => {
-      const prevInserted = inserted;
-      inserted = [];
-      return prevInserted;
-    };
-    return { cache, flush };
-  });
+  const [{ cache, flush }] = React.useState(getCacheAndFlush(options));
 
   useServerInsertedHTML(() => {
     const names = flush();

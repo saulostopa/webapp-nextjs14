@@ -122,7 +122,7 @@ const RevenueUpdates = () => {
             </Box>
           </Stack>
         </Stack>
-        <Box className="rounded-bars" height="335px">
+        <Box height="335px">
           <Chart
             options={optionscolumnchart}
             series={seriescolumnchart}

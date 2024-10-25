@@ -142,21 +142,21 @@ const Profile = () => {
           </Box>
         </Stack>
         <Divider />
-        {profile.map((profile) => (
-          <Box key={profile.title}>
+        {profile.map((prof) => (
+          <Box key={prof.title}>
             <Box sx={{ py: 2, px: 0 }} className="hover-text-primary">
-              <Link href={profile.href}>
+              <Link href={prof.href}>
                 <Stack direction="row" spacing={2}>
                   <Box
                     minWidth="45px"
                     height="45px"
-                    bgcolor={`${profile.color}.light`}
-                    color={`${profile.color}.main`}
+                    bgcolor={`${prof.color}.light`}
+                    color={`${prof.color}.main`}
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
                   >
-                    {profile.icon}
+                    {prof.icon}
                   </Box>
                   <Box>
                     <Typography
@@ -169,7 +169,7 @@ const Profile = () => {
                         width: '240px',
                       }}
                     >
-                      {profile.title}
+                      {prof.title}
                     </Typography>
                     <Typography
                       color="textSecondary"
@@ -179,7 +179,7 @@ const Profile = () => {
                       }}
                       noWrap
                     >
-                      {profile.subtitle}
+                      {prof.subtitle}
                     </Typography>
                   </Box>
                 </Stack>

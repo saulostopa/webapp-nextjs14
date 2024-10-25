@@ -1,7 +1,6 @@
 'use client';
 
 import Grid from '@mui/material/Grid';
-import { useEffect, useState } from 'react';
 
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import CurrentValue from '@/app/(DashboardLayout)/components/widgets/charts/CurrentValue';
@@ -31,10 +30,10 @@ const BCrumb = [
 ];
 
 const WidgetCharts = () => {
-  const [isLoading, setLoading] = useState(true);
-  useEffect(() => {
-    setLoading(false);
-  }, []);
+  // const [isLoading, setLoading] = useState(true);
+  // useEffect(() => {
+  //   setLoading(false);
+  // }, []);
 
   return (
     <PageContainer title="Charts" description="this is Charts">

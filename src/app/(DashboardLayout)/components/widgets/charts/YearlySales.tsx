@@ -84,17 +84,15 @@ const YearlySales = () => {
       dataLabel2="Expance"
       dataItem2="$5,296"
     >
-      <>
-        <Box height="310px">
-          <Chart
-            options={optionscolumnchart}
-            series={seriescolumnchart}
-            type="bar"
-            height="295px"
-            width="100%"
-          />
-        </Box>
-      </>
+      <Box height="310px">
+        <Chart
+          options={optionscolumnchart}
+          series={seriescolumnchart}
+          type="bar"
+          height="295px"
+          width="100%"
+        />
+      </Box>
     </DashboardWidgetCard>
   );
 };

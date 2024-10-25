@@ -24,8 +24,6 @@ const UpcomingActivity = () => {
   const warninglight = theme.palette.warning.light;
   const secondary = theme.palette.secondary.main;
   const secondarylight = theme.palette.secondary.light;
-  const success = theme.palette.success.main;
-  const successlight = theme.palette.success.light;
 
   const stats = [
     {
@@ -64,45 +62,43 @@ const UpcomingActivity = () => {
 
   return (
     <DashboardCard title="Upcoming Activity" subtitle="In New year">
-      <>
-        <Stack spacing={3} mt={5}>
-          {stats.map((stat, i) => (
-            <Stack
-              direction="row"
-              spacing={3}
-              justifyContent="space-between"
-              alignItems="center"
-              key={i}
-            >
-              <Stack direction="row" alignItems="center" spacing={2}>
-                <Avatar
-                  variant="rounded"
-                  sx={{
-                    bgcolor: stat.lightcolor,
-                    color: stat.color,
-                    width: 40,
-                    height: 40,
-                  }}
-                >
-                  {stat.icon}
-                </Avatar>
-                <Box>
-                  <Typography variant="h6" mb="4px">
-                    {stat.title}
-                  </Typography>
-                  <Typography variant="subtitle2" color="textSecondary">
-                    {stat.subtitle}
-                  </Typography>
-                </Box>
-              </Stack>
-
-              <Typography variant="subtitle2" color="textSecondary">
-                {stat.time} mins
-              </Typography>
+      <Stack spacing={3} mt={5}>
+        {stats.map((stat) => (
+          <Stack
+            direction="row"
+            spacing={3}
+            justifyContent="space-between"
+            alignItems="center"
+            key={`${stat.title}`}
+          >
+            <Stack direction="row" alignItems="center" spacing={2}>
+              <Avatar
+                variant="rounded"
+                sx={{
+                  bgcolor: stat.lightcolor,
+                  color: stat.color,
+                  width: 40,
+                  height: 40,
+                }}
+              >
+                {stat.icon}
+              </Avatar>
+              <Box>
+                <Typography variant="h6" mb="4px">
+                  {stat.title}
+                </Typography>
+                <Typography variant="subtitle2" color="textSecondary">
+                  {stat.subtitle}
+                </Typography>
+              </Box>
             </Stack>
-          ))}
-        </Stack>
-      </>
+
+            <Typography variant="subtitle2" color="textSecondary">
+              {stat.time} mins
+            </Typography>
+          </Stack>
+        ))}
+      </Stack>
     </DashboardCard>
   );
 };

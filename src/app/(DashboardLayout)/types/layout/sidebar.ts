@@ -1,4 +1,4 @@
-export interface navItemProps {
+export interface NavItemProps {
   item: {
     icon: string;
     href?: string;
@@ -13,7 +13,7 @@ export interface navItemProps {
   };
 }
 
-export interface listItemType {
+export interface ListItemType {
   component: any;
   href?: string;
   target?: any;

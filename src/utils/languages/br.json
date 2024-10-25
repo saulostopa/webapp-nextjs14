@@ -1,166 +1,166 @@
 {
-    "IndexPage": {
-        "id": "Home",
-        "title": "Bem vindo!",
-        "company": "S2Pro",
-        "description": " is a free landing page template built with next.js & Tailwind CSS",
-        "teaser": "Treine certo, veja seu desempenho, construa uma vida longa com qualidade",
-        "allRightsReserved": "Todos os direitos reservados",
-        "teaserDescription": "A S2Pro é um App gratuito para você treinar na academia, em casa, espaço crossfit, parques, ou onde quiser. Você pode criar seu próprio treino ou usar os que já temos disponíveis no app.",
-        "footerDescription": "S2Pro é uma empresa de tecnologia e saúde que busca fortalecer as paixões que nos tornam mais saudáveis em toda forma de pensar e viver através de saúde integral.",
-        "bannerFooterTitle": "Pronto para iniciar seus treinos?",
-        "bannerFooterText": "Comece agora mesmo a controlar seu progresso!",
-        "terms": "Termos de uso",
-        "privacy": "Política de privacidade",
-        "followus": "Siga-nos",
-        "btnEntrar": "Entrar",
-        "btnSobre": "Sobre",
-        "about": {
-            "id": "Sobre",
-            "mission": "Visão | Valores | Missão",
-            "missionDescription": "A S2Pro é uma plataforma 100% personalisada para treinos online e presencial para praticantes e não praticantes de atividade física, personal trainer, estúdios, box crossfit e academias. Um App com todas as funcionalidades do seu dia a dia de treino pra fortalecer sua saúde de maneira prática e objetiva."
+  "IndexPage": {
+    "id": "Home",
+    "title": "Bem vindo!",
+    "company": "S2Pro",
+    "description": " is a free landing page template built with next.js & Tailwind CSS",
+    "teaser": "Treine certo, veja seu desempenho, construa uma vida longa com qualidade",
+    "allRightsReserved": "Todos os direitos reservados",
+    "teaserDescription": "A S2Pro é um App gratuito para você treinar na academia, em casa, espaço crossfit, parques, ou onde quiser. Você pode criar seu próprio treino ou usar os que já temos disponíveis no app.",
+    "footerDescription": "S2Pro é uma empresa de tecnologia e saúde que busca fortalecer as paixões que nos tornam mais saudáveis em toda forma de pensar e viver através de saúde integral.",
+    "bannerFooterTitle": "Pronto para iniciar seus treinos?",
+    "bannerFooterText": "Comece agora mesmo a controlar seu progresso!",
+    "terms": "Termos de uso",
+    "privacy": "Política de privacidade",
+    "followus": "Siga-nos",
+    "btnEntrar": "Entrar",
+    "btnSobre": "Sobre",
+    "about": {
+      "id": "Sobre",
+      "mission": "Visão | Valores | Missão",
+      "missionDescription": "A S2Pro é uma plataforma 100% personalisada para treinos online e presencial para praticantes e não praticantes de atividade física, personal trainer, estúdios, box crossfit e academias. Um App com todas as funcionalidades do seu dia a dia de treino pra fortalecer sua saúde de maneira prática e objetiva."
+    },
+    "benefitOne": {
+      "id": "Benefícios",
+      "title": "Benefícios",
+      "image": "@/public/images/landingpage/benefit-one-v2.png",
+      "description": "Complete de seus treinos, exercícios, frequência de treinos, controle de faltas, controle de peso, anamnese baseado em Pollock 7 Dobras, entre outros.",
+      "items": [
+        {
+          "title": "Resultados tangíveis",
+          "desc": "Dias treinados, pesos levantados, exercícios executados, entre outros",
+          "icon": "chart-line"
         },
-        "benefitOne" : {
-            "id": "Benefícios",
-            "title": "Benefícios",
-            "image": "../../public/img/benefit-one-v2.png",
-            "description": "Complete de seus treinos, exercícios, frequência de treinos, controle de faltas, controle de peso, anamnese baseado em Pollock 7 Dobras, entre outros.",
-            "items" : [
-                {
-                    "title": "Resultados tangíveis",
-                    "desc": "Dias treinados, pesos levantados, exercícios executados, entre outros",
-                    "icon": "chart-line"
-                },
-                {
-                    "title": "Notícias e dicas constantes",
-                    "desc": "Conteúdo atualizado e relevante para seus treinos, alimentação e dicas de saúde",
-                    "icon": "newspaper"
-                },
-                {
-                    "title": "Ajuda personalizada",
-                    "desc": "Suporte para dúvidas e sugestões com nossos profissionais de educação física",
-                    "icon": "handshake-angle"
-                }
-            ]
+        {
+          "title": "Notícias e dicas constantes",
+          "desc": "Conteúdo atualizado e relevante para seus treinos, alimentação e dicas de saúde",
+          "icon": "newspaper"
         },
-        "benefitTwo" : {
-            "id": "Funcionalidades",
-            "title": "Principais Funcionalidades",
-            "image": "../../public/img/benefit-two-v2.png",
-            "description": "Abaixo estão algumas das principais funcionalidades do app.",
-            "items" : [
-                {
-                    "title": "Controle de treinos",
-                    "desc": "Na S2Pro você controla seus treinos de maneira fácil e prática",
-                    "icon": "mobile-screen-button"
-                },
-                {
-                    "title": "Estatísticas de treinos",
-                    "desc": "Dados de pesos levantados, dias treinados, exercícios executados, entre outros",
-                    "icon": "signal"
-                },
-                {
-                    "title": "Vídeos intuitivos",
-                    "desc": "Na S2Pro você conta com vídeos de exemplo de cada exercício",
-                    "icon": "video"
-                }
-            ]
-        },
-        "popupWidget": {
-            "title": "Como podemos lhe ajudar?",
-            "subTitle": "Respondemos em algumas horas",
-            "name": "Nome",
-            "namePlaceholder": "Mike Wazowski",
-            "emailPlaceholder": "seu-email@provedor-valido.com",
-            "message": "Mensagem",
-            "messagePlaceholder": "Escreva sua mensagem aqui...",
-            "errorName": "Por favor, preencha seu nome",
-            "errorEmail": "Por favor, preencha seu email",
-            "errorEmailValid": "Por favor, preencha um email válido",
-            "errorMessage": "Por favor, escreva sua mensagem",
-            "messageSuccess": "Mensagem enviada com sucesso!",
-            "messageError": "Erro ao enviar mensagem, tente novamente mais tarde",
-            "btnSend": "Enviar",
-            "txtBack": "Voltar"
+        {
+          "title": "Ajuda personalizada",
+          "desc": "Suporte para dúvidas e sugestões com nossos profissionais de educação física",
+          "icon": "handshake-angle"
         }
+      ]
     },
-    "LastWorkouts": {
-        "title": "TREINOS!",
-        "subTitle": "Treinos criados recentemente",
-        "description": "Abaixo você confere os últimos treinos criados por nossa equipe de personal trainers e educadores físicos."
-    },
-    "FaqSection": {
-        "title": "FAQ",
-        "subTitle": "Perguntas frequentes",
-        "description": "Veja abaixo as perguntas mais frequentes sobre treinamento online e presencial",
-        "questions": [
-            {
-                "title": "É possível treinar sem personal trainer?",
-                "desc": "Sim, o App possui todos os exercícios e treinos necessários para você alcançar seus objetivos com vídeios explicativos e dicas de execução."
-            },
-            {
-                "title": "Posso convidar um personal trainer montar treinos para mim?",
-                "desc": "Sim, o App possui uma área para personal trainers, onde ele pode criar treinos para seus alunos e acompanhar a evolução deles. Com 1 click você envia o convite para ele."
-            },
-            {
-                "title": "O App possui controle de faltas e histórico de treinos?",
-                "desc": "Sim, o App possui um controle de faltas e histórico de treinos para que você possa acompanhar sua evolução além de anamnese com Pollok 7 Dobras."
-            },
-            {
-                "title": "O App possui controle de peso e medidas?",
-                "desc": "Sim, o App possui um controle de peso e medidas para que você possa acompanhar sua evolução."
-            },
-            {
-                "title": "É possível treinar sem academia?",
-                "desc": "Sim, o App possui treinos para quem quer treinar em casa ou ao ar livre."
-            },
-            {
-                "title": "O App possui controle de alimentação?",
-                "desc": "Não, o App não possui controle de alimentação ainda, mas temos um blog com dicas de alimentação e saúde."
-            }
-        ]
-    },
-    "PathnamesPage": {
-        "title": "Pathnames BR",
-        "description": "<p>The pathnames are internationalized too.</p><p>If you're using the default language English, you'll see <code>/en/pathnames</code> in the browser address bar on this page.</p><p>If you change the locale to German, the URL is localized accordingly (<code>/de/pfadnamen</code>).</p>"
-    },
-    "Error": {
-        "title": "Something went wrong!",
-        "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>"
-    },
-    "NotFoundPage": {
-        "title": "Page not found",
-        "description": "Please double-check the browser address bar or use the navigation to go to a known page."
-    },
-    "LocaleLayout": {
-        "title": "S2Pro Data & Health"
-    },
-    "LocaleSwitcher": {
-        "label": "Change language",
-        "locale": "{locale, select, br {🇧🇷 PT} en {🇺🇸 EN} other {Unknown}}"
-    },
-    "NavigationMenu": {
-        "questions": [
-            {"title": "Home"},
-            {"title": "Sobre"},
-            {"title": "Benefícios"},
-            {"title": "Funcionalidades"},
-            {"title": "Treinos"},
-            {"title": "Faq"}
-        ]
-    },
-    "PageLayout": {
-        "links": {
-        "docs": {
-            "title": "Docs",
-            "description": "Learn more about next-intl in the official docs.",
-            "href": "https://next-intl-docs.vercel.app/"
+    "benefitTwo": {
+      "id": "Funcionalidades",
+      "title": "Principais Funcionalidades",
+      "image": "@/public/images/landingpage/benefit-two-v2.png",
+      "description": "Abaixo estão algumas das principais funcionalidades do app.",
+      "items": [
+        {
+          "title": "Controle de treinos",
+          "desc": "Na S2Pro você controla seus treinos de maneira fácil e prática",
+          "icon": "mobile-screen-button"
         },
-        "source": {
-            "title": "Source code",
-            "description": "Browse the source code of this example on GitHub.",
-            "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router"
+        {
+          "title": "Estatísticas de treinos",
+          "desc": "Dados de pesos levantados, dias treinados, exercícios executados, entre outros",
+          "icon": "signal"
+        },
+        {
+          "title": "Vídeos intuitivos",
+          "desc": "Na S2Pro você conta com vídeos de exemplo de cada exercício",
+          "icon": "video"
         }
-        }
+      ]
+    },
+    "popupWidget": {
+      "title": "Como podemos lhe ajudar?",
+      "subTitle": "Respondemos em algumas horas",
+      "name": "Nome",
+      "namePlaceholder": "Mike Wazowski",
+      "emailPlaceholder": "seu-email@provedor-valido.com",
+      "message": "Mensagem",
+      "messagePlaceholder": "Escreva sua mensagem aqui...",
+      "errorName": "Por favor, preencha seu nome",
+      "errorEmail": "Por favor, preencha seu email",
+      "errorEmailValid": "Por favor, preencha um email válido",
+      "errorMessage": "Por favor, escreva sua mensagem",
+      "messageSuccess": "Mensagem enviada com sucesso!",
+      "messageError": "Erro ao enviar mensagem, tente novamente mais tarde",
+      "btnSend": "Enviar",
+      "txtBack": "Voltar"
     }
+  },
+  "LastWorkouts": {
+    "title": "TREINOS!",
+    "subTitle": "Treinos criados recentemente",
+    "description": "Abaixo você confere os últimos treinos criados por nossa equipe de personal trainers e educadores físicos."
+  },
+  "FaqSection": {
+    "title": "FAQ",
+    "subTitle": "Perguntas frequentes",
+    "description": "Veja abaixo as perguntas mais frequentes sobre treinamento online e presencial",
+    "questions": [
+      {
+        "title": "É possível treinar sem personal trainer?",
+        "desc": "Sim, o App possui todos os exercícios e treinos necessários para você alcançar seus objetivos com vídeios explicativos e dicas de execução."
+      },
+      {
+        "title": "Posso convidar um personal trainer montar treinos para mim?",
+        "desc": "Sim, o App possui uma área para personal trainers, onde ele pode criar treinos para seus alunos e acompanhar a evolução deles. Com 1 click você envia o convite para ele."
+      },
+      {
+        "title": "O App possui controle de faltas e histórico de treinos?",
+        "desc": "Sim, o App possui um controle de faltas e histórico de treinos para que você possa acompanhar sua evolução além de anamnese com Pollok 7 Dobras."
+      },
+      {
+        "title": "O App possui controle de peso e medidas?",
+        "desc": "Sim, o App possui um controle de peso e medidas para que você possa acompanhar sua evolução."
+      },
+      {
+        "title": "É possível treinar sem academia?",
+        "desc": "Sim, o App possui treinos para quem quer treinar em casa ou ao ar livre."
+      },
+      {
+        "title": "O App possui controle de alimentação?",
+        "desc": "Não, o App não possui controle de alimentação ainda, mas temos um blog com dicas de alimentação e saúde."
+      }
+    ]
+  },
+  "PathnamesPage": {
+    "title": "Pathnames BR",
+    "description": "<p>The pathnames are internationalized too.</p><p>If you're using the default language English, you'll see <code>/en/pathnames</code> in the browser address bar on this page.</p><p>If you change the locale to German, the URL is localized accordingly (<code>/de/pfadnamen</code>).</p>"
+  },
+  "Error": {
+    "title": "Something went wrong!",
+    "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>"
+  },
+  "NotFoundPage": {
+    "title": "Page not found",
+    "description": "Please double-check the browser address bar or use the navigation to go to a known page."
+  },
+  "LocaleLayout": {
+    "title": "S2Pro Data & Health"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, br {🇧🇷 PT} en {🇺🇸 EN} other {Unknown}}"
+  },
+  "NavigationMenu": {
+    "questions": [
+      { "title": "Home" },
+      { "title": "Sobre" },
+      { "title": "Benefícios" },
+      { "title": "Funcionalidades" },
+      { "title": "Treinos" },
+      { "title": "Faq" }
+    ]
+  },
+  "PageLayout": {
+    "links": {
+      "docs": {
+        "title": "Docs",
+        "description": "Learn more about next-intl in the official docs.",
+        "href": "https://next-intl-docs.vercel.app/"
+      },
+      "source": {
+        "title": "Source code",
+        "description": "Browse the source code of this example on GitHub.",
+        "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router"
+      }
+    }
+  }
 }

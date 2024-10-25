@@ -113,8 +113,8 @@ const DemosDD = () => {
       </Typography>
 
       <Stack mt={2} spacing={3} direction={{ xs: 'column', lg: 'row' }}>
-        {demos.map((demo, index) => (
-          <Box key={index}>
+        {demos.map((demo) => (
+          <Box key={`${demo.title}`}>
             {/* <Link href={demo.link}> */}
             <StyledBox>
               <Image
@@ -155,8 +155,8 @@ const DemosDD = () => {
       </Typography>
 
       <Stack mt={2} spacing={3} mb={2} direction={{ xs: 'column', lg: 'row' }}>
-        {apps.map((app, index) => (
-          <Box key={index}>
+        {apps.map((app) => (
+          <Box key={`${app.title}`}>
             {/* <Link href={app.link}> */}
             <StyledBox>
               <Image

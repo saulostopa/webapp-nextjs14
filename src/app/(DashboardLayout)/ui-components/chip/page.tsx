@@ -24,7 +24,7 @@ const BCrumb = [
 
 const MuiChip = () => {
   const handleDelete = () => {
-    console.info('You clicked the delete icon.');
+    // console.info('You clicked the delete icon.');
   };
 
   return (

@@ -14,7 +14,7 @@ const emails = ['JohnDeo@gmail.com', 'SmithRocky@gmail.com'];
 
 const SimpleDialog = () => {
   const [open, setOpen] = React.useState(false);
-  const [selectedValue, setSelectedValue] = React.useState(emails[1]);
+  const [selectedValue, setSelectedValue] = React.useState<string>(emails[1]!);
 
   const handleClickOpen = () => {
     setOpen(true);

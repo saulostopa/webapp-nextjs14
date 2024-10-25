@@ -45,8 +45,7 @@ const NavListing = () => {
               item={item}
               key={item.id}
               pathDirect={pathDirect}
-              hideMenu={hideMenu}
-              onClick={function (): void {
+              onClick={() => {
                 throw new Error('Function not implemented.');
               }}
             />

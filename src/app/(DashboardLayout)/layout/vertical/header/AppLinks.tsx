@@ -11,8 +11,8 @@ import * as dropdownData from './data';
 const AppLinks = () => {
   return (
     <Grid container spacing={3} mb={4}>
-      {dropdownData.appsLink.map((links, index) => (
-        <Grid item lg={6} key={index}>
+      {dropdownData.appsLink.map((links) => (
+        <Grid item lg={6} key={`${links}`}>
           <Link href={links.href} className="hover-text-primary">
             <Stack direction="row" spacing={2}>
               <Box

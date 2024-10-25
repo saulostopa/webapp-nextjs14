@@ -7,16 +7,9 @@ import { Box, Stack } from '@mui/system';
 import { IconMessage, IconVolume } from '@tabler/icons-react';
 import React from 'react';
 
-import CustomSlider from '../../forms/theme-elements/CustomSlider';
-import CustomSwitch from '../../forms/theme-elements/CustomSwitch';
 import BlankCard from '../../shared/BlankCard';
 
 const Settings = () => {
-  const [value3, setValue3] = React.useState(45);
-  const handleChange6 = (event: any, newValue: any) => {
-    setValue3(newValue);
-  };
-
   return (
     <BlankCard>
       <CardContent sx={{ p: '30px' }}>
@@ -40,11 +33,6 @@ const Settings = () => {
                   45%
                 </Typography>
               </Box>
-              <CustomSlider
-                aria-label="Volume"
-                value={value3}
-                onChange={handleChange6}
-              />
             </Box>
           </Stack>
           <Divider />
@@ -68,9 +56,6 @@ const Settings = () => {
                 <Typography variant="subtitle2" color="textSecondary">
                   Turn on chat during call
                 </Typography>
-              </Box>
-              <Box>
-                <CustomSwitch />
               </Box>
             </Box>
           </Stack>

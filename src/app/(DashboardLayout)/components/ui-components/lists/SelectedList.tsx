@@ -12,7 +12,7 @@ const SelectedList = () => {
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const handleListItemClick = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    _: React.MouseEvent<HTMLDivElement, MouseEvent>,
     index: number,
   ) => {
     setSelectedIndex(index);
