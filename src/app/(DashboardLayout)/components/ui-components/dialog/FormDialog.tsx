@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -6,8 +5,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import React from 'react';
-
-import CustomTextField from '../../forms/theme-elements/CustomTextField';
 
 const FormDialog = () => {
   const [open, setOpen] = React.useState(false);
@@ -37,16 +34,6 @@ const FormDialog = () => {
             To subscribe to this website, please enter your email address here.
             We will send updates occasionally.
           </DialogContentText>
-          <Box mt={2}>
-            <CustomTextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Email Address"
-              type="email"
-              fullWidth
-            />
-          </Box>
         </DialogContent>
         <DialogActions>
           <Button color="error" onClick={handleClose}>

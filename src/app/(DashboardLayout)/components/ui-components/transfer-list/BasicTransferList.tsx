@@ -2,7 +2,6 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Paper from '@mui/material/Paper';
 import { useTheme } from '@mui/material/styles';
@@ -13,8 +12,6 @@ import {
   IconChevronsRight,
 } from '@tabler/icons-react';
 import React from 'react';
-
-import CustomCheckbox from '../../forms/theme-elements/CustomCheckbox';
 
 function not(a: readonly number[], b: readonly number[]) {
   return a.filter((value) => b.indexOf(value) === -1);
@@ -90,16 +87,6 @@ const BasicTransferList = () => {
               button
               onClick={handleToggle(value)}
             >
-              <ListItemIcon>
-                <CustomCheckbox
-                  tabIndex={-1}
-                  disableRipple
-                  checked={checked.indexOf(value) !== -1}
-                  inputProps={{
-                    'aria-labelledby': labelId,
-                  }}
-                />
-              </ListItemIcon>
               <ListItemText id={labelId} primary={`List item ${value + 1}`} />
             </ListItem>
           );

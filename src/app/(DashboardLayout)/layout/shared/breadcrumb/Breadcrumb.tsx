@@ -2,7 +2,6 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Grid from '@mui/material/Grid';
 import type { Theme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { IconCircle } from '@tabler/icons-react';
 import NextLink from 'next/link';
 import React from 'react';
@@ -11,11 +10,10 @@ interface BreadCrumbType {
   subtitle?: string;
   items?: any[];
   title: string;
-  children?: JSX.Element;
+  // children?: JSX.Element;
 }
 
-const Breadcrumb = ({ subtitle, items, title, children }: BreadCrumbType) => {
-  const lgDown = useMediaQuery((theme: any) => theme.breakpoints.down('lg'));
+const Breadcrumb = ({ subtitle, items, title }: BreadCrumbType) => {
   return (
     <Grid
       container
@@ -26,7 +24,6 @@ const Breadcrumb = ({ subtitle, items, title, children }: BreadCrumbType) => {
         marginBottom: '30px',
         position: 'relative',
         overflow: 'hidden',
-        // marginTop: lgDown ? 3 : 0
       }}
     >
       <Grid item xs={12} sm={6} lg={8} mb={1}>

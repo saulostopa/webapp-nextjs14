@@ -1,20 +1,18 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 
-import CustomCheckbox from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomCheckbox';
-import CustomFormLabel from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel';
-import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
-import type { loginType } from '@/app/(DashboardLayout)/types/auth/auth';
+// import CustomCheckbox from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomCheckbox';
+// import CustomFormLabel from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel';
+// import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
+import type { LoginType } from '@/app/(DashboardLayout)/types/auth/auth';
 
 import AuthSocialButtons from './AuthSocialButtons';
 
-const AuthLogin = ({ title, subtitle, subtext }: loginType) => (
+const AuthLogin = ({ title, subtitle, subtext }: LoginType) => (
   <>
     {title ? (
       <Typography fontWeight="700" variant="h2" mb={1}>
@@ -41,7 +39,7 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => (
     </Box>
 
     <Stack>
-      <Box>
+      {/* <Box>
         <CustomFormLabel htmlFor="username">Username</CustomFormLabel>
         <CustomTextField id="username" variant="outlined" fullWidth />
       </Box>
@@ -53,19 +51,19 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => (
           variant="outlined"
           fullWidth
         />
-      </Box>
+      </Box> */}
       <Stack
         justifyContent="space-between"
         direction={{ xs: 'column', sm: 'row' }}
         alignItems="center"
         my={2}
       >
-        <FormGroup>
+        {/* <FormGroup>
           <FormControlLabel
             control={<CustomCheckbox defaultChecked />}
             label="Remeber this Device"
           />
-        </FormGroup>
+        </FormGroup> */}
         <Typography
           component={Link}
           href="/auth/auth1/forgot-password"

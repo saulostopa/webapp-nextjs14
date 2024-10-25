@@ -1,14 +1,13 @@
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
-import CustomSocialButton from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomSocialButton';
-import type { signInType } from '@/app/(DashboardLayout)/types/auth/auth';
+// import CustomSocialButton from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomSocialButton';
+import type { SignInType } from '@/app/(DashboardLayout)/types/auth/auth';
 
-const AuthSocialButtons = ({ title }: signInType) => (
+const AuthSocialButtons = ({ title }: SignInType) => (
   <Grid container spacing={3} sx={{ mt: 3 }}>
     <Grid item xs={12} sm={6}>
-      <CustomSocialButton fullWidth>
+      {title}
+      {/* <CustomSocialButton fullWidth>
         <Avatar
           src="/images/svgs/google-icon.svg"
           alt="icon1"
@@ -29,10 +28,10 @@ const AuthSocialButtons = ({ title }: signInType) => (
           {title}{' '}
         </Box>{' '}
         Google
-      </CustomSocialButton>
+      </CustomSocialButton> */}
     </Grid>
     <Grid item xs={12} sm={6}>
-      <CustomSocialButton fullWidth>
+      {/* <CustomSocialButton fullWidth>
         <Avatar
           src="/images/svgs/facebook-icon.svg"
           alt="icon2"
@@ -53,7 +52,7 @@ const AuthSocialButtons = ({ title }: signInType) => (
           {title}{' '}
         </Box>{' '}
         FB
-      </CustomSocialButton>
+      </CustomSocialButton> */}
     </Grid>
   </Grid>
 );

@@ -16,11 +16,11 @@ import React, { useState } from 'react';
 
 import Menuitems from '../sidebar/MenuItems';
 
-interface menuType {
+interface MenuType {
   title: string;
   id: string;
   subheader: string;
-  children: menuType[];
+  children: MenuType[];
   href: string;
 }
 
@@ -111,7 +111,7 @@ const Search = () => {
           </Typography>
           <Box>
             <List component="nav">
-              {searchData.map((menu: menuType) => {
+              {searchData.map((menu: MenuType) => {
                 return (
                   <Box key={menu.title ? menu.id : menu.subheader}>
                     {menu.title && !menu.children ? (
@@ -131,7 +131,7 @@ const Search = () => {
                     )}
                     {menu.children ? (
                       <>
-                        {menu.children.map((child: menuType) => {
+                        {menu.children.map((child: MenuType) => {
                           return (
                             <ListItemButton
                               sx={{ py: 0.5, px: 1 }}

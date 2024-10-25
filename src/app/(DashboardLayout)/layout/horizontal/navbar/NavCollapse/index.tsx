@@ -138,7 +138,7 @@ const NavCollapse = ({
         item={item}
         level={level + 1}
         pathDirect={pathDirect}
-        hideMenu={hideMenu}
+        // hideMenu={hideMenu}
         onClick={onClick}
       />
     );
@@ -167,6 +167,7 @@ const NavCollapse = ({
           },
 
           color:
+            // eslint-disable-next-line no-nested-ternary
             open && level < 2
               ? `${menu.bgcolor}.main`
               : `inherit` && level > 1 && open

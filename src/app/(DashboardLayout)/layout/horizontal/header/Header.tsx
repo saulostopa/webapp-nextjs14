@@ -2,7 +2,8 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import type { styled, Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { IconMenu2 } from '@tabler/icons-react';
@@ -13,7 +14,6 @@ import { useDispatch, useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
 
 import Logo from '../../shared/logo/Logo';
-import Cart from '../../vertical/header/Cart';
 import Language from '../../vertical/header/Language';
 import Notifications from '../../vertical/header/Notification';
 import Profile from '../../vertical/header/Profile';
@@ -21,7 +21,6 @@ import Search from '../../vertical/header/Search';
 
 export default function Header() {
   const lgDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
 
   // drawer
   const customizer = useSelector((state: AppState) => state.customizer);
@@ -54,9 +53,7 @@ export default function Header() {
         <Box sx={{ width: lgDown ? '45px' : 'auto', overflow: 'hidden' }}>
           <Logo />
         </Box>
-        {/* ------------------------------------------- */}
-        {/* Toggle Button Sidebar */}
-        {/* ------------------------------------------- */}
+
         {lgDown ? (
           <IconButton
             color="inherit"
@@ -71,18 +68,9 @@ export default function Header() {
 
         <Box flexGrow={1} />
         <Stack spacing={1} direction="row" alignItems="center">
-          {/* ------------------------------------------- */}
-          {/* Search Dropdown */}
-          {/* ------------------------------------------- */}
           <Search />
           <Language />
-          {/* ------------------------------------------- */}
-          {/* Ecommerce Dropdown */}
-          {/* ------------------------------------------- */}
-          <Cart />
-          {/* ------------------------------------------- */}
-          {/* End Ecommerce Dropdown */}
-          {/* ------------------------------------------- */}
+
           <Notifications />
           <Profile />
         </Stack>

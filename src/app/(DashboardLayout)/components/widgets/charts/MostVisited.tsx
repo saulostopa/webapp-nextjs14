@@ -1,24 +1,15 @@
 import CardContent from '@mui/material/CardContent';
-import MenuItem from '@mui/material/MenuItem';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { Box, Stack } from '@mui/system';
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-import CustomSelect from '../../forms/theme-elements/CustomSelect';
 import BlankCard from '../../shared/BlankCard';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const MostVisited = () => {
-  // for select
-  const [month, setMonth] = React.useState('1');
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setMonth(event.target.value);
-  };
-
   // chart color
   const theme = useTheme();
   const primary = theme.palette.primary.main;
@@ -89,19 +80,8 @@ const MostVisited = () => {
       <CardContent sx={{ p: '30px' }}>
         <Stack direction="row" justifyContent="space-between">
           <Typography variant="h5">Most Visited</Typography>
-          <CustomSelect
-            labelId="month-dd"
-            id="month-dd"
-            size="small"
-            value={month}
-            onChange={handleChange}
-          >
-            <MenuItem value={1}>March 2023</MenuItem>
-            <MenuItem value={2}>April 2023</MenuItem>
-            <MenuItem value={3}>May 2023</MenuItem>
-          </CustomSelect>
         </Stack>
-        <Box className="rounded-bars">
+        <Box>
           <Chart
             options={optionscolumnchart}
             series={seriescolumnchart}

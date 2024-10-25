@@ -16,7 +16,6 @@ const customJestConfig = {
 
     '^__mocks__/(.*)$': '<rootDir>/__mocks__/$1',
   },
-  setupFilesAfterEnv: ['./jest.setup.js'],
   clearMocks: true,
   collectCoverage: true,
   coveragePathIgnorePatterns: ['<rootDir>/node_modules/'],
@@ -32,14 +31,6 @@ const customJestConfig = {
     '!**/*.d.ts',
     '!**/node_modules/**',
   ],
-  // coverageThreshold: {
-  //   global: {
-  //     branches: 85,
-  //     functions: 85,
-  //     lines: 85,
-  //     statements: 85,
-  //   },
-  // },
   testEnvironment: 'jest-environment-jsdom',
   setupFiles: ['jest-localstorage-mock'],
   testTimeout: 10000,

@@ -1,12 +1,12 @@
 // Notifications dropdown
 
-interface notificationType {
+interface NotificationType {
   avatar: string;
   title: string;
   subtitle: string;
 }
 
-const notifications: notificationType[] = [
+const notifications: NotificationType[] = [
   {
     avatar: '/images/profile/user-1.jpg',
     title: 'Roman Joined the Team!',
@@ -51,14 +51,14 @@ const notifications: notificationType[] = [
 
 // Messages dropdown
 
-interface messageType {
+interface MessageType {
   avatar: string;
   title: string;
   subtitle: string;
   time: string;
 }
 
-const messages: messageType[] = [
+const messages: MessageType[] = [
   {
     avatar: '/images/profile/user1.jpg',
     title: 'Roman Joined the Team!',
@@ -93,14 +93,14 @@ const messages: messageType[] = [
 
 // apps dropdown
 
-interface appsLinkType {
+interface AppsLinkType {
   href: string;
   title: string;
   subtext: string;
   avatar: string;
 }
 
-const appsLink: appsLinkType[] = [
+const appsLink: AppsLinkType[] = [
   {
     href: '/apps/chats',
     title: 'Chat Application',

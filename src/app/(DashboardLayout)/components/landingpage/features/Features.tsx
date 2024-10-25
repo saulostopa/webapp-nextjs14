@@ -138,14 +138,14 @@ const Features = () => {
         <AnimationFadeIn>
           <Box mt={10}>
             <Grid container spacing={3}>
-              {featuresData.map((feature, index) => (
-                <Grid item xs={12} sm={4} lg={3} key={index}>
+              {featuresData.map((feature) => (
+                <Grid item xs={12} sm={4} lg={3} key={`${feature.title}`}>
                   <BlankCard>
                     <CardContent>
                       <Avatar
                         sx={{
-                          bgcolor: `${feature.color}` + '.light',
-                          color: `${feature.color}` + '.main',
+                          bgcolor: `${feature.color}.light`,
+                          color: `${feature.color}.main`,
                           width: 50,
                           height: 50,
                           borderRadius: '18px',
