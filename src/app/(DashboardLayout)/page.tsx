@@ -24,14 +24,14 @@ export default function Landingpage() {
           teaserDescription={tIndexPage.teaserDescription}
         />
       </span>
-      <SectionTitle
-        pretitle="S2Pro"
-        id={tIndexPage.about.id}
-        title={tIndexPage.about.mission}
-      >
-        {tIndexPage.about.missionDescription}
-      </SectionTitle>
-      <Benefits id={tIndexPage.benefitOne.id} imgPos="right" option="two" />
+      <span id={tIndexPage.about.id}>
+        <SectionTitle pretitle="S2Pro" title={tIndexPage.about.mission}>
+          {tIndexPage.about.missionDescription}
+        </SectionTitle>
+      </span>
+      <span id={tIndexPage.benefitOne.id}>
+        <Benefits imgPos="right" option="two" />
+      </span>
       <Footer />
     </PageContainer>
   );

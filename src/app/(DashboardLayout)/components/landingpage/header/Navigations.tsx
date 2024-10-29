@@ -32,9 +32,10 @@ export default function Navigations({
             e.preventDefault();
             const linkItem = document.getElementById(href as string);
             if (linkItem)
-              linkItem.scrollIntoView({
+              window.scrollTo({
+                // Hardcoded considering header height
+                top: linkItem.offsetTop - 100,
                 behavior: 'smooth',
-                block: 'start',
               });
           }}
         />
