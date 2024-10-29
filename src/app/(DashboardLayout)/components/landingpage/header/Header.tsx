@@ -15,6 +15,7 @@ import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
 
 import MobileSidebar from './MobileSidebar';
 import Navigations from './Navigations';
+import ThemeSwitcher from './ThemeSwitcher';
 
 export default function Header() {
   const { t } = useTranslation();
@@ -74,6 +75,7 @@ export default function Header() {
                   </Navigations>
                 ))}
               </Stack>
+              <ThemeSwitcher />
               <Link
                 href="/api/auth/login"
                 className="bg-s2pro-primary rounded-md px-6 py-2 text-white md:ml-5"
@@ -98,6 +100,7 @@ export default function Header() {
           },
         }}
       >
+        {/* TODO: add navigation links to mobile */}
         <MobileSidebar />
       </Drawer>
     </AppBarStyled>
