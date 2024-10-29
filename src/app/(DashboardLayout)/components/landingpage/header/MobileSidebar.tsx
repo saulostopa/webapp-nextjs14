@@ -9,8 +9,6 @@ import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
 import AppLinks from '@/app/(DashboardLayout)/layout/vertical/header/AppLinks';
 import QuickLinks from '@/app/(DashboardLayout)/layout/vertical/header/QuickLinks';
 
-import DemosDD from './DemosDD';
-
 const MobileSidebar = () => {
   const [toggle, setToggle] = useState(false);
   const [toggle2, setToggle2] = useState(false);
@@ -36,7 +34,7 @@ const MobileSidebar = () => {
             <Collapse in={toggle}>
               <Box m="-21px">
                 <Box ml={1}>
-                  <DemosDD />
+                  <p>placeholder</p>
                 </Box>
               </Box>
             </Collapse>

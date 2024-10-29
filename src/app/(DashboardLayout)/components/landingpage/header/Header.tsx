@@ -18,6 +18,7 @@ import Navigations from './Navigations';
 
 export default function Header() {
   const { t } = useTranslation();
+  const tIndexPage: any = t('IndexPage', { returnObjects: true });
   const tHeaderMenu: any = t('NavigationMenu', { returnObjects: true });
 
   const AppBarStyled = styled(AppBar)(({ theme }) => ({
@@ -77,7 +78,7 @@ export default function Header() {
                 href="/api/auth/login"
                 className="bg-s2pro-primary rounded-md px-6 py-2 text-white md:ml-5"
               >
-                Entrar
+                {tIndexPage.btnEntrar}
               </Link>
             </>
           ) : null}
@@ -92,6 +93,7 @@ export default function Header() {
           sx: {
             width: 270,
             border: '0 !important',
+            paddingTop: 2,
             boxShadow: (theme) => theme.shadows[8],
           },
         }}

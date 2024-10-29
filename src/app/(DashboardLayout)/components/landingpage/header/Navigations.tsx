@@ -32,7 +32,10 @@ export default function Navigations({
             e.preventDefault();
             const linkItem = document.getElementById(href as string);
             if (linkItem)
-              linkItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              linkItem.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+              });
           }}
         />
       </li>
