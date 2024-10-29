@@ -1,3 +1,5 @@
+'use client';
+
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
 import Drawer from '@mui/material/Drawer';
@@ -12,6 +14,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
+import Language from '@/app/(DashboardLayout)/layout/vertical/header/Language';
 
 import MobileSidebar from './MobileSidebar';
 import Navigations from './Navigations';
@@ -82,6 +85,7 @@ export default function Header() {
               >
                 {tIndexPage.btnEntrar}
               </Link>
+              <Language />
             </>
           ) : null}
         </ToolbarStyled>

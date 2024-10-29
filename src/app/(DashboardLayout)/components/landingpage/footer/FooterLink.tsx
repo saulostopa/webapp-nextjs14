@@ -15,8 +15,11 @@ export default function FooterLink({ title }: Props) {
         e.preventDefault();
         const linkItem = document.getElementById(title);
         if (linkItem)
-          linkItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        window.history.pushState('linkItem', 'linkItem', `#${title}`);
+          window.scrollTo({
+            // Hardcoded considering header height
+            top: linkItem.offsetTop - 100,
+            behavior: 'smooth',
+          });
       }}
     >
       {title}

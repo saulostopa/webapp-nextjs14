@@ -25,7 +25,7 @@ export default function Navigations({
       <li className="list-none" key={href as string}>
         <Link
           aria-current={isActive ? 'page' : undefined}
-          className="inline-block rounded-md px-4 py-2 text-lg font-normal text-gray-800 no-underline focus:bg-indigo-100 focus:outline-none dark:text-gray-200 dark:focus:bg-gray-800"
+          className="inline-block rounded-md text-lg font-normal text-gray-800 no-underline focus:bg-indigo-100 focus:outline-none dark:text-gray-200 dark:focus:bg-gray-800"
           href="/Home"
           {...rest}
           onClick={(e) => {
