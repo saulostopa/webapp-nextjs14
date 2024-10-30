@@ -57,7 +57,7 @@ export default function Footer() {
               {' '}
               <Link
                 href="/"
-                className="text-s2pro-primary0 flex items-center space-x-2 text-2xl font-medium dark:text-gray-100"
+                className="flex items-center space-x-2 text-2xl font-medium dark:text-gray-100"
               >
                 <Image
                   src="/images/landingpage/logo.svg"
@@ -69,7 +69,7 @@ export default function Footer() {
               </Link>
             </div>
 
-            <div className="mt-4 max-w-md text-gray-500 dark:text-gray-400">
+            <div className="light:text-gray-500 mt-4 max-w-md dark:text-gray-400">
               {tIndexPage.footerDescription}
             </div>
           </div>
@@ -88,18 +88,18 @@ export default function Footer() {
                   key={item}
                   href="https://s2pro.com.br/termos-de-uso-e-politica-de-privacidade"
                   target="_blank"
-                  className="hover:text-s2pro-primary0 focus:text-s2pro-primary0 w-full rounded-md px-4 py-2 text-gray-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700"
+                  className="light:text-gray-500 w-full rounded-md px-4 py-2 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700"
                 >
                   {item}
                 </Link>
               ))}
             </div>
           </div>
-          <div className="">
-            <div className="text-gray-500 dark:text-gray-300">
+          <div>
+            <div className="light:text-gray-500 dark:text-gray-300">
               {tIndexPage.followus}
             </div>
-            <div className="mt-5 flex space-x-5 text-gray-400 dark:text-gray-500">
+            <div className="light:text-gray-400 mt-5 flex space-x-5 dark:text-gray-500">
               <a
                 href="https://facebook.com/meus2pro"
                 target="_blank"
@@ -128,7 +128,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="my-10 text-center text-sm text-gray-600 dark:text-gray-400">
+        <div className="light:text-gray-600 my-10 text-center text-sm dark:text-gray-400">
           Copyright © {new Date().getFullYear()}. {companyName} {' - '}{' '}
           {tIndexPage.allRightsReserved}
         </div>

@@ -38,6 +38,7 @@ export default function Header() {
     justifyContent: 'space-between',
     paddingLeft: '0 !important',
     paddingRight: '0 !important',
+    marginTop: '16px',
     color: theme.palette.text.secondary,
   }));
 
@@ -71,20 +72,21 @@ export default function Header() {
           ) : null}
           {lgUp ? (
             <>
-              <Stack spacing={1} direction="row" alignItems="center" gap={1}>
+              <Stack spacing={6} direction="row" alignItems="center" gap={1}>
                 {tHeaderMenu.questions.map((question: any) => (
                   <Navigations key={question.title} href={question.title}>
                     {question.title}
                   </Navigations>
                 ))}
               </Stack>
-              <ThemeSwitcher />
               <Link
                 href="/api/auth/login"
                 className="bg-s2pro-primary rounded-md px-6 py-2 text-white md:ml-5"
               >
                 {tIndexPage.btnEntrar}
               </Link>
+
+              <ThemeSwitcher />
               <Language />
             </>
           ) : null}
@@ -99,12 +101,11 @@ export default function Header() {
           sx: {
             width: 270,
             border: '0 !important',
-            paddingTop: 2,
+            paddingTop: 3,
             boxShadow: (theme) => theme.shadows[8],
           },
         }}
       >
-        {/* TODO: add navigation links to mobile */}
         <MobileSidebar />
       </Drawer>
     </AppBarStyled>

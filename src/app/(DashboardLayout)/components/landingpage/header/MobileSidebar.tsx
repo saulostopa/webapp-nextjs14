@@ -1,84 +1,40 @@
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Collapse from '@mui/material/Collapse';
 import Stack from '@mui/material/Stack';
-import { IconChevronDown } from '@tabler/icons-react';
-import React, { useState } from 'react';
+import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
-import AppLinks from '@/app/(DashboardLayout)/layout/vertical/header/AppLinks';
-import QuickLinks from '@/app/(DashboardLayout)/layout/vertical/header/QuickLinks';
+import Language from '@/app/(DashboardLayout)/layout/vertical/header/Language';
+
+import Navigations from './Navigations';
+import ThemeSwitcher from './ThemeSwitcher';
 
 const MobileSidebar = () => {
-  const [toggle, setToggle] = useState(false);
-  const [toggle2, setToggle2] = useState(false);
+  const { t } = useTranslation();
+  const tIndexPage: any = t('IndexPage', { returnObjects: true });
+  const tHeaderMenu: any = t('NavigationMenu', { returnObjects: true });
 
   return (
     <>
-      <Box px={3}>
+      <Box display="flex" justifyContent="center">
         <Logo />
       </Box>
       <Box p={3}>
         <Stack direction="column" spacing={2}>
-          <Button
-            color="inherit"
-            onClick={() => setToggle(!toggle)}
-            endIcon={<IconChevronDown width={20} />}
-            sx={{
-              justifyContent: 'space-between',
-            }}
-          >
-            Demos
-          </Button>
-          {toggle && (
-            <Collapse in={toggle}>
-              <Box m="-21px">
-                <Box ml={1}>
-                  <p>placeholder</p>
-                </Box>
-              </Box>
-            </Collapse>
-          )}
+          {tHeaderMenu.questions.map((question: any) => (
+            <Navigations key={question.title} href={question.title}>
+              {question.title}
+            </Navigations>
+          ))}
 
-          <Button
-            color="inherit"
-            onClick={() => setToggle2(!toggle2)}
-            endIcon={<IconChevronDown width={20} />}
-            sx={{
-              justifyContent: 'space-between',
-            }}
+          <Link
+            href="/api/auth/login"
+            className="bg-s2pro-primary flex justify-center rounded-md px-6 py-2 text-white md:ml-5"
           >
-            Pages
-          </Button>
-          {toggle2 && (
-            <Collapse in={toggle2}>
-              <Box overflow="hidden" ml={1}>
-                <AppLinks />
-                <QuickLinks />
-              </Box>
-            </Collapse>
-          )}
-          <Button
-            color="inherit"
-            href="#"
-            sx={{
-              justifyContent: 'start',
-            }}
-          >
-            Documentation
-          </Button>
-          <Button
-            color="inherit"
-            href="https://adminmart.com/support"
-            sx={{
-              justifyContent: 'start',
-            }}
-          >
-            Support
-          </Button>
-          <Button color="primary" variant="contained" href="/auth/auth1/login">
-            Login
-          </Button>
+            {tIndexPage.btnEntrar}
+          </Link>
+          <ThemeSwitcher />
+          <Language />
         </Stack>
       </Box>
     </>

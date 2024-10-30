@@ -38,7 +38,7 @@ export default function ThemeSwitcher() {
                 customizer.activeMode === 'light' ? 'primary.main' : 'inherit',
             }}
           >
-            <Icon icon="solar:sun-2-bold-duotone" width={24} height={24} />
+            <Icon icon="solar:moon-bold-duotone" width={24} height={24} />
           </Box>
         </StyledBox>
       )}
@@ -57,7 +57,7 @@ export default function ThemeSwitcher() {
                 customizer.activeMode === 'dark' ? 'primary.main' : 'inherit',
             }}
           >
-            <Icon icon="solar:moon-bold-duotone" width={24} height={24} />
+            <Icon icon="solar:sun-2-bold-duotone" width={24} height={24} />
           </Box>
         </StyledBox>
       )}

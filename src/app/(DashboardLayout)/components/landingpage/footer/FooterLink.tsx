@@ -10,7 +10,7 @@ export default function FooterLink({ title }: Props) {
   return (
     <Link
       href="/"
-      className="hover:text-s2pro-primary0 focus:text-s2pro-primary0 w-full rounded-md px-4 py-2 text-gray-500 focus:bg-slate-200 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700"
+      className="light:text-gray-500 w-full rounded-md px-4 py-2 focus:outline-none dark:text-gray-300 "
       onClick={(e) => {
         e.preventDefault();
         const linkItem = document.getElementById(title);
