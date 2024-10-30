@@ -30,6 +30,7 @@ export default function Header() {
     [theme.breakpoints.up('lg')]: {
       minHeight: '100px',
     },
+    zIndex: 10,
     backgroundColor: theme.palette.background.default,
   }));
 
