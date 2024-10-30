@@ -1,5 +1,6 @@
+'use client';
+
 import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -8,19 +9,28 @@ import { styled, type Theme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { IconMenu2 } from '@tabler/icons-react';
+import Link from 'next/link';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
+import Language from '@/app/(DashboardLayout)/layout/vertical/header/Language';
 
 import MobileSidebar from './MobileSidebar';
 import Navigations from './Navigations';
+import ThemeSwitcher from './ThemeSwitcher';
 
-const LpHeader = () => {
+export default function Header() {
+  const { t } = useTranslation();
+  const tIndexPage: any = t('IndexPage', { returnObjects: true });
+  const tHeaderMenu: any = t('NavigationMenu', { returnObjects: true });
+
   const AppBarStyled = styled(AppBar)(({ theme }) => ({
     justifyContent: 'center',
     [theme.breakpoints.up('lg')]: {
       minHeight: '100px',
     },
+    zIndex: 10,
     backgroundColor: theme.palette.background.default,
   }));
 
@@ -29,6 +39,7 @@ const LpHeader = () => {
     justifyContent: 'space-between',
     paddingLeft: '0 !important',
     paddingRight: '0 !important',
+    marginTop: '16px',
     color: theme.palette.text.secondary,
   }));
 
@@ -46,25 +57,6 @@ const LpHeader = () => {
     setOpen(newOpen);
   };
 
-  // const [y, setY] = React.useState(0);
-
-  // const handleNavigation = React.useCallback(
-  //   (e: Event | any) => {
-  //     const window = e.currentTarget;
-  //     setY(window.scrollY);
-  //   },
-  //   [y]
-  // );
-
-  // React.useEffect(() => {
-  //   setY(window.scrollY);
-  //   window.addEventListener("scroll", handleNavigation);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleNavigation);
-  //   };
-  // }, [handleNavigation]);
-
   return (
     <AppBarStyled position="sticky" elevation={0}>
       <Container maxWidth="lg">
@@ -81,16 +73,22 @@ const LpHeader = () => {
           ) : null}
           {lgUp ? (
             <>
-              <Stack spacing={1} direction="row" alignItems="center" gap={1}>
-                <Navigations />
+              <Stack spacing={6} direction="row" alignItems="center" gap={1}>
+                {tHeaderMenu.questions.map((question: any) => (
+                  <Navigations key={question.title} href={question.title}>
+                    {question.title}
+                  </Navigations>
+                ))}
               </Stack>
-              <Button
-                color="primary"
-                variant="contained"
-                href="https://discord.com/invite/eMzE8F6Wqs"
+              <Link
+                href="/api/auth/login"
+                className="bg-s2pro-primary rounded-md px-6 py-2 text-white md:ml-5"
               >
-                Live Help
-              </Button>
+                {tIndexPage.btnEntrar}
+              </Link>
+
+              <ThemeSwitcher />
+              <Language />
             </>
           ) : null}
         </ToolbarStyled>
@@ -104,6 +102,7 @@ const LpHeader = () => {
           sx: {
             width: 270,
             border: '0 !important',
+            paddingTop: 3,
             boxShadow: (theme) => theme.shadows[8],
           },
         }}
@@ -112,6 +111,4 @@ const LpHeader = () => {
       </Drawer>
     </AppBarStyled>
   );
-};
-
-export default LpHeader;
+}
