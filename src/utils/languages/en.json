@@ -85,6 +85,7 @@
     }
   },
   "LastWorkouts": {
+    "id": "Workouts",
     "title": "WORKOUTS!",
     "subTitle": "Recently created workouts",
     "description": "Below you can see the latest workouts created by our team of personal trainers and physical educators"
@@ -145,7 +146,7 @@
       { "title": "About" },
       { "title": "Benefits" },
       { "title": "Features" },
-      { "title": "Trainings" },
+      { "title": "Workouts" },
       { "title": "Faq" }
     ]
   },
