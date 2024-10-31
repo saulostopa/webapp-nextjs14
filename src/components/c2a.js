@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { useTranslation } from 'react-i18next';
-import Container from './container';
+import Container from './utils/container';
 
 const Cta = () => {
   const { t } = useTranslation();
