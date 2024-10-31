@@ -3,6 +3,7 @@
 import '@/app/global.css';
 
 import { Box, Container, styled, useTheme } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 import { useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
@@ -25,6 +26,8 @@ interface Props {
 export default function RootLayout({ children }: Props) {
   const customizer = useSelector((state: AppState) => state.customizer);
   const theme = useTheme();
+  const { t } = useTranslation();
+  const tLocaleLayout: any = t('LocaleLayout', { returnObjects: true });
 
   const MainWrapper = styled('div')(() => ({
     display: 'flex',
@@ -35,7 +38,7 @@ export default function RootLayout({ children }: Props) {
 
   return (
     <MainWrapper>
-      <title>Spike NextJs 14.0.3</title>
+      <title>{tLocaleLayout.title}</title>
       <Box width="100%">
         <PageWrapper
           sx={{
