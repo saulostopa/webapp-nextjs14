@@ -9,6 +9,7 @@ import Footer from '@/app/(DashboardLayout)/components/landingpage/footer/Footer
 import LpHeader from '@/app/(DashboardLayout)/components/landingpage/header/Header';
 import PopUpWidget from '@/app/(DashboardLayout)/components/landingpage/help-email/PopUpWidget';
 import Benefits from '@/components/benefits';
+import C2a from '@/components/c2a';
 import Faq from '@/components/faq';
 import Hero from '@/components/landingpage/hero';
 import SectionTitle from '@/components/sectionTitle';
@@ -46,6 +47,7 @@ export default function Landingpage() {
       </SectionTitle>
       {/* TODO: add workouts from api */}
       <Faq />
+      <C2a />
       <Footer />
       <PopUpWidget items={tPopUpWidget} />
     </PageContainer>
