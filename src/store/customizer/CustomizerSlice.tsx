@@ -4,7 +4,6 @@ import { createSlice } from '@reduxjs/toolkit';
 interface StateType {
   activeDir?: string | any;
   activeMode?: string; // This can be light or dark
-  activeTheme?: string; // BLUE_THEME, GREEN_THEME, BLACK_THEME, PURPLE_THEME, ORANGE_THEME
   SidebarWidth?: number;
   MiniSidebarWidth?: number;
   TopbarHeight?: number;
@@ -21,7 +20,6 @@ interface StateType {
 const initialState: StateType = {
   activeDir: 'ltr',
   activeMode: 'dark', // This can be light or dark
-  activeTheme: 'GREEN_THEME', // BLUE_THEME, GREEN_THEME, BLACK_THEME, PURPLE_THEME, ORANGE_THEME
   SidebarWidth: 270,
   MiniSidebarWidth: 87,
   TopbarHeight: 70,
@@ -39,9 +37,6 @@ export const CustomizerSlice = createSlice({
   name: 'customizer',
   initialState,
   reducers: {
-    setTheme: (state: StateType, action) => {
-      state.activeTheme = action.payload;
-    },
     setDarkMode: (state: StateType, action) => {
       state.activeMode = action.payload;
     },
@@ -77,7 +72,6 @@ export const CustomizerSlice = createSlice({
 });
 
 export const {
-  setTheme,
   setDarkMode,
   setDir,
   toggleSidebar,

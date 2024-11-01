@@ -127,9 +127,9 @@ const baseDarkTheme = {
     },
     divider: '#333F55',
     background: {
-      default: '#15263A',
-      dark: '#15263A',
-      paper: '#111C2D',
+      default: '#171717',
+      dark: '#171717',
+      paper: '#262626',
     },
   },
 };

@@ -1,6 +1,9 @@
 // @ts-nocheck
 import SectionTitle from '@/components/sectionTitle';
-import Accordion from '@/components/accordion';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useTranslation } from 'react-i18next';
 import Container from './utils/container';
 
@@ -14,10 +17,22 @@ const Faq = () => {
         {tFaq.description}
       </SectionTitle>
       <Container className="!p-0">
-        <div className="w-full max-w-2xl p-2 mx-auto rounded-2xl">
+        <div className="max-w-2xl mx-auto">
           {tFaq.questions.map((item, key) => (
             <div key={key} className="mb-5">
-              <Accordion title={item.title} content={item.desc} />
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                  className="text-lg p-2 !py-2"
+                >
+                  {item.title}
+                </AccordionSummary>
+                <AccordionDetails className="px-4 pt-4 pb-2">
+                  {item.desc}
+                </AccordionDetails>
+              </Accordion>
             </div>
           ))}
         </div>
