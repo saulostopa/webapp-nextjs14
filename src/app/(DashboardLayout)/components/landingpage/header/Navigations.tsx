@@ -10,7 +10,7 @@ export default function Navigations({
   return (
     <Link
       href="/Home"
-      className="dark:text-s2pro-primary light:text-gray-800 flex justify-center rounded-md text-lg font-normal no-underline focus:outline-none dark:focus:bg-gray-800"
+      className="flex justify-center rounded-md text-lg font-normal no-underline focus:outline-none"
       {...rest}
       onClick={(e) => {
         e.preventDefault();

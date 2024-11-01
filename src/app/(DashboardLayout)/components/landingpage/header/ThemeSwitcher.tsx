@@ -34,8 +34,7 @@ export default function ThemeSwitcher() {
             display="flex"
             alignItems="center"
             sx={{
-              color:
-                customizer.activeMode === 'light' ? 'primary.main' : 'inherit',
+              color: customizer.activeMode === 'light' ? 'primary' : 'inherit',
             }}
           >
             <Icon icon="solar:moon-bold-duotone" width={24} height={24} />
@@ -53,8 +52,7 @@ export default function ThemeSwitcher() {
             display="flex"
             alignItems="center"
             sx={{
-              color:
-                customizer.activeMode === 'dark' ? 'primary.main' : 'inherit',
+              color: customizer.activeMode === 'dark' ? 'primary' : 'inherit',
             }}
           >
             <Icon icon="solar:sun-2-bold-duotone" width={24} height={24} />
