@@ -128,8 +128,8 @@ export default function PopUpWidget({ items }: Props) {
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                       <input
                         type="hidden"
-                        value="2ff3277c-7d31-4213-8826-7704472790ff"
-                        {...register('apikey')}
+                        value="b7483e94-3b58-4387-9a20-f6beeae1c642"
+                        {...register('access_key')}
                       />
                       <input
                         type="hidden"
