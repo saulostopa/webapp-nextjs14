@@ -39,7 +39,7 @@ export default function Header() {
     justifyContent: 'space-between',
     paddingLeft: '0 !important',
     paddingRight: '0 !important',
-    marginTop: '16px',
+    marginTop: '8px',
     color: theme.palette.text.secondary,
   }));
 
@@ -102,7 +102,6 @@ export default function Header() {
           sx: {
             width: 270,
             border: '0 !important',
-            paddingTop: 3,
             boxShadow: (theme) => theme.shadows[8],
           },
         }}
