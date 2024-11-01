@@ -4,8 +4,8 @@
 
 import { Disclosure, Transition } from '@headlessui/react';
 import { Button } from '@mui/material';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useEffect, useState } from 'react';
+import { useForm, useWatch } from 'react-hook-form';
 
 type Props = {
   items: any;
@@ -14,13 +14,25 @@ type Props = {
 export default function PopUpWidget({ items }: Props) {
   const {
     register,
+    setValue,
     handleSubmit,
     reset,
+    control,
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = useForm({
     mode: 'onTouched',
   });
   const [isSuccess, setIsSuccess] = useState(false);
+
+  const userName = useWatch({
+    control,
+    name: 'name',
+    defaultValue: 'Someone',
+  });
+
+  useEffect(() => {
+    setValue('subject', `${userName} sent a message from Website`);
+  }, [userName, setValue]);
 
   const onSubmit = async (data: any, e: any) => {
     await fetch('https://api.web3forms.com/submit', {
