@@ -40,12 +40,8 @@ export const BuildTheme = (config: any = {}) => {
 
 const ThemeSettings = () => {
   const activDir = useSelector((state: AppState) => state.customizer.activeDir);
-  const activeTheme = useSelector(
-    (state: AppState) => state.customizer.activeTheme,
-  );
   const theme = BuildTheme({
     direction: activDir,
-    theme: activeTheme,
   });
   useEffect(() => {
     document.dir = activDir;
