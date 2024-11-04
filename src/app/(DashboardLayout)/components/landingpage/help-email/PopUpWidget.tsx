@@ -4,8 +4,8 @@
 
 import { Disclosure, Transition } from '@headlessui/react';
 import { Button } from '@mui/material';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useEffect, useState } from 'react';
+import { useForm, useWatch } from 'react-hook-form';
 
 type Props = {
   items: any;
@@ -14,13 +14,25 @@ type Props = {
 export default function PopUpWidget({ items }: Props) {
   const {
     register,
+    setValue,
     handleSubmit,
     reset,
+    control,
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = useForm({
     mode: 'onTouched',
   });
   const [isSuccess, setIsSuccess] = useState(false);
+
+  const userName = useWatch({
+    control,
+    name: 'name',
+    defaultValue: 'Someone',
+  });
+
+  useEffect(() => {
+    setValue('subject', `${userName} sent a message from Website`);
+  }, [userName, setValue]);
 
   const onSubmit = async (data: any, e: any) => {
     await fetch('https://api.web3forms.com/submit', {
@@ -51,7 +63,7 @@ export default function PopUpWidget({ items }: Props) {
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="bg-s2pro-primary ease fixed bottom-5 right-5 z-40 flex size-14 items-center justify-center rounded-full shadow-lg transition duration-300 hover:bg-slate-600 focus:bg-slate-600 focus:outline-none">
+            <Disclosure.Button className="bg-s2pro-primary ease fixed bottom-5 right-5 z-50 flex size-14 items-center justify-center rounded-full shadow-lg transition duration-300 hover:bg-slate-600 focus:bg-slate-600 focus:outline-none">
               <span className="sr-only">{items.title}</span>
               <Transition
                 show={!open}
@@ -106,7 +118,7 @@ export default function PopUpWidget({ items }: Props) {
               leave="transition duration-200 transform ease"
               leaveTo="opacity-0 translate-y-5"
             >
-              <Disclosure.Panel className="fixed inset-x-0 bottom-[100px] top-0 z-50 flex size-full min-h-[250px] flex-col overflow-hidden rounded-md border border-gray-300 bg-white shadow-2xl dark:border-gray-800 sm:left-auto sm:right-5 sm:top-auto sm:h-[600px] sm:max-h-[calc(100vh-120px)] sm:w-[350px]">
+              <Disclosure.Panel className="fixed inset-x-0 bottom-[100px] top-0 z-40 flex size-full min-h-[250px] flex-col overflow-hidden rounded-md border border-gray-300 bg-white shadow-2xl dark:border-gray-800 sm:left-auto sm:right-5 sm:top-auto sm:h-[600px] sm:max-h-[calc(100vh-120px)] sm:w-[350px]">
                 <div className="flex h-32 flex-col items-center justify-center bg-slate-600 p-5">
                   <h3 className="text-lg text-white">{items.title}</h3>
                   <p className="text-white opacity-50">{items.subTitle}</p>
@@ -116,8 +128,8 @@ export default function PopUpWidget({ items }: Props) {
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                       <input
                         type="hidden"
-                        value="2ff3277c-7d31-4213-8826-7704472790ff"
-                        {...register('apikey')}
+                        value="b7483e94-3b58-4387-9a20-f6beeae1c642"
+                        {...register('access_key')}
                       />
                       <input
                         type="hidden"

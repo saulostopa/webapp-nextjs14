@@ -6,8 +6,6 @@
   html,
   body {
     @apply dark:bg-trueGray-900;
-    /* background-color: #23232F; */
-    /* color: white; */
   }
 
   .bg-s2pro-secondary {

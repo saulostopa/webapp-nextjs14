@@ -7,26 +7,17 @@ import { useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
 
 import components from './Components';
-import { DarkThemeColors } from './DarkThemeColors';
 import { baseDarkTheme, baselightTheme } from './DefaultColors';
-import { LightThemeColors } from './LightThemeColors';
 import { darkshadows, shadows } from './Shadows';
 import typography from './Typography';
 
 export const BuildTheme = (config: any = {}) => {
-  const themeOptions = LightThemeColors.find(
-    (theme) => theme.name === config.theme,
-  );
-  const darkthemeOptions = DarkThemeColors.find(
-    (theme) => theme.name === config.theme,
-  );
   const customizer = useSelector((state: AppState) => state.customizer);
   const defaultTheme =
     customizer.activeMode === 'dark' ? baseDarkTheme : baselightTheme;
   const defaultShadow =
     customizer.activeMode === 'dark' ? darkshadows : shadows;
-  const themeSelect =
-    customizer.activeMode === 'dark' ? darkthemeOptions : themeOptions;
+  const themeSelect = defaultTheme;
   const baseMode = {
     palette: {
       mode: customizer.activeMode,
@@ -49,12 +40,8 @@ export const BuildTheme = (config: any = {}) => {
 
 const ThemeSettings = () => {
   const activDir = useSelector((state: AppState) => state.customizer.activeDir);
-  const activeTheme = useSelector(
-    (state: AppState) => state.customizer.activeTheme,
-  );
   const theme = BuildTheme({
     direction: activDir,
-    theme: activeTheme,
   });
   useEffect(() => {
     document.dir = activDir;

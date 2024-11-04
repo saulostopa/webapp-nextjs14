@@ -4,14 +4,13 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import Fab from '@mui/material/Fab';
-import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Slider from '@mui/material/Slider';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { IconCheck, IconSettings, IconX } from '@tabler/icons-react';
+import { IconSettings, IconX } from '@tabler/icons-react';
 import type { FC } from 'react';
 import { useState } from 'react';
 
@@ -21,7 +20,6 @@ import {
   setCardShadow,
   setDarkMode,
   setDir,
-  setTheme,
   toggleHorizontal,
   toggleLayout,
   toggleSidebar,
@@ -30,11 +28,7 @@ import { useDispatch, useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
 
 const SidebarWidth = '320px';
-interface Colors {
-  id: number;
-  bgColor: string;
-  disp?: string;
-}
+
 const Customizer: FC = () => {
   const [showDrawer, setShowDrawer] = useState(false);
   const customizer = useSelector((state: AppState) => state.customizer);
@@ -53,39 +47,6 @@ const Customizer: FC = () => {
       transform: 'scale(1.05)',
     },
   }));
-
-  const thColors: Colors[] = [
-    {
-      id: 1,
-      bgColor: '#0085db',
-      disp: 'BLUE_THEME',
-    },
-    {
-      id: 2,
-      bgColor: '#0074BA',
-      disp: 'AQUA_THEME',
-    },
-    {
-      id: 3,
-      bgColor: '#763EBD',
-      disp: 'PURPLE_THEME',
-    },
-    {
-      id: 4,
-      bgColor: '#0A7EA4',
-      disp: 'GREEN_THEME',
-    },
-    {
-      id: 5,
-      bgColor: '#01C0C8',
-      disp: 'CYAN_THEME',
-    },
-    {
-      id: 6,
-      bgColor: '#FA896B',
-      disp: 'ORANGE_THEME',
-    },
-  ];
 
   return (
     <div>
@@ -238,41 +199,6 @@ const Customizer: FC = () => {
             </Stack>
 
             <Box pt={3} />
-            {/* ------------------------------------------- */}
-            {/* ------------ Theme Color setting ------------- */}
-            {/* ------------------------------------------- */}
-            <Typography variant="h6" gutterBottom>
-              Theme Colors
-            </Typography>
-            <Grid container spacing={2}>
-              {thColors.map((thcolor) => (
-                <Grid item xs={4} key={thcolor.id}>
-                  <StyledBox onClick={() => dispatch(setTheme(thcolor.disp))}>
-                    <Tooltip title={`${thcolor.disp}`} placement="top">
-                      <Box
-                        sx={{
-                          backgroundColor: thcolor.bgColor,
-                          width: '25px',
-                          height: '25px',
-                          borderRadius: '60px',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          display: 'flex',
-                          color: 'white',
-                        }}
-                        aria-label={`${thcolor.bgColor}`}
-                      >
-                        {customizer.activeTheme === thcolor.disp ? (
-                          <IconCheck width={13} />
-                        ) : (
-                          ''
-                        )}
-                      </Box>
-                    </Tooltip>
-                  </StyledBox>
-                </Grid>
-              ))}
-            </Grid>
             <Box pt={4} />
             {/* ------------------------------------------- */}
             {/* ------------ Layout Horizontal / Vertical ------------- */}
