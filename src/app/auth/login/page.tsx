@@ -10,11 +10,11 @@ import Link from 'next/link';
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
 
-import AuthRegister from '../../authForms/AuthRegister';
+import AuthLogin from '../authForms/AuthLogin';
 
-export default function Register2() {
+export default function Login() {
   return (
-    <PageContainer title="Register Page" description="this is Sample page">
+    <PageContainer title="Login Page" description="this is Sample page">
       <Box
         sx={{
           position: 'relative',
@@ -86,36 +86,31 @@ export default function Register2() {
                 <Box display="flex" alignItems="center" justifyContent="center">
                   <Logo />
                 </Box>
-                <AuthRegister
-                  subtext={
-                    <Typography
-                      variant="subtitle1"
-                      textAlign="center"
-                      color="textSecondary"
-                      mb={1}
-                    >
-                      Your Social Campaigns
-                    </Typography>
-                  }
+                <AuthLogin
                   subtitle={
-                    <Stack direction="row" spacing={1} mt={3}>
+                    <Stack
+                      direction="row"
+                      spacing={1}
+                      justifyContent="center"
+                      mt={3}
+                    >
                       <Typography
                         color="textSecondary"
                         variant="h6"
-                        fontWeight="400"
+                        fontWeight="500"
                       >
-                        Already have an Account?
+                        New to S2 Pro?
                       </Typography>
                       <Typography
                         component={Link}
-                        href="/auth/auth2/login"
+                        href="/auth/register"
                         fontWeight="500"
                         sx={{
                           textDecoration: 'none',
                           color: 'primary.main',
                         }}
                       >
-                        Sign In
+                        Create an account
                       </Typography>
                     </Stack>
                   }
@@ -129,4 +124,4 @@ export default function Register2() {
   );
 }
 
-Register2.layout = 'Blank';
+Login.layout = 'Blank';

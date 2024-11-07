@@ -4,12 +4,12 @@ import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/system';
 import Link from 'next/link';
 
-// import CustomFormLabel from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel';
-// import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
+import CustomFormLabel from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel';
+import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
 
 const AuthTwoSteps = () => (
   <Box mt={4}>
-    {/* <Stack mb={3}>
+    <Stack mb={3}>
       <CustomFormLabel htmlFor="code">
         Type your 6 digits security code{' '}
       </CustomFormLabel>
@@ -21,7 +21,7 @@ const AuthTwoSteps = () => (
         <CustomTextField id="code" variant="outlined" fullWidth />
         <CustomTextField id="code" variant="outlined" fullWidth />
       </Stack>
-    </Stack> */}
+    </Stack>
     <Button
       color="primary"
       variant="contained"

@@ -3,16 +3,18 @@
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Link from 'next/link';
 
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
 
-import AuthTwoSteps from '../../authForms/AuthTwoSteps';
+import AuthRegister from '../authForms/AuthRegister';
 
-export default function TwoSteps2() {
+export default function Register2() {
   return (
-    <PageContainer title="Two steps Page" description="this is Sample page">
+    <PageContainer title="Register Page" description="this is Sample page">
       <Box
         sx={{
           position: 'relative',
@@ -84,24 +86,30 @@ export default function TwoSteps2() {
                 <Box display="flex" alignItems="center" justifyContent="center">
                   <Logo />
                 </Box>
-                <Typography
-                  variant="subtitle1"
-                  textAlign="center"
-                  color="textSecondary"
-                  mb={1}
-                >
-                  We sent a verification code to your mobile. Enter the code
-                  from the mobile in the field below.
-                </Typography>
-                <Typography
-                  variant="subtitle1"
-                  textAlign="center"
-                  fontWeight="700"
-                  mb={1}
-                >
-                  ******1234
-                </Typography>
-                <AuthTwoSteps />
+                <AuthRegister
+                  subtitle={
+                    <Stack direction="row" spacing={1} mt={3}>
+                      <Typography
+                        color="textSecondary"
+                        variant="h6"
+                        fontWeight="400"
+                      >
+                        Already have an Account?
+                      </Typography>
+                      <Typography
+                        component={Link}
+                        href="/auth/login"
+                        fontWeight="500"
+                        sx={{
+                          textDecoration: 'none',
+                          color: 'primary.main',
+                        }}
+                      >
+                        Sign In
+                      </Typography>
+                    </Stack>
+                  }
+                />
               </Card>
             </Box>
           </Grid>
@@ -111,4 +119,4 @@ export default function TwoSteps2() {
   );
 }
 
-TwoSteps2.layout = 'Blank';
+Register2.layout = 'Blank';

@@ -81,7 +81,7 @@ export default function Header() {
                 ))}
               </Stack>
               <Link
-                href="/api/auth/login"
+                href="/auth/login"
                 className="bg-s2pro-primary rounded-md px-6 py-2 text-white md:ml-5"
               >
                 {tIndexPage.btnEntrar}

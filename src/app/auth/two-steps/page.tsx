@@ -3,19 +3,16 @@
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import Link from 'next/link';
 
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-// components
 import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
 
-import AuthLogin from '../../authForms/AuthLogin';
+import AuthTwoSteps from '../authForms/AuthTwoSteps';
 
-export default function Login2() {
+export default function TwoSteps2() {
   return (
-    <PageContainer title="Login Page" description="this is Sample page">
+    <PageContainer title="Two steps Page" description="this is Sample page">
       <Box
         sx={{
           position: 'relative',
@@ -87,35 +84,24 @@ export default function Login2() {
                 <Box display="flex" alignItems="center" justifyContent="center">
                   <Logo />
                 </Box>
-                <AuthLogin
-                  subtitle={
-                    <Stack
-                      direction="row"
-                      spacing={1}
-                      justifyContent="center"
-                      mt={3}
-                    >
-                      <Typography
-                        color="textSecondary"
-                        variant="h6"
-                        fontWeight="500"
-                      >
-                        New to Spike?
-                      </Typography>
-                      <Typography
-                        component={Link}
-                        href="/auth/auth2/register"
-                        fontWeight="500"
-                        sx={{
-                          textDecoration: 'none',
-                          color: 'primary.main',
-                        }}
-                      >
-                        Create an account
-                      </Typography>
-                    </Stack>
-                  }
-                />
+                <Typography
+                  variant="subtitle1"
+                  textAlign="center"
+                  color="textSecondary"
+                  mb={1}
+                >
+                  We sent a verification code to your mobile. Enter the code
+                  from the mobile in the field below.
+                </Typography>
+                <Typography
+                  variant="subtitle1"
+                  textAlign="center"
+                  fontWeight="700"
+                  mb={1}
+                >
+                  ******1234
+                </Typography>
+                <AuthTwoSteps />
               </Card>
             </Box>
           </Grid>
@@ -125,4 +111,4 @@ export default function Login2() {
   );
 }
 
-Login2.layout = 'Blank';
+TwoSteps2.layout = 'Blank';
