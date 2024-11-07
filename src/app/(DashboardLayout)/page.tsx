@@ -19,9 +19,10 @@ export default function Landingpage() {
   const tIndexPage: any = t('IndexPage', { returnObjects: true });
   const tPopUpWidget: any = tIndexPage.popupWidget;
   const tLastWorkouts: any = t('LastWorkouts', { returnObjects: true });
+  const tLocaleLayout: any = t('LocaleLayout', { returnObjects: true });
 
   return (
-    <PageContainer title="Landingpage" description="this is Landingpage">
+    <PageContainer title={tLocaleLayout} description="this is Landingpage">
       <LpHeader />
       <span id={tIndexPage.id}>
         <Hero
