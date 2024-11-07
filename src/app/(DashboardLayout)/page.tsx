@@ -22,7 +22,10 @@ export default function Landingpage() {
   const tLocaleLayout: any = t('LocaleLayout', { returnObjects: true });
 
   return (
-    <PageContainer title={tLocaleLayout} description="this is Landingpage">
+    <PageContainer
+      title={tLocaleLayout.title}
+      description="this is Landingpage"
+    >
       <LpHeader />
       <span id={tIndexPage.id}>
         <Hero
