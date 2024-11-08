@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
 
-import AuthForgotPassword from '../../authForms/AuthForgotPassword';
+import AuthForgotPassword from '../authForms/AuthForgotPassword';
 
 export default function ForgotPassword2() {
   return (
@@ -94,7 +94,7 @@ export default function ForgotPassword2() {
                   fontWeight="400"
                 >
                   Please enter the email address associated with your account
-                  and We will email you a link to reset your password.
+                  and we will email you a link to reset your password.
                 </Typography>
                 <AuthForgotPassword />
               </Card>
