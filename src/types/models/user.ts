@@ -1,0 +1,31 @@
+export interface User {
+  id?: number;
+  name?: string;
+  image?: string;
+  imageCover?: string;
+  role?: string;
+  parentId?: number;
+  firstName?: string;
+  lastName?: string;
+  middleName?: string;
+  email?: string;
+  alternativeEmail?: string;
+  phone?: string;
+  phone2?: string;
+  address?: string;
+  address2?: string;
+  city?: string;
+  state?: string;
+  zipcode?: string;
+  country?: string;
+  status?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  idToken?: string;
+  expires?: string;
+  sub?: number;
+  iat?: number;
+  exp?: number;
+  jti?: string;
+  exempt?: boolean;
+}

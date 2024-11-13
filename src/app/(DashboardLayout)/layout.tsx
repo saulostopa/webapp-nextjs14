@@ -8,8 +8,6 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
 
-// import Customizer from './layout/shared/customizer/Customizer';
-
 const PageWrapper = styled('div')(() => ({
   display: 'flex',
   flexGrow: 1,
@@ -71,7 +69,6 @@ export default function RootLayout({ children }: Props) {
               {children}
             </Box>
           </Container>
-          {/* <Customizer /> */}
         </PageWrapper>
       </Box>
     </MainWrapper>

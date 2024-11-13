@@ -1,6 +1,5 @@
 'use client';
 
-import '@/app/api/index';
 import '@/utils/i18n';
 import 'react-quill/dist/quill.snow.css';
 import 'slick-carousel/slick/slick.css';
@@ -15,6 +14,7 @@ import { type ReactNode, useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 
 import RTL from '@/app/(DashboardLayout)/layout/shared/customizer/RTL';
+import { NextAuthProvider } from '@/lib/providers';
 import { useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
 import { store } from '@/store/store';
@@ -32,7 +32,7 @@ export function MyApp({ children }: { children: React.ReactNode }) {
         <RTL direction={customizer.activeDir}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
-          {children}
+          <NextAuthProvider>{children}</NextAuthProvider>
         </RTL>
       </ThemeProvider>
     </NextAppDirEmotionCacheProvider>
