@@ -14,7 +14,7 @@
     "test:watch": "jest --watch --coverage --runInBand --no-cache",
     "test": "jest --coverage --runInBand --no-cache",
     "seed": "tsx prisma/seed.ts",
-    "generate:user": "tsx src/utils/scripts/createUser"
+    "generate:new": "tsx src/scripts"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
