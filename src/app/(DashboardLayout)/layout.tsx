@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 
 import AccessPage from '@/components/accessPage';
 import { AuthProvider } from '@/contexts/auth';
-import { NextAuthProvider } from '@/lib/providers';
 import { useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
 import type { Session } from '@/types/models/session';
@@ -74,11 +73,9 @@ export default function RootLayout({ children }: Props) {
                 py: { sm: 3 },
               }}
             >
-              <NextAuthProvider>
-                <AuthProvider session={session as Session}>
-                  <AccessPage>{children as ReactElement}</AccessPage>
-                </AuthProvider>
-              </NextAuthProvider>
+              <AuthProvider session={session as Session}>
+                <AccessPage>{children as ReactElement}</AccessPage>
+              </AuthProvider>
             </Box>
           </Container>
         </PageWrapper>

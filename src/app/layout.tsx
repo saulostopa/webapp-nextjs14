@@ -11,6 +11,7 @@ import { type ReactNode, useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 
 import LoadingComponent from '@/components/loadingComponent';
+import { NextAuthProvider } from '@/lib/providers';
 import { store } from '@/store/store';
 import { ThemeSettings } from '@/utils/theme/Theme';
 
@@ -20,7 +21,7 @@ export function MyApp({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {children}
+      <NextAuthProvider>{children}</NextAuthProvider>
     </ThemeProvider>
   );
 }
