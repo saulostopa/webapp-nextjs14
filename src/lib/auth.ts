@@ -6,6 +6,20 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 
 import { prisma } from '@/lib/prisma';
 
+declare module 'next-auth' {
+  interface User {
+    username: string;
+  }
+  interface Session {
+    user: User & {
+      username: string;
+    };
+    token: {
+      username: string;
+    };
+  }
+}
+
 export const authOptions: NextAuthOptions = {
   pages: {
     signIn: '/auth/login',
@@ -13,6 +27,7 @@ export const authOptions: NextAuthOptions = {
     error: '/auth/error',
   },
   adapter: PrismaAdapter(prisma),
+  secret: process.env.NEXTAUTH_SECRET,
   session: {
     strategy: 'jwt',
   },
@@ -47,19 +62,22 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async session({ session }) {
-      const existingUser = await prisma.user.findUnique({
-        where: { email: session?.user?.email! },
-      });
-
-      session.user = existingUser as any;
-
-      return session;
+    async session({ session, token }) {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          username: token.username,
+        },
+      };
     },
 
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
+        return {
+          ...token,
+          username: user.username,
+        };
       }
       return token;
     },
