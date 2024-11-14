@@ -31,7 +31,7 @@ export default function RootLayout({ children }: Props) {
   const { data: session } = useSession({
     required: true,
     onUnauthenticated() {
-      router.push('/');
+      router.push('/auth/login');
     },
   });
 
