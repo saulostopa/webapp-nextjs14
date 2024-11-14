@@ -27,14 +27,13 @@ export function verifyToken(token: string): JwtPayload | null {
 export async function login(email: string, password: string) {
   const user = await prisma.user.findUnique({
     where: { email },
-    include: { auth: true },
   });
 
-  if (!user || !user.auth) {
+  if (!user) {
     throw new Error('User not found or no authentication setup');
   }
 
-  const isPasswordValid = await bcrypt.compare(password, user.auth.password);
+  const isPasswordValid = await bcrypt.compare(password, user.password);
 
   if (!isPasswordValid) {
     throw new Error('Invalid password');

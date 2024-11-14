@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
-import prisma from '@/lib/prisma';
+import { prisma } from '@/lib/prisma';
 
 export async function GET(req: NextRequest) {
   try {
@@ -16,6 +16,18 @@ export async function GET(req: NextRequest) {
 
     const user = await prisma.user.findUnique({
       where: { id: userId },
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        avatar: true,
+        createdAt: true,
+        updatedAt: true,
+        title: true,
+        roles: true,
+        accounts: true,
+      },
     });
 
     return NextResponse.json(user, { status: 200 });
@@ -40,6 +52,18 @@ export async function PATCH(req: NextRequest) {
 
     const updatedUser = await prisma.user.update({
       where: { id: userId },
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        avatar: true,
+        createdAt: true,
+        updatedAt: true,
+        title: true,
+        roles: true,
+        accounts: true,
+      },
       data,
     });
 
@@ -65,6 +89,18 @@ export async function PUT(req: NextRequest) {
 
     const replacedUser = await prisma.user.update({
       where: { id: userId },
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        avatar: true,
+        createdAt: true,
+        updatedAt: true,
+        title: true,
+        roles: true,
+        accounts: true,
+      },
       data,
     });
 

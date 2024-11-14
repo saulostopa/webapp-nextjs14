@@ -1,12 +1,17 @@
-import { type Role, RoleName, type User, UserTitle } from '@prisma/client';
-
-import prisma from '@/lib/prisma';
+import {
+  PrismaClient,
+  type Role,
+  RoleName,
+  type User,
+  UserTitle,
+} from '@prisma/client';
 
 import { seed } from './user';
 
+const prisma = new PrismaClient();
+
 interface SendUser {
   user: Partial<User>;
-  passwordHash: string;
   role: Role;
 }
 
@@ -31,15 +36,15 @@ export async function seedUsers() {
         email: 'israel.fsantos27@gmail.com',
         firstName: 'Israel',
         lastName: 'Santos',
+        password:
+          '$2a$12$EYw8ffaOSy9hg.s0CiGkA.Iihdr5AfJcZuDE1VjG5F5wIsOBAAl7G',
         title: UserTitle.ADMIN,
       },
-      passwordHash:
-        '$2a$12$EYw8ffaOSy9hg.s0CiGkA.Iihdr5AfJcZuDE1VjG5F5wIsOBAAl7G',
       role: admin,
     },
   ];
 
-  for (const { user, passwordHash, role } of users) {
-    await seed(user, passwordHash, role);
+  for (const { user, role } of users) {
+    await seed(user, role);
   }
 }

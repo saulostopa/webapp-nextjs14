@@ -1,8 +1,13 @@
-import { Action, type Permission, RoleName } from '@prisma/client';
-
-import prisma from '@/lib/prisma';
+import {
+  Action,
+  type Permission,
+  PrismaClient,
+  RoleName,
+} from '@prisma/client';
 
 import { seed } from './role';
+
+const prisma = new PrismaClient();
 
 interface SendRole {
   name: RoleName;

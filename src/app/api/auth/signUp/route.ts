@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { env } from '@/configs';
-import prisma from '@/lib/prisma';
+import { prisma } from '@/lib/prisma';
 
 import type { ISignUp } from './interface';
 
@@ -27,11 +27,7 @@ export async function POST(req: NextRequest) {
         firstName,
         lastName,
         avatar: image,
-        auth: {
-          create: {
-            password: passwordHash,
-          },
-        },
+        password: passwordHash,
       },
     });
 

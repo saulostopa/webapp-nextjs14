@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-import { verifyToken } from '@/app/api/auth';
+import { verifyToken } from '@/app/api/auth/utils/auth';
 
 export const config = {
   matcher: ['/auth/maintenance'],
