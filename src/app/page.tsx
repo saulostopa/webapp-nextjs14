@@ -5,12 +5,12 @@ import '@/app/global.css';
 import { useTranslation } from 'react-i18next';
 
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import Footer from '@/app/(DashboardLayout)/components/landingpage/footer/Footer';
-import LpHeader from '@/app/(DashboardLayout)/components/landingpage/header/Header';
-import PopUpWidget from '@/app/(DashboardLayout)/components/landingpage/help-email/PopUpWidget';
 import Benefits from '@/components/landingPage/benefits';
 import C2a from '@/components/landingPage/c2a';
 import Faq from '@/components/landingPage/faq';
+import Footer from '@/components/landingPage/footer/Footer';
+import LpHeader from '@/components/landingPage/header/Header';
+import PopUpWidget from '@/components/landingPage/help-email/PopUpWidget';
 import Hero from '@/components/landingPage/hero';
 import SectionTitle from '@/components/landingPage/sectionTitle';
 
