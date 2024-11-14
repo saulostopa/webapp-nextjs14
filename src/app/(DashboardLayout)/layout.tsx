@@ -5,7 +5,7 @@ import '@/app/global.css';
 import { Box, Container, styled, useTheme } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { type ReactElement, useEffect } from 'react';
+import { type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import AccessPage from '@/components/accessPage';
@@ -28,14 +28,13 @@ interface Props {
 }
 
 export default function RootLayout({ children }: Props) {
-  const { data: session, status } = useSession();
   const router = useRouter();
-
-  useEffect(() => {
-    if (session! !== null && status === 'authenticated') {
-      router.push('/user/profile');
-    }
-  }, [router, session, status]);
+  const { data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      router.push('/');
+    },
+  });
 
   const customizer = useSelector((state: AppState) => state.customizer);
   const theme = useTheme();
