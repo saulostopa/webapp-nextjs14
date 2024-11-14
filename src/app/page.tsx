@@ -8,11 +8,11 @@ import PageContainer from '@/app/(DashboardLayout)/components/container/PageCont
 import Footer from '@/app/(DashboardLayout)/components/landingpage/footer/Footer';
 import LpHeader from '@/app/(DashboardLayout)/components/landingpage/header/Header';
 import PopUpWidget from '@/app/(DashboardLayout)/components/landingpage/help-email/PopUpWidget';
-import Benefits from '@/components/benefits';
-import C2a from '@/components/c2a';
-import Faq from '@/components/faq';
-import Hero from '@/components/landingpage/hero';
-import SectionTitle from '@/components/sectionTitle';
+import Benefits from '@/components/landingPage/benefits';
+import C2a from '@/components/landingPage/c2a';
+import Faq from '@/components/landingPage/faq';
+import Hero from '@/components/landingPage/hero';
+import SectionTitle from '@/components/landingPage/sectionTitle';
 
 export default function Landingpage() {
   const { t } = useTranslation();

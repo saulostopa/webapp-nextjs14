@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import Container from './utils/container';
+import Container from '@/components/utils/container';
 
 const SectionTitle = (props) => {
   return (

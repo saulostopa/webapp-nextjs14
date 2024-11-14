@@ -7,7 +7,7 @@ import { useSession } from 'next-auth/react';
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import AccessPage from '@/components/pageAccess/accessPage';
+import AccessPage from '@/components/accessPage';
 import { AuthProvider } from '@/contexts/auth';
 import { NextAuthProvider } from '@/lib/providers';
 import { useSelector } from '@/store/hooks';
