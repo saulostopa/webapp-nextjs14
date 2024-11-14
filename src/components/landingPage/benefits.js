@@ -6,7 +6,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import benefitOneImg from '@/public/images/landingpage/benefit-one-v2.png';
 import benefitTwoImg from '@/public/images/landingpage/benefit-two-v2.png';
-import Container from './utils/container';
+import Container from '@/components/utils/container';
 
 config.autoAddCss = false;
 library.add(fas);

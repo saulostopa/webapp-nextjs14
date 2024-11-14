@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
-import FooterLink from '@/app/(DashboardLayout)/components/landingpage/footer/FooterLink';
+import FooterLink from '@/components/landingPage/footer/FooterLink';
 import Container from '@/components/utils/container';
 
 const Facebook = ({ size = 24 }) => (
