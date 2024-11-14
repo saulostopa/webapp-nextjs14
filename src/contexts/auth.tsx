@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
+import type { Session } from 'next-auth';
 import { createContext, useContext, useEffect, useState } from 'react';
-
-import type { Session } from '@/types/models/session';
 
 const AuthContext = createContext<any>({});
 interface AuthProviderProps {

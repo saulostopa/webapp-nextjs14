@@ -12,7 +12,6 @@ import AccessPage from '@/components/accessPage';
 import { AuthProvider } from '@/contexts/auth';
 import { useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
-import type { Session } from '@/types/models/session';
 
 const PageWrapper = styled('div')(() => ({
   display: 'flex',
@@ -80,7 +79,7 @@ export default function RootLayout({ children }: Props) {
                 py: { sm: 3 },
               }}
             >
-              <AuthProvider session={session as Session}>
+              <AuthProvider session={session!}>
                 <AccessPage>{children as ReactElement}</AccessPage>
               </AuthProvider>
             </Box>

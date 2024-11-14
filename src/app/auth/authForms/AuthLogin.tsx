@@ -68,7 +68,7 @@ const AuthLogin = ({ title, subtitle, subtext }: LoginType) => {
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errors: any = {};
-        error.inner.forEach((validationError: any) => {
+        err.inner.forEach((validationError: any) => {
           if (validationError.path) {
             errors[validationError.path] = validationError.message;
           }
