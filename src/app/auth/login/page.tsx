@@ -99,7 +99,7 @@ export default function Login() {
                         variant="h6"
                         fontWeight="500"
                       >
-                        New to S2 Pro?
+                        New to S2Pro?
                       </Typography>
                       <Typography
                         component={Link}

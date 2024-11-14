@@ -12,13 +12,12 @@ import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
 
 import AuthRegister from '../authForms/AuthRegister';
 
-export default function Register2() {
+export default function Register() {
   return (
     <PageContainer title="Register Page" description="this is Sample page">
       <Box
         sx={{
           position: 'relative',
-          overflow: 'hidden',
           '&:before': {
             content: '""',
             background: 'radial-gradient(#d2f1df, #d3d7fa, #bad8f4)',
@@ -119,4 +118,4 @@ export default function Register2() {
   );
 }
 
-Register2.layout = 'Blank';
+Register.layout = 'Blank';

@@ -18,24 +18,19 @@ model User {
   title         UserTitle?
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
-  auth          UserAuth?
-  Sessions      Session?
+  password      String
+
+  sessions      Session[]
+  accounts      Account[]
   roles         UserRole[]
 }
 
-model UserAuth {
-  id        String   @id @default(uuid())
-  userId    String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
 
 model Role {
   id          String       @id @default(uuid())
   name        RoleName     @unique
   createdAt   DateTime     @default(now())
+
   users       UserRole[]
   permissions Permission[] @relation("PermissionToRole")
 }
@@ -46,6 +41,7 @@ model Permission {
   resource  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
   roles     Role[]   @relation("PermissionToRole")
 }
 
@@ -55,6 +51,7 @@ model UserRole {
   roleId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
   role      Role     @relation(fields: [roleId], references: [id])
   user      User     @relation(fields: [userId], references: [id])
 
@@ -63,14 +60,32 @@ model UserRole {
 
 model Session {
   id        String   @id @default(uuid())
-  userId    String   @unique
+  userId    String
   token     String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   expiresAt DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   @@unique([userId, token])
+}
+
+model Account {
+  id                 String     @id @default(uuid())
+  providerType       String
+  providerId         String
+  providerAccountId  String
+  refreshToken       String?
+  accessToken        String?
+  accessTokenExpires DateTime?
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+  userId             String
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([providerId, providerAccountId])
 }
 
 enum RoleName {

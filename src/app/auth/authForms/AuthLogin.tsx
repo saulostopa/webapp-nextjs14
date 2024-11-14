@@ -1,99 +1,184 @@
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import {
+  Box,
+  Button,
+  Divider,
+  FormHelperText,
+  Stack,
+  Typography,
+} from '@mui/material';
 import Link from 'next/link';
+import { signIn } from 'next-auth/react';
+import { type ChangeEvent, useState } from 'react';
+import * as Yup from 'yup';
 
-import CustomCheckbox from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomCheckbox';
 import CustomFormLabel from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomFormLabel';
 import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
 import type { LoginType } from '@/app/(DashboardLayout)/types/auth/auth';
 
 import AuthSocialButtons from './AuthSocialButtons';
 
-const AuthLogin = ({ title, subtitle, subtext }: LoginType) => (
-  <>
-    {title ? (
-      <Typography fontWeight="700" variant="h2" mb={1}>
-        {title}
-      </Typography>
-    ) : null}
+const AuthLogin = ({ title, subtitle, subtext }: LoginType) => {
+  const [loading, setLoading] = useState(false);
+  const [formValues, setFormValues] = useState({ email: '', password: '' });
+  const [error, setError] = useState('' as any);
+  const [formErrors, setFormErrors] = useState<{
+    email?: string;
+    password?: string;
+  }>({});
+  const callbackUrl = '/user/profile';
 
-    {subtext}
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    password: Yup.string()
+      .min(6, 'Password must be at least 6 characters long')
+      .required('Password is required'),
+  });
 
-    <AuthSocialButtons title="Sign in with" />
-    <Box mt={3}>
-      <Divider>
-        <Typography
-          component="span"
-          color="textSecondary"
-          variant="h6"
-          fontWeight="400"
-          position="relative"
-          px={2}
-        >
-          or sign in with
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+      setFormErrors({});
+
+      await validationSchema.validate(formValues, { abortEarly: false });
+
+      const res = await signIn('credentials', {
+        redirect: false,
+        email: formValues.email,
+        password: formValues.password,
+      });
+
+      if (res?.ok) {
+        await signIn('credentials', {
+          redirect: true,
+          email: formValues.email,
+          password: formValues.password,
+          callbackUrl,
+        });
+      } else if (res?.error) {
+        setError(res.error);
+        setLoading(false);
+      }
+    } catch (err) {
+      if (err instanceof Yup.ValidationError) {
+        const errors: any = {};
+        err.inner.forEach((validationError: any) => {
+          if (validationError.path) {
+            errors[validationError.path] = validationError.message;
+          }
+        });
+        setFormErrors(errors);
+      } else {
+        setError(error);
+      }
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={onSubmit}>
+      {title ? (
+        <Typography fontWeight="700" variant="h2" mb={1}>
+          {title}
         </Typography>
-      </Divider>
-    </Box>
+      ) : null}
 
-    <Stack>
-      <Box>
-        <CustomFormLabel htmlFor="username">Username</CustomFormLabel>
-        <CustomTextField id="username" variant="outlined" fullWidth />
+      {subtext}
+      <AuthSocialButtons title="Sign in with" />
+      <Box mt={3}>
+        <Divider>
+          <Typography
+            component="span"
+            color="textSecondary"
+            variant="h6"
+            fontWeight="400"
+            position="relative"
+            px={2}
+          >
+            or sign in with
+          </Typography>
+        </Divider>
       </Box>
-      <Box>
-        <CustomFormLabel htmlFor="password">Password</CustomFormLabel>
-        <CustomTextField
-          id="password"
-          type="password"
-          variant="outlined"
-          fullWidth
-        />
-      </Box>
-      <Stack
-        justifyContent="space-between"
-        direction={{ xs: 'column', sm: 'row' }}
-        alignItems="center"
-        my={2}
-      >
-        <FormGroup>
-          <FormControlLabel
-            control={<CustomCheckbox defaultChecked />}
-            label="Remeber this Device"
+
+      <Stack>
+        <Box mb={2}>
+          <CustomFormLabel htmlFor="username">Email</CustomFormLabel>
+          <CustomTextField
+            type="email"
+            name="email"
+            value={formValues.email}
+            onChange={handleChange}
+            id="username"
+            variant="outlined"
+            fullWidth
+            error={!!formErrors.email}
           />
-        </FormGroup>
-        <Typography
-          component={Link}
-          href="/auth/forgot-password"
-          fontWeight="500"
-          sx={{
-            textDecoration: 'none',
-            color: 'primary.main',
-          }}
+          {formErrors.email && (
+            <FormHelperText error>{formErrors.email}</FormHelperText>
+          )}
+        </Box>
+        <Box mb={2}>
+          <CustomFormLabel htmlFor="password">Password</CustomFormLabel>
+          <CustomTextField
+            type="password"
+            name="password"
+            value={formValues.password}
+            onChange={handleChange}
+            id="password"
+            variant="outlined"
+            fullWidth
+            error={!!formErrors.password}
+          />
+          {formErrors.password && (
+            <FormHelperText error>{formErrors.password}</FormHelperText>
+          )}
+        </Box>
+
+        {error && (
+          <p className="mb-6 rounded bg-red-300 py-4 text-center">{error}</p>
+        )}
+
+        <Stack
+          justifyContent="space-between"
+          direction={{ xs: 'column', sm: 'row' }}
+          alignItems="center"
+          my={2}
         >
-          Forgot Password ?
-        </Typography>
+          <Typography
+            component={Link}
+            href="/auth/forgot-password"
+            fontWeight="500"
+            sx={{
+              textDecoration: 'none',
+              color: 'primary.main',
+            }}
+          >
+            Forgot Password ?
+          </Typography>
+        </Stack>
       </Stack>
-    </Stack>
-    <Box>
-      <Button
-        color="primary"
-        variant="contained"
-        size="large"
-        fullWidth
-        component={Link}
-        href="/"
-        type="submit"
-      >
-        Sign In
-      </Button>
-    </Box>
-    {subtitle}
-  </>
-);
+      <Box>
+        <Button
+          style={{ backgroundColor: `${loading ? '#ccc' : '#0085db'}` }}
+          color="primary"
+          variant="contained"
+          size="large"
+          fullWidth
+          type="submit"
+          disabled={loading}
+        >
+          {loading ? 'loading...' : 'Sign In'}
+        </Button>
+      </Box>
+      {subtitle}
+    </form>
+  );
+};
 
 export default AuthLogin;

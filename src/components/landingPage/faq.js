@@ -1,11 +1,11 @@
 // @ts-nocheck
-import SectionTitle from '@/components/sectionTitle';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useTranslation } from 'react-i18next';
-import Container from './utils/container';
+import Container from '@/components/utils/container';
+import SectionTitle from '@/components/landingPage/sectionTitle';
 
 const Faq = () => {
   const { t } = useTranslation();
