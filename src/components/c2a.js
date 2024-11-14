@@ -19,7 +19,7 @@ const Cta = () => {
         </div>
         <div className="flex-shrink-0 w-full text-center lg:w-auto">
           <a
-            href="/api/auth/login"
+            href="/auth/login"
             rel="noopener"
             className="inline-block py-3 mx-auto text-lg font-medium text-center text-s2pro-primary bg-s2pro-primary rounded-md px-7 lg:px-10 lg:py-5 "
           >

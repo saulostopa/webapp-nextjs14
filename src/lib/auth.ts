@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable no-param-reassign */
-import { compare, hash } from 'bcryptjs';
+import { compare } from 'bcryptjs';
 import type { NextAuthOptions, Profile } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
@@ -62,11 +62,11 @@ declare module 'next-auth' {
 }
 
 export const authOptions: NextAuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
+  // secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: '/login',
+    signIn: '/auth/login',
     signOut: '/',
-    error: '/login',
+    error: '/auth/login',
   },
   session: {
     strategy: 'jwt',
@@ -87,19 +87,6 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials: any) {
-        if (credentials.magicLinksCode) {
-          const user: any = await prisma.user.findUnique({
-            where: {
-              email: credentials.email,
-            },
-          });
-
-          user.name = `${user.firstName} ${user.lastName}`;
-          user.picture = user.image;
-
-          return user;
-        }
-
         if (!credentials?.email || !credentials.password) {
           return null;
         }
@@ -114,11 +101,11 @@ export const authOptions: NextAuthOptions = {
           throw new Error('Incorrect password.');
 
         if (user) {
-          if (user.status !== 'Active') {
-            throw new Error(
-              'User not confirmed. Check your email to activate account.',
-            );
-          }
+          // if (user.status !== 'Active') {
+          //   throw new Error(
+          //     'User not confirmed. Check your email to activate account.',
+          //   );
+          // }
 
           user.name = `${user.firstName} ${user.lastName}`;
           user.picture = user.image;
@@ -134,32 +121,6 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile }: any) {
-      if (account?.provider === 'google') {
-        const existingUser = await prisma.user.findUnique({
-          where: { email: user.email },
-        });
-
-        if (!existingUser) {
-          const hashedPassword = await hash(user.id as string, 12);
-          const newUser = await prisma.user.create({
-            data: {
-              name: profile?.name,
-              email: user.email.toLowerCase(),
-              password: hashedPassword,
-              image: user.image,
-            },
-          });
-
-          user.id = newUser.id;
-        } else {
-          user.id = existingUser;
-        }
-      }
-
-      return true;
-    },
-
     async session({ session }) {
       const existingUser = await prisma.user.findUnique({
         where: { email: session.user.email },

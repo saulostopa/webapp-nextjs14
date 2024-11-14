@@ -7,7 +7,11 @@ import LoadingComponent from '@/components/loadingComponent';
 export default function AccessPage({ children }: { children: ReactElement }) {
   const { status } = useSession();
 
-  if (status === 'loading') return <LoadingComponent />;
+  return (
+    <>
+      {status === 'loading' && <LoadingComponent />}
 
-  return <PageContainer>{children}</PageContainer>;
+      <PageContainer>{children}</PageContainer>
+    </>
+  );
 }

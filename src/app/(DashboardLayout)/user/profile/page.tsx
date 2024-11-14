@@ -1,6 +1,5 @@
 'use client';
 
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import { useAuthContext } from '@/contexts/auth';
 
 export default function Profile() {
@@ -8,9 +7,5 @@ export default function Profile() {
 
   if (!user) return null;
 
-  return (
-    <PageContainer>
-      <p>USER PROFILE</p>
-    </PageContainer>
-  );
+  return <p>USER PROFILE</p>;
 }
