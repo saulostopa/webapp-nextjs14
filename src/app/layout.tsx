@@ -5,15 +5,13 @@ import 'react-quill/dist/quill.snow.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import Box from '@mui/material/Box';
-// import NextNProgress from "nextjs-progressbar";
-import CircularProgress from '@mui/material/CircularProgress';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import { type ReactNode, useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 
 import RTL from '@/app/(DashboardLayout)/layout/shared/customizer/RTL';
+import LoadingComponent from '@/components/loadingComponent';
 import { NextAuthProvider } from '@/lib/providers';
 import { useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
@@ -48,21 +46,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <body>
         <Provider store={store}>
-          {loading ? (
-            <MyApp>{children}</MyApp>
-          ) : (
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: '100%',
-                height: '100vh',
-              }}
-            >
-              <CircularProgress />
-            </Box>
-          )}
+          {loading ? <MyApp>{children}</MyApp> : <LoadingComponent />}
         </Provider>
       </body>
     </html>

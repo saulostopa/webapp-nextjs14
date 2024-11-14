@@ -14,6 +14,9 @@
     "test:watch": "jest --watch --coverage --runInBand --no-cache",
     "test": "jest --coverage --runInBand --no-cache"
   },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed"
+  },
   "dependencies": {
     "@casl/ability": "^6.3.3",
     "@casl/react": "^3.1.0",

@@ -3,10 +3,16 @@
 import '@/app/global.css';
 
 import { Box, Container, styled, useTheme } from '@mui/material';
+import { useSession } from 'next-auth/react';
+import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import AccessPage from '@/components/pageAccess/accessPage';
+import { AuthProvider } from '@/contexts/auth';
+import { NextAuthProvider } from '@/lib/providers';
 import { useSelector } from '@/store/hooks';
 import type { AppState } from '@/store/store';
+import type { Session } from '@/types/models/session';
 
 const PageWrapper = styled('div')(() => ({
   display: 'flex',
@@ -22,6 +28,8 @@ interface Props {
 }
 
 export default function RootLayout({ children }: Props) {
+  const { data: session } = useSession();
+
   const customizer = useSelector((state: AppState) => state.customizer);
   const theme = useTheme();
   const { t } = useTranslation();
@@ -66,7 +74,11 @@ export default function RootLayout({ children }: Props) {
                 py: { sm: 3 },
               }}
             >
-              {children}
+              <NextAuthProvider>
+                <AuthProvider session={session as Session}>
+                  <AccessPage>{children as ReactElement}</AccessPage>
+                </AuthProvider>
+              </NextAuthProvider>
             </Box>
           </Container>
         </PageWrapper>
