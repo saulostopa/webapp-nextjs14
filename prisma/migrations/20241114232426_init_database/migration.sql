@@ -26,6 +26,7 @@ CREATE TABLE "User" (
     "avatar" TEXT,
     "content" "Content",
     "title" "UserTitle",
+    "speed" "Speed" NOT NULL DEFAULT 'NORMAL',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "password" TEXT NOT NULL,

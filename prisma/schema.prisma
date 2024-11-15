@@ -16,6 +16,7 @@ model User {
   avatar        String?
   content       Content?
   title         UserTitle?
+  speed         Speed      @default(NORMAL)
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
   password      String

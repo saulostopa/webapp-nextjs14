@@ -1,24 +1,11 @@
 /* eslint-disable no-param-reassign */
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import type { User } from '@prisma/client';
 import { compare } from 'bcryptjs';
 import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 import { prisma } from '@/lib/prisma';
-
-declare module 'next-auth' {
-  interface User {
-    username: string;
-  }
-  interface Session {
-    user: User & {
-      username: string;
-    };
-    token: {
-      username: string;
-    };
-  }
-}
 
 export const authOptions: NextAuthOptions = {
   pages: {
@@ -47,7 +34,7 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        const user: any = await prisma.user.findUnique({
+        const user: User | null = await prisma.user.findUnique({
           where: {
             email: credentials.email,
           },
@@ -76,7 +63,6 @@ export const authOptions: NextAuthOptions = {
       if (user) {
         return {
           ...token,
-          username: user.username,
         };
       }
       return token;

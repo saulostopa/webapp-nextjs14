@@ -73,43 +73,6 @@ export async function PATCH(req: NextRequest) {
   }
 }
 
-export async function PUT(req: NextRequest) {
-  try {
-    const { searchParams } = new URL(req.url);
-    const userId = searchParams.get('id');
-
-    if (!userId) {
-      return NextResponse.json(
-        { error: 'User ID is required' },
-        { status: 400 },
-      );
-    }
-
-    const data = await req.json();
-
-    const replacedUser = await prisma.user.update({
-      where: { id: userId },
-      select: {
-        id: true,
-        firstName: true,
-        lastName: true,
-        email: true,
-        avatar: true,
-        createdAt: true,
-        updatedAt: true,
-        title: true,
-        roles: true,
-        accounts: true,
-      },
-      data,
-    });
-
-    return NextResponse.json(replacedUser, { status: 201 });
-  } catch (err) {
-    return NextResponse.json({ error: String(err) }, { status: 500 });
-  }
-}
-
 export async function DELETE(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);

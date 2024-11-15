@@ -27,6 +27,13 @@ export function verifyToken(token: string): JwtPayload | null {
 export async function login(email: string, password: string) {
   const user = await prisma.user.findUnique({
     where: { email },
+    include: {
+      roles: {
+        include: {
+          role: true,
+        },
+      },
+    },
   });
 
   if (!user) {
