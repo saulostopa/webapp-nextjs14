@@ -20,9 +20,9 @@ export const userQuestions = [
     default: 'Doe',
   },
   {
-    type: 'password',
     name: 'password',
     message: 'Enter the user password:',
+    type: 'input',
     default: 'Str0ngP@ssword',
   },
   {

@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 
 import { prisma } from '@/lib/prisma';
 
-import { verifyToken } from '../utils/auth';
+import { verifyToken } from '../old-service';
 
 export async function POST(req: NextRequest) {
   const authHeader = req.headers.get('authorization');
