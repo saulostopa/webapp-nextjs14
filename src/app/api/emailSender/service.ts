@@ -8,9 +8,18 @@ export class EmailSenderService {
   private transporter;
 
   constructor() {
-    this.transporter = nodemailer.createTransport(
-      `smtp://${webmailEmail}:${webmailPass}@${webmailHost}.com:${webmailPort}`,
-    );
+    this.transporter = nodemailer.createTransport({
+      host: webmailHost,
+      port: webmailPort,
+      secure: webmailPort === 465,
+      auth: {
+        user: webmailEmail,
+        pass: webmailPass,
+      },
+      tls: {
+        rejectUnauthorized: webmailPort === 465,
+      },
+    });
   }
 
   async sendEmail(

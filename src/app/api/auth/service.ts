@@ -100,7 +100,7 @@ export class AuthService {
       `Your password reset token is: ${token}`,
     );
 
-    return { token, expiredAt };
+    return { expiredAt };
   }
 
   static async resetPassword(token: string, password: string) {

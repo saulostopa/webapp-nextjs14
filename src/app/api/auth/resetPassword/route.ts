@@ -9,10 +9,13 @@ export async function POST(req: NextRequest) {
   const { email } = await req.json();
 
   try {
-    const { token, expiredAt } = await authService.generateResetToken(email);
+    const { expiredAt } = await authService.generateResetToken(email);
 
     return NextResponse.json(
-      { message: 'Token generated successfully', token, expiresAt: expiredAt },
+      {
+        message: 'Token generated successfully',
+        expiresAt: expiredAt,
+      },
       { status: 200 },
     );
   } catch (err: any) {
