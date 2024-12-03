@@ -19,7 +19,7 @@ export class TrainingService {
       include: {
         difficulty: true,
         category: true,
-        teacher: true,
+        user: true,
         exercises: {
           include: {
             series: true,
@@ -35,7 +35,7 @@ export class TrainingService {
       include: {
         difficulty: true,
         category: true,
-        teacher: true,
+        user: true,
         exercises: {
           include: {
             series: true,
