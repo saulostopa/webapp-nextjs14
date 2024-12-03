@@ -1,41 +1,29 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
-import { prisma } from '@/lib/prisma';
+import { UserService } from '../../user/service';
+import { AuthService } from '../service';
 
-import { verifyToken } from '../old-service';
+const userService = new UserService();
+const authService = new AuthService();
 
 export async function DELETE(req: NextRequest) {
   const authHeader = req.headers.get('authorization');
   const token = authHeader?.split(' ')[1];
 
-  if (!token) {
-    return NextResponse.json({ error: 'Token not provided' }, { status: 401 });
-  }
-
   try {
-    const decodedToken = verifyToken(token);
-
-    if (
-      !decodedToken ||
-      typeof decodedToken !== 'object' ||
-      !('userId' in decodedToken)
-    ) {
-      throw new Error('Invalid token');
-    }
+    const decodedToken = await authService.verifyToken(token);
 
     const { userId } = decodedToken;
 
-    await prisma.account.deleteMany({
-      where: {
-        userId,
-      },
-    });
+    await userService.deleteUser(userId);
 
     return NextResponse.json({ message: 'Account successfully deleted' });
-  } catch (error) {
+  } catch (err: any) {
     return NextResponse.json(
-      { error: 'Error deleting account' },
-      { status: 500 },
+      {
+        error: err?.cause?.message || 'Something went wrong, try again later.',
+      },
+      { status: err?.cause?.status || 500 },
     );
   }
 }

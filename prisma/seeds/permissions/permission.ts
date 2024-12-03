@@ -24,3 +24,5 @@ export async function seedPermissions() {
     ],
   });
 }
+
+// TODO: improve this permissions to ACL control

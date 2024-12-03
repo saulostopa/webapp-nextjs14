@@ -6,23 +6,36 @@ import jwt, { type JwtPayload } from 'jsonwebtoken';
 import { env } from '@/configs';
 import { prisma } from '@/lib/prisma';
 
+import { EmailSenderService } from '../emailSender/service';
+import { UserService } from '../user/service';
+
 const { jwtExpiration, jwtSecrets } = env;
 
-class AuthService {
-  userRepository: Prisma.UserDelegate<DefaultArgs>;
+export class AuthService {
+  userService: UserService;
+
+  emailSenderService: EmailSenderService;
+
+  userRoleRepository: Prisma.UserRoleDelegate<DefaultArgs>;
 
   sessionRepository: Prisma.SessionDelegate<DefaultArgs>;
 
   accountsRepository: Prisma.AccountDelegate<DefaultArgs>;
 
+  recoveryTokenRepository: Prisma.RecoveryTokenDelegate<DefaultArgs>;
+
   constructor() {
-    this.userRepository = prisma.user;
+    this.userRoleRepository = prisma.userRole;
     this.sessionRepository = prisma.session;
     this.accountsRepository = prisma.account;
+    this.recoveryTokenRepository = prisma.recoveryToken;
+
+    this.userService = new UserService();
+    this.emailSenderService = new EmailSenderService();
   }
 
   async login(email: string, password: string) {
-    const user = await this.getUserByEmail(email);
+    const user = await this.userService.getUserByEmail(email);
 
     if (!user) {
       throw new Error('User not found or no authentication setup');
@@ -48,7 +61,8 @@ class AuthService {
 
     const token = AuthService.generateToken(safeUser);
 
-    const decodedToken = AuthService.verifyToken(token);
+    const decodedToken = await this.verifyToken(token, true);
+
     if (!decodedToken || typeof decodedToken.exp !== 'number') {
       throw new Error('Invalid token');
     }
@@ -60,11 +74,61 @@ class AuthService {
     return { token, user: safeUser };
   }
 
-  async resetPassword(email: string) {
-    const user = await this.getUserByEmail(email);
+  async generateResetToken(email: string) {
+    const user = await this.userService.getUserByEmail(email);
+
     if (!user) {
-      throw new Error('User not found');
+      throw new Error('User not found', {
+        cause: { status: 404, message: 'User not found' },
+      });
     }
+
+    const token = AuthService.generateNumericToken(5);
+
+    const expiredAt = new Date();
+    expiredAt.setHours(expiredAt.getHours() + 1);
+
+    await this.recoveryTokenRepository.upsert({
+      where: { userId: user.id },
+      update: { id: token, expiredAt },
+      create: { id: token, userId: user.id, expiredAt },
+    });
+
+    this.emailSenderService.sendEmail(
+      email,
+      'Password Reset',
+      `Your password reset token is: ${token}`,
+    );
+
+    return { token, expiredAt };
+  }
+
+  static async resetPassword(token: string, password: string) {
+    const recoveryToken = await prisma.recoveryToken.findUnique({
+      where: { id: token },
+      include: { user: true },
+    });
+
+    if (!recoveryToken) {
+      throw new Error('Invalid token', {
+        cause: { status: 404, message: 'Invalid token' },
+      });
+    }
+
+    if (recoveryToken.expiredAt < new Date()) {
+      throw new Error('Token expired', {
+        cause: { status: 400, message: 'Token expired' },
+      });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    await prisma.user.update({
+      where: { id: recoveryToken.userId },
+      data: { password: hashedPassword },
+    });
+
+    await prisma.recoveryToken.delete({ where: { id: token } });
   }
 
   async saveUserSession(userId: string, token: string, expiresAt: Date) {
@@ -77,36 +141,31 @@ class AuthService {
     });
   }
 
-  async getUserByEmail(email: string) {
-    return this.userRepository.findUnique({
-      where: { email },
-      select: {
-        id: true,
-        email: true,
-        avatar: true,
-        firstName: true,
-        lastName: true,
-        password: true,
-        speed: true,
-        title: true,
-        sessions: true,
-        roles: {
-          select: {
-            role: {
-              select: { name: true },
-            },
-          },
-        },
-      },
-    });
-  }
-
-  static verifyToken(token: string): JwtPayload | null {
-    try {
-      return jwt.verify(token, jwtSecrets) as JwtPayload;
-    } catch {
-      return null;
+  async verifyToken(token?: string, login?: boolean): Promise<JwtPayload> {
+    if (!token) {
+      throw new Error('Token not provided', {
+        cause: { status: 401, message: 'Token not provided' },
+      });
     }
+
+    const decodedToken = jwt.verify(token, jwtSecrets) as JwtPayload;
+
+    const session = await this.sessionRepository.findFirst({
+      where: { token },
+    });
+
+    if (
+      (!login && !session) ||
+      !decodedToken ||
+      typeof decodedToken !== 'object' ||
+      !('userId' in decodedToken)
+    ) {
+      throw new Error('Invalid token', {
+        cause: { status: 401, message: 'Invalid token' },
+      });
+    }
+
+    return decodedToken;
   }
 
   static generateToken(user: Partial<User>): string {
@@ -121,6 +180,10 @@ class AuthService {
   ): Promise<boolean> {
     return bcrypt.compare(inputPassword, userPassword);
   }
-}
 
-export const service = new AuthService();
+  static generateNumericToken(length: number): string {
+    const min = 10 ** (length - 1);
+    const max = 10 ** length - 1;
+    return Math.floor(Math.random() * (max - min + 1) + min).toString();
+  }
+}

@@ -8,29 +8,32 @@ datasource db {
 }
 
 model User {
-  id            String     @id @default(uuid())
-  email         String     @unique
-  emailVerified Boolean    @default(false)
-  firstName     String
-  lastName      String
-  avatar        String?
-  content       Content?
-  title         UserTitle?
-  speed         Speed      @default(NORMAL)
-  createdAt     DateTime   @default(now())
-  updatedAt     DateTime   @updatedAt
-  password      String
+  id              String     @id @default(uuid())
+  email           String     @unique
+  emailVerified   Boolean    @default(false)
+  firstName       String
+  lastName        String
+  avatar          String?
+  content         Content?
+  title           UserTitle?
+  speed           Speed      @default(NORMAL)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  password        String
+  recoveryTokenId String?    @unique
 
   sessions      Session[]
   accounts      Account[]
   roles         UserRole[]
+  userTrainings UserTraining[]
+  trainings     Training[]
+  recoveryToken RecoveryToken?
 }
 
-
 model Role {
-  id          String       @id @default(uuid())
-  name        RoleName     @unique
-  createdAt   DateTime     @default(now())
+  id        String   @id @default(uuid())
+  name      RoleName @unique
+  createdAt DateTime @default(now())
 
   users       UserRole[]
   permissions Permission[] @relation("PermissionToRole")
@@ -43,7 +46,7 @@ model Permission {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  roles     Role[]   @relation("PermissionToRole")
+  roles Role[] @relation("PermissionToRole")
 }
 
 model UserRole {
@@ -53,8 +56,8 @@ model UserRole {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  role      Role     @relation(fields: [roleId], references: [id])
-  user      User     @relation(fields: [userId], references: [id])
+  role Role @relation(fields: [roleId], references: [id])
+  user User @relation(fields: [userId], references: [id])
 
   @@unique([userId, roleId])
 }
@@ -62,37 +65,130 @@ model UserRole {
 model Session {
   id        String   @id @default(uuid())
   userId    String
-  token     String
+  token     String @unique
   expiresAt DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, token])
 }
 
 model Account {
-  id                 String     @id @default(uuid())
+  id                 String    @id @default(uuid())
   providerType       String
   providerId         String
   providerAccountId  String
   refreshToken       String?
   accessToken        String?
   accessTokenExpires DateTime?
-  createdAt          DateTime   @default(now())
-  updatedAt          DateTime   @updatedAt
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
   userId             String
 
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([providerId, providerAccountId])
+}
+
+model RecoveryToken {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  expiredAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Category {
+  id   String @id @default(uuid())
+  name String
+
+  trainings Training[]
+}
+
+model Difficulty {
+  id   String @id @default(uuid())
+  name String
+
+  trainings Training[]
+}
+
+model Training {
+  id           String   @id @default(uuid())
+  name         String
+  description  String
+  image        String?
+  time         Int
+  difficultyId String
+  categoryId   String
+  userId       String
+  date         DateTime
+  hide         Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  difficulty    Difficulty     @relation(fields: [difficultyId], references: [id])
+  category      Category       @relation(fields: [categoryId], references: [id])
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  exercises     Exercise[]
+  userTrainings UserTraining[]
+}
+
+model UserTraining {
+  id         String    @id @default(uuid())
+  userId     String
+  trainingId String
+  finished   Boolean   @default(false)
+  finishedAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  training Training @relation(fields: [trainingId], references: [id], onDelete: Cascade)
+}
+
+model Exercise {
+  id               String       @id @default(uuid())
+  name             String
+  image            String
+  equipment        String[]
+  bodyPart         String[]
+  primaryMuscles   String[]
+  secondaryMuscles String[]
+  video            String
+  exerciseType     ExerciseType
+  information      String
+  finished         Boolean      @default(false)
+  trainingId       String?
+
+  training Training? @relation(fields: [trainingId], references: [id])
+  series   Serie[]
+}
+
+model Serie {
+  id         String @id @default(uuid())
+  weight     Float
+  reps       Int
+  breaktime  Int
+  exerciseId String
+
+  exercise Exercise @relation(fields: [exerciseId], references: [id])
+}
+
+enum ExerciseType {
+  WEIGHT_REPS
+  DURATION
+  DISTANCE_DURATION
 }
 
 enum RoleName {
   ADMIN
   PRO
-  MEMBER
+  STUDENT
+  TEACHER
 }
 
 enum Action {

@@ -33,7 +33,13 @@ export async function seedRoles() {
       ),
     },
     {
-      name: RoleName.MEMBER,
+      name: RoleName.STUDENT,
+      permissions: foundPermissions.filter(
+        (permission) => permission.action === Action.READ,
+      ),
+    },
+    {
+      name: RoleName.TEACHER,
       permissions: foundPermissions.filter(
         (permission) => permission.action === Action.READ,
       ),

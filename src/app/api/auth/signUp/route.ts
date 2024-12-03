@@ -2,11 +2,14 @@ import bcrypt from 'bcryptjs';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { env } from '@/configs';
-import { prisma } from '@/lib/prisma';
 
+import { UserService } from '../../user/service';
 import type { ISignUp } from './interface';
 
 const { salts } = env;
+
+const userService = new UserService();
+
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
@@ -21,19 +24,21 @@ export async function POST(req: NextRequest) {
 
     const passwordHash = await bcrypt.hash(password, salts);
 
-    const user = await prisma.user.create({
-      data: {
-        email,
-        firstName,
-        lastName,
-        avatar: image,
-        password: passwordHash,
-      },
-    });
+    const user = await userService.createUser(
+      email,
+      firstName,
+      lastName,
+      passwordHash,
+      image,
+    );
 
-    const { ...userWithoutAuth } = user;
-    return NextResponse.json(userWithoutAuth, { status: 201 });
-  } catch (err) {
-    return NextResponse.json({ error: String(err) }, { status: 500 });
+    return NextResponse.json({ ...user, password: undefined }, { status: 201 });
+  } catch (err: any) {
+    return NextResponse.json(
+      {
+        error: err?.cause?.message || 'Something went wrong, try again later.',
+      },
+      { status: err?.cause?.status || 500 },
+    );
   }
 }

@@ -32,7 +32,8 @@ export const userQuestions = [
     choices: [
       { name: 'Admin', value: RoleName.ADMIN },
       { name: 'Pro', value: RoleName.PRO },
-      { name: 'Member', value: RoleName.MEMBER },
+      { name: 'Student', value: RoleName.STUDENT },
+      { name: 'Teacher', value: RoleName.TEACHER },
     ],
   },
   {
