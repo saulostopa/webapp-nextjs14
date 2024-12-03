@@ -10,12 +10,14 @@
     "start": "next start",
     "lint": "next lint",
     "check-types": "tsc --noEmit --pretty",
-    "format": "next lint --fix && prettier '**/*.{json,yaml}' --write --ignore-path .gitignore",
+    "format": "next lint --fix && prettier '**/*.{json,yaml,ts}' --write --ignore-path .gitignore",
     "test:watch": "jest --watch --coverage --runInBand --no-cache",
-    "test": "jest --coverage --runInBand --no-cache"
+    "test": "jest --coverage --runInBand --no-cache",
+    "seed": "tsx prisma/seed.ts",
+    "generate:new": "tsx src/scripts"
   },
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed"
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
     "@casl/ability": "^6.3.3",
@@ -56,11 +58,14 @@
     "formik-mui": "^5.0.0-alpha.0",
     "framer-motion": "^10.16.4",
     "i18next": "^23.5.1",
+    "inquirer": "^12.1.0",
+    "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "next": "^14.2.4",
     "next-auth": "^4.24.10",
     "next-intl": "^3.15.2",
+    "nodemailer": "^6.9.16",
     "react": "~18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-big-calendar": "^1.8.4",
@@ -75,7 +80,7 @@
     "react-slick": "^0.29.0",
     "react-spring": "^9.7.3",
     "redux": "^4.2.1",
-    "sharp": "^0.32.6",
+    "sharp": "^0.33.5",
     "simplebar-react": "^3.2.4",
     "slick-carousel": "^1.8.1",
     "stylis-plugin-rtl": "^2.1.1",
@@ -89,9 +94,12 @@
     "@testing-library/react": "^16.0.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/chance": "^1.1.4",
+    "@types/inquirer": "^9.0.7",
     "@types/jest": "^29.5.12",
+    "@types/jsonwebtoken": "^9.0.7",
     "@types/lodash": "^4.14.199",
-    "@types/node": "^20.8.4",
+    "@types/node": "^20.17.6",
+    "@types/nodemailer": "^6.4.17",
     "@types/pg": "^8.11.6",
     "@types/react": "^18.3.12",
     "@types/react-big-calendar": "^1.6.5",
@@ -126,6 +134,7 @@
     "prettier": "^3.3.2",
     "prisma": "^5.22.0",
     "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
     "typescript": "5.4.5"
   }
 }

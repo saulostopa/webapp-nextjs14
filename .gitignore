@@ -54,5 +54,5 @@ local
 # Sentry Config File
 .sentryclirc
 
-# prisma migrations
-prisma/migrations
+# envirements
+**/*.env
