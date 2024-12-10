@@ -65,7 +65,7 @@ model UserRole {
 model Session {
   id        String   @id @default(uuid())
   userId    String
-  token     String @unique
+  token     String   @unique
   expiresAt DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -102,36 +102,20 @@ model RecoveryToken {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model Category {
-  id   String @id @default(uuid())
-  name String
-
-  trainings Training[]
-}
-
-model Difficulty {
-  id   String @id @default(uuid())
-  name String
-
-  trainings Training[]
-}
-
 model Training {
-  id           String   @id @default(uuid())
-  name         String
-  description  String
-  image        String?
-  time         Int
-  difficultyId String
-  categoryId   String
-  userId       String
-  date         DateTime
-  hide         Boolean  @default(false)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id          String   @id @default(uuid())
+  name        Json
+  description String
+  image       String?
+  time        Int
+  difficulty  String?
+  category    String?
+  userId      String
+  date        DateTime
+  hide        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
-  difficulty    Difficulty     @relation(fields: [difficultyId], references: [id])
-  category      Category       @relation(fields: [categoryId], references: [id])
   user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   exercises     Exercise[]
   userTrainings UserTraining[]
@@ -152,15 +136,15 @@ model UserTraining {
 
 model Exercise {
   id               String       @id @default(uuid())
-  name             String
-  image            String
+  name             Json
+  image            String?
   equipment        String[]
   bodyPart         String[]
   primaryMuscles   String[]
   secondaryMuscles String[]
-  video            String
+  video            String?
   exerciseType     ExerciseType
-  information      String
+  information      String?
   finished         Boolean      @default(false)
   trainingId       String?
 

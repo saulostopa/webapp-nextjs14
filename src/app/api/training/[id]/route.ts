@@ -4,8 +4,10 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
 import { AuthService } from '../../auth/service';
+import { TrainingService } from '../service';
 
 const authService = new AuthService();
+const trainingService = new TrainingService();
 
 export async function GET(
   req: NextRequest,
@@ -23,19 +25,7 @@ export async function GET(
   try {
     await authService.verifyToken(token);
 
-    const training = await prisma.training.findUnique({
-      where: { id },
-      include: {
-        difficulty: true,
-        category: true,
-        user: true,
-        exercises: {
-          include: {
-            series: true,
-          },
-        },
-      },
-    });
+    const training = await trainingService.findOne(id);
 
     if (!training) {
       return NextResponse.json(
@@ -72,10 +62,7 @@ export async function PUT(
   try {
     await authService.verifyToken(token);
 
-    await prisma.training.update({
-      where: { id: updatedTraining.id },
-      data: updatedTraining,
-    });
+    await trainingService.update(id, updatedTraining);
     return NextResponse.json({}, { status: 200 });
   } catch (err: any) {
     return NextResponse.json(

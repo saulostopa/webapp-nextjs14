@@ -1,10 +1,10 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
-import { prisma } from '@/lib/prisma';
-
 import { AuthService } from '../auth/service';
+import { TrainingService } from './service';
 
 const authService = new AuthService();
+const trainingService = new TrainingService();
 
 export async function GET(req: NextRequest) {
   const authHeader = req.headers.get('authorization');
@@ -12,18 +12,7 @@ export async function GET(req: NextRequest) {
   try {
     await authService.verifyToken(token);
 
-    const trainings = await prisma.training.findMany({
-      include: {
-        difficulty: true,
-        category: true,
-        user: true,
-        exercises: {
-          include: {
-            series: true,
-          },
-        },
-      },
-    });
+    const trainings = await trainingService.find();
     return NextResponse.json(trainings, { status: 200 });
   } catch (err: any) {
     return NextResponse.json(
@@ -43,9 +32,7 @@ export async function POST(req: NextRequest) {
   try {
     await authService.verifyToken(token);
 
-    const newTraining = await prisma.training.create({
-      data: trainingData,
-    });
+    const newTraining = await trainingService.create(trainingData);
     return NextResponse.json({ id: newTraining.id }, { status: 201 });
   } catch (err: any) {
     return NextResponse.json(
