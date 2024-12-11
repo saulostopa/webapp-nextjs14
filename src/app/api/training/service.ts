@@ -17,8 +17,6 @@ export class TrainingService {
   async find() {
     return this.repository.findMany({
       include: {
-        difficulty: true,
-        category: true,
         user: true,
         exercises: {
           include: {
@@ -33,8 +31,6 @@ export class TrainingService {
     return this.repository.findUnique({
       where: { id },
       include: {
-        difficulty: true,
-        category: true,
         user: true,
         exercises: {
           include: {

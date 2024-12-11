@@ -1,4 +1,5 @@
 import { PrismaClient, RoleName } from '@prisma/client';
+
 import { seed } from './trainings';
 
 const prisma = new PrismaClient();
@@ -26,25 +27,11 @@ export async function seedTrainings() {
     throw new Error('User not found');
   }
 
-  const category = await prisma.category.findFirst();
-
-  if (!category) {
-    throw new Error('Category not found');
-  }
-
-  const difficulty = await prisma.difficulty.findFirst();
-
-  if (!difficulty) {
-    throw new Error('Difficulty not found');
-  }
-
   const trainings = [
     {
-      categoryId: category.id,
-      difficultyId: difficulty.id,
       date: new Date(),
       description: 'Training 1',
-      name: 'A New Training',
+      name: { 'pt-BR': 'Um novo treino', 'en-US': 'A new training' },
       createdAt: new Date(),
       updatedAt: new Date(),
       userId: user.id,

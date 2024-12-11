@@ -38,10 +38,20 @@ export class AuthService {
     const user = await this.userService.getUserByEmail(email);
 
     if (!user) {
-      throw new Error('User not found or no authentication setup');
+      throw new Error('Invalid user or password', {
+        cause: {
+          status: 404,
+          message: 'Invalid user or password',
+        },
+      });
     }
     if (user.sessions.length > 5) {
-      throw new Error('Too many sessions');
+      throw new Error('Too many sessions', {
+        cause: {
+          status: 400,
+          message: 'Too many sessions',
+        },
+      });
     }
 
     const isPasswordValid = await AuthService.validatePassword(
@@ -49,7 +59,12 @@ export class AuthService {
       user.password,
     );
     if (!isPasswordValid) {
-      throw new Error('Invalid password');
+      throw new Error('Invalid user or password', {
+        cause: {
+          status: 404,
+          message: 'Invalid user or password',
+        },
+      });
     }
 
     const safeUser = {
